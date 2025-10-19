@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Messages</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#4F46E5",
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#111827",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F3F4F6",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div x-data="{ muteModalOpen: false, reportModalOpen: false }">
+<div class="flex h-screen">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">insights</span>
+</div>
+<h1 class="text-xl font-bold">Inflopick</h1>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">CREATOR CENTER</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">person_outline</span> Profile &amp; Verification
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">folder_open</span> Portfolio
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">request_quote</span> Requests
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">storefront</span> Shop
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">analytics</span> Analytics
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">task_alt</span> Tasks
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">star_outline</span> Ratings &amp; Safety
+                    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">payment</span> Payouts &amp; Billing
+                    </a>
+<a class="flex items-center px-4 py-2 bg-primary/10 text-primary dark:bg-primary/20 rounded-lg font-semibold" href="#">
+<span class="material-icons mr-3">chat</span> Messages
+                    </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg" href="#">
+<span class="material-icons mr-3">settings</span> Account Settings
+                    </a>
+</div>
+</aside>
+<main class="flex-1 flex h-screen overflow-hidden">
+<div class="w-1/3 xl:w-1/4 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="p-4 border-b border-border-light dark:border-border-dark">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Messages</h2>
+<div class="relative mt-4">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark focus:ring-primary focus:border-primary" placeholder="Search by name, product..." type="text"/>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="px-3 py-1 text-sm font-medium bg-primary text-white rounded-full">All</button>
+<button class="px-3 py-1 text-sm font-medium bg-gray-200 dark:bg-gray-700 text-subtext-light dark:text-subtext-dark rounded-full">Unread</button>
+<button class="px-3 py-1 text-sm font-medium bg-gray-200 dark:bg-gray-700 text-subtext-light dark:text-subtext-dark rounded-full">Sellers</button>
+<button class="px-3 py-1 text-sm font-medium bg-gray-200 dark:bg-gray-700 text-subtext-light dark:text-subtext-dark rounded-full">Customers</button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto">
+<div class="p-4 border-b border-border-light dark:border-border-dark bg-primary/5 dark:bg-primary/10 cursor-pointer">
+<div class="flex items-start space-x-3">
+<img alt="Seller Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZAkn-lSDUI_Q-C1exfsmNpJ59HI9R-AS3GFGWW7xMHRfzgcQv_hghFKf2YuyUOaXxTsOxLbRmfchdv7ywUxfPRg8THjHlHdNRGhAMVxq7_Qacbw_2tWiKy6GErL6jXc0yEY5kJ33-oJV6pczz0TYVMIszXPon-VewA-CBmTPuSs1LVYKVxJH7fwpKqAjoSezuCZ2I7W5zh9TEljIgQGJmUqV9PEX21U7g9_59nzDP5bFh9NtDKczZxkgZdU6YSP_CvhraiPG8oqCU"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Vintage Watch Co.</h3>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">10:45 AM</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Hey! We loved your profile and would love to...</p>
+</div>
+<div class="flex flex-col items-end space-y-1">
+<span class="w-5 h-5 bg-primary text-white text-xs font-bold rounded-full flex items-center justify-center">2</span>
+</div>
+</div>
+</div>
+<div class="p-4 border-b border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+<div class="flex items-start space-x-3">
+<img alt="Customer Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_awIjylh2bg2c4ToxOCKqisyXQrSu7EaIjbDvbL5Uh04AJ4p5qMLrz0aNEycLFmElQh8BT1a-Z3MQC-n370BR2SU9DlbfgGa8fNQVcGE-UUlTPvr1sxeJg-yixPufROkxKHPBhXIkpaqbWGNkMLUit5dZuZlLTsG5o1LtDtfAaNU6-7_1ZKbKlVb38-nAJf3LFIUjVLuTELSiR4aSHuHmAqH7rUvRRSZgybI2DOYq3Fzz1X17-YWSze_GeVWOhtHpTpz2yRSq6I_J"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Jane Doe</h3>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">Yesterday</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Can you show me how the running shoes look?</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-b border-border-light dark:border-border-dark hover:bg-gray-50 dark:hover:bg-gray-800 cursor-pointer">
+<div class="flex items-start space-x-3">
+<img alt="Seller Avatar" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBypHbPQ18lT7mflJb8y3BlfSg9W-7Kx6cZrFkrr7ijZnKX5VOQ0EZrxKR1f41ovJKcrRsdja2SJyHkAAR52cDdpZHpAz2-uYKYZqjjomHsTzzGuIIiM44FW-_gvwpa2wgolha-mZ6hw1CGooPB99Rr1UijwBlb1WtpBW0Yws3g7MLG9ERu9OfG3DzsW5YEEwWj5ZQouulHz6KJd5KAulge3jo8T4Dp-odoYmzW0KPotANlCN_grjdYvjMupCkXuyeme2cavFrBnStr"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Modern Headphones</h3>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">3 days ago</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Request Declined</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col bg-background-light dark:bg-background-dark">
+<div class="flex items-center justify-between p-4 border-b border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
+<div class="flex items-center space-x-3">
+<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8TFqDkf7cWnUWZGWQlmHioGairETna3P4vIC3mwISJESJNReZcpcvZ14Px1q1WP0oM1NpW6dx_sHR0l3z8GWZ4_cw-KgGQ5LRIm8LQcboDSoM5OIxfsf1lD77ez2_-_DuYBgAmDhly2CqoU60pTSN9Jjc1WNuTJQYeRBqmEBxzDob9zsOQjfz2RwSlWbeqbt1x5kBoDKZpUgubXu-PKdFRqXQYUH_4ZSXChXL5J1ya_toIEyKn0ieYApnhVBZ8tJGOhHqPbhA2U6S"/>
+<div>
+<h3 class="font-bold text-text-light dark:text-text-dark">Vintage Watch Co. <span class="text-sm font-normal text-subtext-light dark:text-subtext-dark">(Seller)</span></h3>
+<a class="text-sm text-primary hover:underline" href="#">Product Request: Vintage Leather Watch</a>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<label class="flex items-center cursor-pointer" for="email-notifs">
+<span class="text-sm mr-2 text-subtext-light dark:text-subtext-dark">Email Notifications</span>
+<div class="relative">
+<input checked="" class="sr-only" id="email-notifs" type="checkbox"/>
+<div class="block bg-gray-200 dark:bg-gray-700 w-10 h-6 rounded-full"></div>
+<div class="dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition"></div>
+</div>
+</label>
+<style>
+                                input:checked~.dot {
+                                    transform: translateX(100%);
+                                    background-color: #4F46E5;
+                                }
+                                input:checked~.block {
+                                    background-color: #C7D2FE;
+                                }
+                            </style>
+<div class="relative" x-data="{ open: false }">
+<button @click="open = !open" @click.away="open = false" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">more_vert</span>
+</button>
+<div class="absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" style="display: none;" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-end="transform opacity-100 scale-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:leave="transition ease-in duration-75" x-transition:leave-end="transform opacity-0 scale-95" x-transition:leave-start="transform opacity-100 scale-100">
+<div class="py-1">
+<a class="flex items-center px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">person</span> View Profile
+                                        </a>
+<a class="flex items-center px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">edit</span> Modify Nickname
+                                        </a>
+<a class="flex items-center px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#">
+<span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">push_pin</span> Pin Conversation
+                                        </a>
+<div class="border-t border-border-light dark:border-border-dark my-1"></div>
+<button @click="muteModalOpen = true; open = false" class="w-full text-left flex items-center px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">notifications_off</span> Mute Notifications
+                                        </button>
+<div class="border-t border-border-light dark:border-border-dark my-1"></div>
+<button @click="reportModalOpen = true; open = false" class="w-full text-left flex items-center px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20">
+<span class="material-icons mr-3">block</span> Report / Block
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex-1 p-6 overflow-y-auto space-y-6">
+<div class="flex items-start gap-3">
+<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdh7doVlIU8mtvv0Be25BAvsgSHP0KtWuTuzlQOAQ306n7IKwsREO0-9SBY6Fc1k25okGezPicpnwnIw8tQ91xBckDcCJZuWWVoXF8wEQubz2XDlnojsdiQl4WzJF2P8hJqOw5XlvY9ES8qvxNAxp4qpMeFq4b_DZZF9eIxLUu7tW1km37-k1ayVkUxyeJt-AQgo6V42hSs1pBoe-3MFi-U_lj8wm35xikMCdI93gdDVrk9ilXCUCq14ZwUCU1miu-nGfUaKlbPL4N"/>
+<div class="flex flex-col items-start gap-2">
+<div class="bg-surface-light dark:bg-surface-dark p-3 rounded-lg rounded-tl-none max-w-lg">
+<p class="text-sm">Hey! We loved your profile and would love to collaborate on our new "Vintage Leather Watch". We're offering a 15% commission on sales.</p>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">10:45 AM</span>
+</div>
+</div>
+<div class="flex items-start gap-3 justify-end">
+<div class="flex flex-col items-end gap-2">
+<div class="bg-primary text-white p-3 rounded-lg rounded-br-none max-w-lg">
+<p class="text-sm">That sounds great! I'm interested. Could you send over the official request?</p>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark flex items-center">10:47 AM <span class="material-icons text-sm ml-1">done_all</span></span>
+</div>
+<img alt="Creator Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIKCsvo5lC24p9NKAp2QAgXrrdC6bgthnUdRerzUXOEQtJfCvhJFrhSgrtG-DT2UWNQChoNIUi98OE0Ia9KJPYPGz4OkjJDE_VoFVJ6eD8PvKTw2Vt8sL1ZYPE2pvhtffnteIhGfWVWYVey924unk1kdeC_5TBfbqMVLNDWfFq2lkKH2ik6WoIYfPgYv4wPx_qNjY9pPEpxfXjW6o9rc0yEHvW3paxDG-YiQcjQGIHq3kKERXD9QB-UN2ky1A018jkvsHQ2bR-QUYP"/>
+</div>
+<div class="flex items-start gap-3">
+<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7T-IFUllZ5PavZh8nwaLNHczDu8qksCe2QL55TP4qbQnl1O1tBgdeCSZ6WYwh0tIIXv7O3E-3IKs0CeldDG5jn-HtgVpbi_G2KgnqQP7w1RGs4e_AXwd2TwhgcxKxqFJ-O5uL6IKW_Rd9WfysYJ-qJbLZXSfEXY11q9Gu8mfT3lA2SZzkAHdkot8LDxblb02PTymPsy5W6v9FyEYh3KUSOhZ_xmz_wm9Dw4ONLDTAg2FdsdCXaxHpl8X7-0hHKYFas3JkKRKBCtLt"/>
+<div class="flex flex-col items-start gap-2">
+<div class="bg-surface-light dark:bg-surface-dark p-3 rounded-lg rounded-tl-none max-w-lg">
+<p class="text-sm">Awesome! Here is the official request. Please review and let us know.</p>
+<div class="mt-3 flex space-x-2">
+<button class="flex items-center px-4 py-2 text-sm font-medium bg-green-500 text-white rounded-lg hover:bg-green-600">
+<span class="material-icons text-base mr-1">check_circle</span> Accept
+                                        </button>
+<button class="flex items-center px-4 py-2 text-sm font-medium bg-red-500 text-white rounded-lg hover:bg-red-600">
+<span class="material-icons text-base mr-1">cancel</span> Decline
+                                        </button>
+<button class="flex items-center px-4 py-2 text-sm font-medium bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-lg hover:bg-gray-300 dark:hover:bg-gray-500">
+                                            Open Request
+                                        </button>
+</div>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">10:50 AM</span>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<img alt="Seller Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD26laWh4bpObirOCx2OztrmexZRMwAEmG8Z9aGbxJv-htKsC3sbSVSTskPA-rFBgT3cG2GA8THGH-uCHu5XXEkelozpuocYc0TaKodgOLXJNkLeXmJt4igmuyARj6kLznYb7-cv_VPEVYo4avjpdZ4x_ywjinXZRBFR1cVx2AkFbDBIfta8Dg1mr_ttJPQJpd_-4eR9KtSu3oRy0pMFm4zc4i03Pj_f8jHMkXu_jo5_4nLvlLuE2eElA2ZBw6kGRvx3rRZNrCnFEgW"/>
+<div class="flex items-center gap-2 mt-2">
+<div class="bg-surface-light dark:bg-surface-dark p-3 rounded-lg rounded-tl-none">
+<div class="flex items-center space-x-1">
+<span class="h-2 w-2 bg-subtext-light dark:bg-subtext-dark rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+<span class="h-2 w-2 bg-subtext-light dark:bg-subtext-dark rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+<span class="h-2 w-2 bg-subtext-light dark:bg-subtext-dark rounded-full animate-bounce"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark">
+<div class="relative">
+<textarea class="w-full pr-12 py-2 px-3 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark focus:ring-primary focus:border-primary resize-none" placeholder="Type a message..." rows="3"></textarea>
+<button class="absolute right-3 top-3 text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">send</span>
+</button>
+</div>
+<div class="flex items-center justify-between mt-2">
+<div class="flex items-center space-x-2">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">sentiment_satisfied_alt</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">attach_file</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">add_link</span>
+</button>
+</div>
+<div class="text-xs text-subtext-light dark:text-subtext-dark">
+                                Max 10MB (jpg, png, pdf)
+                            </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<div @click.away="muteModalOpen = false" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" x-show="muteModalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-end="opacity-100" x-transition:enter-start="opacity-0" x-transition:leave="ease-in duration-200" x-transition:leave-end="opacity-0" x-transition:leave-start="opacity-100">
+<div @click.stop="" class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-xl w-full max-w-sm p-6" x-transition:enter="ease-out duration-300" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:leave="ease-in duration-200" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100">
+<div class="flex justify-between items-start">
+<h2 class="text-lg font-bold text-text-light dark:text-text-dark">Mute Notifications</h2>
+<button @click="muteModalOpen = false" class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">close</span>
+</button>
+</div>
+<p class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Choose how long to mute notifications from Vintage Watch Co.</p>
+<div class="mt-4 space-y-3">
+<button @click="muteModalOpen = false" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-text-light dark:text-text-dark">For 1 hour</button>
+<button @click="muteModalOpen = false" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-text-light dark:text-text-dark">For 24 hours</button>
+<button @click="muteModalOpen = false" class="w-full text-left px-4 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-text-light dark:text-text-dark">Until I turn it back on</button>
+</div>
+<div class="mt-6 flex justify-end space-x-3">
+<button @click="muteModalOpen = false" class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark hover:bg-gray-300 dark:hover:bg-gray-600">Cancel</button>
+</div>
+</div>
+</div>
+<div @click.away="reportModalOpen = false" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" x-show="reportModalOpen" x-transition:enter="ease-out duration-300" x-transition:enter-end="opacity-100" x-transition:enter-start="opacity-0" x-transition:leave="ease-in duration-200" x-transition:leave-end="opacity-0" x-transition:leave-start="opacity-100">
+<div @click.stop="" class="bg-surface-light dark:bg-surface-dark rounded-lg shadow-xl w-full max-w-md p-6" x-transition:enter="ease-out duration-300" x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:leave="ease-in duration-200" x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100">
+<div class="flex justify-between items-start">
+<h2 class="text-lg font-bold text-red-600 dark:text-red-400">Report or Block User</h2>
+<button @click="reportModalOpen = false" class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">close</span>
+</button>
+</div>
+<p class="mt-2 text-sm text-subtext-light dark:text-subtext-dark">Please select a reason for reporting Vintage Watch Co. Blocking them will prevent them from contacting you again.</p>
+<div class="mt-4 space-y-3">
+<label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-radio text-primary focus:ring-primary" name="report_reason" type="radio"/>
+<span class="text-text-light dark:text-text-dark">Spam or unwanted commercial content</span>
+</label>
+<label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-radio text-primary focus:ring-primary" name="report_reason" type="radio"/>
+<span class="text-text-light dark:text-text-dark">Verbal abuse or harassment</span>
+</label>
+<label class="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-radio text-primary focus:ring-primary" name="report_reason" type="radio"/>
+<span class="text-text-light dark:text-text-dark">Policy violation (e.g., prohibited content)</span>
+</label>
+<label class="flex items-start space-x-3 p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-radio text-primary focus:ring-primary mt-1" name="report_reason" type="radio"/>
+<div class="flex-1">
+<span class="text-text-light dark:text-text-dark">Other</span>
+<textarea class="mt-2 w-full p-2 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark focus:ring-primary focus:border-primary resize-none" placeholder="Please provide more details..." rows="3"></textarea>
+</div>
+</label>
+</div>
+<div class="mt-6 flex justify-end space-x-3">
+<button @click="reportModalOpen = false" class="px-4 py-2 text-sm font-medium rounded-lg bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark hover:bg-gray-300 dark:hover:bg-gray-600">Cancel</button>
+<button @click="reportModalOpen = false" class="px-4 py-2 text-sm font-medium rounded-lg bg-red-600 text-white hover:bg-red-700">Submit Report</button>
+</div>
+</div>
+</div>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+</body></html>

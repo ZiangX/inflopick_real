@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Cart &amp; Orders</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F97316",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "muted-light": "#6B7280",
+                        "muted-dark": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: inherit;
+        }
+        .tab-active {
+            border-bottom: 2px solid #F97316;
+            color: #F97316;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div @keydown.escape="activeTab = 'cart'" x-data="{ activeTab: 'cart', darkMode: false }">
+<header class="bg-card-light dark:bg-card-dark shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center">
+<a class="text-2xl font-bold text-primary" href="#">Inflopick</a>
+</div>
+<div class="flex-1 max-w-xl mx-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-muted-light dark:text-muted-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg bg-background-light dark:bg-background-dark border-gray-300 dark:border-gray-600 focus:ring-primary focus:border-primary" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">chat_bubble_outline</span>
+</button>
+<button class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">shopping_cart</span>
+</button>
+<button class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">notifications</span>
+</button>
+<div class="w-px h-6 bg-gray-200 dark:bg-gray-700"></div>
+<button class="flex items-center space-x-2">
+<img alt="User profile picture" class="w-8 h-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWd8LvgSoZ5Fz4JSWrqrbQKXlzS82GtLOMUOng31p4KsseyIikKwHX6wYMNE3-ffdY8mVGNqEDfoflI6eP5utyVEpQZI46tSti3MbRwEFMKl7ufEJwmx_9MVKTx-TPbXvHgtQ6_k2wC2UFfat1khgHrZ5dRgNh_g4rNoWBMymU91Ugm0GiOBsUiSu0-9eqBZMvlUHYG953u4rE4EVtmF4VE0gBOdaBlXYeeteLwxW_ZtSBVcjJNpOrkqFNFP6IFjJpOtw1NVbzrvQ"/>
+</button>
+<button @click="darkMode = !darkMode" class="text-muted-light dark:text-muted-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons" x-show="!darkMode">dark_mode</span>
+<span class="material-icons" x-show="darkMode">light_mode</span>
+</button>
+</div>
+</div>
+<nav class="flex items-center justify-center h-12 border-t border-gray-200 dark:border-gray-700">
+<a class="px-4 py-2 text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary" href="#">Product</a>
+<a class="px-4 py-2 text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary" href="#">Storefront</a>
+<a class="px-4 py-2 text-sm font-medium text-muted-light dark:text-muted-dark hover:text-primary" href="#">Creators</a>
+</nav>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex border-b border-gray-200 dark:border-gray-700 mb-8">
+<button :class="{ 'tab-active': activeTab === 'cart' }" @click="activeTab = 'cart'" class="px-6 py-3 font-semibold text-muted-light dark:text-muted-dark focus:outline-none transition-colors duration-300">My Cart</button>
+<button :class="{ 'tab-active': activeTab === 'orders' }" @click="activeTab = 'orders'" class="px-6 py-3 font-semibold text-muted-light dark:text-muted-dark focus:outline-none transition-colors duration-300">My Orders</button>
+<button :class="{ 'tab-active': activeTab === 'buy-again' }" @click="activeTab = 'buy-again'" class="px-6 py-3 font-semibold text-muted-light dark:text-muted-dark focus:outline-none transition-colors duration-300">Buy Again</button>
+<button :class="{ 'tab-active': activeTab === 'wishlist' }" @click="activeTab = 'wishlist'" class="px-6 py-3 font-semibold text-muted-light dark:text-muted-dark focus:outline-none transition-colors duration-300">Wishlist</button>
+</div>
+<div x-show="activeTab === 'cart'" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform" x-transition:enter-start="opacity-0 transform" x-transition:leave="transition ease-in duration-200" x-transition:leave-end="opacity-0 transform" x-transition:leave-start="opacity-100 transform">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-4">
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-md flex items-center space-x-4">
+<input class="h-5 w-5 rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark" type="checkbox"/>
+<img alt="Red running shoe" class="w-24 h-24 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD8BR09jdq7lHLct14bi1rJaau_ugiwMIxc5wKc80NMqeCHfgMGnB8m_ssF0iAoUzEW2BSaUY2im7Nwpd1W9dUUUdID7bMjIO4XJEOYaWZRzzCEGVylS1dRAo3Pre0SJtadLTraqOdpIZfeoJEGB6-zZk7Yta3NDYqPkrgCOYM7V_nXYOl8LtTcgzDiTgdTzwKEbFNo6M3Izy6R2bTKuGSSg_wS2cPI1MmoL7Roevb3VYlfz80fAgmUJNK-FSceytOo_OB25fXEX0"/>
+<div class="flex-grow">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Urban Runner Sneakers</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">by Sneaker Co.</p>
+<div class="flex items-center mt-1">
+<span class="text-yellow-500 material-icons text-sm">star</span>
+<span class="text-sm ml-1 text-muted-light dark:text-muted-dark">4.7 (890)</span>
+</div>
+<div class="flex items-baseline space-x-2 mt-1">
+<p class="text-lg font-bold text-primary">$89</p>
+<p class="text-sm line-through text-muted-light dark:text-muted-dark">$120</p>
+</div>
+</div>
+<div class="flex flex-col items-end space-y-4">
+<div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
+<button class="px-2 py-1 text-muted-light dark:text-muted-dark hover:text-primary">-</button>
+<span class="px-3 py-1">1</span>
+<button class="px-2 py-1 text-muted-light dark:text-muted-dark hover:text-primary">+</button>
+</div>
+<button class="text-red-500 hover:text-red-700">
+<span class="material-icons text-xl">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-md flex items-center space-x-4">
+<input class="h-5 w-5 rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark" type="checkbox"/>
+<img alt="Stylish smartwatch" class="w-24 h-24 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5bW9ah1ExzsXY_jiH1_OCMID6uDCd8ysUgqrGxmqXjDYR4tKOJwKREEy4QzH3grKBUS4QCcFgsOmeDj9XZqwFBW89vSztH8SEYr66dkipJr9YI9oaaZSVFaslFKOrF8FESnCCiNmuMcNTTNAQHTmd27Xks64TJZZIvNXnZwubMSjAOdCflfyK5NVGdcp-JWZ1j3JwN-agySwulvnkuGgysuquAEvs_cOh4euyKBwrNVokGheGJ_Cl_LEzwDO7oP-PpGKK7BAo6OY"/>
+<div class="flex-grow">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Stylish Smartwatch</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">by Techies</p>
+<div class="flex items-center mt-1">
+<span class="text-yellow-500 material-icons text-sm">star</span>
+<span class="text-sm ml-1 text-muted-light dark:text-muted-dark">4.8 (1.2k)</span>
+</div>
+<p class="text-lg font-bold text-primary mt-1">$299</p>
+</div>
+<div class="flex flex-col items-end space-y-4">
+<div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
+<button class="px-2 py-1 text-muted-light dark:text-muted-dark hover:text-primary">-</button>
+<span class="px-3 py-1">1</span>
+<button class="px-2 py-1 text-muted-light dark:text-muted-dark hover:text-primary">+</button>
+</div>
+<button class="text-red-500 hover:text-red-700">
+<span class="material-icons text-xl">delete</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-md flex items-center space-x-4">
+<input class="h-5 w-5 rounded text-primary focus:ring-primary border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark" type="checkbox"/>
+<img alt="Wireless headphones" class="w-24 h-24 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWzVfsWfb0LqSCNFX3yHpGGQ-bB7NUhAu4WexZNZlDhTZdDXYAHrEYOLeiWKOa0zJwk7IwRckH61C-7sGofxgAc98a22JvxZgkflgv-TPlrRSpbYPhthyIkBrtAH0pE1Kfw0kPUfjOcahPZdbVPEl4apfYbPeNV3bMNuWJJvkPrbUu3gnyYw-ydLwPXxM_KYQcIHqhVJ35o-28lkwdOJsPTkLYlYe00lxOECShD5IVmiyjwVsfErA-bEaf-8RkHYz5COKan3bmioc"/>
+<div class="flex-grow">
+<h3 class="font-semibold text-text-light dark:text-text-dark">AirSound Pro Earbuds</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">by SoundWave</p>
+<div class="flex items-center mt-1">
+<span class="text-yellow-500 material-icons text-sm">star</span>
+<span class="text-sm ml-1 text-muted-light dark:text-muted-dark">4.9 (3.8k)</span>
+</div>
+<p class="text-lg font-bold text-primary mt-1">$129</p>
+</div>
+<div class="flex flex-col items-end space-y-4">
+<div class="flex items-center border border-gray-300 dark:border-gray-600 rounded-md">
+<button class="px-2 py-1 text-muted-light dark:text-muted-dark hover:text-primary">-</button>
+<span class="px-3 py-1">2</span>
+<button class="px-2 py-1 text-muted-light dark:text-muted-dark hover:text-primary">+</button>
+</div>
+<button class="text-red-500 hover:text-red-700">
+<span class="material-icons text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-md sticky top-24">
+<h3 class="text-xl font-semibold mb-4">Order Summary</h3>
+<div class="space-y-3">
+<div class="flex justify-between">
+<span class="text-muted-light dark:text-muted-dark">Subtotal</span>
+<span>$775</span>
+</div>
+<div class="flex justify-between">
+<span class="text-muted-light dark:text-muted-dark">Discounts</span>
+<span class="text-green-500">-$31</span>
+</div>
+<div class="flex justify-between">
+<span class="text-muted-light dark:text-muted-dark">Taxes (est.)</span>
+<span>$44.64</span>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700 my-3"></div>
+<div class="flex justify-between font-bold text-lg">
+<span>Total</span>
+<span>$788.64</span>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-3 rounded-lg mt-6 hover:bg-orange-600 transition-colors duration-300">
+                                Proceed to Checkout
+                            </button>
+</div>
+</div>
+</div>
+<div class="mt-16">
+<h2 class="text-2xl font-bold mb-6">You May Also Like</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="A different smartwatch" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiSn1iqEu96dve4fe9Gs0NH7NnNV558meZUXlX25lmINI3IRpzVeY_H7DautpsLBi8ldyxPmmb-aooBmPBUPlJqzo-krOhY6LzlzARmvbqJdbG8-Xu-hnqL7cDwTYqi6-L2xahqE-QnJQiCUXHsXMmkBw-J3mNytGkSVvAqcbkbNAeccmoWzcxpKtXWQdP6_rZYEKm4cB7WdVunDQy6AtGMy9hh0SvY7RYx4wR8AiboJrT-RlKGGd5vWBwKXjiJqJ74JP3kOQDgoQ"/>
+<div class="p-4">
+<h3 class="font-semibold">Chrono Watch</h3>
+<p class="text-primary font-bold mt-1">$199</p>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="A modern backpack" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDDbDB0OZciTDtaplo0nGkvrl4ZrEOPsTQ1M1YwJt4htyZbJR_qtuswyBXGkSCNknemF-rGWsH5jr40BHeA-ZePlTVLQwzbsp1GNuUkuDoNA6HfTgo3fMXuJ6V8V8O4clE20MD_59UyRJ93JAzl85zcOW8SUCkq_6VjEvx4ZDOHTEkzH55QRuVIM_JnN0yvyPtaXJO0ktjxS2n7O21tNrDswKaPRF0VbxvtXZb4PQDK0EbcMnlqkuKWw0Aao0rcmzU0S4ORatDol0"/>
+<div class="p-4">
+<h3 class="font-semibold">Minimalist City Backpack</h3>
+<p class="text-primary font-bold mt-1">$68</p>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Portable Bluetooth Speaker" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApxpeqcwZZCMQynQ3in-xamvZqfIdMCkXSSO7Jm6x-NDpmAmNc2OXMvZTVK4xSxIwqJZGry_cuLbKNNDxzr8NF1Fi55gozD7m8WDqPwqyBhdWerLVkK9NZbvA8wuB1ssi6ANer-aMB_XRv2Qia-WtJZvlQE1IXAL_rAET8nbrRNbPCYcVkpzqSIJjbWGw8ejEv-a2wTCiQvis1lRs8uvTLPIH9ujKCGY_0IBUL4vnY399ya_U3At4RXO2kO5xO_zRqhvtglLwaVV8"/>
+<div class="p-4">
+<h3 class="font-semibold">Portable Bluetooth Speaker</h3>
+<p class="text-primary font-bold mt-1">$49</p>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Eco-friendly yoga mat" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPXawuF8rMusrAcjcxYGlhMf_M1y0XEUF0Nod6Eqa9N5BdA6yPCSaewKDya22zxQ5-GpT4NFZT9A15pjnY6NsdsnmTcGe9_xhmpa9eesdjWnCWAP5dyNKwtHlF99cP-14BOLhBJsblTccKe4hsGlNMxICagbnmB-0ghVlwyK8-cE6T77il9cA5RbSyKb5xDdzjJ586P5yH_otU_kifNaGDVehR3n32LZAdLEsIhxpxV1P7dTb_5zhnkzquJNM4MokaUTcRFWnPzh4"/>
+<div class="p-4">
+<h3 class="font-semibold">Eco-Friendly Yoga Mat</h3>
+<p class="text-primary font-bold mt-1">$24</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6" x-data="{ openOrder: null }" x-show="activeTab === 'orders'" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform" x-transition:enter-start="opacity-0 transform" x-transition:leave="transition ease-in duration-200" x-transition:leave-end="opacity-0 transform" x-transition:leave-start="opacity-100 transform">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md">
+<div @click="openOrder = openOrder === 1 ? null : 1" class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between cursor-pointer">
+<div class="flex items-center space-x-4">
+<img alt="Yoga mat" class="w-16 h-16 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0ZY9stEU5df05ZNMAgGt4irc-fn_5j_SQfzxCi0DLtthZ1o5GItD1oh524oQesTt1WJk1T9BhckfhpmtQyDwV1j89jbmio7Ifyr-jks0dMJr3eMugvRLMUa7eyjglLGHYbKP5hjTkqVp537oZ8sHailHiHtOXfmnvVNl78-vPSvdvmqnjRA5jvm2YAr8C3kGHq6FA44r6XaMZ63k-FbKDpfYGUuQ4ZmPbTmCMJ3Ba5whKMKiWklhWs5eZW3sTxgDXyKUCY0vhXlI"/>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Order #123456</p>
+<h3 class="font-semibold">Eco-Friendly Yoga Mat</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Ordered on: 15 Oct 2023</p>
+</div>
+</div>
+<div class="mt-4 sm:mt-0 flex flex-row sm:flex-col items-baseline sm:items-end justify-between">
+<p class="font-bold text-lg">$24.00</p>
+<span class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">Delivered</span>
+</div>
+</div>
+<div x-collapse="" x-show="openOrder === 1">
+<div class="p-6 border-t border-gray-200 dark:border-gray-700">
+<div class="relative mb-8">
+<div class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300 dark:bg-gray-600"></div>
+<div class="absolute left-0 top-1/2 w-full h-0.5 bg-green-500"></div>
+<div class="relative flex justify-between text-xs text-center">
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-green-500 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Ordered<br/>15 Oct</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-green-500 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Shipped<br/>16 Oct</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-green-500 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Out for Delivery<br/>18 Oct</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-green-500 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Delivered<br/>18 Oct</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<h4 class="font-semibold mb-2">Delivery Address</h4>
+<p class="text-sm text-muted-light dark:text-muted-dark">John Doe<br/>123 Design St.<br/>Creative City, 12345</p>
+</div>
+<div>
+<h4 class="font-semibold mb-2">Payment Method</h4>
+<p class="text-sm text-muted-light dark:text-muted-dark">Visa **** 1234</p>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-2">
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Track Package</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Request Refund</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Chat with Store</button>
+<button class="bg-primary text-white px-4 py-2 text-sm font-medium rounded-md hover:bg-orange-600">Leave Review</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md">
+<div @click="openOrder = openOrder === 2 ? null : 2" class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between cursor-pointer">
+<div class="flex items-center space-x-4">
+<img alt="Headphones" class="w-16 h-16 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn5dGDuomERt1RlI9LWtni8XIhJwoDSH8i6usRpSCNNXIzxsSRUKjhvIQF8oaTQG9-q9OK3QxJXkWvFmkas3PsTL6P7ONfnp8p6fCsj5Vs5KurUFoG5Ji30xv-rH30Y9lWdl2vTbzbcF1LGEswHBYO8H6LSAIeOWDw741IQjSov9f6uB28aORUk2iyU3mCINmh8fdo7WiMCHXkVFN3BH0uWuC7rCGwDKjzr6Je8RWFpccRKq0wNLQNc3UtgkJ8bhg63IDjPt_y984"/>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Order #123455</p>
+<h3 class="font-semibold">AirSound Pro Earbuds</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Ordered on: 10 Nov 2023</p>
+</div>
+</div>
+<div class="mt-4 sm:mt-0 flex flex-row sm:flex-col items-baseline sm:items-end justify-between">
+<p class="font-bold text-lg">$129.00</p>
+<span class="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full">Shipped</span>
+</div>
+</div>
+<div x-collapse="" x-show="openOrder === 2">
+<div class="p-6 border-t border-gray-200 dark:border-gray-700">
+<div class="relative mb-8">
+<div class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300 dark:bg-gray-600"></div>
+<div class="absolute left-0 top-1/2 w-1/2 h-0.5 bg-primary"></div>
+<div class="relative flex justify-between text-xs text-center">
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-primary mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Ordered<br/>10 Nov</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-primary mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Shipped<br/>11 Nov</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Out for Delivery</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Delivered</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-2">
+<button class="bg-primary text-white px-4 py-2 text-sm font-medium rounded-md hover:bg-orange-600">Track Package</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Chat with Store</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md">
+<div @click="openOrder = openOrder === 3 ? null : 3" class="p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between cursor-pointer">
+<div class="flex items-center space-x-4">
+<img alt="Smartphone" class="w-16 h-16 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAfMwcUI77LOz2BT_H40_Q9C2XxmkT9ClMpYUhmumpVipC3y4yZwavsEbhGJzJhK1x_NmhAGfCUN1LJBOk7lRR_bavfEjM1Qv-g5jgWcbmU_kID07c2ySAG85kO7eKyE7TYItFfv8FsLbkadDK0mwJj0pymWKNAjRPA7EcKbFgypJsNc30PaMLXnpGyP_SyXaoiEHE6elEW4O63lyrqhoMLTJFa4LMhE9Q5xCcmD4TweR715dZPQeLQeoWG5uc_KFjEwt0_-wcNYE"/>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Order #123454</p>
+<h3 class="font-semibold">Pro Gamer Phone</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Ordered on: 12 Nov 2023</p>
+</div>
+</div>
+<div class="mt-4 sm:mt-0 flex flex-row sm:flex-col items-baseline sm:items-end justify-between">
+<p class="font-bold text-lg">$699.00</p>
+<span class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full">Pending</span>
+</div>
+</div>
+<div x-collapse="" x-show="openOrder === 3">
+<div class="p-6 border-t border-gray-200 dark:border-gray-700">
+<div class="relative mb-8">
+<div class="absolute left-0 top-1/2 w-full h-0.5 bg-gray-300 dark:bg-gray-600"></div>
+<div class="absolute left-0 top-1/2 w-0 h-0.5 bg-primary"></div>
+<div class="relative flex justify-between text-xs text-center">
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-primary mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Ordered<br/>12 Nov</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Shipped</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Out for Delivery</p>
+</div>
+</div>
+<div class="w-1/4">
+<div class="relative">
+<div class="w-3 h-3 rounded-full bg-gray-300 dark:bg-gray-600 mx-auto"></div>
+<p class="mt-2 text-muted-light dark:text-muted-dark">Delivered</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-2">
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 text-sm font-medium rounded-md hover:bg-gray-300 dark:hover:bg-gray-600">Chat with Store</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div x-show="activeTab === 'buy-again'" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform" x-transition:enter-start="opacity-0 transform" x-transition:leave="transition ease-in duration-200" x-transition:leave-end="opacity-0 transform" x-transition:leave-start="opacity-100 transform">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Eco-friendly yoga mat" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPXawuF8rMusrAcjcxYGlhMf_M1y0XEUF0Nod6Eqa9N5BdA6yPCSaewKDya22zxQ5-GpT4NFZT9A15pjnY6NsdsnmTcGe9_xhmpa9eesdjWnCWAP5dyNKwtHlF99cP-14BOLhBJsblTccKe4hsGlNMxICagbnmB-0ghVlwyK8-cE6T77il9cA5RbSyKb5xDdzjJ586P5yH_otU_kifNaGDVehR3n32LZAdLEsIhxpxV1P7dTb_5zhnkzquJNM4MokaUTcRFWnPzh4"/>
+<div class="p-4">
+<h3 class="font-semibold">Eco-Friendly Yoga Mat</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Last purchased: 18 Oct 2023</p>
+<p class="text-primary font-bold mt-1">$24</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Red running shoe" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD8BR09jdq7lHLct14bi1rJaau_ugiwMIxc5wKc80NMqeCHfgMGnB8m_ssF0iAoUzEW2BSaUY2im7Nwpd1W9dUUUdID7bMjIO4XJEOYaWZRzzCEGVylS1dRAo3Pre0SJtadLTraqOdpIZfeoJEGB6-zZk7Yta3NDYqPkrgCOYM7V_nXYOl8LtTcgzDiTgdTzwKEbFNo6M3Izy6R2bTKuGSSg_wS2cPI1MmoL7Roevb3VYlfz80fAgmUJNK-FSceytOo_OB25fXEX0"/>
+<div class="p-4">
+<h3 class="font-semibold">Urban Runner Sneakers</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Last purchased: 05 Sep 2023</p>
+<p class="text-primary font-bold mt-1">$89</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Wireless headphones" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWzVfsWfb0LqSCNFX3yHpGGQ-bB7NUhAu4WexZNZlDhTZdDXYAHrEYOLeiWKOa0zJwk7IwRckH61C-7sGofxgAc98a22JvxZgkflgv-TPlrRSpbYPhthyIkBrtAH0pE1Kfw0kPUfjOcahPZdbVPEl4apfYbPeNV3bMNuWJJvkPrbUu3gnyYw-ydLwPXxM_KYQcIHqhVJ35o-28lkwdOJsPTkLYlYe00lxOECShD5IVmiyjwVsfErA-bEaf-8RkHYz5COKan3bmioc"/>
+<div class="p-4">
+<h3 class="font-semibold">AirSound Pro Earbuds</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Last purchased: 10 Nov 2023</p>
+<p class="text-primary font-bold mt-1">$129</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="A modern backpack" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDDbDB0OZciTDtaplo0nGkvrl4ZrEOPsTQ1M1YwJt4htyZbJR_qtuswyBXGkSCNknemF-rGWsH5jr40BHeA-ZePlTVLQwzbsp1GNuUkuDoNA6HfTgo3fMXuJ6V8V8O4clE20MD_59UyRJ93JAzl85zcOW8SUCkq_6VjEvx4ZDOHTEkzH55QRuVIM_JnN0yvyPtaXJO0ktjxS2n7O21tNrDswKaPRF0VbxvtXZb4PQDK0EbcMnlqkuKWw0Aao0rcmzU0S4ORatDol0"/>
+<div class="p-4">
+<h3 class="font-semibold">Minimalist City Backpack</h3>
+<p class="text-sm text-muted-light dark:text-muted-dark">Last purchased: 21 Jul 2023</p>
+<p class="text-primary font-bold mt-1">$68</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div x-show="activeTab === 'wishlist'" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform" x-transition:enter-start="opacity-0 transform" x-transition:leave="transition ease-in duration-200" x-transition:leave-end="opacity-0 transform" x-transition:leave-start="opacity-100 transform">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Stylish smartwatch" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5bW9ah1ExzsXY_jiH1_OCMID6uDCd8ysUgqrGxmqXjDYR4tKOJwKREEy4QzH3grKBUS4QCcFgsOmeDj9XZqwFBW89vSztH8SEYr66dkipJr9YI9oaaZSVFaslFKOrF8FESnCCiNmuMcNTTNAQHTmd27Xks64TJZZIvNXnZwubMSjAOdCflfyK5NVGdcp-JWZ1j3JwN-agySwulvnkuGgysuquAEvs_cOh4euyKBwrNVokGheGJ_Cl_LEzwDO7oP-PpGKK7BAo6OY"/>
+<div class="p-4">
+<h3 class="font-semibold">Stylish Smartwatch</h3>
+<div class="flex items-center mt-1">
+<span class="text-yellow-500 material-icons text-sm">star</span>
+<span class="text-sm ml-1 text-muted-light dark:text-muted-dark">4.8 (1.2k)</span>
+</div>
+<p class="text-primary font-bold mt-1">$299</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+<button class="w-full mt-2 bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-bold py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">delete</span>
+<span>Remove</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Portable Bluetooth Speaker" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApxpeqcwZZCMQynQ3in-xamvZqfIdMCkXSSO7Jm6x-NDpmAmNc2OXMvZTVK4xSxIwqJZGry_cuLbKNNDxzr8NF1Fi55gozD7m8WDqPwqyBhdWerLVkK9NZbvA8wuB1ssi6ANer-aMB_XRv2Qia-WtJZvlQE1IXAL_rAET8nbrRNbPCYcVkpzqSIJjbWGw8ejEv-a2wTCiQvis1lRs8uvTLPIH9ujKCGY_0IBUL4vnY399ya_U3At4RXO2kO5xO_zRqhvtglLwaVV8"/>
+<div class="p-4">
+<h3 class="font-semibold">Portable Bluetooth Speaker</h3>
+<div class="flex items-center mt-1">
+<span class="text-yellow-500 material-icons text-sm">star</span>
+<span class="text-sm ml-1 text-muted-light dark:text-muted-dark">4.6 (540)</span>
+</div>
+<p class="text-primary font-bold mt-1">$49</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+<button class="w-full mt-2 bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-bold py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">delete</span>
+<span>Remove</span>
+</button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden group">
+<img alt="Pro Gamer Phone" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAfMwcUI77LOz2BT_H40_Q9C2XxmkT9ClMpYUhmumpVipC3y4yZwavsEbhGJzJhK1x_NmhAGfCUN1LJBOk7lRR_bavfEjM1Qv-g5jgWcbmU_kID07c2ySAG85kO7eKyE7TYItFfv8FsLbkadDK0mwJj0pymWKNAjRPA7EcKbFgypJsNc30PaMLXnpGyP_SyXaoiEHE6elEW4O63lyrqhoMLTJFa4LMhE9Q5xCcmD4TweR715dZPQeLQeoWG5uc_KFjEwt0_-wcNYE"/>
+<div class="p-4">
+<h3 class="font-semibold">Pro Gamer Phone</h3>
+<div class="flex items-center mt-1">
+<span class="text-yellow-500 material-icons text-sm">star</span>
+<span class="text-sm ml-1 text-muted-light dark:text-muted-dark">4.9 (2.1k)</span>
+</div>
+<p class="text-primary font-bold mt-1">$699</p>
+<button class="w-full mt-3 bg-primary text-white font-bold py-2 rounded-lg hover:bg-orange-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">add_shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+<button class="w-full mt-2 bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-bold py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">delete</span>
+<span>Remove</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-700 mt-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-2xl font-bold text-primary">Inflopick</h3>
+<p class="mt-2 text-sm text-muted-light dark:text-muted-dark">Your Creator-Driven Marketplace.</p>
+<div class="mt-4">
+<select class="w-full rounded-md border-gray-300 dark:border-gray-600 bg-background-light dark:bg-background-dark text-sm">
+<option>EN/FR</option>
+</select>
+</div>
+</div>
+<div>
+<h4 class="font-semibold">Quick Links</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Home</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Discover</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Cart</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Orders</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Profile</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold">Policies</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">DMCA &amp; Content Notice</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold">Support</h4>
+<ul class="mt-4 space-y-2 text-sm">
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">FAQs</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Help Center</a></li>
+<li><a class="text-muted-light dark:text-muted-dark hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="mt-6 space-y-2">
+<a class="block w-full text-center bg-primary text-white font-bold py-2 px-4 rounded-lg hover:bg-orange-600 transition-colors" href="#">Become a Creator</a>
+<a class="block w-full text-center bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-bold py-2 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" href="#">Open a Store</a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center text-sm text-muted-light dark:text-muted-dark">
+<p>© 2025 Inflopick Inc. All Rights reserved. Reg. No. 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4">
+<a class="hover:text-primary" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46,6.56,17.41,1.51a1,1,0,0,0-1.41,0L13.1,4.41,15,6.34l2.12-2.12,3.34,3.34Z" style="fill:none"></path><path d="M22.46,6.56,17.41,1.51a1.28,1.28,0,0,0-1.81,0L3.18,13.92a1,1,0,0,0-.26.47l-1.34,5.36a1,1,0,0,0,1.21,1.21l5.36-1.34a1,1,0,0,0,.47-.26L21.05,8.37a1.28,1.28,0,0,0,0-1.81ZM8,17.55a1,1,0,0,1-.71.29,1,1,0,0,1-.7-.29L3.71,14.66a1,1,0,0,1,0-1.41L12.59,4.36,17.54,9.3Z"></path><path d="M21,21H3a1,1,0,0,0,0,2H21a1,1,0,0,0,0-2Z"></path></svg></a>
+<a class="hover:text-primary" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path><rect height="8" width="2" x="11" y="8"></rect><rect height="2" width="2" x="11" y="15"></rect></svg></a>
+<a class="hover:text-primary" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2A10,10,0,0,0,2,12a9.89,9.89,0,0,0,8.19,9.83,1,1,0,0,0,.21.37,1,1,0,0,0,.6.4,1,1,0,0,0,1-.4,1,1,0,0,0,.21-.37A9.89,9.89,0,0,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20Z"></path><path d="M12,6a1,1,0,0,0-1,1v5a1,1,0,0,0,2,0V7A1,1,0,0,0,12,6Z"></path><circle cx="12" cy="16" r="1.5"></circle></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body></html>

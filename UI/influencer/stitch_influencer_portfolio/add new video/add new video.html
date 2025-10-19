@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Add New Video</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: "#3B82F6",
+                            light: "#DBEAFE"
+                        },
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937",
+                        "text-light-primary": "#1F2937",
+                        "text-light-secondary": "#6B7280",
+                        "text-dark-primary": "#F9FAFB",
+                        "text-dark-secondary": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151",
+                        "success": "#10B981",
+                        "warning": "#F59E0B",
+                        "danger": "#EF4444",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons-outlined {
+            font-size: 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light-primary dark:text-dark-primary">
+<div class="flex h-screen">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="px-6 py-4 flex items-center space-x-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons-outlined text-white">store</span>
+</div>
+<h1 class="text-xl font-bold text-text-light-primary dark:text-dark-primary">Inflopick</h1>
+</div>
+<p class="px-6 text-xs text-text-light-secondary dark:text-dark-secondary">CREATOR CENTER</p>
+<nav class="mt-6 flex-1 px-4 space-y-1">
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">verified_user</span> Profile &amp; Verification
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium bg-primary-light text-primary rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">collections_bookmark</span> Portfolio
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">campaign</span> Requests
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">storefront</span> Shop
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">insights</span> Analytics
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">task_alt</span> Tasks
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">star_rate</span> Ratings
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">payments</span> Payment &amp; Bailing
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">mail</span> Messages
+                </a>
+</nav>
+<div class="px-4 py-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-sm font-medium text-text-light-secondary dark:text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-symbols-outlined mr-3">settings</span> Account Settings
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex items-center justify-between">
+<div>
+<a class="flex items-center text-sm text-text-light-secondary dark:text-dark-secondary hover:text-primary" href="#">
+<span class="material-icons-outlined mr-1">arrow_back</span> Back to Portfolio
+                    </a>
+<h1 class="text-3xl font-bold text-text-light-primary dark:text-dark-primary mt-1">Add New Video</h1>
+</div>
+<div class="flex items-center space-x-2">
+<button class="px-4 py-2 text-sm font-medium text-text-light-primary dark:text-dark-primary bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">Save Draft</button>
+<button class="px-4 py-2 text-sm font-medium text-text-light-primary dark:text-dark-primary bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">Preview</button>
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-blue-700 flex items-center">
+<span class="material-icons-outlined mr-2 text-base">publish</span> Publish
+                    </button>
+</div>
+</div>
+<div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-start">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mr-4">1</div>
+<div>
+<h2 class="text-xl font-semibold text-text-light-primary dark:text-dark-primary">Select Products to Promote</h2>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary mt-1">Add at least one affiliate product link. This is required to publish.</p>
+</div>
+</div>
+<div class="mt-6">
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary mb-1" for="affiliate-link">Affiliate Product Link</label>
+<div class="flex items-center space-x-2">
+<input class="flex-grow w-full px-4 py-2 border border-border-light dark:border-border-dark rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="Paste your affiliate link here..." type="url" value="https://inflopick.com/p/B08J5P8K5N"/>
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-lg hover:bg-blue-700">Add</button>
+</div>
+</div>
+<div class="mt-6 border border-border-light dark:border-border-dark rounded-lg p-4 bg-gray-50 dark:bg-gray-800">
+<div class="flex items-start space-x-4">
+<img alt="Product image" class="w-24 h-24 object-cover rounded-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmuiwC7VL9fzTZxrOElzxFf97DFdSPBlXqT4QPtbaCWwNnG3c-_mkeI-bP2kDgHU8K--WIRZYeWLPd3sBYVG9wuxAgD_NY3KXJ6PLulkByxGXSxAJnKnhHQeBHqNEkOHH3pDfW6V8SzKGi16RkjSL3kGbiuIpyzKYCNvpYR4CE1h8VChyWDQQ6Eh-2EUP8n6m1ljdcgyi7z5tHXk51k9OZ8GrfnqcWVgr8-Hi1GvFUL407KrvBwBtihTFP2OTLfk3JtzUM-2f3b-8"/>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-semibold text-text-light-primary dark:text-dark-primary">Classic Leather Watch</p>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary">by Timeless Co.</p>
+</div>
+<button class="text-text-light-secondary dark:text-dark-secondary hover:text-danger">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<div class="mt-2 flex items-center space-x-4 text-sm">
+<div>
+<span class="text-xs text-text-light-secondary dark:text-dark-secondary">Commission</span>
+<p class="font-medium">10%</p>
+</div>
+<div>
+<span class="text-xs text-text-light-secondary dark:text-dark-secondary">Stock</span>
+<p class="font-medium text-success flex items-center"><span class="material-symbols-outlined text-base mr-1">check_circle</span> In Stock</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg flex items-start space-x-3">
+<span class="material-symbols-outlined text-primary dark:text-blue-400 mt-0.5">info</span>
+<p class="text-sm text-blue-800 dark:text-blue-300">
+                                Reminder: To ensure your followers can find the products, please add the affiliate link in your video description or your storefront link in your social media bio.
+                            </p>
+</div>
+<div class="mt-2 flex items-center text-xs text-text-light-secondary dark:text-dark-secondary">
+<span class="material-symbols-outlined text-base mr-1">info</span> EPC/AOV estimates based on historical data. Link health checked in real-time.
+                        </div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-start">
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-primary text-white font-bold mr-4">2</div>
+<div>
+<h2 class="text-xl font-semibold text-text-light-primary dark:text-dark-primary">Upload Video</h2>
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary mt-1">Add your video file or link. This is required to publish.</p>
+</div>
+</div>
+<div class="mt-6">
+<div class="flex items-center justify-center w-full">
+<label class="flex flex-col items-center justify-center w-full h-64 border-2 border-border-light dark:border-border-dark border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-gray-800 dark:bg-gray-700 hover:bg-gray-100" for="dropzone-file">
+<div class="flex flex-col items-center justify-center pt-5 pb-6">
+<span class="material-symbols-outlined text-5xl text-text-light-secondary dark:text-dark-secondary">upload_file</span>
+<p class="mb-2 text-sm text-text-light-secondary dark:text-dark-secondary"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+<p class="text-xs text-text-light-secondary dark:text-dark-secondary">MP4, MOV (MAX. 1GB, up to 3 min)</p>
+</div>
+<input class="hidden" id="dropzone-file" type="file"/>
+</label>
+</div>
+</div>
+<div class="mt-4 text-center text-sm text-text-light-secondary dark:text-dark-secondary">or</div>
+<div class="mt-4">
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="video-url">Paste video URL from TikTok, Instagram, or YouTube</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="video-url" placeholder="https://..." type="url"/>
+</div>
+<div class="mt-6 border-t border-border-light dark:border-border-dark pt-6">
+<h3 class="font-semibold text-text-light-primary dark:text-dark-primary">Video Checks</h3>
+<div class="mt-4 space-y-3 text-sm">
+<div class="flex items-center justify-between">
+<p>Duration (≤ 60s)</p>
+<span class="flex items-center text-success"><span class="material-symbols-outlined mr-1 text-base">check_circle</span> Pass</span>
+</div>
+<div class="flex items-center justify-between">
+<p>Resolution (≥ 720p)</p>
+<span class="flex items-center text-success"><span class="material-symbols-outlined mr-1 text-base">check_circle</span> Pass</span>
+</div>
+<div class="flex items-center justify-between">
+<p>Aspect Ratio (9:16)</p>
+<span class="flex items-center text-success"><span class="material-symbols-outlined mr-1 text-base">check_circle</span> Pass</span>
+</div>
+<div class="flex items-center justify-between">
+<p>Codec (H.264)</p>
+<span class="flex items-center text-danger"><span class="material-symbols-outlined mr-1 text-base">cancel</span> Fail <a class="ml-2 text-primary hover:underline" href="#">(Help)</a></span>
+</div>
+</div>
+</div>
+<div class="mt-6 border-t border-border-light dark:border-border-dark pt-6">
+<h3 class="font-semibold text-text-light-primary dark:text-dark-primary">Thumbnail</h3>
+<div class="mt-4 flex items-start space-x-4">
+<img alt="Video thumbnail" class="w-32 h-auto rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmuiwC7VL9fzTZxrOElzxFf97DFdSPBlXqT4QPtbaCWwNnG3c-_mkeI-bP2kDgHU8K--WIRZYeWLPd3sBYVG9wuxAgD_NY3KXJ6PLulkByxGXSxAJnKnhHQeBHqNEkOHH3pDfW6V8SzKGi16RkjSL3kGbiuIpyzKYCNvpYR4CE1h8VChyWDQQ6Eh-2EUP8n6m1ljdcgyi7z5tHXk51k9OZ8GrfnqcWVgr8-Hi1GvFUL407KrvBwBtihTFP2OTLfk3JtzUM-2f3b-8"/>
+<div class="flex-1">
+<p class="text-sm text-text-light-secondary dark:text-dark-secondary mb-2">Auto-generated thumbnail. You can upload a custom one.</p>
+<button class="px-3 py-1.5 text-sm font-medium text-text-light-primary dark:text-dark-primary bg-gray-200 dark:bg-gray-700 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600">Upload Custom Thumbnail</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold">Details (Optional)</h3>
+<div class="mt-4 space-y-4">
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="title">Title</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="title" placeholder="e.g. My new favorite watch!" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="caption">Caption</label>
+<textarea class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="caption" placeholder="Describe your video..." rows="4"></textarea>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="hashtags">Hashtags</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="hashtags" placeholder="#ad #fashion #style" type="text"/>
+</div>
+<div class="relative flex items-start">
+<div class="flex h-5 items-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" id="disclosure" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-text-light-primary dark:text-dark-primary" for="disclosure">Disclosure</label>
+<p class="text-text-light-secondary dark:text-dark-secondary">Enable to add #ad / "Paid partnership" text automatically.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold">Scheduling &amp; Organization</h3>
+<div class="mt-4 space-y-4">
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="publish-time">Publish Time</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="publish-time" type="datetime-local"/>
+<p class="mt-1 text-xs text-text-light-secondary dark:text-dark-secondary">Leave blank to publish immediately.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="campaign">Attach to Campaign/Request</label>
+<select class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="campaign">
+<option>None</option>
+<option>Summer Style Campaign</option>
+<option>Request #12345 - Timeless Co.</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="tags">Tags</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="tags" placeholder="Summer2024, UGC, Fashion" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="coupon">Default Coupon/Code</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="coupon" placeholder="CREATOR20" type="text"/>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold">Compliance &amp; Rights</h3>
+<div class="mt-4 space-y-4">
+<div class="relative flex items-start">
+<div class="flex h-5 items-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" id="rights" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-text-light-primary dark:text-dark-primary" for="rights">I have the rights to this content.</label>
+<p class="text-text-light-secondary dark:text-dark-secondary">You confirm you own or have permission to use all video and audio elements, and grant Inflopick permission to use them. <a class="text-primary hover:underline" href="#">Learn more</a></p>
+</div>
+</div>
+<div class="relative flex items-start">
+<div class="flex h-5 items-center">
+<input class="h-4 w-4 rounded border-gray-300 dark:border-gray-600 text-primary focus:ring-primary" id="age-gate" type="checkbox"/>
+</div>
+<div class="ml-3 text-sm">
+<label class="font-medium text-text-light-primary dark:text-dark-primary" for="age-gate">Age-gated Content</label>
+<p class="text-text-light-secondary dark:text-dark-secondary">Mark if content is for mature audiences only.</p>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-light-primary dark:text-dark-primary" for="region">Region Restrictions</label>
+<input class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-primary focus:ring-primary sm:text-sm bg-surface-light dark:bg-surface-dark" id="region" placeholder="e.g. Exclude US, CA" type="text"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

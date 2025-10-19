@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Infopick - Creators</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FF7A00",
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "surface-light": "#F9FAFB",
+            "surface-dark": "#1E1E1E",
+            "text-light": "#111827",
+            "text-dark": "#E5E7EB",
+            "subtext-light": "#6B7280",
+            "subtext-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151"
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="min-h-screen flex flex-col">
+<header class="bg-background-light dark:bg-background-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center">
+<a class="text-2xl font-bold text-primary" href="#">Inflopick</a>
+</div>
+<div class="flex-1 max-w-xl mx-8">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-border-light dark:border-border-dark rounded-full bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">chat_bubble_outline</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">shopping_cart</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">notifications</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">person</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" id="theme-toggle">
+<span class="material-icons dark:hidden">light_mode</span>
+<span class="material-icons hidden dark:inline">dark_mode</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-center h-12">
+<nav class="flex space-x-8">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark py-2" href="#">Product</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark py-2" href="#">Storefront</a>
+<a class="text-text-light dark:text-text-dark font-semibold border-b-2 border-primary py-2" href="#">Creators</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<aside class="w-full lg:w-1/4 xl:w-1/5">
+<h2 class="text-lg font-semibold mb-4">Categories</h2>
+<nav class="space-y-1">
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">face</span>Beauty &amp; Personal Care</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">checkroom</span>Fashion &amp; Accessories</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">health_and_safety</span>Health &amp; Wellness</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">fitness_center</span>Fitness &amp; Sports</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">restaurant</span>Food &amp; Beverage</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">home</span>Home &amp; Living</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">construction</span>DIY &amp; Crafts</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">devices</span>Tech &amp; Gadgets</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">sports_esports</span>Gaming</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">photo_camera</span>Photography &amp; Video</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">directions_car</span>Automotive</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">terrain</span>Outdoor</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">family_restroom</span>Family &amp; Parenting</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">pets</span>Pets</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">school</span>Education</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">paid</span>Financial Services</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">music_note</span>Entertainment &amp; Music</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">toys</span>Toys</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">card_giftcard</span>Gifts</a>
+<a class="flex items-center p-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-surface-light dark:hover:bg-surface-dark text-sm" href="#"><span class="material-icons mr-3">eco</span>Sustainability Products</a>
+</nav>
+</aside>
+<div class="w-full lg:w-3/4 xl:w-4/5">
+<section class="mb-12">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold">Following Creators</h2>
+<a class="text-primary font-semibold hover:underline" href="#">Show More</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjSMCbIzewCBl0ufRJ_avUe_sz49elx1xTH8kv4hX8YJNw714PhPxr47O1eg9Zh-8Cwe-5vKm7rKxviRQspEth-rnGTy8728FcywwfwISTGPkjSidUBV5XLrfzmIU8samTrCkOcNAebw0qXapXptaRVRkcDWv2kxcyt-haSrkLfAOd23YorzhkabrkYrnPu3zEgA4mJ3h-15FEX3iJBQ3WmTaoBty1M4-Ms56ouoPHwahVx2qtERiGAFiDKeTibQ-qP7w1GKrl1zc"/>
+<div class="flex items-center mb-1">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Jessica Artista</h3>
+<span class="material-icons text-blue-500 ml-1">verified</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Artist, painter, and sculptor sharing my creative journey. Based in Paris.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">1.2M</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.9</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQVAuNBWjG1lnMLTlY5IMQW92eJIi34XgsK5G0_vCoihvn3BR2bkaoiUd-7DaXIJPNL85CNe2ppYbZR6lG40S9_bluBkvbtG7zU2dbNyBQhhVYVezlmeJpMJiLumA_y6udChD3syjhxK7hnmoST5RZZwMrtWtxhbokRusHoVmm5afZdBaKwMebKFD4QDABsHkd9J0Lv0r0BCddLC1l3hi2_faTXPkx-QWEFeir9OuWrVQJsnzP8i1Z4kxYSa26x7esf_ZqN4QJ-tE"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">FashionForward</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Your daily dose of style inspiration and fashion tips from the heart of Milan.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">850K</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.8</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAA5qaiA5cN0EgJfzQGzW_AE6gkfDftEwdTHi8ojE8hrjLIpka5rdgheXxgo8MYU_yLVDlSxTUokUCmfqbNEtoBGYSPSkAed00HeRA9xg1hs9ErZz_ykd1q04hAusWfdUbk3lgxVY6dfaVbAGZfRlzunIMtzYCaNx_PXGtYaCLdXwv1993GsGFxffWprDIpWpOu0L9uTmpukTmECM5sjP0cMo3Bqyy-DHjcHTLzxtvM6BDaSUnxBNi7Ze1ov-napX12EgzFrp3yjAA"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">Wanderlust Chloe</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Travel blogger sharing guides and stories from around the globe. Based in Bali.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">720K</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.9</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBupo_BmB0s9CXHyl5NKY_h_UtO0LnqbmYLZ6JvBR8COpSbVjlPmGo1WC7SS3bmaohN-w6Dhu8RyAuCbe6Jkc4PsuWRiM5GJ_gDDjaxix0r5T0_Ewe2bXCmbjSUbYaP8I3_kvUWALOX6y5ex4U4AW2jbfJNbGdEI3G4aZo4CnST9WnWZzkwbYlSWWXe_fahWDY5bVcQ8wP27vtKRqer0Lc02UEQKkGJNh1YOsgPqr5vW-pc4O5huyxNdPWinIYSHNfPzCqKZGVcq2M"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">Bookworm Beth</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Sharing my love for books, one review at a time. Cozy reading nook in NYC.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">310K</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">5.0</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-12">
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center">
+<h2 class="text-2xl font-bold mr-2">Local Creators</h2>
+<span class="bg-primary/20 text-primary text-xs font-bold px-2 py-1 rounded-full flex items-center">
+<span class="material-icons text-base mr-1">location_on</span> Montreal, QC
+                    </span>
+</div>
+<a class="text-primary font-semibold hover:underline" href="#">Show More</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx_J2HS0Xq7vJwa2wBMvaBTZpjYy7FlwV7OEsPLTK6BgG0LEjYobB1QioxVZGHHoNL6yd9wgb-12zQBdMmqZW8RX3VQ2F3-lnqgrr49zvS9Ug_hukA4iG_2OUggvKbX0-XfvRBzNwS3JcMNER6jdrjYhsVAmxlXWdgbftiiqTMXjcIELjMJJX1uHzlwxET_-l06rtQBdeEH9zvZP5Ps5Hz5-gSePEuyKe6hMqqmt5BUPpejyR49693kCZ9I6akg5znJJCk04GrS0Y"/>
+<div class="flex items-center mb-1">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Alex Fitness</h3>
+<span class="material-icons text-blue-500 ml-1">verified</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Helping you reach your fitness goals. Workouts, nutrition, and motivation.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">55K</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">5.0</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJD0ex0kUdvBJR8Vq_c2u5vCPU71nkJzBcv2ICjrGtDcw0b4HjmoS_ezbfhSdAa-on7EKIHQmrVjeaMZ-XNNQMKurv0_4c3ZyeyAPVT27BFLgxsoMu4nyyzdbRd9et7QG00Nwo-n0RmSoM3nu7FaoJIm-jLqu4gPJz6snnfBK4INWoxzQtimOKOPTPn9nQfBNQdtwjsy3afnm_ysyz4ayOpmBMLp61aXP3TaJdTrq2YG_rdNHbTD161wm5zY7gmNFlWspnqpxrBGk"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">Montreal Eats</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Exploring the best food spots in Montreal. From poutine to fine dining.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">32K</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.7</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold">Popular Creators</h2>
+<a class="text-primary font-semibold hover:underline" href="#">Show More</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB6fl42k-kxZHVoosX7lOZ5wgp50J9MgpdvAy_JKWTXCgP9S1ich9HP5AZJzR8IoNtTbX4d9PHasPCksTi-R1ZcbXa4-LrhNkgPLtFMuWYEz43CihsQBHHGLy-Z8WR2th8MRiMrepNZFKw5dobrrQF-ZN2GFMp_VrguisWFwyITeX5jeAh_M6lwz9gjF_4rUGSONx7-AUiibLfUhk7Vrtq1Irx5lusKo-ORY9HNZHjy57LzhUcX68XDAO_bF564kCoiA9SBaSWPyA"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">TechSavvy Sarah</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Unboxing the latest tech and gadgets. Honest reviews and tutorials.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">2.5M</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.9</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAv2RxOEgjhk3JCxtWGsDhOIyIr4ZDBYbH0NYdqkWmrft03XCe2Gd2CuTT-iZBLqVkoMxfMxvMPDdBvM1wyyue3-naXGy0biuow6Y80lI2sWlUaPSF-yDX8yyNrFY8yA81nOA5jcIdVSztX7HuiYmslzZIEHVw83vMYAi7NZjrQ7Gm-fVfLNQJ9UY1XAiPe5xC6DPha5hp5wzkbjZ5cyVvZf69RAnXl5viA7RxIhYFtBlwow_KMNPAUaHvMyBDQMB2Gi9jV_tEN0M"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">Gourmet Guru</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Simple recipes for delicious meals. From my kitchen to yours. Based in LA.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">3.1M</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.8</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX5uDWMHTJ2LG_EzWXorA6vOF32L8CMMLUIF2GNk1pRShtdAC29LSN1vXQ9BUzuxz3bAyVm_irmb2dshDrOTt58JYh4mfgYj6iinlG03Kj6-eFGYyaJaSbU2eqGdIIdBrNRVuGPUdw3qDIg20oLXcpoj80Uo8k709DFpwli6PgP9biAB5glalxRJH9uN8DYgBBOkSRHvS5G8lXEXAj0oQIdTcAHIIbs--O9ZPahCdyhAsp5DM_CVOYfofA6rlfUx-fGJSfeRUEwpM"/>
+<div class="flex items-center mb-1">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Homey Haven</h3>
+<span class="material-icons text-blue-500 ml-1">verified</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">DIY home decor, organization hacks, and cozy lifestyle tips. Based in London.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">980K</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.9</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-6 flex flex-col items-center text-center border border-border-light dark:border-border-dark hover:shadow-lg hover:shadow-primary/20 dark:hover:shadow-primary/10 transition-shadow duration-300">
+<img alt="Creator profile picture" class="w-24 h-24 rounded-full object-cover mb-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0uKbShkUHRwwV1znxhN9g73TEDw05NwAZ7w1ZTu1IUCwhz76at42La33LG-t_AF1IY8w2ClW75BwfCwjwcN6_CZRne34cCj5b5_3RiGEPmUzqDkKr0P_axlH5x0GvPze9NTW4eLbqNnrZUL3ukYcMF77lgDDBMiqWsMhXcxC4qjGYqqlGvqj2GIHKpY4naTMGX2Vj9L8R5CJeCTuAFnUAMq6vA6ya2lCh2Xdc1i1NrFxoatKmSrZ3N_Ueg4kDY8ETnKgTR1k1It8"/>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">GamerZone</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Live streams, gameplays, and reviews of the hottest new games. Based in Tokyo.</p>
+<div class="flex space-x-4 mb-6 text-sm text-subtext-light dark:text-subtext-dark">
+<span><span class="font-bold text-text-light dark:text-text-dark">1.8M</span> Followers</span>
+<span><span class="font-bold text-text-light dark:text-text-dark">4.7</span> <span class="material-icons align-middle" style="font-size: 1rem;">star</span></span>
+</div>
+<div class="w-full flex flex-col space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Visit Creator Page</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark mt-auto">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+<div class="col-span-1 md:col-span-2">
+<h2 class="text-2xl font-bold text-primary mb-2">Inflopick</h2>
+<div class="flex items-center space-x-2">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">language</span>
+<select class="bg-transparent text-subtext-light dark:text-subtext-dark focus:outline-none">
+<option>EN/FR</option>
+</select>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Quick Links</h3>
+<ul class="space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Home</a></li>
+<li><a class="hover:text-primary" href="#">Discover</a></li>
+<li><a class="hover:text-primary" href="#">Cart</a></li>
+<li><a class="hover:text-primary" href="#">Profile</a></li>
+<li><a class="hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Policies</h3>
+<ul class="space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary" href="#">CCPA &amp; Consent</a></li>
+<li><a class="hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Support</h3>
+<ul class="space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">FAQs</a></li>
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="mt-4 space-y-2">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-opacity-90 transition-colors">Become a Creator</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Open a Store</button>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-border-light dark:border-border-dark flex justify-between items-center text-sm text-subtext-light dark:text-subtext-dark">
+<p>© 2025 Inflopick Inc. All Rights reserved. Reg. No: 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4">
+<a class="hover:text-primary" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="hover:text-primary" href="#"><span class="material-symbols-outlined"></span>X</a>
+<a class="hover:text-primary" href="#"><span class="material-symbols-outlined"></span>Instagram</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+    });
+</script>
+</body></html>

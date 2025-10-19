@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Hub - Products</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#1F2937",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#374151",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#4B5563",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons-outlined {
+            font-family: 'Material Icons Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .product-card-selected {
+            box-shadow: 0 0 0 2px #3B82F6;
+        }.selection-inactive .selection-ui {
+            display: none;
+        }
+        .selection-active .selection-ui {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans selection-inactive" id="page-container">
+<div class="flex h-screen">
+<aside class="w-64 flex flex-col bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">shopping_bag</span> Orders
+                </a>
+<a class="flex items-center px-4 py-2 text-white bg-primary rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">inventory_2</span> Products
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">campaign</span> Marketing
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">people</span> Customer
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">chat</span> Chat
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">analytics</span> Analytics
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">storefront</span> Storefront Preview
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">manage_accounts</span> Accounts Management
+                </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons-outlined mr-3">logout</span> Logout
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Products</h2>
+<p class="text-subtext-light dark:text-subtext-dark">Manage your products, including drafts and active listings.</p>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg flex items-center" id="select-button" onclick="document.getElementById('page-container').classList.toggle('selection-active'); document.getElementById('page-container').classList.toggle('selection-inactive');">
+<span class="material-icons-outlined mr-2 !text-xl">check_box_outline_blank</span> Select Products
+                    </button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg flex items-center">
+<span class="material-icons-outlined mr-2 !text-xl">add</span> Add Product
+                    </button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-sm mb-6">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center space-x-4 flex-grow">
+<div class="relative flex-grow min-w-[200px]">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark focus:ring-primary focus:border-primary" placeholder="Search by product name or ID..." type="text"/>
+</div>
+<div class="flex items-center space-x-2">
+<label class="text-subtext-light dark:text-subtext-dark font-medium" for="category">Category:</label>
+<select class="w-48 bg-card-light dark:bg-card-dark border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark focus:ring-primary focus:border-primary" id="category" name="category">
+<option>All Categories</option>
+<option>Apparel</option>
+<option>Electronics</option>
+<option>Accessories</option>
+<option>Beauty</option>
+</select>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<label class="text-subtext-light dark:text-subtext-dark font-medium" for="sort">Sort by:</label>
+<select class="w-48 bg-card-light dark:bg-card-dark border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark focus:ring-primary focus:border-primary" id="sort" name="sort">
+<option>Best Seller</option>
+<option>Newest</option>
+<option>A-Z</option>
+<option>Price: High to Low</option>
+<option>Price: Low to High</option>
+<option>Inventory Level</option>
+<option>Status</option>
+</select>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-border-light dark:border-border-dark items-center justify-between selection-ui">
+<div class="flex items-center space-x-4">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">0 of 8 products selected</p>
+</div>
+<div class="flex items-center space-x-2">
+<label class="text-sm font-medium text-subtext-light dark:text-subtext-dark" for="bulk-action">Bulk Actions:</label>
+<select class="w-48 bg-card-light dark:bg-card-dark border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark focus:ring-primary focus:border-primary text-sm" id="bulk-action">
+<option>Choose Action</option>
+<option>Set to Active</option>
+<option>Set to Draft</option>
+<option>Delete Selected</option>
+<option>Change Category</option>
+</select>
+<button class="bg-primary text-white px-3 py-1.5 rounded-lg flex items-center text-sm">
+                            Apply
+                        </button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<a class="group block bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-2 border-transparent" href="#">
+<div class="relative">
+<img alt="Red running shoe" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD22su8D_rEr3FQSadjjNc6eZx2gObuY8kcrovpYyW4RSCBO1UsQnUqBsPhCJf2q9UYoMS7fBeF_kY-zbZaN8V8St8-U_UMOa35IOm5T0hlUOSI8wOzzEVu1GKD3URpbijZW6Mrzj2ToaDZjxg_TMtigkZEEGl1FDBhmtoo8DWqmxxAVpDPMAD7yROEOQWUyH-nDj3WH5uTjLmugP_jaSUEhZW4tLOjIsKDvgz3OpHyttvhmFSpTSVs2fok20IyiyP6BbsT5hUuyTM"/>
+<div class="absolute top-2 right-2 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center space-x-1">
+<span class="material-icons-outlined !text-base text-green-600">eco</span>
+<span>9.2/10</span>
+</div>
+<div class="absolute top-2 left-2 selection-ui">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark truncate">Sporty Red Sneakers</h3>
+<p class="text-primary font-bold text-xl mt-1">$120.00</p>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Inventory: <span class="text-green-500 font-medium">50</span></span>
+<span class="bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded">Active</span>
+</div>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Sales: <span class="text-text-light dark:text-text-dark font-medium">1,250</span></span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-3">ID: #PROD301</p>
+</div>
+</a>
+<a class="group block bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-2 border-transparent" href="#">
+<div class="relative">
+<img alt="Vintage wrist watch" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC55hZMwe6lqMF-wIzCZSqkzDxD467IL7JCSgWl3hhfR0qdBHQlRbCiQVzkb9PFlZXdejkMUgCRwHqQO2Ph6IWLvmYO2SZnlcXyCUo_0MxQi7W_pjlOQaDRNgTB8SApDV2dXj4WIqkpYXLg3bYBdTon3kCqQCqwO9cczd3ZwcYGxykwTpWGtxncc7lkH4VjGchzkK26Xxm0w_OHHzOy1XGW1MHd-PGI3SwY-lNLszdqMgy6VXpuyjc3KmOA6JOrh2JTLi0LUxtxdqM"/>
+<div class="absolute top-2 left-2 selection-ui">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark truncate">Classic Leather Watch</h3>
+<p class="text-primary font-bold text-xl mt-1">$250.00</p>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Inventory: <span class="text-yellow-500 font-medium">10</span></span>
+<span class="bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded">Active</span>
+</div>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Sales: <span class="text-text-light dark:text-text-dark font-medium">890</span></span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-3">ID: #PROD302</p>
+</div>
+</a>
+<a class="group block bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-2 border-transparent" href="#">
+<div class="relative">
+<img alt="Black wireless headphones" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp1jVReOgnGd-mu14XVWWllj-E4x5iJ8WGl8QDY1wTs3hq947hu1kyPdcdfSv3s3cy9Fk0WSpIdVNi2oymuAwnD3-zmFrzN2_z5xJIAOmeJYrvpwVXHKk-LUBp2RWd5j-jKQrv0OXy9KjPoP-wNi2cwqoOmJjiow6Ft9hTq516X-REhDlIzCzFpVbwWa2w3pv69Mykj7eqXyA0SbrRMoBT0lO2SqmVlSSIGJ8lwueZgbbhc5PQpbkJVfYZ9PU0JCrqc4apL-KNWUM"/>
+<div class="absolute top-2 right-2 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center space-x-1">
+<span class="material-icons-outlined !text-base text-green-600">eco</span>
+<span>8.5/10</span>
+</div>
+<div class="absolute top-2 left-2 selection-ui">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark truncate">Noise-Cancelling Headphones</h3>
+<p class="text-primary font-bold text-xl mt-1">$199.99</p>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Inventory: <span class="text-green-500 font-medium">25</span></span>
+<span class="bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded">Active</span>
+</div>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Sales: <span class="text-text-light dark:text-text-dark font-medium">2,100</span></span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-3">ID: #PROD303</p>
+</div>
+</a>
+<a class="group block bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-2 border-transparent" href="#">
+<div class="relative">
+<img alt="Natural skin care product" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDd99z9FSmGgLnxWDpBcunDPNaOGOvv_a3xvK546Kt88MUn1Rpnl7TRwwLyIklq0TSTVUUuKn5qnHOwrxaceT6ItOIaoH7LrA2dW8NOyOr0PJYPzJww6rLFASRZSe-vx4QHvfjJ4cCu5gqZWJZimsUsW2aXmrv1qo1RNffj4s3ZcUnjZH1GhHSv6teOB6tQaxb9tW8OA4qt9zY3uNF8KEo2QQVdNrj15zfMsA7PuJ2Nkmk1s_gjKitO5fYbweCWR3xLdzs-S1mqAAs"/>
+<div class="absolute top-2 left-2 selection-ui">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark truncate">Organic Face Serum</h3>
+<p class="text-primary font-bold text-xl mt-1">$45.50</p>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Inventory: <span class="text-red-500 font-medium">0</span></span>
+<span class="bg-yellow-200 dark:bg-yellow-800 text-yellow-800 dark:text-yellow-200 px-2 py-1 rounded">Draft</span>
+</div>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Sales: <span class="text-text-light dark:text-text-dark font-medium">0</span></span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-3">ID: #PROD304</p>
+</div>
+</a>
+<a class="group block bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-2 border-transparent" href="#">
+<div class="relative">
+<img alt="Stylish black sunglasses" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANFxqLmBWxbbmymIzlq5QRNo4PnNL3wRiaQUpQVQ5HpCeo2pRb76Kvh5wccU4GGbUCZlk7Pj4skEXNGkppHsaV6W0vmVKQMBETjZYdlhIkt5VGDtrHrkhJZ5JDG5JkKLp5QPoWYS3Akak5hvLjd_Am1qB_TJTrYUu02u8BfREUO4rv-5TEOI5ZS8-ZlWH85iLFBCx201qSaSgdSbNL1wzgcc8_aOwAqxZ74f5FEVWmAysni_-0rdYMtbxCegmFqQc_KU7mgAX9FV8"/>
+<div class="absolute top-2 left-2 selection-ui">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark truncate">Polarized Sunglasses</h3>
+<p class="text-primary font-bold text-xl mt-1">$75.00</p>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Inventory: <span class="text-green-500 font-medium">150</span></span>
+<span class="bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded">Active</span>
+</div>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Sales: <span class="text-text-light dark:text-text-dark font-medium">540</span></span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-3">ID: #PROD305</p>
+</div>
+</a>
+<a class="group block bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer border-2 border-transparent" href="#">
+<div class="relative">
+<img alt="Minimalist white t-shirt" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABskQGf_Cv4PtjJTcMPGq7lx8-JPf-IJ0BLG561JI3l8sHds8DtAPOoPBI1LAa8ARGsdGcxaNJSu_clAl-o7BkmtlyOnp7AT0WZloEpUZvqyzrskzHEd2Mxzbilbb6vZclPZ8-RNrzeV4ZN3v2yht52BUCEqL_czQONg-5ufy6DOkD5h29_5sULD_imtYBfFT6CA9FIiqYjiKQb3Dv-1wiijT71oHHZRtb9YQo-rARs984UsGoeOCygvhSzesRYJ_tjpJj8bnGn7k"/>
+<div class="absolute top-2 right-2 bg-green-100 text-green-800 text-xs font-semibold px-3 py-1.5 rounded-full flex items-center space-x-1">
+<span class="material-icons-outlined !text-base text-green-600">eco</span>
+<span>7.8/10</span>
+</div>
+<div class="absolute top-2 left-2 selection-ui">
+<input class="h-5 w-5 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox"/>
+</div>
+</div>
+<div class="p-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark truncate">Cotton T-Shirt</h3>
+<p class="text-primary font-bold text-xl mt-1">$25.00</p>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Inventory: <span class="text-green-500 font-medium">200+</span></span>
+<span class="bg-gray-200 dark:bg-gray-600 px-2 py-1 rounded">Active</span>
+</div>
+<div class="mt-2 text-sm text-subtext-light dark:text-subtext-dark flex justify-between items-center">
+<span>Sales: <span class="text-text-light dark:text-text-dark font-medium">3,500+</span></span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-3">ID: #PROD306</p>
+</div>
+</a>
+</div>
+</main>
+</div>
+
+</body></html>

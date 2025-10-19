@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Requests</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    primary: "#3B82F6", // Changed to a blue shade
+                    "background-light": "#F8FAFC",
+                    "background-dark": "#0B1120",
+                    "surface-light": "#FFFFFF",
+                    "surface-dark": "#1E293B",
+                    "text-light": "#1E293B",
+                    "text-dark": "#E2E8F0",
+                    "text-secondary-light": "#64748B",
+                    "text-secondary-dark": "#94A3B8",
+                    "border-light": "#E2E8F0",
+                    "border-dark": "#334155",
+                },
+                fontFamily: {
+                    display: ["Inter", "sans-serif"],
+                },
+                borderRadius: {
+                    DEFAULT: "0.5rem",
+                },
+            },
+        },
+    };
+</script>
+<style>
+    .material-icons {
+        font-size: 20px;
+    }
+    [x-cloak] {
+        display: none !important;
+    }
+</style>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-surface-light dark:bg-surface-dark border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-primary dark:text-primary">Inflopick</h1>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">CREATOR CENTER</p>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">account_circle</span>
+                    Profile &amp; Verification
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">video_library</span>
+                    Portfolio
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md bg-primary/10 text-primary dark:bg-primary/20" href="#">
+<span class="material-icons mr-3">inbox</span>
+                    Requests
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">store</span>
+                    Shop
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">analytics</span>
+                    Analytics
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">task_alt</span>
+                    Tasks
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">star_outline</span>
+                    Ratings &amp; Safety
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">payment</span>
+                    Payouts &amp; Billing
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">mail_outline</span>
+                    Messages
+                </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons mr-3">settings</span>
+                    Account Settings
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 flex flex-col">
+<h2 class="text-3xl font-bold mb-8 text-text-light dark:text-text-dark">Requests</h2>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-8">
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Open</p>
+<p class="text-2xl font-bold text-primary">12</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Waiting Shipment</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">5</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">In Transit</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">8</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Delivered (D-14)</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">3</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Completed</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">45</p>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Declined/Cancelled</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">7</p>
+</div>
+</div>
+<div class="mb-6 bg-surface-light dark:bg-surface-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="status">Status</label>
+<select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark" id="status" name="status">
+<option>All</option>
+<option>Open</option>
+<option>Waiting Shipment</option>
+<option>In Transit</option>
+<option>Delivered</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="date-range">Date Range</label>
+<input class="mt-1 block w-full pl-3 pr-2 py-2 text-base border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark" id="date-range" name="date-range" type="date"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="seller">Seller/Brand</label>
+<input class="mt-1 block w-full pl-3 pr-2 py-2 text-base border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark" id="seller" name="seller" placeholder="Search seller..." type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="product">Product</label>
+<input class="mt-1 block w-full pl-3 pr-2 py-2 text-base border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md bg-surface-light dark:bg-surface-dark text-text-light dark:text-text-dark" id="product" name="product" placeholder="Search product..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col bg-surface-light dark:bg-surface-dark rounded-lg border border-border-light dark:border-border-dark overflow-hidden">
+<div class="flex-1 overflow-y-auto">
+<table class="min-w-full divide-y divide-border-light dark:divide-border-dark">
+<thead class="bg-gray-50 dark:bg-slate-800 sticky top-0">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Request ID</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Date</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Product</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Seller</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Status</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Shipping Status</th>
+<th class="px-6 py-3 text-left text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider" scope="col">Countdown</th>
+<th class="relative px-6 py-3" scope="col">
+<span class="sr-only">Actions</span>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-border-light dark:divide-border-dark">
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8765</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-26</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Classic Leather Watch" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwxqiFinucEJEcWgdfACZPz36EDfccnNu3Oeq5NtQFv4X1c27c8vv9WzyQ1NrObnRetSFLi6D7uD1Lc-J9rVMrrtEMVUGAGENd4Z6u0XQs4Pf-UOsCmdMRK1iqXft9mg4kRnbyQsicj-Sahn6IzqiDYGnpfwbDQ8z2gueob51VNhkcmGiv8KsKWNLI1MqYLOLmD9bgEQO0qEps1XKMlskIwUWJ1BvhOaNOLRYTt8Cd_Oj0olPUeMhjVtBMBCfcfDflaR7fPQ9ic-9V"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">Classic Leather Watch</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">ChronoTime Co.</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+                                        Open
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Details</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Contact Seller</a>
+<a class="block px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Cancel Request</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8764</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-25</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Running Shoes" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBuVuPr83f1Jzia3VNv2E7s_uXqgwFUCzPPRC_p1qyYVCX8VTuGih7iEF1Q7UlngQZzW_AeGesumb8rUN_F6XD4TFjBM4Y223JXSvCtjdXfwGUVIwASyxqbcV_eTGu71NCcnilTylZbfGcw8R5ubi43KdNIJ3VuO3f4a8WeVWmcUAS9G5FRoMyYJHIedTmlXEVecrjq3KuzKlMsJLqdIuLqlD-JYehrwt_MN61ld7X62YnJvcReC_-TXZJWn5HnfhOkG2TkqUd7ALtu"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">"Velocity" Running Shoes</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">QuickStride</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">
+                                        Delivered
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">USPS / 9400...</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-500">D-7</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Track Package</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Confirm Delivery</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Report Issue</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8763</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-22</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Headphones" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1KG1ph8ysDkcCjEPY-dk7b5-E9NkOYaHFUIr3n0PVNj8eFSlVMq6MhSj7Bwgrbe5-I84nxyyBZIFt08TXX418CBRlM8ky57CJkQ9xoK_jumtoDFa9-KKx2nqXsQhl5tjWxjqDbVPkn9GlAfgJM9uAQ7VTSiEkK-4pByPryWoe9yajSBpeRL8jOo0swvSKw_MH9qPyBCh61ChCrDW0AhqNxxrFMVOWEbq5isxLGk4Yp2DZDPKoaPEm_Aaa5qqiC1uHx-hJ3lHGWb6q"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">"Aura" Headphones</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">SoundScape</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                                        Completed
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">FedEx / 7849...</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Details</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Leave a Review</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Archive</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8762</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-20</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Smart Water Bottle" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2yK0gB2g1q3P5l1f1j7h8l0l8l6k5g4h3j2f1k9j8h7g6f5e4d3c2b1a9z8y7x6w5v4u3t2s1r0q9p8o7n6m5l4k3j2h1g0f9e8d7c6b5a4z3y2x1w0v9u8t7s6r5q4p3o2n1m0l9k8j7h6g5f4e3d2c1b0a9z8y7x6w5v4u3t2s1r0q9p8o7n6m5l4k3j2h1g0f9e8d7c6b5a4z3y2x1w0v9u8t7s6r5q4p3o2n1m0l9k8j7h6g5f4e3d2c1b0a9z8y7x6w5v4u3t2s1r0q9p8o7n6m5l4k3j2h1g0f9e8d7c6b5a4z3y2x1w0v9u8t7s6r5q4p3o2n1m0l9k8j7h6g5f4e3d2c1b0a"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">Aqua Smart Bottle</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">Hydrate Inc.</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300">
+                                        Waiting Shipment
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Details</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Contact Seller</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8761</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-18</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Wireless Charger" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1A2B3C4D5E6F7G8H9I0J1K2L3M4N5O6P7Q8R9S0T1U2V3W4X5Y6Z7A8B9C0D1E2F3G4H5I6J7K8L9M0N1O2P3Q4R5S6T7U8V9W0X1Y2Z3A4B5C6D7E8F9G0H1I2J3K4L5M6N7O8P9Q0R1S2T3U4V5W6X7Y8Z9A0B1C2D3E4F5G6H7I8J9K0L1M2N3O4P5Q6R7S8T9U0V1W2X3Y4Z5A6B7C8D9E0F1G2H3I4J5K6L7M8N9O0P1Q2R3S4T5U6V7W8X9Y0Z"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">ChargePad Wireless Charger</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">PowerUp</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">
+                                        In Transit
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">UPS / 1Z99...</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Track Package</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8760</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-15</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Yoga Mat" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_gH9j8k7l6m5n4o3p2q1r0s9t8u7v6w5x4y3z2a1b0c9d8e7f6g5h4i3j2k1l0m9n8o7p6q5r4s3t2u1v0w9x8y7z6a5b4c3d2e1f0g9h8i7j6k5l4m3n2o1p0q9r8s7t6u5v4w3x2y1z0a9b8c7d6e5f4g3h2i1j0k9l8m7n6o5p4q3r2s1t0u9v8w7x6y5z4a3b2c1d0e9f8g7h6i5j4k3l2m1n0o9p8q7r6s5t4u3v2w1x0y9z8a7b6c5d4e3f2g1h0i9j8k7l6m5n4o3p2q1r"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">Eco-Friendly Yoga Mat</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">ZenFlow</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 dark:bg-red-900/50 dark:text-red-300">
+                                        Declined
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Details</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Buy with customer account</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Archive</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8759</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-14</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Organic Coffee Beans" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVzHr7TCpC-g1hSYI4MhAi6LOaLlVP14y4nHQKKbWyzI291epDs_-77E6iOscaEnvE2WrfEmqP4ORicIJI1VBYZradPdbAYktOilLjf3QGTbL-f3MOqZkIeAMcGku9RoEWWme1kfsEUiqnkuafS1J62s57Qs0KEL1_UZ6qVAN9z0qpRb577UP8jxR4nRkQqw5FKu7UmZSMGxJvA4jDC50Znz9l-EuU2Oks4SNB52n4Cwz1k1iE-2kShsC34BKqY0PANZq9TSwUFjtc"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">Artisan Coffee Beans</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">Brew &amp; Co.</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300">
+                                        Discount Offered
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">DHL / 4483...</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-orange-500">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Offer</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Buy with discount</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8758</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-12</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Gourmet Chocolate Box" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyh6ELds0DJgfKhwENd97yFbSjNllLwfBRW9edP57kqh7yE9FqAsE5COkaI4UAbGXGB0P-XvKU0Zkn0BECWQ5hPq69XTtR_sM709w14j7on5R-XBYrb2CJYvSHF0MJ6rtTI_dimfP25limhc-1RjrEGyzU8OBGQvEpe0F-f0MVBnA1509lIVtfwy0NPrmKiQ9VPt1eugwOqbHpFEmHQLDRIS_67FunQ2dQRnheqhpsUYmZIkirEsmgXSnsKag4CE2zl-iG62bbu18A"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">Gourmet Chocolate Box</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">Sweet Delights</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                                        Completed
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">UPS / 1Z55...</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Details</a>
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Leave a Review</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8757</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-11</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Scented Candle Set" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbWZLp2jMDTJU40OU35yTUuiB5jHFOLvMJdnWD4VEOTEjZWGWPG1kQdDZFIscaHA5H9p_NE6zWZJFSy8YuZd5btIKX5ZjP3Y9G2H4-Er6vj6EdGYs-jl9wBs9u1o_erKzMYI5Bt0rxLm2tchnj57wd7Kx7eropaSSe9su0JWByWG0eNV5KcwvrEoqMN7iPGV5iC6z_N44ZxACuDYtF5u1VdpsB982jHFh7SPcKk4KwMqCFEX0VPySeG2gRtWdDhBfb0wMxBzWHJb-F"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">"Serenity" Candle Set</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">Lumiere</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
+                                        Open
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">View Details</a>
+<a class="block px-4 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Cancel Request</a>
+</div>
+</td>
+</tr>
+<tr @click.away="open = false" @close.stop="open = false" class="hover:bg-gray-50 dark:hover:bg-slate-800/50" x-data="{ open: false }">
+<td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary">#RQ-8756</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">2023-10-10</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<div class="flex items-center">
+<div class="flex-shrink-0 h-10 w-10">
+<img alt="Bluetooth Speaker" class="h-10 w-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKAAuQ48QE0Vi4yaQnxOMv2PwutVa3ruJs-Oz1BV1pCUYMRMnPZf6_nb7N_7qvNKzWYSTCyrrg5bC90WlH9ggQpwb3D-XMEInfUyWmGekqYWJzby6AuwRcTzp-ezjJszzJ4Kji3j6tQrWAjmvX9y6BuVwJ_bi7nh4WpD5aOMuLFXb9dWtbOq7yzu_HEgiMPNPxmG3g_mr4vsqcWZNX_nXozw_8NsFzdnoaovyDIvlZmvg2ZuZFoaC7--cV9QfLCd3Y_Bf9-eteGH4V"/>
+</div>
+<div class="ml-4">
+<div class="text-sm font-medium text-text-light dark:text-text-dark">"Echo" Bluetooth Speaker</div>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">SonicBlast</td>
+<td class="px-6 py-4 whitespace-nowrap">
+<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">
+                                        In Transit
+                                    </span>
+</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">FedEx / 5678...</td>
+<td class="px-6 py-4 whitespace-nowrap text-sm text-text-secondary-light dark:text-text-secondary-dark">-</td>
+<td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium relative">
+<button @click="open = !open" class="text-primary hover:text-primary/80">
+<span class="material-icons">more_horiz</span>
+</button>
+<div aria-labelledby="user-menu-button" aria-orientation="vertical" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-surface-light dark:bg-surface-dark ring-1 ring-black ring-opacity-5 focus:outline-none z-10" role="menu" tabindex="-1" x-cloak="" x-show="open">
+<a class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#" role="menuitem" tabindex="-1">Track Package</a>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="px-4 py-3 flex items-center justify-between border-t border-border-light dark:border-border-dark sm:px-6">
+<div class="flex-1 flex justify-between sm:hidden">
+<a class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark bg-surface-light dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-slate-700" href="#"> Previous </a>
+<a class="ml-3 relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark bg-surface-light dark:bg-surface-dark hover:bg-gray-50 dark:hover:bg-slate-700" href="#"> Next </a>
+</div>
+<div class="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
+<div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">
+                                Showing
+                                <span class="font-medium">1</span>
+                                to
+                                <span class="font-medium">10</span>
+                                of
+                                <span class="font-medium">78</span>
+                                results
+                            </p>
+</div>
+<div>
+<nav aria-label="Pagination" class="relative z-0 inline-flex rounded-md shadow-sm -space-x-px">
+<a class="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 dark:border-gray-600 bg-surface-light dark:bg-surface-dark text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-50 dark:hover:bg-slate-700" href="#">
+<span class="sr-only">Previous</span>
+<span class="material-icons text-sm">chevron_left</span>
+</a>
+<a aria-current="page" class="z-10 bg-primary/10 border-primary text-primary relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 1 </a>
+<a class="bg-surface-light dark:bg-surface-dark border-gray-300 dark:border-gray-600 text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-50 dark:hover:bg-slate-700 relative inline-flex items-center px-4 py-2 border text-sm font-medium" href="#"> 2 </a>
+<a class="bg-surface-light dark:bg-surface-dark border-gray-300 dark:border-gray-600 text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-50 dark:hover:bg-slate-700 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium" href="#"> 3 </a>
+<span class="relative inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 bg-surface-light dark:bg-surface-dark text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark"> ... </span>
+<a class="bg-surface-light dark:bg-surface-dark border-gray-300 dark:border-gray-600 text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-50 dark:hover:bg-slate-700 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium" href="#"> 8 </a>
+<a class="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 dark:border-gray-600 bg-surface-light dark:bg-surface-dark text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark hover:bg-gray-50 dark:hover:bg-slate-700" href="#">
+<span class="sr-only">Next</span>
+<span class="material-icons text-sm">chevron_right</span>
+</a>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

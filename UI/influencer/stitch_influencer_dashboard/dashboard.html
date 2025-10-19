@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Influencer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "content-light": "#ffffff",
+                        "content-dark": "#1a2a33",
+                        "text-light": "#101c22",
+                        "text-dark": "#f6f7f8",
+                        "subtext-light": "#6b7280",
+                        "subtext-dark": "#9ca3af",
+                        "border-light": "#e5e7eb",
+                        "border-dark": "#374151",
+                        "success-light": "#10b981",
+                        "success-dark": "#34d399",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.75rem",
+                        "xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex min-h-screen">
+<aside class="w-72 bg-content-light dark:bg-content-dark p-6 flex flex-col justify-between border-r border-border-light dark:border-border-dark">
+<div>
+<div class="flex items-center gap-3 mb-6">
+<div class="bg-primary/10 p-2 rounded-lg">
+<svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 2L2 7V17L12 22L22 17V7L12 2Z" stroke="#13a4ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M2 7L12 12L22 7" stroke="#13a4ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+<path d="M12 12V22" stroke="#13a4ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h1 class="text-xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+</div>
+<h2 class="text-sm font-semibold text-subtext-light dark:text-subtext-dark uppercase tracking-wider mb-4 px-2">Creator Center</h2>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-sm font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-sm font-medium">Profile &amp; Verification</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">folder</span>
+<span class="text-sm font-medium">Portfolio</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">request_quote</span>
+<span class="text-sm font-medium">Requests</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">storefront</span>
+<span class="text-sm font-medium">Shop</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="text-sm font-medium">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">task_alt</span>
+<span class="text-sm font-medium">Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="text-sm font-medium">Ratings &amp; Safety</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">payments</span>
+<span class="text-sm font-medium">Payouts &amp; Billing</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="text-sm font-medium">Messages</span>
+</a>
+</nav>
+</div>
+<div>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm font-medium">Account Settings</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8">
+<h1 class="text-3xl font-bold mb-8">Home</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center">
+<p class="text-base font-medium text-subtext-light dark:text-subtext-dark">Total Earnings</p>
+<div class="relative">
+<select class="bg-background-light dark:bg-content-dark border border-border-light dark:border-border-dark rounded-md py-1.5 pl-3 pr-8 text-sm font-medium text-subtext-light dark:text-subtext-dark focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
+<option>Monthly</option>
+<option>Weekly</option>
+<option>Daily</option>
+<option>Yearly</option>
+</select>
+<span class="material-symbols-outlined text-base absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"> expand_more </span>
+</div>
+</div>
+<p class="text-4xl font-bold my-2">$3,250</p>
+</div>
+<div class="flex items-center text-sm font-medium text-success-light dark:text-success-dark mt-4">
+<span class="material-symbols-outlined text-lg">arrow_upward</span>
+<span>15% vs last month</span>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg flex flex-col justify-between">
+<div>
+<div class="flex justify-between items-center">
+<p class="text-base font-medium text-subtext-light dark:text-subtext-dark">Total Orders</p>
+<div class="relative">
+<select class="bg-background-light dark:bg-content-dark border border-border-light dark:border-border-dark rounded-md py-1.5 pl-3 pr-8 text-sm font-medium text-subtext-light dark:text-subtext-dark focus:outline-none focus:ring-2 focus:ring-primary appearance-none">
+<option>Monthly</option>
+<option>Weekly</option>
+<option>Daily</option>
+<option>Yearly</option>
+</select>
+<span class="material-symbols-outlined text-base absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none"> expand_more </span>
+</div>
+</div>
+<p class="text-4xl font-bold my-2">350</p>
+</div>
+<div class="flex items-center text-sm font-medium text-success-light dark:text-success-dark mt-4">
+<span class="material-symbols-outlined text-lg">arrow_upward</span>
+<span>8% vs last month</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg">
+<p class="text-base font-medium text-subtext-light dark:text-subtext-dark">Conversion Rate</p>
+<p class="text-3xl font-bold my-2">2.5%</p>
+<p class="text-base font-medium text-success-light dark:text-success-dark">+0.3%</p>
+</div>
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg">
+<p class="text-base font-medium text-subtext-light dark:text-subtext-dark">Average Order Value</p>
+<p class="text-3xl font-bold my-2">$35.71</p>
+<p class="text-base font-medium text-success-light dark:text-success-dark">+5%</p>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg mb-8" x-data="{ range: 'Monthly', custom: false, open: false }">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold">Performance Trends</h2>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Earnings</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-success-light"></div>
+<span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Orders</span>
+</div>
+<div class="relative">
+<button :class="{'bg-primary/10 text-primary': open}" @click="open = !open" class="flex items-center gap-2 text-sm text-subtext-light dark:text-subtext-dark border border-border-light dark:border-border-dark rounded-md px-3 py-1.5 hover:bg-primary/10 hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-content-light dark:focus:ring-offset-content-dark">
+<span x-text="range === 'Custom' ? 'Custom Range' : range">Monthly</span>
+<span :class="{ 'rotate-180': open }" class="material-symbols-outlined text-base transition-transform">expand_more</span>
+</button>
+<div @click.away="open = false" class="absolute right-0 mt-2 w-48 bg-content-light dark:bg-content-dark border border-border-light dark:border-border-dark rounded-md shadow-lg z-10" style="display: none;" x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-end="transform opacity-100 scale-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:leave="transition ease-in duration-75" x-transition:leave-end="transform opacity-0 scale-95" x-transition:leave-start="transform opacity-100 scale-100">
+<a :class="{'bg-primary/10 text-primary': range === 'Weekly'}" @click.prevent="range = 'Weekly'; custom = false; open = false" class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-background-dark/50" href="#">Weekly</a>
+<a :class="{'bg-primary/10 text-primary': range === 'Monthly'}" @click.prevent="range = 'Monthly'; custom = false; open = false" class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-background-dark/50" href="#">Monthly</a>
+<a :class="{'bg-primary/10 text-primary': range === 'Yearly'}" @click.prevent="range = 'Yearly'; custom = false; open = false" class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-background-dark/50" href="#">Yearly</a>
+<div class="border-t border-border-light dark:border-border-dark my-1"></div>
+<a :class="{'bg-primary/10 text-primary': custom}" @click.prevent="custom = true; open = false; range = 'Custom'" class="block px-4 py-2 text-sm text-text-light dark:text-text-dark hover:bg-background-light dark:hover:bg-background-dark/50" href="#">Custom Range</a>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-background-dark/50 p-4 rounded-lg mb-6 flex items-center gap-4" style="display: none;" x-show="custom">
+<div class="relative flex-1">
+<label class="block text-xs font-medium text-subtext-light dark:text-subtext-dark mb-1" for="start-date">Start Date</label>
+<input class="w-full bg-content-light dark:bg-content-dark border border-border-light dark:border-border-dark rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" id="start-date" type="date"/>
+</div>
+<div class="relative flex-1">
+<label class="block text-xs font-medium text-subtext-light dark:text-subtext-dark mb-1" for="end-date">End Date</label>
+<input class="w-full bg-content-light dark:bg-content-dark border border-border-light dark:border-border-dark rounded-md py-2 px-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary" id="end-date" type="date"/>
+</div>
+<button @click="custom = false; range = 'Monthly'" class="self-end bg-primary text-white text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">Apply</button>
+</div>
+<div class="relative h-80">
+<div class="absolute inset-y-0 left-0 flex flex-col justify-between text-sm text-subtext-light dark:text-subtext-dark pr-4 text-right">
+<span>$5k</span>
+<span>$4k</span>
+<span>$3k</span>
+<span>$2k</span>
+<span>$1k</span>
+<span>$0</span>
+</div>
+<div class="absolute inset-y-0 right-0 flex flex-col justify-between text-sm text-subtext-light dark:text-subtext-dark pl-4">
+<span>500</span>
+<span>400</span>
+<span>300</span>
+<span>200</span>
+<span>100</span>
+<span>0</span>
+</div>
+<div class="absolute inset-0 pl-12 pr-12">
+<div class="absolute inset-0 grid grid-rows-5">
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div class=""></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" fill="none" preserveAspectRatio="none" viewBox="0 0 540 320" xmlns="http://www.w3.org/2000/svg">
+<path d="M40 224C93.3333 160 146.667 128 200 128C253.333 128 306.667 224 360 224C413.333 224 466.667 96 520 64" stroke="#13a4ec" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<path d="M40 192C93.3333 256 146.667 288 200 288C253.333 288 306.667 192 360 192C413.333 192 466.667 288 520 256" stroke="#10b981" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+</svg>
+<div class="absolute -bottom-6 inset-x-0 flex justify-between items-end px-4">
+<div class="flex justify-between w-full">
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Week 1</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Week 2</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Week 3</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Week 4</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg">
+<h2 class="text-xl font-bold mb-4">Alerts (6)</h2>
+<div class="max-h-96 overflow-y-auto pr-2 divide-y divide-border-light dark:divide-border-dark">
+<div class="flex items-center gap-4 py-4">
+<div class="bg-blue-500/10 text-blue-500 p-3 rounded-lg">
+<span class="material-symbols-outlined">payments</span>
+</div>
+<div class="flex-1">
+<p class="font-medium">Payment Ready</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Your earnings are available for withdrawal.</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-blue-500">$542.50</p>
+<button class="bg-primary text-white text-sm font-medium px-4 py-2 rounded-lg mt-1 hover:bg-primary/90 transition-colors">Withdraw</button>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4">
+<div class="bg-orange-500/10 text-orange-500 p-3 rounded-lg">
+<span class="material-symbols-outlined">badge</span>
+</div>
+<div class="flex-1">
+<p class="font-medium">Identity Verification</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Please verify your identity to continue receiving payouts.</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-orange-500">Action Required</p>
+<button class="bg-orange-500 text-white text-sm font-medium px-4 py-2 rounded-lg mt-1 hover:bg-orange-500/90 transition-colors">Verify Identity</button>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4">
+<div class="bg-red-500/10 text-red-500 p-3 rounded-lg">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-medium">Video Upload Deadline</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">"Vintage Leather Watch" sample video is due.</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-red-500">2 Days Left</p>
+<button class="bg-red-500 text-white text-sm font-medium px-4 py-2 rounded-lg mt-1 hover:bg-red-500/90 transition-colors">Upload Video</button>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4">
+<div class="bg-yellow-500/10 text-yellow-500 p-3 rounded-lg">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-medium">Video Upload Deadline</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">"Running Shoes" sample video is due.</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-yellow-500">5 Days Left</p>
+<button class="bg-primary text-white text-sm font-medium px-4 py-2 rounded-lg mt-1 hover:bg-primary/90 transition-colors">Upload Video</button>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4">
+<div class="bg-green-500/10 text-green-500 p-3 rounded-lg">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-medium">Video Upload Deadline</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">"Wireless Headphones" sample video is due.</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-green-500">10 Days Left</p>
+<button class="bg-primary text-white text-sm font-medium px-4 py-2 rounded-lg mt-1 hover:bg-primary/90 transition-colors">Upload Video</button>
+</div>
+</div>
+<div class="flex items-center gap-4 py-4">
+<div class="bg-green-500/10 text-green-500 p-3 rounded-lg">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div class="flex-1">
+<p class="font-medium">Video Upload Deadline</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">"Smart Garden" sample video is due.</p>
+</div>
+<div class="text-right">
+<p class="font-bold text-green-500">14 Days Left</p>
+<button class="bg-primary text-white text-sm font-medium px-4 py-2 rounded-lg mt-1 hover:bg-primary/90 transition-colors">Upload Video</button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-content-light dark:bg-content-dark p-6 rounded-lg">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold">Best Selling Items</h2>
+<a class="text-primary text-sm font-medium" href="#">View All</a>
+</div>
+<div class="space-y-4">
+<a class="flex items-center gap-4 hover:bg-background-light dark:hover:bg-content-dark -m-2 p-2 rounded-lg transition-colors" href="#">
+<img alt="Product image" class="w-16 h-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCAi-Rc-pOMnDATJ_1lBeKyf3aiPONAg2tasrSdvLrMRzAFKGhyKT2r-6UB6SE55FJoVlZZggiRASdBmXeoitn1N6NtFY1gQrT6Mai7p9blWFCgKDZx849374_QHHG_8Lh5L517wgb1spgfOVCh0t_nzwMsUR_YEGvzf53cVuHqNMGK3ZebH3ceUgqsOe1XhDH7OJkLWCY3fuaGIFRpYnhWJ-zEXg4UvydrcRDg9vPZ_2_XUJQKRVlt36WoFLEYuZkEVjYpOdh10C4"/>
+<div class="flex-1">
+<p class="font-medium">Vintage Leather Watch</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">150 sales</p>
+</div>
+<p class="text-lg font-bold">$120.00</p>
+</a>
+<a class="flex items-center gap-4 hover:bg-background-light dark:hover:bg-content-dark -m-2 p-2 rounded-lg transition-colors" href="#">
+<img alt="Product image" class="w-16 h-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5jJH19miFerolRAzjPsrTLuzPowhJnW59s1MeV_iDABOZLMeqDYCfzzY31pH3pdBQEYq3B67-qTkRHsaKSIHQL2qMdxbOf48b2vb5IxtvmXA-hCtwbNhNKAlDufOP5mBB0ZyRDebvaqmxsZLnno1PPjY7kzahIO0s-pyIAm2a-M-F2fZzDqe9CSs1DXAA_MymHmWnXogJki-ol_JxmxOMrU2wk1rO7t71tUKe_pUYLDKTDK1n044qqvgd6k_-ZNh8W0DYFFq-eAA"/>
+<div class="flex-1">
+<p class="font-medium">Running Shoes</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">125 sales</p>
+</div>
+<p class="text-lg font-bold">$89.99</p>
+</a>
+<a class="flex items-center gap-4 hover:bg-background-light dark:hover:bg-content-dark -m-2 p-2 rounded-lg transition-colors" href="#">
+<img alt="Product image" class="w-16 h-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWwa9S0x_yFU0CAWzh8E_p03incCJIG1ELgFmpM6CUOl9IbY4P1hTCMttp6jcKFY3jNY3al7pHOZFb4AHGEr0DEz5rG4O3IBfTkYwuSIkAMOkHettWLsUaVF5k2RCtpgTOM2jPV_dLHnl-tfvMI-Xt1wE3UZtiVQ9X31yReY9sODdseWHyVLTEp6pgAFK1xLxT1AqV0P3qTmxaXDP-F8FWiOteVXlZBZ41aLZEFnmmrUEvvKWaWPsJIA82K0rgHElpFfoMC2FEU-w"/>
+<div class="flex-1">
+<p class="font-medium">Wireless Headphones</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">98 sales</p>
+</div>
+<p class="text-lg font-bold">$199.99</p>
+</a>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+</body></html>

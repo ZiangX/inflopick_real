@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6",
+            "background-light": "#F8FAFC",
+            "background-dark": "#1E293B",
+            "card-light": "#FFFFFF",
+            "card-dark": "#334155",
+            "text-light": "#1E293B",
+            "text-dark": "#E2E8F0",
+            "subtext-light": "#64748B",
+            "subtext-dark": "#94A3B8",
+            "border-light": "#E2E8F0",
+            "border-dark": "#475569"
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col justify-between">
+<div>
+<div class="px-6 py-5 flex items-center space-x-3">
+<div class="w-8 h-8 bg-primary rounded-full"></div>
+<span class="text-xl font-bold text-text-light dark:text-text-dark">infiopick</span>
+</div>
+<div class="px-6 text-xs font-semibold text-subtext-light dark:text-subtext-dark uppercase tracking-wider">Creator Center</div>
+<nav class="mt-4 px-3">
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">dashboard</span>
+            Dashboard
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">account_circle</span>
+            Profile &amp; Verification
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">folder</span>
+            Portfolio
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">receipt_long</span>
+            Requests
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-text-light dark:text-text-dark bg-primary/10 dark:bg-primary/20 rounded-md" href="#">
+<span class="material-icons-outlined mr-3 text-primary">storefront</span>
+            Shop
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">analytics</span>
+            Analytics
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">task_alt</span>
+            Tasks
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">star_outline</span>
+            Ratings &amp; Safety
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">payment</span>
+            Payouts &amp; Billing
+          </a>
+<a class="flex items-center px-3 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-md" href="#">
+<span class="material-icons-outlined mr-3">mail_outline</span>
+            Messages
+          </a>
+</nav>
+</div>
+<div class="p-6 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-icons-outlined mr-3">settings</span>
+          Account Settings
+        </a>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<div class="px-10 py-8">
+<h1 class="text-3xl font-bold text-text-light dark:text-text-dark mb-8">Shop</h1>
+<div class="flex flex-col items-center justify-center h-[calc(100vh-12rem)]">
+<button class="bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary focus:ring-offset-background-light dark:focus:ring-offset-background-dark" id="goToShopBtn">
+            Go to Shop (use my influencer account)
+          </button>
+<div class="mt-4 text-sm text-subtext-light dark:text-subtext-dark">
+<span id="linkStatus">Status: Not linked</span>
+<a class="ml-2 text-primary font-medium hover:underline" href="#" id="manageLink">Manage</a>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed top-5 right-5 bg-green-500 text-white py-3 px-5 rounded-lg shadow-lg flex items-center space-x-2 hidden animate-fade-in-out" id="toastSuccess">
+<span class="material-icons-outlined">check_circle</span>
+<span id="toastSuccessMessage"></span>
+</div>
+<div class="fixed top-5 right-5 bg-red-500 text-white py-3 px-5 rounded-lg shadow-lg flex items-center space-x-2 hidden animate-fade-in-out" id="toastError">
+<span class="material-icons-outlined">error</span>
+<span id="toastErrorMessage"></span>
+</div>
+<div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden" id="linkAccountModal">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-xl w-full max-w-md p-8 m-4">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Link your storefront to a customer account</h2>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" id="closeModalBtn">
+<span class="material-icons-outlined">close</span>
+</button>
+</div>
+<div id="modalStep1">
+<p class="text-subtext-light dark:text-subtext-dark mb-4">Sign in or select a customer account to link to your storefront.</p>
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark" for="email">Email Address</label>
+<input class="mt-1 block w-full px-3 py-2 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md shadow-sm placeholder-subtext-light/50 dark:placeholder-subtext-dark/50 focus:outline-none focus:ring-primary focus:border-primary sm:text-sm text-text-light dark:text-text-dark" id="email" placeholder="you@example.com" type="email"/>
+</div>
+<button class="mt-6 w-full bg-primary text-white font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-primary/90 transition-colors" id="signInBtn">Sign In / Select</button>
+</div>
+<div class="hidden" id="modalStep2">
+<p class="text-subtext-light dark:text-subtext-dark mb-4">Confirm linking your accounts.</p>
+<div class="bg-background-light dark:bg-background-dark p-4 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<span class="material-icons-outlined text-primary">storefront</span>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">Your Storefront</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">your-storefront-slug</p>
+</div>
+</div>
+<span class="material-icons-outlined text-subtext-light dark:text-subtext-dark">sync_alt</span>
+<div class="flex items-center space-x-3">
+<span class="material-icons-outlined text-primary">account_circle</span>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">Customer Account</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark" id="linkedEmail">customer@example.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6">
+<label class="flex items-start">
+<input class="h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded focus:ring-primary" id="permissionsCheckbox" type="checkbox"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">Allow my customer account to preview and buy via my storefront.</span>
+</label>
+</div>
+<button class="mt-6 w-full bg-primary text-white font-semibold py-2 px-4 rounded-lg shadow-sm hover:bg-primary/90 transition-colors disabled:bg-gray-400 dark:disabled:bg-gray-600 disabled:cursor-not-allowed" disabled="" id="linkContinueBtn">Link &amp; Continue</button>
+</div>
+<div class="hidden mt-4 bg-red-100 dark:bg-red-900/30 border border-red-400 dark:border-red-600 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg relative" id="modalError" role="alert">
+<strong class="font-bold">Error:</strong>
+<span class="block sm:inline" id="errorMessageText">Something went wrong.</span>
+<div class="mt-2">
+<button class="text-red-700 dark:text-red-300 font-semibold hover:underline mr-4" id="tryAgainBtn">Try Again</button>
+<button class="text-red-700 dark:text-red-300 font-semibold hover:underline" id="contactSupportBtn">Contact Support</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const goToShopBtn = document.getElementById('goToShopBtn');
+      const manageLink = document.getElementById('manageLink');
+      const linkAccountModal = document.getElementById('linkAccountModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const signInBtn = document.getElementById('signInBtn');
+      const linkContinueBtn = document.getElementById('linkContinueBtn');
+      const permissionsCheckbox = document.getElementById('permissionsCheckbox');
+      const linkStatus = document.getElementById('linkStatus');
+      const modalStep1 = document.getElementById('modalStep1');
+      const modalStep2 = document.getElementById('modalStep2');
+      const modalError = document.getElementById('modalError');
+      const errorMessageText = document.getElementById('errorMessageText');
+      const toastSuccess = document.getElementById('toastSuccess');
+      const toastSuccessMessage = document.getElementById('toastSuccessMessage');
+      const toastError = document.getElementById('toastError');
+      const toastErrorMessage = document.getElementById('toastErrorMessage');
+      let isLinked = false;
+      function updateUI() {
+        if (isLinked) {
+          linkStatus.textContent = 'Status: Linked';
+          goToShopBtn.disabled = false;
+        } else {
+          linkStatus.textContent = 'Status: Not linked';
+          goToShopBtn.disabled = false; // The button should always be clickable initially
+        }
+      }
+      function showToast(type, message) {
+        const toast = type === 'success' ? toastSuccess : toastError;
+        const toastMessage = type === 'success' ? toastSuccessMessage : toastErrorMessage;
+        toastMessage.textContent = message;
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          toast.classList.add('hidden');
+        }, 3000);
+      }
+      function openModal() {
+        linkAccountModal.classList.remove('hidden');
+        modalStep1.classList.remove('hidden');
+        modalStep2.classList.add('hidden');
+        modalError.classList.add('hidden');
+        document.getElementById('email').value = '';
+      }
+      function closeModal() {
+        linkAccountModal.classList.add('hidden');
+      }
+      goToShopBtn.addEventListener('click', () => {
+        if (isLinked) {
+          showToast('success', 'Opening your shop as a customer.');
+          // Simulate deep-linking
+          console.log('Deep-linking to customer-side shop...');
+          setTimeout(() => {
+             window.open('https://example.com/store/your-storefront-slug?track=creator', '_blank');
+          }, 500);
+        } else {
+          openModal();
+        }
+      });
+      manageLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        openModal();
+      });
+      closeModalBtn.addEventListener('click', closeModal);
+      signInBtn.addEventListener('click', () => {
+        const email = document.getElementById('email').value;
+        if (!email || !email.includes('@')) {
+            modalError.classList.remove('hidden');
+            errorMessageText.textContent = "Please enter a valid email.";
+            return;
+        }
+        // Simulate API call for sign-in/account selection
+        console.log(`Signing in with ${email}`);
+        modalError.classList.add('hidden');
+        modalStep1.classList.add('hidden');
+        modalStep2.classList.remove('hidden');
+        document.getElementById('linkedEmail').textContent = email;
+      });
+      permissionsCheckbox.addEventListener('change', () => {
+        linkContinueBtn.disabled = !permissionsCheckbox.checked;
+      });
+      linkContinueBtn.addEventListener('click', () => {
+        console.log('Linking account...');
+        // Simulate linking success
+        isLinked = true;
+        updateUI();
+        closeModal();
+        showToast('success', 'Linked. You can now shop with your influencer account.');
+      });
+      document.getElementById('tryAgainBtn').addEventListener('click', () => {
+        modalError.classList.add('hidden');
+        modalStep1.classList.remove('hidden');
+      });
+      document.getElementById('contactSupportBtn').addEventListener('click', () => {
+          alert('Redirecting to support page...');
+      });
+      // Initial state
+      updateUI();
+    });
+  </script>
+
+</body></html>

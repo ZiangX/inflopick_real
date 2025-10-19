@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Tasks</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: "#2563EB",
+                            light: "#EFF6FF",
+                            dark: "#1E40AF"
+                        },
+                        "background-light": "#F8FAFC",
+                        "background-dark": "#0F172A",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E293B",
+                        "text-light": "#0F172A",
+                        "text-dark": "#F8FAFC",
+                        "muted-light": "#64748B",
+                        "muted-dark": "#94A3B8",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col justify-between p-4 border-r border-gray-200 dark:border-gray-700">
+<div>
+<div class="flex items-center gap-2 px-2 py-4">
+<div class="bg-primary h-8 w-8 rounded-lg"></div>
+<span class="font-bold text-xl">Inflopick</span>
+</div>
+<nav class="mt-8">
+<a class="flex items-center gap-3 px-3 py-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">dashboard</span> Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">account_circle</span> Profile &amp; Verification
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">inventory_2</span> Portfolio
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">request_quote</span> Requests
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">store</span> Shop
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">analytics</span> Analytics
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 bg-primary-light text-primary rounded-lg" href="#">
+<span class="material-icons text-primary">task_alt</span> Tasks
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">star_border</span> Ratings &amp; Safety
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">payment</span> Payouts &amp; Billing
+                    </a>
+<a class="flex items-center gap-3 px-3 py-2 mt-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">mail_outline</span> Messages
+                    </a>
+</nav>
+</div>
+<div>
+<a class="flex items-center gap-3 px-3 py-2 text-muted-light dark:text-muted-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons">settings</span> Account Settings
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<h1 class="text-3xl font-bold">Tasks</h1>
+<div class="mt-6 flex gap-4">
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg flex-1">
+<p class="text-sm text-muted-light dark:text-muted-dark">Overdue</p>
+<p class="text-2xl font-bold text-red-500">2</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg flex-1">
+<p class="text-sm text-muted-light dark:text-muted-dark">Due Soon</p>
+<p class="text-2xl font-bold text-orange-500">1</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg flex-1">
+<p class="text-sm text-muted-light dark:text-muted-dark">Completed</p>
+<p class="text-2xl font-bold text-green-500">4</p>
+</div>
+</div>
+<div class="mt-8 bg-card-light dark:bg-card-dark p-6 rounded-lg">
+<div class="flex justify-between items-center mb-4">
+<div class="flex gap-2">
+<button class="px-3 py-1 text-sm rounded-full bg-primary text-white">All</button>
+<button class="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark">Needs Action</button>
+<button class="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark">Due ≤7 days</button>
+<button class="px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark">Completed</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left text-sm">
+<thead>
+<tr class="border-b border-gray-200 dark:border-gray-700 text-muted-light dark:text-muted-dark">
+<th class="py-3 px-4 font-normal">Task</th>
+<th class="py-3 px-4 font-normal">Product</th>
+<th class="py-3 px-4 font-normal">Due Date</th>
+<th class="py-3 px-4 font-normal">Countdown</th>
+<th class="py-3 px-4 font-normal">Status</th>
+<th class="py-3 px-4 font-normal"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer" onclick="document.getElementById('task-drawer').classList.remove('hidden')">
+<td class="py-3 px-4 font-medium">Verify Identity</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Pending KYC</td>
+<td class="py-3 px-4">Sep 10, 2024</td>
+<td class="py-3 px-4"><span class="text-red-500 font-semibold">Overdue</span></td>
+<td class="py-3 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Open</span></td>
+<td class="py-3 px-4"><button class="bg-primary text-white px-3 py-1 rounded-md text-sm">Verify Identity</button></td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
+<td class="py-3 px-4 font-medium">Upload Video</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Vintage Leather Watch</td>
+<td class="py-3 px-4">Sep 12, 2024</td>
+<td class="py-3 px-4"><span class="text-red-500 font-semibold">Overdue</span></td>
+<td class="py-3 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Open</span></td>
+<td class="py-3 px-4"><button class="bg-primary text-white px-3 py-1 rounded-md text-sm">Upload Video</button></td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
+<td class="py-3 px-4 font-medium">Upload Video</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Running Shoes</td>
+<td class="py-3 px-4">Sep 20, 2024</td>
+<td class="py-3 px-4"><span class="text-orange-500 font-semibold">D-3</span></td>
+<td class="py-3 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Open</span></td>
+<td class="py-3 px-4"><button class="bg-primary text-white px-3 py-1 rounded-md text-sm">Upload Video</button></td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
+<td class="py-3 px-4 font-medium">Reply to Seller</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Wireless Headphones Collab</td>
+<td class="py-3 px-4">Sep 25, 2024</td>
+<td class="py-3 px-4"><span class="font-semibold">D-8</span></td>
+<td class="py-3 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Open</span></td>
+<td class="py-3 px-4"><button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-3 py-1 rounded-md text-sm">Request Extension</button></td>
+</tr>
+<tr class="border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
+<td class="py-3 px-4 font-medium text-muted-light dark:text-muted-dark">Upload Video</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Smart Thermostat</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">Sep 5, 2024</td>
+<td class="py-3 px-4 text-muted-light dark:text-muted-dark">-</td>
+<td class="py-3 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Completed</span></td>
+<td class="py-3 px-4"><button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-3 py-1 rounded-md text-sm">Mark Done</button></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</main>
+<div class="fixed inset-y-0 right-0 w-96 bg-card-light dark:bg-card-dark border-l border-gray-200 dark:border-gray-700 p-6 shadow-lg transform translate-x-full transition-transform duration-300 ease-in-out hidden" id="task-drawer">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-xl font-bold">Task Details</h2>
+<button class="text-muted-light dark:text-muted-dark hover:text-text-light dark:hover:text-text-dark" onclick="document.getElementById('task-drawer').classList.add('hidden')">
+<span class="material-icons">close</span>
+</button>
+</div>
+<div class="space-y-4">
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Request ID</p>
+<p>#KYC-12345</p>
+</div>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Seller Name</p>
+<p>Platform Verification</p>
+</div>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Deliverables</p>
+<p>Submit a valid government-issued ID for account verification.</p>
+</div>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Request Details</p>
+<a class="text-primary hover:underline" href="#">View Request Details
+                        <span class="material-icons text-sm">open_in_new</span>
+</a>
+</div>
+<div>
+<p class="text-sm text-muted-light dark:text-muted-dark">Attachments</p>
+<button class="w-full mt-1 flex items-center justify-center gap-2 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-md p-4 text-sm text-muted-light dark:text-muted-dark hover:bg-gray-50 dark:hover:bg-gray-800/50">
+<span class="material-icons">attach_file</span>
+<span>Add File or Post URL</span>
+</button>
+</div>
+</div>
+<div class="mt-8 border-t border-gray-200 dark:border-gray-700 pt-6">
+<div class="flex items-center gap-2">
+<span class="material-icons text-muted-light dark:text-muted-dark">snooze</span>
+<p class="font-medium">Snooze</p>
+</div>
+<div class="flex gap-2 mt-2">
+<button class="flex-1 px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark">1 day</button>
+<button class="flex-1 px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark">3 days</button>
+<button class="flex-1 px-3 py-1 text-sm rounded-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark">1 week</button>
+</div>
+</div>
+<div class="mt-6">
+<div class="flex items-center gap-2">
+<span class="material-icons text-muted-light dark:text-muted-dark">notifications</span>
+<p class="font-medium">Remind me</p>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="text-sm">Via Email</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex justify-between items-center mt-2">
+<span class="text-sm">Push Notification</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+<script>
+        // JS to toggle drawer
+        document.addEventListener('click', function(event) {
+            const drawer = document.getElementById('task-drawer');
+            // Show drawer on table row click
+            const row = event.target.closest('tbody tr');
+            if (row) {
+                drawer.classList.remove('hidden');
+                drawer.classList.remove('translate-x-full');
+            }
+            // Hide drawer on close button click or outside click
+            const closeButton = event.target.closest('#task-drawer button');
+            if ( (closeButton && closeButton.querySelector('.material-icons').textContent === 'close') || (!drawer.contains(event.target) && !row) ) {
+                drawer.classList.add('translate-x-full');
+                // Use timeout to hide after transition
+                 setTimeout(() => {
+                    drawer.classList.add('hidden');
+                }, 300);
+            }
+        });
+    </script>
+</body></html>

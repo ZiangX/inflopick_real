@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inflopick - Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style>
+    .material-icons {
+      font-family: 'Material Icons';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FF4500", // Using a vibrant orange for the primary color
+            "background-light": "#FFFFFF",
+            "background-dark": "#121212",
+            "surface-light": "#F9FAFB",
+            "surface-dark": "#1E1E1E",
+            "text-light-primary": "#1F2937",
+            "text-dark-primary": "#F9FAFB",
+            "text-light-secondary": "#6B7280",
+            "text-dark-secondary": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151",
+          },
+          fontFamily: {
+            display: ["Roboto", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light-primary dark:text-text-dark-primary">
+<div class="flex flex-col h-screen">
+<header class="bg-background-light dark:bg-background-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center py-4">
+<div class="flex items-center space-x-2">
+<h1 class="text-2xl font-bold text-primary">Inflopick</h1>
+</div>
+<div class="flex-grow flex justify-center items-center">
+<div class="relative hidden md:block w-[45rem]">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-full py-2 pl-10 pr-4 w-full focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+<nav class="flex space-x-8 justify-center mt-2">
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm" href="#">Product</a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm" href="#">Storefront</a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary font-medium transition-colors text-sm" href="#">Creators</a>
+</nav>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary transition-colors" href="#"><span class="material-icons">chat_bubble_outline</span></a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary transition-colors" href="#"><span class="material-icons">shopping_cart</span></a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary transition-colors" href="#"><span class="material-icons">notifications</span></a>
+<img alt="User profile picture" class="h-8 w-8 rounded-full cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAypskS82jZSrRYe132BG01GbRmHAJFi1vrq9veRJvMGAPC4-8glG7tcGzdIFYDjoWV9wmVqhu39zCkhve_SNXMUJjd2W4mul3glPts36-J4Xhemj-TljSPB0DZUgUZ8x9tI6Ers2rev-GDfNp-GqKFkPFdHEsf5WOATkw9gKZYIoOm-vMH-_O-c0QFO7ZlTtOm2tcvUzpzgu5Y82-nbtG4_5f6J-IAf49PqftpHMHK_vF6YecFYNVthCKs4d-nIylBWThfCEkBgA_b"/>
+<button class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary transition-colors" id="theme-toggle">
+<span class="material-icons dark:hidden">dark_mode</span>
+<span class="material-icons hidden dark:inline">light_mode</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-grow flex overflow-hidden">
+<aside class="w-1/4 min-w-[320px] max-w-[400px] border-r border-border-light dark:border-border-dark flex flex-col bg-surface-light dark:bg-surface-dark">
+<div class="p-4 border-b border-border-light dark:border-border-dark flex-shrink-0">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold text-text-light-primary dark:text-text-dark-primary">Chats</h2>
+<button class="bg-primary/10 text-primary p-2 rounded-full hover:bg-primary/20 transition-colors">
+<span class="material-icons">edit</span>
+</button>
+</div>
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-full w-full py-2 pl-10 pr-4 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Search messages" type="text"/>
+</div>
+</div>
+<div class="flex-grow overflow-y-auto">
+<div class="flex items-center p-3 bg-primary/10 dark:bg-primary/20 border-r-4 border-primary">
+<img alt="Tech Guru's Gear logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQQGd3z-Ffsm4ASYuiA5Xx1EWS-ovqR1xoOrZ4W6lu0-VuSdKrWMOn83ssB1zemsdhfcL-RK8YIfiH2NZZ35cMtwr161hx78vXCFSUVlb40FGMhsQUtTdO-Ph8qUY8rrJwEvlXytKKMixd99J5EfBB-sfteHstbekruqRqy43AuEnMN0D2wLkniqAvPo__7Z9MCSp8IItkYRjGugWfNOga8gTHJyytQ1PO9PqPWlX38rITauPhZZhoKP8qVM-6l-s1jJ7zSZcEOvK5"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Tech Guru's Gear</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">10:30 AM</p>
+</div>
+<div class="flex justify-between items-start">
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">You: Perfect! I'll place the order right now.</p>
+<span class="material-icons text-sm text-blue-500 ml-2">done_all</span>
+</div>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Cozy Home Finds logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqhK3eFc6k-RwAKy2mGrPTEjUPh5E9gzGdBT_FBHKAD-TYpe9FaBfs3BHswrYczue5H2-noFjzSp27Zq9twVaDBR8KGXEYHvJDlV59oKlvpYioNVkvLLx8ENX_X5f9MRXvE_1NOZqxodxOeHSkxrlKL0xCLHaQLmZiJiJdtyDXi1BKH2J8HQH5ELjQaf_HGGdmeMKQ69-DSViYHoe1GLOU7wXUtag-7dKOy6RAAFgT3Uz6SUwLwKik4-hqZc-KfhIW0jVfQa0-wcnQ"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Cozy Home Finds</p>
+<p class="text-xs text-primary font-bold">9:45 AM</p>
+</div>
+<div class="flex justify-between items-center">
+<p class="text-sm text-text-light-primary dark:text-text-dark-primary font-semibold truncate">Yes, it's available in beige as well!</p>
+<span class="bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center ml-2">2</span>
+</div>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Jane's Style Hub logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBF74SpF3FRTMVb8kN2P3UIsMAOMxuTupIgNBh-aqXP9QRVYzC4NfXGlnMLuN773v1J5nc_ZoIT4mAnNFnl44YFOW1_T1iJaAoDNftiCngbhQ3JBm6jIT2EYY8ZY1Ypouc6GGLBhqNebphMkl5Q2ahJi0N-hWdYsh5E4W4Ji56vprXnVOLHm-I0sTFFl4fjc7WSGLcyglc6ZLcNwkkpV6ORhOj6rd866ir4kBLS9FnIepE-_OP-wTIZbnbx4GUuKzmeDEtkQJTohbU"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Jane's Style Hub</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">Yesterday</p>
+</div>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">You sent an attachment.</p>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Pro Gamer Gear logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb7IOCSamkM417DNl2lkhO-uNUXv27u1XXwBXOUA1JLs3NkMd7OsBcG9wiMOvzTn-ZWDEhjgpFzmekecNmhAU2YGOGtdm785Lux05gPm5S0pj6dKAfRqXDYb_T59S7JgHhwLUo2HwA3EEy3D9mzFkWw2vw4NqMte--FrQGMOmXephjBoZp-_vF86ajOtV6SR0TJtJV4-PGDjdmiHPfconLuQ2r_YkV5ZXLD3LG6r2V2p92pk4aX9qafUjBGjPHFLe6K4UHF6B7sFfe"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Pro Gamer Gear</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">Mon</p>
+</div>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">Thanks for your purchase!</p>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Minimalist City Backpacks logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbP7VMmICnJ2eH4YW6_VHVMd2N-itIj0QWnyW47c131sHF3bgtWbl6MKNuJIl01PqathcanZQVaF6p6mTYY-haBMWAqWN20jEZG3cyH7EfSeVnWGe_YT7tLOz8JNl9WM9LGaNxSpjomAghq2dRXSGmMBJUTJzc5R7yo9PdcWyvWSVoBzN5Cas8xHDs4aBHjfUfVWL2gsov59q69YNq5LAhnpw_ZQQgDCBFuRGFagpv4Ls6-wXzwrLYDHArjiC3L3fpBrcTyg-jqFkb"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Minimalist City Backpacks</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">Dec 12</p>
+</div>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">You: Is this waterproof?</p>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Vintage Finds logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbP7VMmICnJ2eH4YW6_VHVMd2N-itIj0QWnyW47c131sHF3bgtWbl6MKNuJIl01PqathcanZQVaF6p6mTYY-haBMWAqWN20jEZG3cyH7EfSeVnWGe_YT7tLOz8JNl9WM9LGaNxSpjomAghq2dRXSGmMBJUTJzc5R7yo9PdcWyvWSVoBzN5Cas8xHDs4aBHjfUfVWL2gsov59q69YNq5LAhnpw_ZQQgDCBFuRGFagpv4Ls6-wXzwrLYDHArjiC3L3fpBrcTyg-jqFkb"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Vintage Finds</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">Dec 11</p>
+</div>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">Shipped!</p>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Artisan Crafts logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb7IOCSamkM417DNl2lkhO-uNUXv27u1XXwBXOUA1JLs3NkMd7OsBcG9wiMOvzTn-ZWDEhjgpFzmekecNmhAU2YGOGtdm785Lux05gPm5S0pj6dKAfRqXDYb_T59S7JgHhwLUo2HwA3EEy3D9mzFkWw2vw4NqMte--FrQGMOmXephjBoZp-_vF86ajOtV6SR0TJtJV4-PGDjdmiHPfconLuQ2r_YkV5ZXLD3LG6r2V2p92pk4aX9qafUjBGjPHFLe6K4UHF6B7sFfe"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Artisan Crafts</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">Dec 10</p>
+</div>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">You: Can you make a custom one?</p>
+</div>
+</div>
+<div class="flex items-center p-3 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer transition-colors">
+<img alt="Gourmet Pantry logo" class="w-12 h-12 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBF74SpF3FRTMVb8kN2P3UIsMAOMxuTupIgNBh-aqXP9QRVYzC4NfXGlnMLuN773v1J5nc_ZoIT4mAnNFnl44YFOW1_T1iJaAoDNftiCngbhQ3JBm6jIT2EYY8ZY1Ypouc6GGLBhqNebphMkl5Q2ahJi0N-hWdYsh5E4W4Ji56vprXnVOLHm-I0sTFFl4fjc7WSGLcyglc6ZLcNwkkpV6ORhOj6rd866ir4kBLS9FnIepE-_OP-wTIZbnbx4GUuKzmeDEtkQJTohbU"/>
+<div class="flex-grow overflow-hidden">
+<div class="flex justify-between items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary truncate">Gourmet Pantry</p>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary flex-shrink-0">Dec 9</p>
+</div>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary truncate">Thank you for your review!</p>
+</div>
+</div>
+</div>
+</aside>
+<section class="flex-grow flex flex-col bg-background-light dark:bg-background-dark">
+<header class="flex items-center justify-between p-3 border-b border-border-light dark:border-border-dark flex-shrink-0">
+<div class="flex items-center">
+<img alt="Tech Guru's Gear logo" class="w-10 h-10 rounded-full mr-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpq_GpK8PGgvPN2g4hIXDYemW60B1-ddMxoU7jagBN15A5lcezjE8cimqBaYetBv50V28BcBoVNQMNR4EGAwG4C3n1sgw25EFT-5Ivtryy8bO9UeN3KgJcj_qgsPtxmvtebCFlRjGBGodV_1VDEtqV05kSDYa8Bf9WzjuRY9Rp91QEQWUnlk6Wm1tJ-K4cFHt1H2j2t9Z_D838o8odcAABCraBCo3O7mMJcbdSYjo68KadUMEjLXHoD2QsJt5w0sytqk9KfAWuXTAq"/>
+<div>
+<div class="flex items-center">
+<p class="font-bold text-text-light-primary dark:text-text-dark-primary">Tech Guru's Gear</p>
+<span class="material-icons text-blue-500 text-base ml-1">verified</span>
+</div>
+<div class="flex items-center text-xs text-green-500">
+<span class="h-2 w-2 bg-green-500 rounded-full mr-1.5"></span>
+                Online
+              </div>
+</div>
+</div>
+<button class="text-sm font-semibold text-primary hover:underline">View Storefront</button>
+</header>
+<div class="flex-grow p-6 overflow-y-auto relative">
+<div class="flex justify-center my-4">
+<div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+</div>
+<div class="flex items-center my-4">
+<div class="flex-grow border-t border-border-light dark:border-border-dark"></div>
+<span class="flex-shrink mx-4 text-xs text-text-light-secondary dark:text-text-dark-secondary">Yesterday</span>
+<div class="flex-grow border-t border-border-light dark:border-border-dark"></div>
+</div>
+<div class="flex justify-start mb-4">
+<div class="max-w-md">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-3">
+<p class="text-sm text-text-light-primary dark:text-text-dark-primary">Hey! I saw you were interested in our new AirSound Pro Earbuds. Do you have any questions about them?</p>
+</div>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary mt-1 ml-2">10:25 AM</p>
+</div>
+</div>
+<div class="flex justify-end mb-4">
+<div class="max-w-md">
+<div class="bg-primary text-white rounded-lg p-3">
+<p class="text-sm">Hi! Yes, I was wondering about the battery life and if they are sweat resistant. I plan to use them for workouts.</p>
+</div>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary mt-1 mr-2 text-right">10:26 AM</p>
+</div>
+</div>
+<div class="flex justify-start mb-4">
+<div class="max-w-md">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-3 space-y-2">
+<p class="text-sm text-text-light-primary dark:text-text-dark-primary">Great question! They have up to 8 hours of listening time on a single charge, and 24 hours with the charging case. They are also IPX4 rated, so they're perfect for workouts!</p>
+<img alt="AirSound Pro Earbuds" class="rounded-lg max-w-xs cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-xfkc3WAtk9BLnUuQZM6dEuWMC9HZpnnVGMDXbNiEKXm_A26qCTzXmrCkN_sZHPNwiqRgy4tveH_34tX2pTRZ6DEdioIdBebENnDTrtsjg9vtWMQO_WP_TyQzU4XG2t646dh-RUBLTKJX0w5fyRBtkK3WXd4l7RxUPHi33K2mtgrnBgfuJI5wBN09g4-7mRFFyljGFL-gX-nXc0WcNWNFl1ZElU0OUKidM3QvHMax0K-zzMd7-VfsvqT2sypLpEvfQldYzeGdfJVO"/>
+</div>
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary mt-1 ml-2">10:28 AM</p>
+</div>
+</div>
+<div class="flex justify-end mb-4">
+<div class="max-w-md">
+<div class="bg-primary text-white rounded-lg p-3">
+<p class="text-sm">Perfect! I'll place the order right now.</p>
+</div>
+<div class="flex justify-end items-center mt-1 mr-2">
+<p class="text-xs text-text-light-secondary dark:text-text-dark-secondary">10:30 AM</p>
+<span class="material-icons text-sm text-blue-500 ml-1">done_all</span>
+</div>
+</div>
+</div>
+<div class="flex justify-start mb-4">
+<div class="flex items-center">
+<img alt="Tech Guru's Gear logo" class="w-8 h-8 rounded-full mr-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl9FGBabCM11b-Nu3y_xGzIfsghsZUBQOzaVJEtR-x_nREqdTichPmDPCnHdMaefzIVnqfjLzyF0x5r3dwESKeGJId_2ITRGt7xgAR8zWCirhJOjubBegIh8sNDGu4EFy1V5KHir4zx6v9qMLHSth5jBkq_r6wKSEsQMrJmulttcChA69bgfMN3pUzopGTy5vLKzgOajzXBLxyCu1ZEiwTHQ7IVSOpq6I8tUsEHa-khTJOY1ZcP0peYtHgAy_mPuVywtXLmoSHSCPN"/>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg p-3 flex items-center space-x-1">
+<span class="h-2 w-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+<span class="h-2 w-2 bg-gray-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+<span class="h-2 w-2 bg-gray-400 rounded-full animate-bounce"></span>
+</div>
+</div>
+</div>
+<div class="absolute bottom-20 left-1/2 -translate-x-1/2">
+<button class="bg-primary text-white text-sm font-semibold py-2 px-4 rounded-full shadow-lg flex items-center hover:bg-primary/90 transition-colors">
+<span class="material-icons text-base mr-1">arrow_downward</span>
+              Jump to latest
+            </button>
+</div>
+</div>
+<div class="p-4 border-t border-border-light dark:border-border-dark flex-shrink-0 bg-surface-light dark:bg-surface-dark">
+<div class="flex items-center space-x-3">
+<button class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-icons">add_circle_outline</span>
+</button>
+<button class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary transition-colors">
+<span class="material-icons">sentiment_satisfied_alt</span>
+</button>
+<div class="flex-grow">
+<textarea class="bg-background-light dark:bg-background-dark w-full resize-none border border-border-light dark:border-border-dark rounded-lg p-2 focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Type a message..." rows="1"></textarea>
+</div>
+<button class="bg-primary text-white rounded-full p-2 hover:bg-primary/90 transition-colors disabled:opacity-50">
+<span class="material-icons">send</span>
+</button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
+
+</body></html>

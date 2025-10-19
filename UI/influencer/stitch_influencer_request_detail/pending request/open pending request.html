@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Request Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F3F4F6",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .timeline {
+            display: flex;
+            align-items: center;
+        }
+        .timeline-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            flex: 1;
+        }
+        .timeline-item:not(:first-child)::before {
+            content: '';
+            position: absolute;
+            width: calc(100% - 2rem);
+            height: 2px;
+            background-color: #E5E7EB;
+            top: 0.625rem;
+            right: calc(50% + 1rem);
+        }
+        .dark .timeline-item:not(:first-child)::before {
+            background-color: #374151;
+        }
+        .timeline-item.active:not(:first-child)::before {
+             background-color: #3B82F6;
+        }
+        .timeline-item.active + .timeline-item.active::before {
+             background-color: #3B82F6;
+        }
+        .timeline-dot {
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 50%;
+            background-color: #D1D5DB;
+            border: 2px solid #D1D5DB;
+            z-index: 10;
+        }
+        .dark .timeline-dot {
+            background-color: #4B5563;
+            border-color: #4B5563;
+        }
+        .timeline-item.active .timeline-dot {
+            background-color: #3B82F6;
+            border-color: #3B82F6;
+        }
+         .timeline-item.active .timeline-label {
+            color: #3B82F6;
+            font-weight: 600;
+        }
+        .dark .timeline-item.active .timeline-label {
+             color: #93C5FD;
+        }
+        .timeline-label {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+        }
+        .tooltip {
+          position: relative;
+          display: inline-block;
+        }
+        .tooltip .tooltiptext {
+          visibility: hidden;
+          width: 120px;
+          background-color: #333;
+          color: #fff;
+          text-align: center;
+          border-radius: 6px;
+          padding: 5px 0;
+          position: absolute;
+          z-index: 1;
+          bottom: 150%;
+          left: 50%;
+          margin-left: -60px;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        .tooltip .tooltiptext::after {
+          content: "";
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #333 transparent transparent transparent;
+        }
+        .tooltip:hover .tooltiptext {
+          visibility: visible;
+          opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col justify-between">
+<div>
+<div class="p-6">
+<h1 class="text-2xl font-bold text-primary">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">CREATOR CENTER</p>
+</div>
+<nav class="mt-6">
+<ul>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">dashboard</span>
+<span>Dashboard</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">person</span>
+<span>Profile &amp; Verification</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">folder</span>
+<span>Portfolio</span>
+</li>
+<li class="px-6 py-3 flex items-center bg-blue-100 text-primary border-l-4 border-primary">
+<span class="material-icons mr-3">request_quote</span>
+<span>Requests</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">store</span>
+<span>Shop</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">analytics</span>
+<span>Analytics</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">task_alt</span>
+<span>Tasks</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">star_rate</span>
+<span>Ratings &amp; Safety</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">payment</span>
+<span>Payouts &amp; Billing</span>
+</li>
+<li class="px-6 py-3 flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700">
+<span class="material-icons mr-3">mail</span>
+<span>Messages</span>
+</li>
+</ul>
+</nav>
+</div>
+<div class="p-6">
+<a class="flex items-center text-subtext-light dark:text-subtext-dark hover:bg-blue-50 dark:hover:bg-gray-700 px-6 py-3" href="#">
+<span class="material-icons mr-3">settings</span>
+<span>Account Settings</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-7xl mx-auto">
+<div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4 rounded-md mb-6 flex justify-between items-center" role="alert">
+<div>
+<p class="font-bold">Billing Method Missing</p>
+<p>Please add a billing method to your account to proceed.</p>
+</div>
+<button class="bg-yellow-500 text-white font-bold py-2 px-4 rounded hover:bg-yellow-600">
+                        Add Card
+                    </button>
+</div>
+<div class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 rounded-md mb-6 flex justify-between items-center" role="alert">
+<div>
+<p class="font-bold">Buyer Account Not Linked</p>
+<p>Link your buyer account to complete your profile.</p>
+</div>
+<button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600">
+                        Link Buyer Account
+                    </button>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-border-light dark:border-border-dark mb-6">
+<div class="flex items-start justify-between">
+<div class="flex items-start space-x-4">
+<img alt="Classic Leather Watch" class="w-24 h-24 rounded-lg object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGc1aAFI9SILLjHcvcfXTL3eKdS4djMCmTFP7brnSO_z85Ix26YxrBaiDGw38-69ZNXXZpnQBJRcqw4hqiPL31UpHzWgSUwKUus-9owKDiEx3vKA8ZxjAgeVR6CKdcCz2oZulwfEUUvzkRWH7OdigKBLz5mfs8XEspSlKjIIHzBaKQYyXas5Hes8B5qnXuPh5k0O212s-Xp4NYqM5VAzvNmgCHS9-8tc4j0134VnZsQ5J95BF9IJJGWdlsCSlH8n_GzJwiWBYC0lU"/>
+<div>
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">"Velocity" Running Shoes</h2>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Request ID: #RQ-8764</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Date: 2023-10-25</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller: QuickStride</p>
+</div>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300">
+                                PENDING
+                            </span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-border-light dark:border-border-dark mb-6">
+<div class="timeline -mx-4">
+<div class="timeline-item tooltip active">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Requested</span>
+<span class="tooltiptext">Request sent on 2023-10-25</span>
+</div>
+<div class="timeline-item tooltip">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Merchant Decision</span>
+<span class="tooltiptext">Awaiting decision</span>
+</div>
+<div class="timeline-item tooltip">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Shipped</span>
+<span class="tooltiptext"></span>
+</div>
+<div class="timeline-item tooltip">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Out for Delivery</span>
+<span class="tooltiptext"></span>
+</div>
+<div class="timeline-item tooltip">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Delivered</span>
+<span class="tooltiptext"></span>
+</div>
+<div class="timeline-item tooltip">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Content Submitted</span>
+<span class="tooltiptext"></span>
+</div>
+<div class="timeline-item tooltip">
+<div class="timeline-dot"></div>
+<span class="timeline-label text-subtext-light dark:text-subtext-dark">Completed</span>
+<span class="tooltiptext"></span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="md:col-span-2">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-border-light dark:border-border-dark mb-6">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Request Summary</h3>
+<div class="space-y-4 text-sm">
+<div>
+<p class="font-medium text-subtext-light dark:text-subtext-dark">Preferred Shipping Address</p>
+<p class="text-text-light dark:text-text-dark">123 Creator Lane, Influencer City, CA 90210</p>
+</div>
+<div>
+<p class="font-medium text-subtext-light dark:text-subtext-dark">Content Due Date</p>
+<p class="text-text-light dark:text-text-dark">14 days after delivery</p>
+</div>
+<div>
+<p class="font-medium text-subtext-light dark:text-subtext-dark">Notes to Merchant</p>
+<p class="text-text-light dark:text-text-dark">Excited to try these out! Please include the blue colorway if possible. Thanks!</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Actions</h3>
+<div class="flex space-x-4">
+<button class="flex items-center bg-white dark:bg-gray-800 border border-border-light dark:border-border-dark text-text-light dark:text-text-dark py-2 px-4 rounded-md hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-icons text-base mr-2">message</span> Message Seller
+                                </button>
+<button class="flex items-center bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600">
+<span class="material-icons text-base mr-2">cancel</span> Cancel Request
+                                </button>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm border border-border-light dark:border-border-dark">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Affiliate Link Generator</h3>
+<div class="space-y-3">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Your unique affiliate link for this product.</p>
+<div class="flex items-center space-x-2">
+<input class="w-full bg-gray-100 dark:bg-gray-800 border-border-light dark:border-border-dark rounded-md text-sm" readonly="" type="text" value="https://inflopick.com/link/abcd123"/>
+<button class="bg-primary text-white font-semibold py-2 px-4 rounded-md hover:bg-primary/90 whitespace-nowrap">
+                                        Get Link
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

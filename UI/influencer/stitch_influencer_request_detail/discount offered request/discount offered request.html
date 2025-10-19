@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Request Detail</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        'background-light': '#F8FAFC',
+                        'background-dark': '#1E293B',
+                        'card-light': '#FFFFFF',
+                        'card-dark': '#293548',
+                        'text-light': '#1E293B',
+                        'text-dark': '#E2E8F0',
+                        'subtext-light': '#64748B',
+                        'subtext-dark': '#94A3B8',
+                        'border-light': '#E2E8F0',
+                        'border-dark': '#334155',
+                        'success-light': '#22C55E',
+                        'success-dark': '#4ADE80',
+                        'warning-light': '#F59E0B',
+                        'warning-dark': '#FBBF24',
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: '0.5rem',
+                        'lg': '0.75rem',
+                        'full': '9999px',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-icons {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-display">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-primary">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">CREATOR CENTER</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">account_circle</span>
+                Profile &amp; Verification
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">style</span>
+                Portfolio
+            </a>
+<a class="flex items-center px-4 py-2 bg-primary/10 text-primary rounded-lg" href="#">
+<span class="material-icons mr-3">inbox</span>
+                Requests
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">storefront</span>
+                Shop
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">task_alt</span>
+                Tasks
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">star_outline</span>
+                Ratings &amp; Safety
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">payment</span>
+                Payouts &amp; Billing
+            </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">mail_outline</span>
+                Messages
+            </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">settings</span>
+                Account Settings
+            </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="space-y-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm flex items-start justify-between">
+<div class="flex items-start space-x-6">
+<img alt="A sophisticated brown leather strap watch with a black dial." class="w-24 h-24 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdIXmDWW356sAhLzCxO1fO3rZGx8oNgd2ePkCpN8gIvaHVFZOy_nwU_ejT9ehndIbti1bQwh4W0w-tS7G-g3J71CaZydjZZtkUblfTt5BwsyobC-S7qCvZw9babgmwci1Im4cAak1v5b_nH_ALa3IUrcBHW9flQDPnym7gsAGNV1l4EHIHPJLA6760kK9Oi-lPUj7sna484Evfwq1duN9WfnA5isLF6bRPcopCOQFR6xr7NvKeiwl1fQagAbYTadtxziosK0kPtcdj"/>
+<div>
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">"Velocity" Running Shoes</h2>
+<p class="text-subtext-light dark:text-subtext-dark">Request ID: #RQ-8764</p>
+<p class="text-subtext-light dark:text-subtext-dark">Date: 2023-10-25</p>
+<p class="text-subtext-light dark:text-subtext-dark">Seller: QuickStride</p>
+</div>
+</div>
+<div class="text-right">
+<span class="px-3 py-1 text-sm font-semibold text-green-800 bg-green-200 dark:bg-green-700 dark:text-green-100 rounded-full">APPROVED (DISCOUNT)</span>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex flex-col items-center relative flex-shrink-0">
+<div class="w-5 h-5 bg-primary rounded-full flex items-center justify-center">
+<span class="material-icons text-white !text-sm">check</span>
+</div>
+<p class="text-sm mt-2 text-primary font-semibold text-center">Requested</p>
+</div>
+<div class="flex-1 h-0.5 bg-primary mx-2"></div>
+<div class="flex flex-col items-center relative flex-shrink-0">
+<div class="w-5 h-5 bg-primary rounded-full"></div>
+<p class="text-sm mt-2 text-primary font-semibold text-center">Approved</p>
+</div>
+<div class="flex-1 h-0.5 bg-border-light dark:bg-border-dark mx-2"></div>
+<div class="flex flex-col items-center relative text-subtext-light dark:text-subtext-dark flex-shrink-0">
+<div class="w-5 h-5 border-2 border-border-light dark:border-border-dark rounded-full"></div>
+<p class="text-sm mt-2 text-center">Purchase</p>
+</div>
+<div class="flex-1 h-0.5 bg-border-light dark:bg-border-dark mx-2"></div>
+<div class="flex flex-col items-center relative text-subtext-light dark:text-subtext-dark flex-shrink-0">
+<div class="w-5 h-5 border-2 border-border-light dark:border-border-dark rounded-full"></div>
+<p class="text-sm mt-2 text-center">Shipped</p>
+</div>
+<div class="flex-1 h-0.5 bg-border-light dark:bg-border-dark mx-2"></div>
+<div class="flex flex-col items-center relative text-subtext-light dark:text-subtext-dark flex-shrink-0">
+<div class="w-5 h-5 border-2 border-border-light dark:border-border-dark rounded-full"></div>
+<p class="text-sm mt-2 text-center">Delivered</p>
+</div>
+<div class="flex-1 h-0.5 bg-border-light dark:bg-border-dark mx-2"></div>
+<div class="flex flex-col items-center relative text-subtext-light dark:text-subtext-dark flex-shrink-0">
+<div class="w-5 h-5 border-2 border-border-light dark:border-border-dark rounded-full"></div>
+<p class="text-sm mt-2 text-center">Content Submitted</p>
+</div>
+<div class="flex-1 h-0.5 bg-border-light dark:bg-border-dark mx-2"></div>
+<div class="flex flex-col items-center relative text-subtext-light dark:text-subtext-dark flex-shrink-0">
+<div class="w-5 h-5 border-2 border-border-light dark:border-border-dark rounded-full"></div>
+<p class="text-sm mt-2 text-center">Completed</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 space-y-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Discount Offer</h3>
+<div class="space-y-4">
+<div>
+<label class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Discount Code</label>
+<div class="flex items-center mt-1">
+<p class="text-lg font-mono tracking-widest text-text-light dark:text-text-dark bg-gray-100 dark:bg-gray-700/50 p-2 rounded-l-md" id="discountCode">**********</p>
+<button class="px-4 py-2 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-r-md hover:bg-gray-300 dark:hover:bg-gray-500 text-sm" onclick="document.getElementById('discountCode').innerText = 'CREATOR25OFF'">
+                                        Click to reveal
+                                    </button>
+<span class="ml-4 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200">
+                                        Auto-apply
+                                    </span>
+</div>
+</div>
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Discount Value: <span class="text-text-light dark:text-text-dark font-semibold">25% OFF</span></p>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Expires: <span class="text-text-light dark:text-text-dark font-semibold">2023-12-31</span></p>
+</div>
+<button class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:focus:ring-offset-background-dark">
+                                Buy with Discount
+                            </button>
+<p class="text-xs text-center text-subtext-light dark:text-subtext-dark">If your buyer account is not linked, you will be prompted to link it first.</p>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Request Summary</h3>
+<div class="space-y-4">
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Preferred Shipping Address</p>
+<p class="text-text-light dark:text-text-dark">123 Creator Lane, Apt 5, Influencity, CA 90210, USA</p>
+</div>
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Content Due Date</p>
+<p class="text-text-light dark:text-text-dark">14 days after product is delivered</p>
+</div>
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Notes to Merchant</p>
+<p class="text-text-light dark:text-text-dark bg-gray-50 dark:bg-gray-700/30 p-3 rounded-md">"Excited to try out these new running shoes for my marathon training! I'll be creating a mix of Instagram stories showing the unboxing and a detailed Reel reviewing the performance after a few runs. My audience is really into fitness, so this will be a great fit."</p>
+</div>
+</div>
+</div>
+<div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg flex items-start space-x-3">
+<span class="material-icons text-blue-500 dark:text-blue-400 mt-0.5">info</span>
+<div>
+<h4 class="font-semibold text-blue-800 dark:text-blue-200">Post-purchase reminder</h4>
+<p class="text-sm text-blue-700 dark:text-blue-300">
+                                Your content deliverables and due date countdown will begin only after your order is marked as "Delivered". The countdown status will appear in the timeline once delivery data is received from the buyer side.
+                            </p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm self-start">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Affiliate Link Generator</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Your unique affiliate link for this product. Use this for post-purchase promotion.</p>
+<div class="flex">
+<input class="flex-1 w-full p-2 border border-border-light dark:border-border-dark rounded-l-md bg-background-light dark:bg-background-dark text-sm" readonly="" type="text" value="https://inflopick.co/a/xY2z..."/>
+<button class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary/90 text-sm font-semibold">Get Link</button>
+</div>
+<button class="mt-4 w-full flex items-center justify-center gap-2 py-2 px-4 border border-border-light dark:border-border-dark rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50">
+<span class="material-icons">qr_code_2</span>
+                        Generate QR Code
+                    </button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

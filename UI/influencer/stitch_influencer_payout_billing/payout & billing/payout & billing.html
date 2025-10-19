@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Payout &amp; Billing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style>
+        .material-icons-outlined {
+            font-size: 20px;
+        }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3b82f6",
+                        "background-light": "#f8fafc",
+                        "background-dark": "#0f172a",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1e293b",
+                        "text-light": "#1e293b",
+                        "text-dark": "#e2e8f0",
+                        "text-secondary-light": "#64748b",
+                        "text-secondary-dark": "#94a3b8",
+                        "border-light": "#e2e8f0",
+                        "border-dark": "#334155",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen" x-data="{ billingModal: false, showSuccessToast: false, payoutMethodModal: false }">
+<aside class="w-64 flex-shrink-0 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="p-6">
+<div class="flex items-center space-x-2">
+<span class="material-icons-outlined text-primary text-3xl">store</span>
+<h1 class="text-xl font-bold">InfloPick</h1>
+</div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mt-1">CREATOR CENTER</p>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">account_circle</span> Profile &amp; Verification
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">folder</span> Portfolio
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">inbox</span> Requests
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">storefront</span> Shop
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">analytics</span> Analytics
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">task_alt</span> Tasks
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">star_outline</span> Ratings &amp; Safety
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-primary bg-blue-100 dark:bg-blue-900/30 dark:text-primary" href="#">
+<span class="material-icons-outlined mr-3">payment</span> Payouts &amp; Billing
+                </a>
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">email</span> Messages
+                </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons-outlined mr-3">settings</span> Account Settings
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto" x-data="{ payoutModal: false, payoutMethodSuccessToast: false }">
+<header class="flex justify-between items-center mb-8">
+<h1 class="text-3xl font-bold text-text-light dark:text-text-dark">Payout &amp; Billing</h1>
+<div class="flex items-center space-x-2">
+<button class="flex items-center space-x-1 text-sm text-text-secondary-light dark:text-text-secondary-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons-outlined text-base">help_outline</span>
+<span>Help</span>
+</button>
+</div>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 space-y-8">
+<div class="bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 text-yellow-800 dark:text-yellow-200 px-4 py-3 rounded-md flex items-center space-x-3">
+<span class="material-icons-outlined">warning</span>
+<p class="text-sm">Your identity verification is pending. Please complete KYC to receive payouts.</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Balances</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Available</p>
+<p class="text-2xl font-bold text-green-600 dark:text-green-400">$2,150.75</p>
+</div>
+<div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Pending</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">$1,100.00</p>
+</div>
+<div>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark flex items-center">On hold <span class="material-icons-outlined text-sm ml-1">info</span>
+</p>
+<p class="text-2xl font-bold text-orange-500 dark:text-orange-400">$0.00</p>
+</div>
+</div>
+<div class="mt-4 text-xs text-text-secondary-light dark:text-text-secondary-dark">
+<p>Note: A transaction fee of 2.6% + $0.30 will be applied to each withdrawal.</p>
+</div>
+<div class="mt-6 border-t border-border-light dark:border-border-dark pt-4 flex justify-between items-center text-sm">
+<div class="text-text-secondary-light dark:text-text-secondary-dark">
+<p>Next payout: <span class="font-medium text-text-light dark:text-text-dark">On Request</span></p>
+</div>
+<button @click="payoutModal = true" class="bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-blue-700 disabled:bg-blue-300 dark:disabled:bg-blue-800 disabled:cursor-not-allowed">
+                                Request Payout
+                            </button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Payout Methods</h2>
+<button @click="payoutMethodModal = true" class="flex items-center space-x-1 bg-primary text-white px-3 py-2 rounded-md font-medium text-sm hover:bg-blue-700">
+<span class="material-icons-outlined text-base">add</span>
+<span>Add Method</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="border border-border-light dark:border-border-dark p-4 rounded-md flex justify-between items-center">
+<div class="flex items-center space-x-4">
+<span class="material-icons-outlined text-3xl text-text-secondary-light dark:text-text-secondary-dark">account_balance</span>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Bank Transfer <span class="ml-2 bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Default</span></p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">•••• 1234 • USD</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-green-600 dark:text-green-400 text-sm flex items-center"><span class="material-icons-outlined text-base mr-1">check_circle</span>Verified</span>
+<button class="p-1 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark"><span class="material-icons-outlined">edit</span></button>
+<button class="p-1 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark"><span class="material-icons-outlined">delete</span></button>
+</div>
+</div>
+<div class="border border-border-light dark:border-border-dark p-4 rounded-md flex justify-between items-center">
+<div class="flex items-center space-x-4">
+<img alt="PayPal logo" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOyQITDJvFWsRnmevZpwrfAMwmeEhNbxRJKwRRE_ejlqrScGUyQkJdEitpebqX6606b5izFypZ61Y_qmO8FGNDS-H83nS9QEAgljQRWVh1M2_UP_Cdn3XSN08hfXYegrGrmXOTdpg1UohLtQfmMsGGtSA4n8uV7cLDaquvoQUK7WjP_YwtUCY0f0ywQf-Gu06ga5ZEWpmriTKfK8l9TATy5gGsEaXHUPQlzzugt0uQNXNvzqH6Bg2JApizozlLjc1nhvKanz526TY"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">PayPal</p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">creator@email.com • USD</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="text-orange-500 dark:text-orange-400 text-sm font-medium hover:underline">Verify</button>
+<button class="text-sm text-primary hover:underline font-medium">Set as Default</button>
+<button class="p-1 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark"><span class="material-icons-outlined">edit</span></button>
+<button class="p-1 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark"><span class="material-icons-outlined">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Billing Methods</h2>
+<button @click="billingModal = true" class="flex items-center space-x-1 bg-primary text-white px-3 py-2 rounded-md font-medium text-sm hover:bg-blue-700">
+<span class="material-icons-outlined text-base">add</span>
+<span>Add Method</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="border border-border-light dark:border-border-dark p-4 rounded-md flex justify-between items-center" x-show="showSuccessToast">
+<div class="flex items-center space-x-4">
+<img alt="Visa" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMI1K1NUrmdp5jxacehdwMa8s_DbecDGIsllBqZm7BQzZBpcMd4GI42MfyGjmNaYsMncS4bsDDtephTyy8ZN4DdN2YaweEa9rzdsjYDUdcaSmEdWaWihJN7q26xd8UwvHbk3dhhjCEcVrdUd7EQ6pSwDtgQm_GcgMog8P60bxGsNDPT1gdm4O4fzw1nEQVFNpgeifbqDwn31Jr6mBRL5-tXyVN1b5nJH2_H-w2WVh3UyM_Mvf9x5AQeQDD9X_4Bq9eVtMpnHCK67c"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Visa <span class="ml-2 bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Default</span></p>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Ending in 4242 • Expires 12/25</p>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="p-1 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark"><span class="material-icons-outlined">edit</span></button>
+<button class="p-1 rounded-full hover:bg-background-light dark:hover:bg-background-dark text-text-secondary-light dark:text-text-secondary-dark"><span class="material-icons-outlined">delete</span></button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">History &amp; Statements</h2>
+<div class="flex items-center space-x-2">
+<input class="w-40 text-sm rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="Filter..." type="text"/>
+<button class="flex items-center space-x-1 border border-border-light dark:border-border-dark text-text-secondary-light dark:text-text-secondary-dark px-3 py-2 rounded-md font-medium text-sm hover:bg-background-light dark:hover:bg-background-dark">
+<span class="material-icons-outlined text-base">download</span>
+<span>Download</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left">
+<thead class="text-xs text-text-secondary-light dark:text-text-secondary-dark uppercase bg-background-light dark:bg-background-dark">
+<tr>
+<th class="px-4 py-3" scope="col">Date</th>
+<th class="px-4 py-3" scope="col">Amount</th>
+<th class="px-4 py-3" scope="col">Method</th>
+<th class="px-4 py-3" scope="col">Status</th>
+<th class="px-4 py-3" scope="col">Reference ID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-4 py-4 font-medium text-text-light dark:text-text-dark">Oct 1, 2023</td>
+<td class="px-4 py-4">$1,250.00</td>
+<td class="px-4 py-4">Bank Transfer</td>
+<td class="px-4 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Paid</span></td>
+<td class="px-4 py-4 font-mono text-xs"><a class="text-primary hover:underline" href="#">PO-1A2B3C4D</a></td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-4 py-4 font-medium text-text-light dark:text-text-dark">Sep 15, 2023</td>
+<td class="px-4 py-4">$980.50</td>
+<td class="px-4 py-4">Bank Transfer</td>
+<td class="px-4 py-4"><span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Paid</span></td>
+<td class="px-4 py-4 font-mono text-xs"><a class="text-primary hover:underline" href="#">PO-X9Y8Z7W6</a></td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="px-4 py-4 font-medium text-text-light dark:text-text-dark">Sep 1, 2023</td>
+<td class="px-4 py-4">$1,500.00</td>
+<td class="px-4 py-4">Bank Transfer</td>
+<td class="px-4 py-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Processing</span></td>
+<td class="px-4 py-4 font-mono text-xs"><a class="text-primary hover:underline" href="#">PO-Q5R6S7T8</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 space-y-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold mb-3 text-text-light dark:text-text-dark">Payout Schedule</h3>
+<div class="space-y-4 text-sm">
+<div>
+<label class="block mb-2 text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="frequency">Frequency</label>
+<select class="bg-background-light border border-border-light text-text-light text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-background-dark dark:border-border-dark dark:placeholder-gray-400 dark:text-text-dark dark:focus:ring-primary dark:focus:border-primary" id="frequency">
+<option>On Request</option>
+<option>Monthly</option>
+<option>Bi-Weekly</option>
+</select>
+</div>
+<div class="flex justify-between">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Processing Time</span>
+<span class="font-medium text-text-light dark:text-text-dark">3-5 business days</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold mb-3 text-text-light dark:text-text-dark">Tax &amp; Identity</h3>
+<div class="space-y-3 text-sm mb-4">
+<div class="flex justify-between">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Legal Name</span>
+<span class="font-medium text-text-light dark:text-text-dark">John Doe</span>
+</div>
+<div class="flex justify-between">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Tax Country</span>
+<span class="font-medium text-text-light dark:text-text-dark">United States</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Form W-9</span>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">On File</span>
+</div>
+</div>
+<button class="w-full border border-border-light dark:border-border-dark text-text-secondary-light dark:text-text-secondary-dark px-3 py-2 rounded-md font-medium text-sm hover:bg-background-light dark:hover:bg-background-dark">
+                            Update Tax Info
+                        </button>
+<div class="mt-4 border-t border-border-light dark:border-border-dark pt-4">
+<h4 class="text-sm font-medium mb-2 text-text-light dark:text-text-dark">Tax Forms</h4>
+<a class="flex items-center text-sm text-primary hover:underline" href="#">
+<span class="material-icons-outlined text-base mr-1">download</span> 2022 1099-NEC
+                            </a>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Notifications &amp; Security</h3>
+<div class="space-y-4 text-sm">
+<div class="flex items-center justify-between">
+<span class="font-medium text-text-light dark:text-text-dark">Payout Sent</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-medium text-text-light dark:text-text-dark">Payout Failed</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="font-medium text-text-light dark:text-text-dark">Two-Factor Auth (2FA)</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<a class="text-sm text-primary hover:underline flex items-center" href="#">
+                                View Audit Log <span class="material-icons-outlined text-sm ml-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50" style="display: none" x-show="payoutModal">
+<div @click.away="payoutModal = false" class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg p-8 w-full max-w-md" x-data="{ payoutAmount: 'full', variableAmount: '' }">
+<h2 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Request Payout</h2>
+<div class="space-y-4">
+<div>
+<label class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Payout Amount</label>
+<div class="mt-2 space-y-2">
+<label class="flex items-center p-3 rounded-lg border border-border-light dark:border-border-dark cursor-pointer has-[:checked]:bg-blue-50 has-[:checked]:border-primary dark:has-[:checked]:bg-blue-900/20">
+<input class="form-radio text-primary focus:ring-primary" name="payout_amount" type="radio" value="full" x-model="payoutAmount"/>
+<span class="ml-3 text-sm font-medium text-text-light dark:text-text-dark">Full amount ($2,150.75)</span>
+</label>
+<label class="flex items-center p-3 rounded-lg border border-border-light dark:border-border-dark cursor-pointer has-[:checked]:bg-blue-50 has-[:checked]:border-primary dark:has-[:checked]:bg-blue-900/20">
+<input class="form-radio text-primary focus:ring-primary" name="payout_amount" type="radio" value="variable" x-model="payoutAmount"/>
+<span class="ml-3 text-sm font-medium text-text-light dark:text-text-dark">Variable amount</span>
+</label>
+<div class="relative" x-show="payoutAmount === 'variable'">
+<input class="w-full text-sm rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary pl-10" placeholder="Enter amount" type="number" x-model="variableAmount"/>
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark">$</span>
+</div>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-border-dark pt-4 space-y-2 text-sm">
+<div class="flex justify-between">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Withdrawal Amount</span>
+<span class="font-medium text-text-light dark:text-text-dark" x-text="payoutAmount === 'full' ? '$2,150.75' : (variableAmount ? '$' + parseFloat(variableAmount).toFixed(2) : '$0.00')"></span>
+</div>
+<div class="flex justify-between">
+<span class="text-text-secondary-light dark:text-text-secondary-dark">Transaction Fee (2.6% + $0.30)</span>
+<span class="font-medium text-text-light dark:text-text-dark" x-text="payoutAmount === 'full' ? '$' + ((2150.75 * 0.026) + 0.30).toFixed(2) : (variableAmount ? '$' + ((parseFloat(variableAmount) * 0.026) + 0.30).toFixed(2) : '$0.00')"></span>
+</div>
+<div class="flex justify-between font-bold text-text-light dark:text-text-dark">
+<span>You will receive</span>
+<span x-text="payoutAmount === 'full' ? '$' + (2150.75 - ((2150.75 * 0.026) + 0.30)).toFixed(2) : (variableAmount ? '$' + (parseFloat(variableAmount) - ((parseFloat(variableAmount) * 0.026) + 0.30)).toFixed(2) : '$0.00')"></span>
+</div>
+</div>
+</div>
+<div class="mt-6 flex justify-end space-x-3">
+<button @click="payoutModal = false" class="px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark">Cancel</button>
+<button class="bg-primary text-white px-4 py-2 rounded-md font-medium text-sm hover:bg-blue-700">Confirm Withdrawal</button>
+</div>
+</div>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50" style="display: none;" x-show="payoutMethodModal" x-transition="">
+<div @click.away="payoutMethodModal = false" class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg p-6 sm:p-8 w-full max-w-lg" x-data="payoutMethodForm()">
+<h2 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Add Payout Method</h2>
+<div class="mb-6">
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark mb-2">Payout type</label>
+<div class="flex rounded-md shadow-sm">
+<button :class="{ 'bg-primary text-white': payoutType === 'bank', 'bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark': payoutType !== 'bank' }" @click="payoutType = 'bank'" class="px-4 py-2 text-sm font-medium rounded-l-md border border-border-light dark:border-border-dark flex-1">Bank Transfer</button>
+<button :class="{ 'bg-primary text-white': payoutType === 'paypal', 'bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark': payoutType !== 'paypal' }" @click="payoutType = 'paypal'" class="px-4 py-2 text-sm font-medium rounded-r-md border border-border-light dark:border-border-dark flex-1 flex items-center justify-center space-x-2">
+<img alt="PayPal logo" class="h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOyQITDJvFWsRnmevZpwrfAMwmeEhNbxRJKwRRE_ejlqrScGUyQkJdEitpebqX6606b5izFypZ61Y_qmO8FGNDS-H83nS9QEAgljQRWVh1M2_UP_Cdn3XSN08hfXYegrGrmXOTdpg1UohLtQfmMsGGtSA4n8uV7cLDaquvoQUK7WjP_YwtUCY0f0ywQf-Gu06ga5ZEWpmriTKfK8l9TATy5gGsEaXHUPQlzzugt0uQNXNvzqH6Bg2JApizozlLjc1nhvKanz526TY"/>
+<span>Connect PayPal</span></button>
+</div>
+</div>
+<form @submit.prevent="savePayoutMethod" x-show="payoutType === 'bank'" x-transition="">
+<div class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="accountHolderName">Account holder name</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="accountHolderName" required="" type="text" x-model="form.accountHolderName"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.accountHolderName" x-text="errors.accountHolderName"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="accountType">Account type</label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="accountType" required="" x-model="form.accountType">
+<option value="personal">Personal</option>
+<option value="business">Business</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="country">Country</label>
+<select @change="updateBankFields" class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="country" required="" x-model="form.country">
+<option value="US">United States</option>
+<option value="CA">Canada</option>
+<option value="EU">European Union</option>
+<option value="INTL">International</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="currency">Currency</label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="currency" required="" x-model="form.currency">
+<option>USD</option>
+<option>CAD</option>
+<option>EUR</option>
+</select>
+</div>
+</div>
+<div class="space-y-4" x-show="form.country === 'US'">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="routingNumber">Routing number</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="routingNumber" type="text" x-model="form.us.routingNumber"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.us.routingNumber" x-text="errors.us.routingNumber"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="accountNumberUS">Account number</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="accountNumberUS" type="password" x-model="form.us.accountNumber"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.us.accountNumber" x-text="errors.us.accountNumber"></p>
+</div>
+</div>
+</div>
+<div class="space-y-4" x-show="form.country === 'CA'">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="institutionNumber">Institution #</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="institutionNumber" type="text" x-model="form.ca.institutionNumber"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.ca.institutionNumber" x-text="errors.ca.institutionNumber"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="transitNumber">Transit #</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="transitNumber" type="text" x-model="form.ca.transitNumber"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.ca.transitNumber" x-text="errors.ca.transitNumber"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="accountNumberCA">Account #</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="accountNumberCA" type="password" x-model="form.ca.accountNumber"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.ca.accountNumber" x-text="errors.ca.accountNumber"></p>
+</div>
+</div>
+</div>
+<div class="space-y-4" x-show="form.country === 'EU' || form.country === 'INTL'">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="iban">IBAN</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="iban" type="text" x-model="form.intl.iban"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.intl.iban" x-text="errors.intl.iban"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="swiftBic">SWIFT/BIC</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="swiftBic" type="text" x-model="form.intl.swiftBic"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.intl.swiftBic" x-text="errors.intl.swiftBic"></p>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="bankName">Bank name</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="bankName" required="" type="text" x-model="form.bankName"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.bankName" x-text="errors.bankName"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Account holder address</label>
+<div class="space-y-2 mt-1">
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="Country" required="" type="text" x-model="form.address.country"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="Street" required="" type="text" x-model="form.address.street"/>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="City" required="" type="text" x-model="form.address.city"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="State/Province" required="" type="text" x-model="form.address.state"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="Postal/ZIP" required="" type="text" x-model="form.address.zip"/>
+</div>
+<p class="text-red-500 text-xs mt-1" x-show="errors.address" x-text="errors.address"></p>
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<label class="flex items-center">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary" type="checkbox" x-model="form.saveAsDefault"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">Save as default</span>
+</label>
+<label class="flex items-start">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary mt-0.5" required="" type="checkbox" x-model="form.consent"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">I confirm these details are correct and authorize payouts to this account.</span>
+</label>
+<p class="text-red-500 text-xs" x-show="errors.consent" x-text="errors.consent"></p>
+</div>
+<div class="mt-8 flex justify-end space-x-3">
+<button @click="payoutMethodModal = false" class="px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" type="button">Cancel</button>
+<button :disabled="!isFormValid()" class="bg-primary text-white px-4 py-2 rounded-md font-medium text-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed" type="submit">Save</button>
+</div>
+</form>
+<div x-show="payoutType === 'paypal'" x-transition="">
+<div class="text-center p-8">
+<p class="text-text-secondary-light dark:text-text-secondary-dark">You will be redirected to PayPal to securely link your account.</p>
+</div>
+<div class="mt-8 flex justify-end space-x-3">
+<button @click="payoutMethodModal = false" class="px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" type="button">Cancel</button>
+<button @click="linkPaypal" class="bg-primary text-white px-4 py-2 rounded-md font-medium text-sm hover:bg-blue-700">Connect to PayPal</button>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg flex items-center" style="display: none;" x-show="payoutMethodSuccessToast" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:enter-start="opacity-0 transform translate-y-2" x-transition:leave="transition ease-in duration-300" x-transition:leave-end="opacity-0 transform translate-y-2" x-transition:leave-start="opacity-100 transform translate-y-0">
+<span class="material-icons-outlined mr-2">check_circle</span>
+<span>Payout method added!</span>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50" style="display: none;" x-show="billingModal" x-transition="">
+<div @click.away="billingModal = false" class="bg-card-light dark:bg-card-dark rounded-lg shadow-lg p-6 sm:p-8 w-full max-w-lg" x-data="billingForm()">
+<h2 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Add Billing Method</h2>
+<p class="text-sm text-text-secondary-light dark:text-text-secondary-dark mb-6">Secure a payment method for sample-protection charges.</p>
+<div x-show="!paypalSelected">
+<label class="text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Choose payment type</label>
+<div class="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+<template :key="type.id" x-for="type in cardTypes">
+<label :class="{ 'border-primary bg-blue-50 dark:bg-blue-900/20': paymentType === type.id, 'border-border-light dark:border-border-dark': paymentType !== type.id }" class="flex items-center justify-center p-3 rounded-lg border cursor-pointer text-center">
+<input :value="type.id" class="sr-only" name="payment_type" type="radio" x-model="paymentType"/>
+<span class="text-sm font-medium text-text-light dark:text-text-dark" x-text="type.name"></span>
+</label>
+</template>
+</div>
+<button @click="selectPaypal" class="w-full flex items-center justify-center space-x-2 border border-border-light dark:border-border-dark rounded-lg px-4 py-2.5 text-sm font-medium hover:bg-background-light dark:hover:bg-background-dark mb-6">
+<img alt="PayPal logo" class="h-5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOyQITDJvFWsRnmevZpwrfAMwmeEhNbxRJKwRRE_ejlqrScGUyQkJdEitpebqX6606b5izFypZ61Y_qmO8FGNDS-H83nS9QEAgljQRWVh1M2_UP_Cdn3XSN08hfXYegrGrmXOTdpg1UohLtQfmMsGGtSA4n8uV7cLDaquvoQUK7WjP_YwtUCY0f0ywQf-Gu06ga5ZEWpmriTKfK8l9TATy5gGsEaXHUPQlzzugt0uQNXNvzqH6Bg2JApizozlLjc1nhvKanz526TY"/>
+<span>Connect PayPal</span>
+</button>
+</div>
+<form @submit.prevent="saveMethod" x-show="paymentType &amp;&amp; !paypalSelected" x-transition="">
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="cardholderName">Cardholder name</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="cardholderName" required="" type="text" x-model="form.cardholderName"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="cardNumber">Card number</label>
+<input @input="validateCardNumber" class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="cardNumber" required="" type="text" x-model="form.cardNumber"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.cardNumber" x-text="errors.cardNumber"></p>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="expiry">Expiry (MM/YY)</label>
+<input @input="validateExpiry" class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="expiry" placeholder="MM/YY" required="" type="text" x-model="form.expiry"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.expiry" x-text="errors.expiry"></p>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark" for="cvv">CVV/CVC</label>
+<input @input="validateCvv" class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" id="cvv" required="" type="text" x-model="form.cvv"/>
+<p class="text-red-500 text-xs mt-1" x-show="errors.cvv" x-text="errors.cvv"></p>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-text-secondary-light dark:text-text-secondary-dark">Billing address</label>
+<div class="space-y-2 mt-1">
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="Country" required="" type="text" x-model="form.address.country"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="Street" required="" type="text" x-model="form.address.street"/>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="City" required="" type="text" x-model="form.address.city"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="State/Province" required="" type="text" x-model="form.address.state"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary text-sm" placeholder="Postal/ZIP" required="" type="text" x-model="form.address.zip"/>
+</div>
+<p class="text-red-500 text-xs mt-1" x-show="errors.address" x-text="errors.address"></p>
+</div>
+</div>
+</div>
+<div class="mt-6 space-y-4">
+<label class="flex items-center">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary" type="checkbox" x-model="form.saveAsDefault"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">Save as default</span>
+</label>
+<label class="flex items-start">
+<input class="form-checkbox h-4 w-4 text-primary rounded border-gray-300 focus:ring-primary mt-0.5" required="" type="checkbox" x-model="form.consent"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">I authorize charges if I don’t upload content/return sample by the deadline.</span>
+</label>
+<p class="text-red-500 text-xs" x-show="errors.consent" x-text="errors.consent"></p>
+</div>
+<div class="mt-8 flex justify-end space-x-3">
+<button @click="billingModal = false" class="px-4 py-2 text-sm font-medium rounded-md text-text-secondary-light dark:text-text-secondary-dark hover:bg-background-light dark:hover:bg-background-dark" type="button">Cancel</button>
+<button :disabled="!isFormValid()" class="bg-primary text-white px-4 py-2 rounded-md font-medium text-sm hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed" type="submit">Save</button>
+</div>
+</form>
+</div>
+</div>
+<div class="fixed bottom-5 right-5 bg-green-500 text-white py-2 px-4 rounded-lg shadow-lg flex items-center" style="display: none;" x-show="showSuccessToast" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:enter-start="opacity-0 transform translate-y-2" x-transition:leave="transition ease-in duration-300" x-transition:leave-end="opacity-0 transform translate-y-2" x-transition:leave-start="opacity-100 transform translate-y-0">
+<span class="material-icons-outlined mr-2">check_circle</span>
+<span>Payment method saved!</span>
+</div>
+</main>
+</div>
+<script>
+        function payoutMethodForm() {
+            return {
+                payoutType: 'bank',
+                form: {
+                    accountHolderName: '',
+                    accountType: 'personal',
+                    country: 'US',
+                    currency: 'USD',
+                    us: {
+                        routingNumber: '',
+                        accountNumber: ''
+                    },
+                    ca: {
+                        institutionNumber: '',
+                        transitNumber: '',
+                        accountNumber: ''
+                    },
+                    intl: {
+                        iban: '',
+                        swiftBic: ''
+                    },
+                    bankName: '',
+                    address: {
+                        country: '',
+                        street: '',
+                        city: '',
+                        state: '',
+                        zip: ''
+                    },
+                    saveAsDefault: false,
+                    consent: false,
+                },
+                errors: {
+                    accountHolderName: '',
+                    us: {
+                        routingNumber: '',
+                        accountNumber: ''
+                    },
+                    ca: {
+                        institutionNumber: '',
+                        transitNumber: '',
+                        accountNumber: ''
+                    },
+                    intl: {
+                        iban: '',
+                        swiftBic: ''
+                    },
+                    bankName: '',
+                    address: '',
+                    consent: ''
+                },
+                updateBankFields() {
+                    // Reset errors when country changes
+                    this.errors.us = {
+                        routingNumber: '',
+                        accountNumber: ''
+                    };
+                    this.errors.ca = {
+                        institutionNumber: '',
+                        transitNumber: '',
+                        accountNumber: ''
+                    };
+                    this.errors.intl = {
+                        iban: '',
+                        swiftBic: ''
+                    };
+                },
+                validateForm() {
+                    let valid = true;
+                    // Reset errors
+                    this.errors = {
+                        accountHolderName: '',
+                        us: {},
+                        ca: {},
+                        intl: {},
+                        bankName: '',
+                        address: '',
+                        consent: ''
+                    };
+                    if (!this.form.accountHolderName) {
+                        this.errors.accountHolderName = 'Account holder name is required.';
+                        valid = false;
+                    }
+                    if (!this.form.bankName) {
+                        this.errors.bankName = 'Bank name is required.';
+                        valid = false;
+                    }
+                    if (!this.form.address.country || !this.form.address.street || !this.form.address.city || !this.form.address.state || !this.form.address.zip) {
+                        this.errors.address = 'All address fields are required.';
+                        valid = false;
+                    }
+                    if (this.form.country === 'US') {
+                        if (!this.form.us.routingNumber || !/^\d{9}$/.test(this.form.us.routingNumber)) {
+                            this.errors.us.routingNumber = 'Invalid routing number (must be 9 digits).';
+                            valid = false;
+                        }
+                        if (!this.form.us.accountNumber || !/^\d{4,17}$/.test(this.form.us.accountNumber)) {
+                            this.errors.us.accountNumber = 'Invalid account number.';
+                            valid = false;
+                        }
+                    } else if (this.form.country === 'CA') {
+                        if (!this.form.ca.institutionNumber || !/^\d{3}$/.test(this.form.ca.institutionNumber)) {
+                            this.errors.ca.institutionNumber = 'Invalid institution number (must be 3 digits).';
+                            valid = false;
+                        }
+                        if (!this.form.ca.transitNumber || !/^\d{5}$/.test(this.form.ca.transitNumber)) {
+                            this.errors.ca.transitNumber = 'Invalid transit number (must be 5 digits).';
+                            valid = false;
+                        }
+                        if (!this.form.ca.accountNumber || !/^\d{7,12}$/.test(this.form.ca.accountNumber)) {
+                            this.errors.ca.accountNumber = 'Invalid account number.';
+                            valid = false;
+                        }
+                    } else { // EU/INTL
+                        if (!this.form.intl.iban || !/^[A-Z]{2}\d{2}[A-Z\d]{11,30}$/.test(this.form.intl.iban.replace(/\s/g, ''))) {
+                            this.errors.intl.iban = 'Invalid IBAN format.';
+                            valid = false;
+                        }
+                        if (!this.form.intl.swiftBic || !/^[A-Z]{6}[A-Z\d]{2}([A-Z\d]{3})?$/.test(this.form.intl.swiftBic)) {
+                            this.errors.intl.swiftBic = 'Invalid SWIFT/BIC format.';
+                            valid = false;
+                        }
+                    }
+                    if (!this.form.consent) {
+                        this.errors.consent = 'You must confirm the details are correct.';
+                        valid = false;
+                    }
+                    return valid;
+                },
+                isFormValid() {
+                    this.validateForm();
+                    // Check all error objects
+                    return !this.errors.accountHolderName && !this.errors.bankName && !this.errors.address && !this.errors.consent &&
+                        Object.values(this.errors.us).every(e => !e) &&
+                        Object.values(this.errors.ca).every(e => !e) &&
+                        Object.values(this.errors.intl).every(e => !e);
+                },
+                savePayoutMethod() {
+                    if (this.validateForm()) {
+                        console.log('Saving bank details:', this.form);
+                        this.payoutMethodModal = false;
+                        this.payoutMethodSuccessToast = true;
+                        setTimeout(() => this.payoutMethodSuccessToast = false, 3000);
+                        // In a real app, you would add the new method to the list.
+                        this.resetForm();
+                    }
+                },
+                linkPaypal() {
+                    console.log('Opening PayPal OAuth flow...');
+                    // Simulate redirect
+                    setTimeout(() => {
+                        console.log('PayPal linked successfully: creator@email.com');
+                        this.payoutMethodModal = false;
+                        this.payoutMethodSuccessToast = true;
+                        setTimeout(() => this.payoutMethodSuccessToast = false, 3000);
+                        // Here you'd update your UI to show the linked PayPal account
+                    }, 1500);
+                },
+                resetForm() {
+                    this.form = {
+                        accountHolderName: '',
+                        accountType: 'personal',
+                        country: 'US',
+                        currency: 'USD',
+                        us: {},
+                        ca: {},
+                        intl: {},
+                        bankName: '',
+                        address: {},
+                        saveAsDefault: false,
+                        consent: false,
+                    };
+                    this.errors = {
+                        us: {},
+                        ca: {},
+                        intl: {}
+                    };
+                }
+            }
+        }
+        function billingForm() {
+            return {
+                paymentType: '',
+                paypalSelected: false,
+                cardTypes: [{
+                    id: 'debit',
+                    name: 'Debit'
+                }, {
+                    id: 'visa',
+                    name: 'Visa'
+                }, {
+                    id: 'mastercard',
+                    name: 'Mastercard'
+                }, ],
+                form: {
+                    cardholderName: '',
+                    cardNumber: '',
+                    expiry: '',
+                    cvv: '',
+                    address: {
+                        country: '',
+                        street: '',
+                        city: '',
+                        state: '',
+                        zip: ''
+                    },
+                    saveAsDefault: false,
+                    consent: false,
+                },
+                errors: {
+                    cardNumber: '',
+                    expiry: '',
+                    cvv: '',
+                    address: '',
+                    consent: ''
+                },
+                selectPaypal() {
+                    this.paypalSelected = true;
+                    // Simulate PayPal OAuth flow
+                    console.log("Opening PayPal OAuth flow...");
+                    setTimeout(() => {
+                        console.log("PayPal linked successfully.");
+                        this.billingModal = false;
+                        this.showSuccessToast = true;
+                        setTimeout(() => this.showSuccessToast = false, 3000);
+                        // Add PayPal to the list of billing methods (visual representation)
+                    }, 2000);
+                },
+                validateCardNumber() {
+                    this.errors.cardNumber = '';
+                    let value = this.form.cardNumber.replace(/\D/g, '');
+                    if (value.length > 16) value = value.slice(0, 16);
+                    this.form.cardNumber = value;
+                    if (value.length > 0 && (value.length < 13 || !this.luhnCheck(value))) {
+                        this.errors.cardNumber = 'Invalid card number.';
+                    }
+                },
+                validateExpiry() {
+                    this.errors.expiry = '';
+                    let value = this.form.expiry.replace(/\D/g, '');
+                    if (value.length > 2) {
+                        value = value.slice(0, 2) + '/' + value.slice(2, 4);
+                    }
+                    this.form.expiry = value;
+                    if (value.length === 5) {
+                        const [month, year] = value.split('/');
+                        if (month < 1 || month > 12 || year.length !== 2) {
+                            this.errors.expiry = 'Invalid expiry date.';
+                        }
+                    } else if (value.length > 0) {
+                        this.errors.expiry = 'Use MM/YY format.';
+                    }
+                },
+                validateCvv() {
+                    this.errors.cvv = '';
+                    let value = this.form.cvv.replace(/\D/g, '');
+                    if (value.length > 4) value = value.slice(0, 4);
+                    this.form.cvv = value;
+                    if (value.length > 0 && (value.length < 3)) {
+                        this.errors.cvv = 'Invalid CVV.';
+                    }
+                },
+                validateAddress() {
+                    this.errors.address = '';
+                    if (!this.form.address.country || !this.form.address.street || !this.form.address.city || !this.form.address.state || !this.form.address.zip) {
+                        this.errors.address = 'All address fields are required.';
+                        return false;
+                    }
+                    return true;
+                },
+                luhnCheck(val) {
+                    let sum = 0;
+                    for (let i = 0; i < val.length; i++) {
+                        let intVal = parseInt(val.substr(i, 1));
+                        if (i % 2 === val.length % 2) {
+                            intVal *= 2;
+                            if (intVal > 9) {
+                                intVal = 1 + (intVal % 10);
+                            }
+                        }
+                        sum += intVal;
+                    }
+                    return (sum % 10) === 0;
+                },
+                isFormValid() {
+                    this.validateCardNumber();
+                    this.validateExpiry();
+                    this.validateCvv();
+                    this.validateAddress();
+                    if (!this.form.consent) {
+                        this.errors.consent = "You must accept the authorization.";
+                    } else {
+                        this.errors.consent = '';
+                    }
+                    return !Object.values(this.errors).some(error => error !== '') && this.form.cardholderName && this.form.consent;
+                },
+                saveMethod() {
+                    if (this.isFormValid()) {
+                        console.log('Saving method:', this.form);
+                        this.billingModal = false;
+                        this.showSuccessToast = true;
+                        // In a real app, you would add the new card to the list.
+                        // Here we just show the toast and reset.
+                        setTimeout(() => this.showSuccessToast = false, 3000);
+                        this.resetForm();
+                    }
+                },
+                resetForm() {
+                    this.paymentType = '';
+                    this.form = {
+                        cardholderName: '',
+                        cardNumber: '',
+                        expiry: '',
+                        cvv: '',
+                        address: {
+                            country: '',
+                            street: '',
+                            city: '',
+                            state: '',
+                            zip: ''
+                        },
+                        saveAsDefault: false,
+                        consent: false,
+                    };
+                    this.errors = {
+                        cardNumber: '',
+                        expiry: '',
+                        cvv: '',
+                        address: ''
+                    };
+                }
+            }
+        }
+    </script>
+
+</body></html>

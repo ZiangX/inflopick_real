@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Product Detail Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F97316",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#111827",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex flex-col min-h-screen" id="root">
+<header class="bg-background-light dark:bg-background-dark border-b border-border-light dark:border-border-dark sticky top-0 z-50">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center py-4">
+<div class="flex items-center space-x-8">
+<h1 class="text-2xl font-bold text-primary">Inflopick</h1>
+</div>
+<div class="flex-1 flex justify-center px-8">
+<div class="w-full max-w-lg">
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-gray-500 dark:text-gray-400">search</span>
+</div>
+<input class="w-full bg-gray-100 dark:bg-gray-700 rounded-full py-2 pl-10 pr-4 text-text-light dark:text-text-dark placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="relative text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+<span class="material-icons">chat_bubble_outline</span>
+</button>
+<button class="relative text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+<span class="material-icons">shopping_cart</span>
+</button>
+<button class="relative text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+<span class="material-icons">notifications</span>
+</button>
+<div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+<button class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary">
+<span class="material-icons">dark_mode</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center items-center py-3 border-t border-border-light dark:border-border-dark">
+<nav class="flex space-x-12">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Product</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Storefront</a>
+<a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary" href="#">Creators</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="flex-grow container mx-auto px-4 py-8">
+<div x-data="{ showForm: false }">
+<div class="bg-primary/10 dark:bg-primary/20 border border-primary/30 rounded-lg p-4 mb-8">
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+<p class="text-center sm:text-left">
+<span class="font-bold text-primary">Promote this product and earn a 12% commission!</span>
+</p>
+<button @click="showForm = !showForm" class="bg-primary text-white font-semibold py-2 px-6 rounded-lg hover:bg-orange-600 transition-colors whitespace-nowrap">
+                            Request to Promote
+                        </button>
+</div>
+<div class="mt-6 bg-background-light dark:bg-gray-800 p-6 rounded-lg border border-border-light dark:border-border-dark" style="display: none;" x-show="showForm" x-transition:enter="transition ease-out duration-300" x-transition:enter-end="opacity-100 transform translate-y-0" x-transition:enter-start="opacity-0 transform -translate-y-4" x-transition:leave="transition ease-in duration-200" x-transition:leave-end="opacity-0 transform -translate-y-4" x-transition:leave-start="opacity-100 transform translate-y-0">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<h3 class="text-lg font-semibold mb-4">Promotion Request</h3>
+<div class="space-y-4">
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+<span class="material-icons">add_shopping_cart</span>
+                                    Request Sample
+                                </button>
+<p class="text-xs text-gray-500 dark:text-gray-400 text-center">You can check the status of your sample request in the Creator Center.</p>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="text-lg font-semibold mb-4">Your Affiliate Link</h3>
+<div class="relative">
+<input class="w-full bg-gray-100 dark:bg-gray-700 border border-border-light dark:border-border-dark rounded-lg py-3 px-4 pr-12 text-sm text-gray-600 dark:text-gray-300" readonly="" type="text" value="https://inflopick.com/p/urban-runner?ref=creator123"/>
+<button class="absolute inset-y-0 right-0 flex items-center px-4 text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-primary">
+<span class="material-icons text-base">content_copy</span>
+</button>
+</div>
+<p class="text-xs text-gray-500 dark:text-gray-400 mt-2">Copy this link to share with your audience.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+<div>
+<div class="relative w-full aspect-square bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+<img alt="Red running shoe" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBro_nBrAE2M29MIChVgdTFzVjaXYPJiHFEUOI2Z087mU8-RrIgxDGo5G50wHZfTJR_1uBDD5M0Rs3mFmc0aMfdu2F7mYyrzR1Rezh3l0TcAkdeyusCZm2Qzz7jKP-PsysETAxnqzOnYYZMAtjUiF0je56inV7pJOI1UBDDmEKeza4mUkQCHeTBvU6rRUMecUVzqk_VMPIhoTl_xcxyC_yzp080STmuWCHM8-6afb62P7mnzq_uYtLJUE0H-56BFY_eoE0ze0hWSMm9"/>
+<div class="absolute inset-0 bg-black bg-opacity-10"></div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+<button class="w-2 h-2 bg-white rounded-full opacity-100"></button>
+<button class="w-2 h-2 bg-white rounded-full opacity-50"></button>
+<button class="w-2 h-2 bg-white rounded-full opacity-50"></button>
+<button class="w-2 h-2 bg-white rounded-full opacity-50"></button>
+</div>
+</div>
+<div class="grid grid-cols-5 gap-4 mt-4">
+<div class="aspect-square bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden border-2 border-primary">
+<img alt="Red running shoe side view" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0T8TBncbYVuE7BdI3mgf9exgaW3p1EdL3fgrJKQqn2u2foP-msxWq7ZMKj7AovCBSDRZKQPzHSJrTN_UtVq8vk-XcVT2HAECIOvPzbfU2jRKwjrl9uVRMRcu026V8VvQfxkfuGymCSJrsY4KWIUYBSaZRdD0jCoIWANDCCT5MY4WEr17eaq4A3bTePkv5mDvimSbASgZ7ITANzzJvxnK8cs7ogehSN65Bfb9j3GSdGr4TAr5x0r7YM4vMddRp3N3lbD1Xf97OTtbn"/>
+</div>
+<div class="aspect-square bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+<img alt="Red running shoe top view" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeTZjvnDyJpL7q5b5HAhOFA3wuLPpfc1z-R0_4zZszKHwvHeU0JNPxvJ7Z2pZxe4uIFlA-Tgi58EgN4UalsD2JS_NoCYCKmdG_l1ncKpCp3pftosi9DXT1J1cge4m9UvtiBRaSmT-ua2QGHDjNNobzqlQbydB9DsSLY1zWPZM6ERe6g0nYrrBsOMtXTCFRqfpO-XyRbZOuSrCuGi0mTFi7eWnLB8lJRWUVKYWdkEEZbBwgYIot5YcNclgy1LU_FXApTLexCTzm5dOq"/>
+</div>
+<div class="aspect-square bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+<img alt="Red running shoe detail" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwPJs-EHXCEfwLzL9MMdpgPd-647hM3fzRsf6rnuQlAk3O_IbnWhir8mkkZEolU36o6sT5Liqq6BNjxq-6xYBSZU5N5QPpwOO4qEYcG8zakOfeSr5QZG7uwmNxb6JyJyeSZnrwZev5wt4VdpbnAB1-TWGG_3Pv0ZKNwkZHfXgVCVZukV1fuo5Y4wVdrqc0VgNkfof0QKHHL38QTICyy0x3fCXjpdA6VipF4_EhRmrjh1KA9X9PmsrbDaIjgV08NoEzyhe4qQL5SI8I"/>
+</div>
+<div class="relative aspect-square bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
+<img alt="Red running shoe video" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQh8EDOoVdmixfxu1jXuYbVun8OT0_3XwJ7NUlE6CPDyuh6iARsw1tUPCYOnK1w0CQibd7aFkbCvEj0ywukN_Dpfo4goJbbYr592CVTvAyoxO_y9W0TO9LWkAtu5avl0LAGlPUBm-FKX0ZjgPibL3st0XtAwu9ro2oH_4KQWF2852t_njrJgjfoMxCmW4Ba3Sexnf-DRfs2trisY2rwqwdzUscYM7jUgzvkbdnBRwswjcO2bWtQ7hEpwv_1PRFxINHHQqKwTBnrbF3"/>
+<div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+<span class="material-icons text-white text-4xl">play_circle</span>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Urban Runner Sneakers</h2>
+<p class="text-gray-600 dark:text-gray-300">Experience the perfect blend of style and performance with the Urban Runner Sneakers. Designed for the modern athlete, these shoes provide exceptional comfort and support.</p>
+<div class="flex items-baseline space-x-2">
+<span class="text-3xl font-bold text-primary">$89</span>
+<span class="text-xl text-gray-500 dark:text-gray-400 line-through">$120</span>
+<span class="bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-red-200 dark:text-red-900">25% OFF</span>
+</div>
+<div class="text-sm text-gray-600 dark:text-gray-300">
+<p>Standard Shipping: <span class="font-medium text-text-light dark:text-text-dark">Free</span></p>
+<p>Estimated Delivery: <span class="font-medium text-text-light dark:text-text-dark">3-5 business days</span></p>
+</div>
+<p class="text-green-600 font-semibold">In Stock - 12 remaining</p>
+<div class="border-t border-border-light dark:border-border-dark pt-4">
+<p class="font-semibold mb-2">Color</p>
+<div class="flex space-x-2">
+<button class="w-8 h-8 rounded-full bg-red-500 border-2 border-primary"></button>
+<button class="w-8 h-8 rounded-full bg-black border-2 border-transparent hover:border-primary"></button>
+<button class="w-8 h-8 rounded-full bg-white border-2 border-gray-300 hover:border-primary"></button>
+</div>
+</div>
+<div>
+<p class="font-semibold mb-2">Size</p>
+<div class="flex flex-wrap gap-2">
+<button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:border-primary">7</button>
+<button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:border-primary">8</button>
+<button class="px-4 py-2 border border-primary bg-orange-50 text-primary rounded-lg text-sm">9</button>
+<button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:border-primary">10</button>
+<button class="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-400 cursor-not-allowed">11</button>
+<button class="px-4 py-2 border border-gray-300 rounded-lg text-sm hover:border-primary">12</button>
+</div>
+</div>
+<div class="mt-4 bg-orange-50 dark:bg-orange-900/50 border border-orange-200 dark:border-orange-800 rounded-lg p-3 flex items-center space-x-3">
+<span class="material-icons text-primary">movie</span>
+<a class="text-sm text-orange-800 dark:text-orange-200 font-semibold hover:underline" href="#">See Shorts about this product</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-gray-200 dark:bg-gray-700 p-3 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600">
+<span class="material-icons">favorite_border</span>
+</button>
+<button class="w-full bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 py-3 rounded-lg font-semibold hover:bg-gray-700 dark:hover:bg-gray-300">Add to Cart</button>
+<button class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-orange-600">Buy Now</button>
+</div>
+<button class="w-full flex items-center justify-center space-x-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 py-3 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-700">
+<span class="material-icons">chat</span>
+<span>Chat with storefront</span>
+</button>
+</div>
+</div>
+<div class="mt-16">
+<div class="border-b border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between py-4 cursor-pointer">
+<h3 class="text-xl font-semibold">Product Description &amp; Specifications</h3>
+<span class="material-icons">expand_more</span>
+</div>
+</div>
+<div class="py-6 space-y-4 text-gray-600 dark:text-gray-300">
+<p>Experience the perfect blend of style and performance with the Urban Runner Sneakers. Designed for the modern athlete, these shoes provide exceptional comfort and support for your daily runs or casual wear. The breathable mesh upper keeps your feet cool, while the cushioned sole absorbs impact for a smooth ride.</p>
+<ul class="list-disc list-inside space-y-2">
+<li>Upper Material: Breathable Mesh</li>
+<li>Sole Material: High-density EVA foam</li>
+<li>Weight: 250g (Size 9)</li>
+<li>Closure Type: Lace-up</li>
+<li>Colors: Red, Black, White</li>
+</ul>
+</div>
+<div class="border-b border-t border-border-light dark:border-border-dark py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-4">
+<img alt="Seller logo" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrqtc-1xdZWUKQmrCWDlxuDCCuNbCTp9EYuTc-AVI7rjw_GCeHrEKnUwqfZ_NjmK4e20Z1e3wZEeWYuA2i7KADzpaVjt_YRowp6MpEUzYJMx1QGilr-2telVcY0MU4aKYaAeA_Y_kgVVmR5OsqSx4_dC--ZeYKCNgxgcZI-9-c6He9umQwq6J5DzJlZFlFLlaKl6zHlBxxTiGTN_F4JaloC9_ulb-3-4feIjKBDiKLKAyHJnHIio8ezHvx4wRw69WcY03uESYcaW5n"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">ActiveWear Co.</p>
+<div class="flex items-center text-sm text-gray-500 dark:text-gray-400">
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span>4.7 (990 reviews)</span>
+</div>
+</div>
+</div>
+<a class="text-primary hover:underline font-medium" href="#">Visit Storefront</a>
+</div>
+</div>
+<div class="border-b border-t border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between py-4 cursor-pointer">
+<h3 class="text-xl font-semibold">Customer Reviews (1,234)</h3>
+<span class="material-icons">expand_less</span>
+</div>
+<div class="py-6">
+<div class="flex items-center mb-6">
+<span class="text-4xl font-bold mr-4">4.8</span>
+<div class="flex items-center">
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star_half</span>
+</div>
+</div>
+<div class="space-y-6">
+<div class="border-b border-border-light dark:border-border-dark pb-6">
+<div class="flex items-center mb-2">
+<div class="flex items-center">
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+</div>
+<p class="ml-2 font-semibold">Absolutely amazing!</p>
+</div>
+<p class="text-gray-600 dark:text-gray-300 mb-3">These are the most comfortable running shoes I've ever owned. Lightweight and great support.</p>
+<div class="flex space-x-2">
+<img alt="Customer review image" class="w-20 h-20 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCcpKzHPF9SY33MrhcO8J3GeK7UVIu_0VKY1oZqnKuypHljh5CKYeZBR4Mc_E3ZxElRjrC_GrbyDYD06Thull81sD0YQ0AAB4LhiFvR2uLrcRt_6GiKVO3I272kB86U_0zgzYUrukUDEJCqJ_qUX10xUeE7FEfdTxa1p6avV9TE6ipFUNpcAhj_jSuWa1H-9e5Wa1ADtJIWhYRBd92DCqECVF8U_JKR_enlKEZAqPStOVxlOtkDJXIwHN9tnWghHUr01Yj7M-LyOWt"/>
+<img alt="Customer review image 2" class="w-20 h-20 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD9JZoZ9LdlAIsnsFkuRHeAlpfL8qqyPZaUjOD2qLMOHS_JdhjPaHF-ROh9P9R-ia4sxigdvscfy0Yf-EX-9kh7bMo7zMGTLVneGhX99Fkogem3ictyEfJ1UF1lI-C0iKDqPR2aw8Mt_BJVS9-rR8DF8oaQgCjmkRAQRj3dICJirJpLoc_e0IjkljttLd1AJiZpP2_5isdkxgtAHekeLM5kbDhb8PH2xa69siouaxX3-HUZq4Orxn0Mq3AFI3YK6RNRID-ge6kGkYj"/>
+</div>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">By Sarah J. on March 15, 2024</p>
+</div>
+<div class="border-b border-border-light dark:border-border-dark pb-6">
+<div class="flex items-center mb-2">
+<div class="flex items-center">
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-yellow-500 text-base">star</span>
+<span class="material-icons text-gray-400 text-base">star_border</span>
+</div>
+<p class="ml-2 font-semibold">Great value for the price</p>
+</div>
+<p class="text-gray-600 dark:text-gray-300">Very good for the price. Not as cushioned as some premium brands, but excellent for daily training.</p>
+<p class="text-sm text-gray-500 dark:text-gray-400 mt-2">By Mike R. on March 12, 2024</p>
+</div>
+</div>
+<button class="mt-6 w-full text-primary font-semibold py-2 rounded-lg border border-primary hover:bg-orange-50 dark:hover:bg-orange-900/20">Show All Reviews</button>
+</div>
+</div>
+</div>
+<div class="mt-16">
+<h3 class="text-2xl font-bold mb-6">Customers also bought</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+<div class="group">
+<div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden aspect-square mb-2">
+<img alt="Sport watch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBOFYdh9ar409RSFZRyLLQoS-Y2ylwiMT1JX0Ngb2RaDRzQ5C5HAc3WSb9P3muq_m5N4HTMEbsFV2-xSJtjJd_27F1opSAGJlp9Yo-73RSzYoz2jcHvkubMaR9s9JKjekVR8u1I-s_AW7q4Q1gWgnS6pTCBlIfRuWYVnWkosKNfr42CUrua3iZ6wJDZ7I3JkNlDUbr8WqR3N8TkZ35Knri4bkyo9hQ6cDSWPtHABI8YCVML-U8r0FRviKwKXBLWF3fs5zEKekwcnL8"/>
+</div>
+<p class="font-medium">Stylish Smartwatch V2</p>
+<p class="text-primary font-semibold">$299</p>
+</div>
+<div class="group">
+<div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden aspect-square mb-2">
+<img alt="Wireless earbuds" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSKA4T5GZKS2qTPN0LoMHhKNt67sGrEK6QxGAzGrkZ7Pm044j24q4FpQfTAEa9Aql4zpX0XovUYOT_NhnBvDA9Y0iUoXW5fhtSBQ3ZskNl9QoPKp2qLngmvQJ4GIAlPKIKDgvLBB_8KxRZrXEFWY4JDZlTngByHHcwEob1R2k4iMRg5gADWbtkh6XKtZEbK3mcrOkpqy2u3G_bnQWPXeiItpdtgKpCdyXo50VLei9n1d_wjrYClVzY_hVcnRd6tJStmJe6APuQjC5m"/>
+</div>
+<p class="font-medium">AirSound Pro Earbuds</p>
+<p class="text-primary font-semibold">$129</p>
+</div>
+<div class="group">
+<div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden aspect-square mb-2">
+<img alt="Yoga mat" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgSuRCQb1B7hg5k3PcRcg4F4ap9VPPjQvUIzeDN0dQeeRsm15dWc2uGjvMjlhfrgYyc4llEmniCPh2D7RMNdctHdAX4_ksb3H38eTvZoRRfrfbK-3yBd0-qkSNODIhgd9kxWhTf8rcVtr5VaL6kx2Bx0XizWyk9syn7AkdDhjKno3yLEVCuXyfBka6jLjxiyYTIN4WtLKQIO8sLHatbd66mVfNJGTNEY_dObQsauAW4Y9ZqzWoctiHLVXUE0u5wbaBzIztva1gP1WR"/>
+</div>
+<p class="font-medium">Eco-Friendly Yoga Mat</p>
+<p class="text-primary font-semibold">$24</p>
+</div>
+<div class="group">
+<div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden aspect-square mb-2">
+<img alt="Water bottle" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa7CWdCvy63Cp_EGgwwST7al0043YzDIwSFzcptlYe3ZXegOcLkmelHu-oz2ch8_HedVjousZZ4ysTQaz1e-VdaaNR2PGz6HxFzcI1vP47QyhRUaYqokLi6eLZu-B1zkMxN9wxpsy2YvpKl4l0eojxxbpPTmkipPdHRoOFJ5jiGPLLsa60zjtR9FO2wv4p0tK9IYuhuxceNe84x2j9_h-M51WZNnDTHo3i56KU7xA_aN8PlC9EBmsh44E-157IrppZViG3vde8vEwz"/>
+</div>
+<p class="font-medium">Insulated Water Bottle</p>
+<p class="text-primary font-semibold">$19</p>
+</div>
+<div class="group hidden lg:block">
+<div class="bg-gray-100 dark:bg-gray-800 rounded-lg overflow-hidden aspect-square mb-2">
+<img alt="Running shorts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChQzBhjO3H-veYrEsDjI-KA2rpI7QuqUm-vciW2UXBqLm2zSgwSxrSIqO8j3evOErNm-59S5zuk61I0VKb3o02swvlEyu17PC-r74f4QOTDOyyjghOC1fN7DuUEdQJloaNJZZ9Fyou80xH3_YAL-sQbUt7I42gAm-5f_Kzmy1oH8S8tBbL4F2luY9rLbQTwibGhBD3VoC1YMXub0mLLmsiCFTTaXqVoxhQccrrAGg7frPKGA3GI-b4FnuQ6YNou3sJ3YAIghrxSAFc"/>
+</div>
+<p class="font-medium">Performance Shorts</p>
+<p class="text-primary font-semibold">$45</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 mt-auto">
+<div class="container mx-auto px-4 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h2 class="text-2xl font-bold text-primary mb-4">Inflopick</h2>
+<div class="relative">
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md py-2 px-3 appearance-none">
+<option>EN/FR</option>
+</select>
+<span class="material-icons absolute right-2 top-1/2 -translate-y-1/2 text-gray-500">expand_more</span>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a class="hover:text-primary" href="#">Home</a></li>
+<li><a class="hover:text-primary" href="#">Discover</a></li>
+<li><a class="hover:text-primary" href="#">Cart</a></li>
+<li><a class="hover:text-primary" href="#">Profile</a></li>
+<li><a class="hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Policies</h3>
+<ul class="space-y-2">
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary" href="#">CCPA &amp; Consent Notice</a></li>
+<li><a class="hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Support</h3>
+<ul class="space-y-2">
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">FAQs</a></li>
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="mt-6 flex flex-col space-y-2">
+<a class="bg-primary text-white text-center font-semibold py-2 px-4 rounded-md hover:bg-orange-600" href="#">Become a Creator</a>
+<a class="bg-background-light dark:bg-gray-700 border border-border-light dark:border-border-dark text-center font-semibold py-2 px-4 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600" href="#">Open a Store</a>
+</div>
+</div>
+</div>
+<div class="mt-12 border-t border-border-light dark:border-border-dark pt-8 flex justify-between items-center text-sm">
+<p>© 2025 Inflopick Inc. All Rights reserved. Reg. No. 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4">
+<a class="hover:text-primary" href="#"><i class="fab fa-twitter"></i></a>
+<a class="hover:text-primary" href="#"><i class="fab fa-instagram"></i></a>
+<a class="hover:text-primary" href="#"><i class="fab fa-pinterest"></i></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script defer="" src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script crossorigin="anonymous" src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</body></html>

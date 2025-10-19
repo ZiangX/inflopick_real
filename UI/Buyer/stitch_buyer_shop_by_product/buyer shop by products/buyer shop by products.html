@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inflopick - Products</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF6B00",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "surface-light": "#F9FAFB",
+                        "surface-dark": "#1F1F1F",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F3F4F6",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div id="root">
+<header class="bg-background-light dark:bg-background-dark shadow-sm sticky top-0 z-40">
+<div class="container mx-auto px-4">
+<div class="flex justify-between items-center py-3">
+<div class="flex items-center space-x-8">
+<h1 class="text-2xl font-bold text-primary">Inflopick</h1>
+</div>
+<div class="w-full max-w-lg hidden lg:block flex-1 mx-8">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-full text-text-light dark:text-text-dark focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-surface-light dark:hover:bg-surface-dark">
+<span class="material-icons text-text-light dark:text-text-dark">chat_bubble_outline</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-light dark:hover:bg-surface-dark">
+<span class="material-icons text-text-light dark:text-text-dark">shopping_cart</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-light dark:hover:bg-surface-dark">
+<span class="material-icons text-text-light dark:text-text-dark">notifications_none</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-light dark:hover:bg-surface-dark">
+<span class="material-icons text-text-light dark:text-text-dark">account_circle</span>
+</button>
+<button class="p-2 rounded-full hover:bg-surface-light dark:hover:bg-surface-dark">
+<span class="material-icons text-text-light dark:text-text-dark">dark_mode</span>
+</button>
+</div>
+</div>
+<div class="hidden md:flex justify-center items-center pb-3">
+<nav class="flex items-center space-x-8">
+<a class="text-text-light dark:text-text-dark font-semibold border-b-2 border-primary pb-1" href="#">Product</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">Storefront</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">Creators</a>
+</nav>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 py-8">
+<div class="flex flex-col lg:flex-row gap-8">
+<aside class="w-full lg:w-1/4 xl:w-1/5">
+<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-lg shadow-sm">
+<h2 class="text-lg font-bold text-text-light dark:text-text-dark mb-4">Categories</h2>
+<ul class="space-y-2">
+<li><a class="flex items-center p-2 rounded-md bg-primary/10 text-primary font-semibold" href="#"><span class="material-icons mr-2 text-base">brush</span> Beauty &amp; Personal Care</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">checkroom</span> Fashion &amp; Accessories</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">healing</span> Health &amp; Wellness</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">fitness_center</span> Fitness &amp; Sports</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">fastfood</span> Food &amp; Beverage</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">home</span> Home &amp; Living</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">construction</span> DIY &amp; Crafts</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">devices</span> Tech &amp; Gadgets</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">sports_esports</span> Gaming</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">camera_alt</span> Photography &amp; Video</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">directions_car</span> Automotive</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">terrain</span> Outdoor</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">family_restroom</span> Family &amp; Parenting</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">pets</span> Pets</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">school</span> Education</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">account_balance</span> Financial Services</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">music_note</span> Entertainment &amp; Music</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">toys</span> Toys</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">card_giftcard</span> Gifts</a></li>
+<li><a class="flex items-center p-2 rounded-md hover:bg-primary/10 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><span class="material-icons mr-2 text-base">eco</span> Sustainability Products</a></li>
+</ul>
+</div>
+</aside>
+<div class="w-full lg:w-3/4 xl:w-4/5 space-y-12">
+<section>
+<div class="flex justify-between items-center mb-4">
+<div class="flex items-center space-x-4">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Flash Sale</h2>
+<div class="flex items-center space-x-2 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+<span>Ends in:</span>
+<span class="font-bold">12</span>:
+                                    <span class="font-bold">34</span>:
+                                    <span class="font-bold">56</span>
+</div>
+</div>
+<button class="text-primary font-semibold hover:underline">View More</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<div class="relative">
+<img alt="Classic Leather Tote" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyGk8So6hyPCvM0S3yCW8vt0hmLmRV64ptA9qXg75lqLOQUWlFVU_ViPhVDTDqWgCFNbnyVeOQAVIq_Wb__097t6JjqZlXsXEdFUzJcMfhjPDDx-0SZAo1UHRb00UwqL0nVWOXaO38KA1d5wP_KKKNvoZ01TljTyQ0zrLk0CS2WrO3AkvV091_GKI4p_ccxcZI5mKchEueTHpZrHRgumTHekZBo00W9EWKvOPut4s4VaDH9i2wqZJnjJ_pNlveTFSZwWxbKDpxfudh"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">50% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Classic Leather Tote</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$75</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$150</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.5 (2.1k)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<div class="relative">
+<img alt="Portable Bluetooth Speaker" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLdV5cYk10phZcsWcq_9t2XMyece3YuSt3iohOuPvJdTdC1VHzzKM_gprlgbch2FoGeRBw-in2_d1H83KrU-Bw6fDG15Y6-mXwhzGvgbmaUhP7y0xl5U_QJOC6QlfaOuAwAuLDed4IswyTEPohA3jr6F_sRbHE5cuRYnZzuU40HPz4oUyEoE6pdYYcVdySxFz_lk9GjOZHYed6Xicb5kaGkOcKVb0Aajaoj8_etHLqu8atVvJdp0FEzDCTEJsGMRicXMXb90v3gIBu"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">30% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Portable Bluetooth Speaker</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$49</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$70</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.8 (3.9k)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<div class="relative">
+<img alt="Eco-Friendly Yoga Mat" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ksC2Lmx2KtGaGYa_8-sL1hB1spz4KtffP0G3YqQSmyq-5f-8HVOoD8LZu9ggZRGaYAUdeyTbLbwi73HMEmrMyMZDhx4J_nmp1TnHs4AnyGHaUToak-EMqrplrQ7x4JbxHq69pTcXFo_q7ckMM6TPExzjyjcggXyTH9WaTgqekC9rVsPz_aWEqN-U76ji7gMFikIGJFic8ObhIpx34BrpYoK1XN09tsxjNB6PvrMfy33czQoAtCOWMI5Mk8gd-iRNLmYO7_MdRwe0"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">40% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Eco-Friendly Yoga Mat</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$24</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$40</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (1.2k)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<div class="relative">
+<img alt="Gourmet Espresso Machine" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6iKbxgBZjNPxG2xQfa6jCXec1nkU7LI1uglX6ImtHEmEwO-g90WwORzEj_gtT-HD85TQr-DlvNoPieHVbC1NeAyn6jhthatrN_SaWfo05ifDlLBSiL0urkat3Q_4YjazcQNixX8ouTGRmNVgUEls1NLEXc5fEbgyVroCACki08XBBLT9Ol9N7RS_r2RfQuOxWvaaPf8Rn1u2AsAKClUASop5W0n2-hL0v-ixzRPOfnstph4Fn1jmCR81WINrItvFRCXsl2txNZNeo"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">20% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Gourmet Espresso Machine</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$199</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$250</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.7 (980)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Just for You</h2>
+<button class="text-primary font-semibold hover:underline">View More</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="Stylish Smartwatch" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwBaFNDCSCrx2skon8xdcKIZMKYKh3qf_53VDaeVYGArOgqmp_okTTOzc-yloctTVVxVpWIgjlgfUavwsGYdfZfnO7UzC9BXxoW4Gm0qS9tq_GWISGN9JWQYRpbH5Cz_w8utcozfRoWTTL9iPTL7LvkGfm63VZrHgKVX75gKbF2-XsjLSn6RuT19sCxHNb1GPjN92xtqd-qwoEWMHEHzjasHmISUNklQnq_7oJooulT8k2GJlC2QmARjXJIFJJOgEujkp19ZUBjWem"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Stylish Smartwatch_V2</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$299</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.8 (1.2k)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="AirSound Pro Earbuds" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-qfzv9iQV_6cJN3srhWe5IMy6X-V-KiGoSH7bVWyIja-CEl6k3Mpv0j4wyPRtmNLCzUwN5HbTGQo-a6LsjpSCTUoCV6Z3i2blxd70o6QUTOckmD8Td9UufMxdhYZF-36SPQJYovXP7k8smEkC4RBh-P3nWv2_yIrGKj1pMSkKV6TBVfliXhCIyK0hHyBd2Z96bgXXFyHGrVMu8XyzPghGz7B8vWOLsr6pocc0R-QD8G-RhTYpVIkG89jUprexCMhEysXZyZkYqvEO"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">AirSound Pro Earbuds</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$129</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (3.8k)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="Urban Runner Sneaks" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1DOFgQa-tV50TzhZ-KnsxEgyfVlqe_doJNX1WetJJms0sbuxLabrrNUL2OGkaCj5Oe7E4ch-32lJcCvodlZN5vkKrn6v5oiu6DJxxnmo1Z2xA8S_uPrgpHLWFGxsTRwfxidJGJB0zwtTJW_oyH5XBzMwLlzPOQq-NAue_1bMRFewWWyvOh6bRwOIY8Tc0mUBXiS91hYl_Vhky4_4pPh7oBWmAjZdOacayT2xlwOyeD2zGowxc-oQDfdzwVGNfzOM1aIU82_Fnoyrp"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Urban Runner Sneaks</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$89</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.7 (990)</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="Ultra-Slim Power Bank" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfOpbO83_lrv-weHJZHl2ckFUeKn6Ji-s2UNiQ8VuGEEW__OZ5P6-NvVbKaPMJdba_GCKuVZ34_UR0MIVYKD8vQEnVP7gkeJ0Z0iD1JM8yoJcjOwOSxJSmxsxf_PUuXjYuehjLNJAKkOlRoBqLYdZACHpm9sIELC3eohYe6C6gvTyxKWtwbJiCWytzUVYr_3gAwKHkNVwmpH8I5maXa82wo3ormZbkCxZSpaljI9NhkStt38Y8YeaoDW778eFHD9U-m0O7mD9J4wUy"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Ultra-Slim Power Bank</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$35</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.6 (5.5k)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Weekly Best Sellers</h2>
+<button class="text-primary font-semibold hover:underline">View More</button>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="Minimalist City Backpack" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSoyXw0KHwGFiAI9c5TctpdhTj9Kx15ArmQwaG7qS7st7Ddtusnnx3mKwcqOvSHnNOgwIFR9uzsRm-00K3bMswGtYZaeEMnv8JhOylbJVbftD_xC0g-J6n2V1t5RYQjMIzsa7wqWUnLu08H5HrsD7IQxxa5t-mTOFX7VXpkybYR7Gww2ECIT0bbr9gM373rAgnX5wiT0JqYJ1UxaRYW4up-ylam6wutW7eG-wvovu9vF-5Zrque5W_6ASJYfpFYOtrXCbERORn8cfE"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Minimalist City Backpack</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$65</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.5 (2.1k)</span>
+</div>
+<p class="text-xs text-green-600 dark:text-green-400 font-medium mt-1">#1 in Bags</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="AirSound Pro Earbuds" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOEIrDk6Vq29pAQZ1uZ_LluGWK8mDVNIHmJPn0zCCCStkg4z21YngRlUufMCeCVb0rjW7320Cc5mvInkKzcW4OZOtS7xkw-l2GFJHvu68lQiEL4bzaFNHa_Dw1kziCuR3n89wv4Ru3zTtxaF6LWjnrAP58gcO8x_uriXoPJP4PPhbrqkyxxdalu34_2tbDp5Q61sVpXqV-teS2sDIGnkex8ZnC_1dH6hEPC-REtZY2bniV9SPaIbON9hWh9wAdSnd6h11dHC6gL7WP"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">AirSound Pro Earbuds</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$129</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (3.8k)</span>
+</div>
+<p class="text-xs text-green-600 dark:text-green-400 font-medium mt-1">#1 in Electronics</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="Eco-Friendly Yoga Mat" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJONZlPacVaCY4s8XuSWwLS_O0IT2Sy-544nnwRjG3keC7kaCiC7xXn-IVLOOCa2frLv9ynGINpM2gF4tk8qPYdF_RRJk3hTWVHb3koTccRDA-fj7BFyuc7oDAovrcKGIKKAr_jSX8YotMWq9fnXl1gmkFFQ73S68lo1Tuene95lhLsQ87eU0FdyeoiFzQpaK_Wt895dke8ob62DkemO9ntLzOZ5sBdLLiJl9on_KLCVz9i1Oyh-J-lK-EC1NR3CXU4A1rCcX_hACC"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Eco-Friendly Yoga Mat</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$24</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (1.2k)</span>
+</div>
+<p class="text-xs text-green-600 dark:text-green-400 font-medium mt-1">#1 in Sports</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark rounded-lg overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 group">
+<img alt="Urban Runner Sneaks" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHEPZekY-pPOH3oPMzpNFfqd6iz_A5JCSLQIeoL3Um9Ma85CzL-dV6RrCR7N5qayRRSuA7FJhZMO4R7Ih5vngrCL_-sBvxSrpxXulzTko2DqSq-qyPNFey14OHBw7ZuoD3oLtJcm-Fk7BLLP9vFSDciNY5VmRO0aIfN8zKOiK_-QB80Jiz4JqqO9euYPvQTRAHvmxPi-RGXvLgeEucoCXJKhfuvyN-sxnlyy_fpIQIs9bxsF2AWmAab6RImjc88cl8F8dule1skkbh"/>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark truncate group-hover:text-primary">Urban Runner Sneaks</h3>
+<div class="flex items-center space-x-2 mt-2">
+<p class="text-lg font-bold text-primary">$89</p>
+</div>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span class="material-icons text-yellow-400 text-base">star</span>
+<span class="ml-1">4.7 (990)</span>
+</div>
+<p class="text-xs text-green-600 dark:text-green-400 font-medium mt-1">#2 in Shoes</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="bg-surface-light dark:bg-surface-dark border-t border-border-light dark:border-border-dark mt-12">
+<div class="container mx-auto px-4 py-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h2 class="text-2xl font-bold text-primary">Inflopick</h2>
+<p class="text-subtext-light dark:text-subtext-dark mt-2">Your Creator-Driven Marketplace.</p>
+<div class="mt-4">
+<button class="flex items-center space-x-2 text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">language</span>
+<span>EN/FR</span>
+<span class="material-icons">expand_more</span>
+</button>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Quick Links</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Home</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Discover</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Cart</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Profile</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Policies</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">CCPA &amp; Consent Notice</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Support</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">FAQs</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Help Center</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="mt-6 space-y-2">
+<a class="block w-full text-center bg-primary text-white font-semibold py-2 px-4 rounded-lg hover:bg-primary/90" href="#">Become a Creator</a>
+<a class="block w-full text-center bg-transparent border border-primary text-primary font-semibold py-2 px-4 rounded-lg hover:bg-primary/10" href="#">Open a Store</a>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-border-light dark:border-border-dark flex justify-between items-center text-sm text-subtext-light dark:text-subtext-dark">
+<p>© 2025 Inflopick Inc. All Rights reserved. Reg. No. 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4">
+<a class="hover:text-primary" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+<path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 2.98,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16.03 6.02,17.25 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path>
+</svg></a>
+<a class="hover:text-primary" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12,2.5C7,2.5 2.5,7 2.5,12C2.5,17 7,21.5 12,21.5C17,21.5 21.5,17 21.5,12C21.5,7 17,2.5 12,2.5M12,20C7.86,20 4.5,16.64 4.5,12.5C4.5,8.36 7.86,5 12,5C16.14,5 19.5,8.36 19.5,12.5C19.5,16.64 16.14,20 12,20M12,8A4.5,4.5 0 0,0 7.5,12.5A4.5,4.5 0 0,0 12,17A4.5,4.5 0 0,0 16.5,12.5A4.5,4.5 0 0,0 12,8M12,15.5A3,3 0 0,1 9,12.5A3,3 0 0,1 12,9.5A3,3 0 0,1 15,12.5A3,3 0 0,1 12,15.5M17.5,6A1.25,1.25 0 0,0 16.25,7.25A1.25,1.25 0 0,0 17.5,8.5A1.25,1.25 0 0,0 18.75,7.25A1.25,1.25 0 0,0 17.5,6Z"></path>
+</svg></a>
+<a class="hover:text-primary" href="#"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+<path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M17,17H15V13.5C15,12.67 14.33,12 13.5,12C12.67,12 12,12.67 12,13.5V17H10V10H12V11.2C12.5,10.36 13.62,10 14.5,10C15.9,10 17,11.1 17,12.5V17M8,17H6V10H8V17M7,9C6.45,9 6,8.55 6,8C6,7.45 6.45,7 7,7C7.55,7 8,7.45 8,8C8,8.55 7.55,9 7,9Z"></path>
+</svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

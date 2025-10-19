@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Manage Users - Seller Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'lg': '0.5rem',
+                        'xl': '0.75rem',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: 24px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div class="flex h-screen">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6 flex items-center space-x-3">
+<div class="bg-primary p-2 rounded-lg">
+<svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Inflopick</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">receipt_long</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">campaign</span>
+<span>Marketing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">people</span>
+<span>Customer</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">chat</span>
+<span>Chat</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">storefront</span>
+<span>Storefront Preview</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-primary bg-blue-100 dark:bg-blue-900/30 dark:text-primary" href="#">
+<span class="material-icons">manage_accounts</span>
+<span>Accounts Management</span>
+</a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<header class="bg-surface-light dark:bg-surface-dark shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+<div class="flex items-center gap-4">
+<button class="text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">arrow_back</span>
+</button>
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Manage Users</h1>
+</div>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg pl-10 pr-4 py-2 focus:ring-primary focus:border-primary text-text-light dark:text-text-dark" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">notifications</span>
+</button>
+<div class="flex items-center space-x-2">
+<img alt="Urban Threads logo" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEkTdBC00DusCLtCv_BVKBVPIZLsEBKaRXxWSM1K7qUMrVrpQVw4EBrqS-1hvU6XJs-TZfwEfdAPbYdbCgWHiAPYFanHgqssS5qzM7nZ0_s0GEAzOORSxBQ3Vcb8G_w5xhLbLnYFm9PykgkT2abXifoSAZIRUCRYRCn6qG1TxNtX2_RlrFKT4bcPDul52vtnHnmbXBch9OODqXOugNTIO5HASNoA8QLN9X9ErPoZ6oYWO0e0gCNIAyv4O2Tq_0GFy45EDLldPu29o"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">Urban Threads</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller</p>
+</div>
+</div>
+</div>
+</header>
+<div class="p-6">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Users (2/3)</h2>
+<button class="text-sm text-white bg-primary hover:bg-blue-700 rounded-lg py-2 px-4 flex items-center space-x-2">
+<span class="material-icons text-base">add</span>
+<span>Add User</span>
+</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-lg bg-blue-50 dark:bg-blue-900/20">
+<div class="flex items-center">
+<img alt="User avatar" class="w-10 h-10 rounded-full mr-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNDxLsDAcTMcSHpWx8yIoz8xshr4Vnslp8nQIS2xSNoiLR-oz1IcHBOTgEpCSKR7_dMlBhwigaBqXZOGexY7xmRrViaeZAv6Zz9BYGNRVJMGCsA-Dy_7_8UENwmWLdVjCAHzwq89VclLzAk7MV1owHZG2sEHwk6YyFWEmE5xBjPxy9JoiCRlv3SNQs1umaulguQHjdYJ5tW5i3gsrrbM3nPtx6e_raqicpD22ypoCqI2D5UNDfitfHqj0x5V2XAyoF9RaX1Jk6JcM"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Jane Doe</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Owner</p>
+</div>
+</div>
+<span class="material-icons text-primary">verified_user</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
+<div class="flex items-center">
+<img alt="User avatar" class="w-10 h-10 rounded-full mr-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdByVgXxYjqh5kO_xd2o4bpOtKTHLk6t5Gh-PRhkgLaqCkGSkUkZLL-Amb7u988yY7fTfO8Z-hWQ6D1oyYzxpXRuklP6jEOnV4-WENAZ8Mn23NlAjeYw3PZI_NRPiJItTxeJhTa1KlpwhtjUY1SLPo5zoOKK6ZpsL4BDa0-FaQg6D5aKcg22mrYdUmesLYgRCSv2MJjzHB2ThQDPgqdn1BNQvXwv75lV1b9qZ-53wOdEPzVmhjf3c7qSFl48v3JOckfrjrfXc2fbY"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">John Smith</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Admin</p>
+</div>
+</div>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer">
+<div class="flex items-center">
+<div class="w-10 h-10 rounded-full mr-3 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">person_add</span>
+</div>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Invite User</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">subuser@example.com</p>
+</div>
+</div>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-2">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center justify-between mb-6">
+<div>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Roles &amp; Permissions</h2>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Manage what sub-users can see and do in your Seller Hub.</p>
+</div>
+<div class="flex space-x-2">
+<button class="text-sm text-primary border border-primary hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg py-2 px-4">Cancel</button>
+<button class="text-sm text-white bg-primary hover:bg-blue-700 rounded-lg py-2 px-4">Save Changes</button>
+</div>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-text-light dark:text-text-dark mb-1" for="role-select">Select a Role to Edit</label>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg py-2 px-3 focus:ring-primary focus:border-primary text-text-light dark:text-text-dark" id="role-select">
+<option>Owner (Cannot be edited)</option>
+<option selected="">Admin</option>
+<option>Support</option>
+</select>
+</div>
+<div class="border-t border-border-light dark:border-border-dark pt-4">
+<h3 class="font-semibold text-lg mb-4 text-text-light dark:text-text-dark">Admin Permissions</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+<div class="space-y-3">
+<h4 class="font-medium text-base text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-1">Product Management</h4>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Add/remove items</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Edit descriptions &amp; prices</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+<div class="space-y-3">
+<h4 class="font-medium text-base text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-1">Order Management</h4>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Receive order notifications</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Confirm orders</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Manage refunds</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Cancel orders</span>
+<input class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+<div class="space-y-3">
+<h4 class="font-medium text-base text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-1">Customer Service</h4>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Customer-service chat</span>
+<input class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+<div class="space-y-3">
+<h4 class="font-medium text-base text-text-light dark:text-text-dark border-b border-border-light dark:border-border-dark pb-1">Marketing &amp; Discounts</h4>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Create normal/special discounts</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+<div class="space-y-3 md:col-span-2">
+<h4 class="font-medium text-base text-red-600 dark:text-red-500 border-b border-border-light dark:border-border-dark pb-1">Account &amp; Finance (Sensitive)</h4>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Manage banking info</span>
+<input class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Storefront - Inflopick</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#F97316",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "card-light": "#F9FAFB",
+                        "card-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark transition-colors duration-300">
+<div class="flex flex-col min-h-screen" id="root">
+<header class="bg-background-light dark:bg-background-dark shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<div class="flex items-center">
+<a class="text-2xl font-bold text-primary" href="#">Inflopick</a>
+</div>
+<div class="flex-1 flex justify-center px-4">
+<div class="w-full max-w-xl">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg bg-background-light dark:bg-gray-800 text-text-light dark:text-text-dark focus:ring-primary focus:border-primary" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">notifications_none</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">chat_bubble_outline</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">shopping_cart_outline</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<img alt="User profile photo" class="h-8 w-8 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVgc4aeReJcTn4pSkA-w7LauzijJB0VN-h-pLNh3V5wIdS41lHgkcf4-VmNNdpQWpk74hY5DUB9L-TMQWPzgMB0Fnzb0J_NhF_7e8B08aBT_cfI6RyjMD2exG80b0rQFhP1iNnJcAFfF1o3_RHw7KboaZySHAs3S13G8a52g6TZfzuXHjTYROMiq1dv8-0y4vVTN2ywV6JXYI3raIvwRZ58wQ-kq-KkCAwOwN60gfqpYXXYTz27W0pTwDD2oRjk3t0OSiZX6UnwoOp"/>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" id="theme-toggle">
+<span class="material-icons text-subtext-light dark:text-subtext-dark dark:hidden">dark_mode</span>
+<span class="material-icons text-subtext-light dark:text-subtext-dark hidden dark:inline">light_mode</span>
+</button>
+</div>
+</div>
+<nav class="flex items-center justify-center space-x-8 py-2 border-t border-gray-200 dark:border-gray-700">
+<a class="py-2 text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#">Product</a>
+<a class="py-2 text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#">Storefront</a>
+<a class="py-2 text-primary border-b-2 border-primary font-semibold" href="#">Creators</a>
+</nav>
+</div>
+</header>
+<main class="flex-grow">
+<div class="w-full h-48 md:h-64 lg:h-80 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBiRg-gC_uh7Xq1Z3TbvVlKxWlJTnblDvj7bgRA0vCyEYRI4-LPMeWRZsp3miB8Q0CZIc-s-GgEGJn93vgGRdXml5KykCWIyOvE7bwPzYNXG3fUNe2KT3XX7gIOUwXqxFdrPh3CcBj-8DXlTaDc34TGpLFhNlrsbuRapw_yQDqq_UQELffKpCPUoiOEUU1XreIWiyzDVvKEbV0HvFIlQqF6D18mqQg0KyC9PY1PCKbMWfMA4K0gsr__jrSaUDVg6tM5BXYKVf3sVQqe')">
+<img alt="Creator banner" class="w-full h-full object-cover sr-only" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAACsPm8EPib7OD1m9BzowzWv7XkpANUeAkF7H2dYNJTlzZY3rcI4ERMZBIjbOwm5Qb8unEODgb9jtlYkrzTmC0-m9rzkLjwSpDRfPwiX_L0MIxovWC3k_H0yWcnmdsXYfBhA4J2MtroDmIvserbOouGiTlrJubOLDRZP1u2uro4QOB4SJA6TMmGVDjaZt2wiIhFyWZ0_KlrFdvf5xmSdAizZEMPyQVo76qZ7Tfr5enhLPOM_PjbOPHLq3QCbqPOu9XM3UZu5fdvWMU"/>
+</div>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-20">
+<div class="relative bg-background-light dark:bg-card-dark rounded-xl shadow-lg p-6">
+<div class="flex flex-col md:flex-row items-start md:items-end">
+<div class="flex-shrink-0 mb-4 md:mb-0">
+<img alt="Creator profile photo" class="h-32 w-32 rounded-full ring-4 ring-background-light dark:ring-card-dark object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBuoCh-MRfaOztJ50FoTZP1A0DYpvAVgWz7wQNwv55UQOG8oPaGL25Vtgyqfl3IsR052sY3pVreCG2sBlFRhyQW-tfSVOo9nHiiLHs3wPgTm9srn1yGqhEkABVW0JMUlc83eelXRWkdS_dewXnKAUJTVwsOiD9xi2Po0c4aR_Vtt0iRmZMaVvq1ahBx08_P84vjPB0m_btGM3MqZ0I2-Ox30Cg5jO6ykxMrSnftz3MOWdjGXeAnK4gyqCEuYUI8AkWt1jhBPrZO8OS"/>
+</div>
+<div class="md:ml-6 flex-grow">
+<div class="flex items-center gap-2 mb-1">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Jane's Style Hub</h1>
+<span class="material-symbols-outlined text-blue-500" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-subtext-light dark:text-subtext-dark max-w-lg">Your go-to for trendy finds and honest reviews. Helping you find your perfect style effortlessly. ✨</p>
+<div class="flex items-center space-x-4 mt-3">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 0 .17.02.25.04.5.12.98.34 1.43.64.91.6 1.63 1.43 2.12 2.42.23.46.37.95.46 1.46.05.28.06.56.06.84 0 2.12 0 4.25 0 6.37 0 .84-.04 1.68-.12 2.51-.09.92-.32 1.83-.73 2.69-.53 1.13-1.28 2.1-2.28 2.86-.9.68-1.93 1.15-3.04 1.38-.5.1-.99.14-1.48.16-1.18.04-2.35.05-3.53.05-.83 0-1.66-.02-2.48-.06-.92-.04-1.84-.19-2.73-.46-1.12-.34-2.18-.88-3.08-1.6-1.16-.92-2.07-2.07-2.7-3.4-.38-.8-.63-1.66-.78-2.55-.02-.12-.04-.24-.05-.36-.04-1.13-.05-2.26-.05-3.39 0-2.27.01-4.54.01-6.81 0-.2.01-.4.02-.6.1-.9.32-1.8.74-2.65.5-1.02 1.2-1.9 2.08-2.62.91-.75 1.96-1.28 3.1-1.5.47-.09.95-.13 1.43-.15 1.1-.04 2.2-.04 3.3-.04Zm-1.89 8.28c-.15 2.34-.15 4.69 0 7.04.14.02.28.02.42.02.16 0 .32-.01.48-.02.15-2.34.15-4.69 0-7.04-.15-.01-.31-.02-.45-.02-.15 0-.3.01-.45.02Zm-2.31-2.01c.62 0 1.25.01 1.87 0 .04.48.09.97.14 1.45.32 2.42.64 4.85.96 7.27.05.37.09.73.14 1.1.48-.02.97-.03 1.45-.05.05-.37.09-.73.14-1.1.32-2.42.64-4.85.96-7.27.05-.37.09-.74.14-1.1.49-.01.97-.02 1.46-.02.04.49.09.98.14 1.47.02.15.03.3.05.45.01.29-.01.59-.02.88-.09 2.17-.17 4.35-.26 6.52-.02.43-.05.86-.07 1.3-.01.14-.02.28-.04.42-.59.02-1.18.04-1.77.05-.1-.42-.2-.84-.3-1.26-.22-1.02-.45-2.05-.67-3.07-.08-.36-.15-.72-.23-1.08-.09.36-.17.72-.25 1.08-.22 1.02-.45 2.05-.67 3.07-.1.42-.2.84-.3 1.26-.59-.01-1.18-.03-1.77-.05-.02-.14-.03-.28-.04-.42-.02-.44-.05-.87-.07-1.3-.09-2.17-.17-4.35-.26-6.52-.01-.29-.02-.58-.02-.88.02-.15.03-.3.05-.45.04-.49.09-.98.14-1.47Z"></path></svg></a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.415 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.011 7.053.072 2.695.272.273 2.69.073 7.052.012 8.333 0 8.74 0 12s.012 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.988 8.74 24 12 24s3.667-.012 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98C23.988 15.667 24 15.26 24 12s-.012-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.012 15.26 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"></path></svg></a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418 C3.326,4.648,2.648,5.326,2.418,6.186C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768 C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"></path></svg></a>
+</div>
+</div>
+<div class="md:ml-auto flex items-center space-x-3 mt-4 md:mt-0 w-full md:w-auto">
+<button class="w-full md:w-auto flex-1 md:flex-none justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-700">Follow</button>
+<button class="w-full md:w-auto flex-1 md:flex-none justify-center px-6 py-3 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-orange-600">Chat with Creator</button>
+</div>
+</div>
+</div>
+</div>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div x-data="{ tab: 'storefront' }">
+<div class="border-b border-gray-200 dark:border-gray-700">
+<nav aria-label="Tabs" class="-mb-px flex space-x-8">
+<button :class="{ 'border-primary text-primary': tab === 'storefront', 'border-transparent text-subtext-light dark:text-subtext-dark hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-500': tab !== 'storefront' }" @click="tab = 'storefront'" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg">Storefront</button>
+<button :class="{ 'border-primary text-primary': tab === 'videos', 'border-transparent text-subtext-light dark:text-subtext-dark hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-500': tab !== 'videos' }" @click="tab = 'videos'" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg">Video Library</button>
+</nav>
+</div>
+<div class="mt-8" x-show="tab === 'storefront'">
+<div class="mb-12">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4">Featured Products</h2>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img alt="Red running shoes" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3lfzrSARGbfy7LIH7_OyEb0VJlilAr48O-p65HnvuFSxrXe1wLn4AwT1gt0kMo1WYCUVxuoS8AmtybO5mSjlsBj9cOcGDK_SToiJTI5LNhWgFA6WQi4daBBy_e32lMXaN7mh3qhONu0xmgMT7aKpzaVCXKqtt45nG-PHXuZBJQaw1FMSMdyr2So12htvOGM6GDLVCLCRioxImEVMn5Om2IOWB2XWSpImArDeKQaWv0mMHePnCr9sHY_7J_yq8jogcNibN4yRyz5l-"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">20% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Urban Runner Sneaker</h3>
+<div class="flex items-center mt-1">
+<p class="text-lg font-bold text-primary mr-2">$89</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$110</p>
+</div>
+<div class="flex items-center mt-2">
+<div class="flex text-yellow-400">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_half</span>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark ml-1">(4.7)</span>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="flex-1 px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-orange-600">Add to Cart</button>
+<button class="flex-1 px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">View Product</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img alt="Wireless headphones" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQegjSoFOB41jhKptARwff5JCM26cQNrz4COhS6FZOWnnwqqiJ8y_42YxsYMFa1pyBe6LAOsTTe3upkKNhKoTkggAPIn1ef1aWi6eFW_HhmYe9PmKj3-8b5b7XrZNuNx71qrZdXxALtBhsAlqNrtLXRnhVo-TnBXfoRAzRDBn1SV2jDM-kf6TwAwzuMZaha79ItjtL-u_QeoPcXFVAJfB3dC_WmGS5bHb9Z6Lr7Uwty8TV3132ipPpQvnrgaY8Nzy6abVM6na-kqmJ"/>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark">AirSound Pro Earbuds</h3>
+<div class="flex items-center mt-1">
+<p class="text-lg font-bold text-primary mr-2">$129</p>
+</div>
+<div class="flex items-center mt-2">
+<div class="flex text-yellow-400">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark ml-1">(4.9)</span>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="flex-1 px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-orange-600">Add to Cart</button>
+<button class="flex-1 px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">View Product</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="flex flex-col md:flex-row justify-between items-center mb-6">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4 md:mb-0">Influencer Picks</h2>
+<div class="flex items-center space-x-2 overflow-x-auto">
+<button class="px-4 py-2 text-sm font-medium text-white bg-primary rounded-full whitespace-nowrap">All</button>
+<button class="px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-card-light dark:bg-card-dark rounded-full whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-700">Fashion</button>
+<button class="px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-card-light dark:bg-card-dark rounded-full whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-700">Tech</button>
+<button class="px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-card-light dark:bg-card-dark rounded-full whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-700">Beauty</button>
+<button class="px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-card-light dark:bg-card-dark rounded-full whitespace-nowrap hover:bg-gray-200 dark:hover:bg-gray-700">Home</button>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img alt="Stylish watch" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZjs6DvKUyLsa7K0ZmUWtvqKvCYuq_aaiRM9RxYfEmi3rErYsX7eXz9kTVsXzuFvLH27cjx3xoP0fxhvaeDo5bpnxORhUnCudZU48c29B98EsbRocSyGYCKMc3UgESwBCFpDaonVj0RSPPVMCtqkT65iiOKo5Xq84fv47FDGAfhBROKif6MR4fUGGS1gSHnV11Wf8UESlIymLUW1xeZOVUdHxTnswoW6C4c25OWCmwvmeN7WNT7Cx_ACufPZFT9Cbh2nGHFzEfwOFz"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">15% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Stylish Smartwatch</h3>
+<div class="flex items-center mt-1">
+<p class="text-lg font-bold text-primary mr-2">$299</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$350</p>
+</div>
+<div class="flex items-center mt-2">
+<div class="flex text-yellow-400">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_border</span>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark ml-1">(4.2)</span>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="flex-1 px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-orange-600">Add to Cart</button>
+<button class="flex-1 px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">View Product</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img alt="Minimalist backpack" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsfUpLMTtgW2A3P1tKWVe-CL85YERJhcP8sxfpWw4EHHzOmtZBJrBhGVqbV2I_9DJD8CjOY7EG-XYNZ_qdfB3JkLzoXQFZ-JBbqoZbSbITClCpP1B4iDrSKK7euvt0no9ke12kY7RrjHblQp_Kb5121Q2R-305rKSHHLmwVd70F_4q23x99UARkqLkIKxaVeBH39AfYFFU5pPtPk-eUX-2jYSsyq0bJB1aMiHvZvzG57taxPFwcBUepUP8YdZUIApsEiqeFFxk4rJz"/>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Minimalist City Backpack</h3>
+<div class="flex items-center mt-1">
+<p class="text-lg font-bold text-primary mr-2">$68</p>
+</div>
+<div class="flex items-center mt-2">
+<div class="flex text-yellow-400">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_half</span>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark ml-1">(4.6)</span>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="flex-1 px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-orange-600">Add to Cart</button>
+<button class="flex-1 px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">View Product</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img alt="Organic skincare set" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS8UqtktKi0_AcnV4z6aZO6mXbsV7k95nSGSy4hQX1MST5Sj6CwSEZIHM8GGG-deOCEXvC2GdHZfCUtXxE-ffEgE0lwu5nfzLqQ6TH6cT0a13ekLqRTK3QCrt93wozKBnGEwpHpmxrvhyNlSlM1hDuLJp_jfUo3nHKbnBAY6_FDJMEXU5BBOCCglkRIOWXklo58iyabhrrAscNXzrAKayCoSKnYsJbyFX0L8Mt_Gbg9AnWGqtRl_fJbaeMzgXK9RSF7zAvoyMouPBV"/>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Organic Skincare Set</h3>
+<div class="flex items-center mt-1">
+<p class="text-lg font-bold text-primary mr-2">$75</p>
+</div>
+<div class="flex items-center mt-2">
+<div class="flex text-yellow-400">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark ml-1">(5.0)</span>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="flex-1 px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-orange-600">Add to Cart</button>
+<button class="flex-1 px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">View Product</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img alt="Portable coffee maker" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWM8BjN4IPcoA7AZk0Mvs5oHnE6PX-IQIFcdeVa5gioZ1aE8yU-ppj_ZOfv-3i44bM_VnsOvzV78mwvpd4fvl4bMLaKs0Z6qlV2ZanW4HcWCbBUYGOZCHnlwdsue5yKUTOAgTOjVVrwAjtew-5quN9h74bJo6WehlObg41UaTFt7HSTi4lMnpXNYD2TiJ3z6ItWZcCYh00r9ty47brk4V03ntmkMLzJocHgNLd87Sgttfu5gqsY5Uei2NoTpnB-QUMVCYVlaD89KQ6"/>
+<div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">10% OFF</div>
+</div>
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Portable Coffee Maker</h3>
+<div class="flex items-center mt-1">
+<p class="text-lg font-bold text-primary mr-2">$45</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark line-through">$50</p>
+</div>
+<div class="flex items-center mt-2">
+<div class="flex text-yellow-400">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_half</span>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark ml-1">(4.8)</span>
+</div>
+<div class="mt-4 flex space-x-2">
+<button class="flex-1 px-4 py-2 text-sm font-semibold bg-primary text-white rounded-lg hover:bg-orange-600">Add to Cart</button>
+<button class="flex-1 px-4 py-2 text-sm font-semibold border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">View Product</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<button class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-semibold hover:bg-gray-100 dark:hover:bg-gray-700">Show More</button>
+</div>
+</div>
+</div>
+<div class="mt-8" x-cloak="" x-show="tab === 'videos'">
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<div @click="openModal = true" class="relative aspect-[9/16] rounded-lg overflow-hidden group cursor-pointer">
+<video class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-fast-shot-of-a-runner-on-a-bridge-32860-large.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-1 text-white text-sm">
+<span class="material-icons text-base">play_arrow</span>
+<span>2.1M</span>
+</div>
+</div>
+<div @click="openModal = true" class="relative aspect-[9/16] rounded-lg overflow-hidden group cursor-pointer">
+<video class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&amp;w=2070&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-woman-in-a-floral-dress-in-a-vineyard-34440-large.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-1 text-white text-sm">
+<span class="material-icons text-base">play_arrow</span>
+<span>1.8M</span>
+</div>
+</div>
+<div @click="openModal = true" class="relative aspect-[9/16] rounded-lg overflow-hidden group cursor-pointer">
+<video class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&amp;w=1999&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-girl-walking-on-the-sand-of-the-beach-34433-large.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-1 text-white text-sm">
+<span class="material-icons text-base">play_arrow</span>
+<span>3.2M</span>
+</div>
+</div>
+<div @click="openModal = true" class="relative aspect-[9/16] rounded-lg overflow-hidden group cursor-pointer">
+<video class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?q=80&amp;w=1887&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-woman-running-on-the-beach-in-slow-motion-1288-large.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-1 text-white text-sm">
+<span class="material-icons text-base">play_arrow</span>
+<span>980K</span>
+</div>
+</div>
+<div @click="openModal = true" class="relative aspect-[9/16] rounded-lg overflow-hidden group cursor-pointer">
+<video class="absolute inset-0 w-full h-full object-cover" loop="" muted="" playsinline="" poster="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&amp;w=1964&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-fashion-model-with-a-cold-expression-39587-large.mp4" type="video/mp4"/>
+</video>
+<div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all"></div>
+<div class="absolute bottom-2 left-2 flex items-center space-x-1 text-white text-sm">
+<span class="material-icons text-base">play_arrow</span>
+<span>5.5M</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div @keydown.escape.window="openModal = false" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4" x-cloak="" x-data="{ openModal: false }" x-show="openModal">
+<div @click.away="openModal = false" class="relative w-full max-w-md h-[80vh] bg-black rounded-lg flex flex-col">
+<button @click="openModal = false" class="absolute top-4 right-4 text-white z-20">
+<span class="material-icons">close</span>
+</button>
+<div class="relative flex-grow rounded-lg overflow-hidden">
+<video autoplay="" class="w-full h-full object-contain" controls="">
+<source src="https://assets.mixkit.co/videos/preview/mixkit-fast-shot-of-a-runner-on-a-bridge-32860-large.mp4" type="video/mp4"/>
+</video>
+<div class="absolute bottom-0 right-0 p-4 flex flex-col items-center space-y-6 text-white z-10">
+<button class="flex flex-col items-center">
+<span class="material-icons text-3xl">favorite_border</span>
+<span class="text-xs">102k</span>
+</button>
+<button class="flex flex-col items-center">
+<span class="material-icons text-3xl">chat_bubble_outline</span>
+<span class="text-xs">1,234</span>
+</button>
+<button class="flex flex-col items-center">
+<span class="material-icons text-3xl">share</span>
+<span class="text-xs">Share</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-700 mt-16">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-8">
+<div class="col-span-2 lg:col-span-2">
+<h2 class="text-xl font-bold text-primary">Inflopick</h2>
+<p class="text-subtext-light dark:text-subtext-dark mt-2 max-w-xs">Your Creator-Driven Marketplace.</p>
+<div class="mt-4">
+<select class="bg-background-light dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm p-2">
+<option>🇬🇧 EN/FR</option>
+</select>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Quick Links</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Home</a></li>
+<li><a class="hover:text-primary" href="#">Discover</a></li>
+<li><a class="hover:text-primary" href="#">Cart</a></li>
+<li><a class="hover:text-primary" href="#">Orders</a></li>
+<li><a class="hover:text-primary" href="#">Profile</a></li>
+<li><a class="hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Policies</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary" href="#">CCPA &amp; Consent Notice</a></li>
+<li><a class="hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-1">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Support</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">FAQ</a></li>
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Support Tickets</a></li>
+<li class="pt-2"><a class="w-full text-center bg-primary text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-orange-600 inline-block" href="#">Become a Creator</a></li>
+<li class="pt-2"><a class="w-full text-center bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark font-semibold py-2.5 px-4 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 inline-block" href="#">Open a Store</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex flex-col sm:flex-row justify-between items-center text-sm text-subtext-light dark:text-subtext-dark">
+<p>© 2025 Inflopick Inc. All rights reserved. Reg. No. 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="hover:text-primary" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+<a class="hover:text-primary" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.285 2.77 7.927 6.584 9.35.48.088.655-.207.655-.46 0-.226-.008-.825-.013-1.62-2.69.584-3.258-1.298-3.258-1.298-.437-1.11-.944-1.405-.944-1.405-.873-.596.066-.584.066-.584.965.068 1.472 1.037 1.472 1.037.857 1.467 2.247.997 2.797.762.088-.592.336-1.037.608-1.275-2.133-.243-4.375-1.068-4.375-4.748 0-1.048.375-1.905 1-2.587-.1-.244-.434-1.224.096-2.55 0 0 .807-.258 2.644 1.03A9.13 9.13 0 0112 7.11c.792 0 1.597.108 2.345.322 1.837-1.288 2.642-1.03 2.642-1.03.53 1.326.198 2.306.1 2.55.625.682 1 1.539 1 2.587 0 3.69-2.245 4.502-4.385 4.74.345.297.65.882.65 1.778 0 1.282-.012 2.318-.012 2.632 0 .255.174.553.66.458C19.232 19.927 22 16.285 22 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path></svg></a>
+<a class="hover:text-primary" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.585.069-4.85c.149-3.225 1.664-4.771 4.919-4.919C8.415 2.175 8.796 2.163 12 2.163zM12 0C8.74 0 8.333.011 7.053.072 2.695.272.273 2.69.073 7.052.012 8.333 0 8.74 0 12s.012 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98C8.333 23.988 8.74 24 12 24s3.667-.012 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98C23.988 15.667 24 15.26 24 12s-.012-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98C15.667.012 15.26 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+<script>
+        const themeToggle = document.getElementById('theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
+</body></html>

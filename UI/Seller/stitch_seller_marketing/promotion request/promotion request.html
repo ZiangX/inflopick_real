@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inflopick - Promotion Request</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+      --primary: #3B82F6;
+      --background-light: #F8F9FA;
+      --background-dark: #18181B;
+      --card-light: #FFFFFF;
+      --card-dark: #27272A;
+      --text-light: #18181B;
+      --text-dark: #E4E4E7;
+      --subtext-light: #71717A;
+      --subtext-dark: #A1A1AA;
+      --border-light: #E4E4E7;
+      --border-dark: #3F3F46;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 0,
+      'wght' 400,
+      'GRAD' 0,
+      'opsz' 24
+    }
+    </style>
+</head>
+<body class="bg-[var(--background-light)] dark:bg-[var(--background-dark)] text-[var(--text-light)] dark:text-[var(--text-dark)]">
+<div class="flex h-screen">
+<aside class="w-64 bg-[var(--card-light)] dark:bg-[var(--card-dark)] border-r border-[var(--border-light)] dark:border-[var(--border-dark)] flex flex-col">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-[var(--text-light)] dark:text-[var(--text-dark)]">Inflopick</h1>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">dashboard</span> Dashboard </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">shopping_bag</span> Orders </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">inventory_2</span> Products </a>
+<a class="flex items-center px-4 py-2 text-white bg-[var(--primary)] rounded" href="#"> <span class="material-icons mr-3">campaign</span> Marketing </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">people</span> Customer </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">chat</span> Chat </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">analytics</span> Analytics </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">storefront</span> Storefront Preview </a>
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">manage_accounts</span> Accounts Management </a>
+</nav>
+<div class="p-4">
+<a class="flex items-center px-4 py-2 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] rounded hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]" href="#"> <span class="material-icons mr-3">logout</span> Logout </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-4xl mx-auto">
+<a class="flex items-center text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] hover:text-[var(--primary)] dark:hover:text-[var(--primary)] mb-4" href="#"> <span class="material-icons mr-1 text-base">arrow_back_ios</span> Back </a>
+<h2 class="text-3xl font-bold text-[var(--text-light)] dark:text-[var(--text-dark)] mb-2">Promotion Request</h2>
+<p class="text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] mb-8">Send a promotion request to Olivia Rhye.</p>
+<div class="bg-[var(--card-light)] dark:bg-[var(--card-dark)] p-6 rounded-lg shadow-sm space-y-8">
+<div>
+<h3 class="text-lg font-semibold text-[var(--text-light)] dark:text-[var(--text-dark)] mb-4">1. Select Item for Promotion</h3>
+<div class="relative">
+<span class="material-icons absolute top-1/2 -translate-y-1/2 left-3 text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-[var(--border-light)] dark:border-[var(--border-dark)] rounded-md bg-[var(--background-light)] dark:bg-[var(--background-dark)] focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)]" placeholder="Search product by name or SKU" type="text"/>
+</div>
+<div class="mt-4 max-h-60 overflow-y-auto space-y-3 pr-2">
+<div class="flex items-center justify-between p-3 rounded-md border border-[var(--border-light)] dark:border-[var(--border-dark)]">
+<div class="flex items-center gap-4">
+<img alt="Handmade Ceramic Mug" class="w-16 h-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD935DABGvCgZ7b-XvF8vI6uAB0sA_PjXgQ1F_8Y3W8yI7Zz3R_aB_tB_e_c-f_d_rB-vE_sA_pD_f_Z_y_W_s_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"/>
+<div>
+<p class="font-medium">Handmade Ceramic Mug</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">SKU: CM-HM-03</p>
+<p class="text-sm font-medium">$35.00</p>
+</div>
+</div>
+<button class="px-4 py-2 text-sm font-medium text-white bg-[var(--primary)] rounded-md hover:bg-blue-700">Select</button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-md border border-transparent hover:border-[var(--border-light)] dark:hover:border-[var(--border-dark)] bg-[var(--card-light)] dark:bg-[var(--card-dark)] hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]">
+<div class="flex items-center gap-4">
+<img alt="Organic Face Serum" class="w-16 h-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX0WSznKnwH4IKH85hchBBOGqYvE1e7GOg8YWlHj_aGESHcnMCdvkEbK8gmd7gQezHAuxAwEdFAiZKGIGU-p_np9g4i45cVqcNYPHpbMBCkUuOIm9If_c0QOf_BBCmgaVMsoGCZjFDMi5xmpSKEubZCB0KpWWsAMYftizrPxzdQMLVfw1AHeZRnIQ4w9h1jnOmpiMQD-ZTJbSmQz6uMFmMd4U1J1V0kpd3YvI63f-zxG-GbvuRbu5_vPgARIQVa7KihZxHvA2nv9-P"/>
+<div>
+<p class="font-medium">Organic Face Serum</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">SKU: FS-001</p>
+<p class="text-sm font-medium">$25.00</p>
+</div>
+</div>
+<button class="px-4 py-2 text-sm font-medium text-[var(--text-light)] dark:text-[var(--text-dark)] bg-[var(--background-light)] dark:bg-[var(--background-dark)] border border-[var(--border-light)] dark:border-[var(--border-dark)] rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Select</button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-md border border-transparent hover:border-[var(--border-light)] dark:hover:border-[var(--border-dark)] bg-[var(--card-light)] dark:bg-[var(--card-dark)] hover:bg-[var(--background-light)] dark:hover:bg-[var(--background-dark)]">
+<div class="flex items-center gap-4">
+<img alt="Travel Backpack" class="w-16 h-16 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCC_bI4p5309bSPPsUmnZfr0y9qdvq5oNYJfyg3M1GNEWMzZD2m8ybS3waSP9sUilzkToMdixRFD1qAiMxbq3N3o8asebQnXBNwDfVrXD1TuE6sAV6XAaWvJYefHHvXbEgOWLfUzX6dwc40rAaZI5byygDYdd1S2gafAPexwJMSuGw1w2XHJCZxpxstD0VUBpGTYbbG68dRRAOFLBBH_BY1y5KrhWesZTX3vs-HbY67xyR6BP0dYqNvdCImm0zEbENG0jVlmps3H6EV"/>
+<div>
+<p class="font-medium">Travel Backpack</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">SKU: BP-TR-05</p>
+<p class="text-sm font-medium">$75.00</p>
+</div>
+</div>
+<button class="px-4 py-2 text-sm font-medium text-[var(--text-light)] dark:text-[var(--text-dark)] bg-[var(--background-light)] dark:bg-[var(--background-dark)] border border-[var(--border-light)] dark:border-[var(--border-dark)] rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">Select</button>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-[var(--text-light)] dark:text-[var(--text-dark)] mb-4">2. Offer Type</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-4 rounded-md border border-[var(--primary)] bg-blue-50 dark:bg-blue-900/20">
+<label class="flex items-center cursor-pointer" for="freeSample">
+<input checked="" class="form-radio h-4 w-4 text-[var(--primary)] bg-transparent border-[var(--border-light)] dark:border-[var(--border-dark)] focus:ring-[var(--primary)]" id="freeSample" name="offerType" type="radio"/>
+<div class="ml-3">
+<p class="font-semibold">Free Sample</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">Send the product for free.</p>
+</div>
+</label>
+</div>
+<div class="p-4 rounded-md border border-[var(--border-light)] dark:border-[var(--border-dark)]">
+<label class="flex items-center cursor-pointer" for="discount">
+<input class="form-radio h-4 w-4 text-[var(--primary)] bg-transparent border-[var(--border-light)] dark:border-[var(--border-dark)] focus:ring-[var(--primary)]" id="discount" name="offerType" type="radio"/>
+<div class="ml-3">
+<p class="font-semibold">Discount</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">Offer a percentage discount.</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-[var(--text-light)] dark:text-[var(--text-dark)] mb-4">3. Shipping Fee</h3>
+<div class="space-y-4">
+<div class="p-4 rounded-md border border-[var(--border-light)] dark:border-[var(--border-dark)]">
+<label class="flex items-start cursor-pointer" for="include-shipping">
+<input class="form-radio h-4 w-4 text-[var(--primary)] bg-transparent border-[var(--border-light)] dark:border-[var(--border-dark)] focus:ring-[var(--primary)] mt-1" id="include-shipping" name="shipping-option" type="radio"/>
+<div class="ml-3">
+<p class="font-medium">Include Shipping Fee</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">The seller will cover the shipping cost.</p>
+</div>
+</label>
+</div>
+<div class="p-4 rounded-md border border-[var(--primary)] bg-blue-50 dark:bg-blue-900/20">
+<label class="flex items-start cursor-pointer" for="not-include-shipping">
+<input checked="" class="form-radio h-4 w-4 text-[var(--primary)] bg-transparent border-[var(--border-light)] dark:border-[var(--border-dark)] focus:ring-[var(--primary)] mt-1" id="not-include-shipping" name="shipping-option" type="radio"/>
+<div class="ml-3 w-full">
+<p class="font-medium">Not include shipping fee</p>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">The influencer will cover the shipping cost.</p>
+<div class="mt-4 p-4 bg-[var(--card-light)] dark:bg-[var(--card-dark)] rounded-md border border-[var(--border-light)] dark:border-[var(--border-dark)]">
+<div class="flex justify-between items-center">
+<div>
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">Shipping to:</p>
+<p class="font-medium">Olivia Rhye's Address</p>
+<p class="text-xs text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">New York, USA</p>
+</div>
+<div class="text-right">
+<p class="text-sm text-[var(--subtext-light)] dark:text-[var(--subtext-dark)]">Shipping Fee:</p>
+<p class="text-lg font-semibold text-[var(--primary)]">$5.00</p>
+</div>
+</div>
+</div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div>
+<h3 class="text-lg font-semibold text-[var(--text-light)] dark:text-[var(--text-dark)] mb-4">4. Add a Personal Message (Optional)</h3>
+<textarea class="w-full h-32 p-3 border border-[var(--border-light)] dark:border-[var(--border-dark)] rounded-md bg-[var(--background-light)] dark:bg-[var(--background-dark)] focus:ring-2 focus:ring-[var(--primary)] focus:border-[var(--primary)] resize-none" placeholder="e.g. Hi Olivia, I think my product would be a great fit for your audience..."></textarea>
+</div>
+</div>
+<div class="mt-8 flex justify-end gap-4">
+<button class="px-6 py-2.5 text-sm font-medium text-[var(--subtext-light)] dark:text-[var(--subtext-dark)] bg-transparent border border-[var(--border-light)] dark:border-[var(--border-dark)] rounded-md hover:bg-gray-100 dark:hover:bg-gray-800">Cancel</button>
+<button class="px-6 py-2.5 text-sm font-medium text-white bg-[var(--primary)] rounded-md hover:bg-blue-700 flex items-center gap-2">
+<span class="material-icons text-base">send</span>
+                        Send Request
+                    </button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

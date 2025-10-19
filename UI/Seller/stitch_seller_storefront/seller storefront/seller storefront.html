@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Storefront Preview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #3B82F6;
+            --background-light: #F7F7F7;
+            --background-dark: #121212;
+            --card-light: #FFFFFF;
+            --card-dark: #1E1E1E;
+            --text-light: #333333;
+            --text-dark: #E0E0E0;
+            --subtext-light: #757575;
+            --subtext-dark: #B0B0B0;
+            --border-light: #E0E0E0;
+            --border-dark: #333333;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+        .snap-x {
+            scroll-snap-type: x mandatory;
+        }
+        .snap-start {
+            scroll-snap-align: start;
+        }
+        .group:hover .group-hover\:opacity-100 {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6 flex items-center gap-3">
+<div class="bg-[var(--primary-color)] p-2 rounded-lg">
+<span class="material-symbols-outlined text-white">store</span>
+</div>
+<div>
+<h1 class="font-bold text-xl text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                Orders
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+                Products
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">campaign</span>
+                Marketing
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">group</span>
+                Customer
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">chat</span>
+                Chat
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg bg-[var(--primary-color)]/10 text-[var(--primary-color)] dark:bg-[var(--primary-color)]/20" href="#">
+<span class="material-symbols-outlined">storefront</span>
+                Storefront Preview
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">manage_accounts</span>
+                Accounts Management
+            </a>
+</nav>
+<div class="p-4">
+<a class="flex items-center gap-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto bg-background-light dark:bg-background-dark">
+<div class="w-full max-w-7xl mx-auto">
+<header class="bg-card-light dark:bg-card-dark sticky top-0 z-10 shadow-sm">
+<div class="p-4 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<img alt="Store Logo" class="h-10 w-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBQlmC-VjAqoUKz05HqBjTlBMdJk28fYP4glURk3fMjqNjqe-Y1_xO3BGDeBBq_qaxrTmkDM2QvT0ljZb14xF8s5SVDp68ZEs7iMutCDV4LwIFz3hzrKCNkXVb7D0Z_o7fDlDKJMmFrUyXabzwHPbhYVX0fvUdVOuzUSJb1N5ZMIVZkMNBbFgJXTDtizaBQn_kO6FZLtQCpoNyZDBlA5EjRCq64RgmhAYMFLfaHZyhybB4eNIocVExxW1EXABCY8Jo93-eahj-p_g"/>
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Urban Threads</h2>
+</div>
+<nav class="flex items-center gap-6 text-sm font-medium text-subtext-light dark:text-subtext-dark">
+<a class="hover:text-[var(--primary-color)]" href="#">Home</a>
+<a class="hover:text-[var(--primary-color)]" href="#">All Products</a>
+<a class="hover:text-[var(--primary-color)]" href="#">Categories</a>
+<a class="text-[var(--primary-color)] font-semibold" href="#">Store Reviews</a>
+<a class="hover:text-[var(--primary-color)]" href="#">Contact Us</a>
+</nav>
+</div>
+</header>
+<div class="relative h-[500px] w-full group">
+<div class="overflow-x-auto snap-x flex h-full">
+<div class="relative w-full h-full flex-shrink-0 snap-start">
+<img alt="Woman posing in a white t-shirt and blue jeans" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn-zW2_MFsiPzMmdQ9JKiDzQj7a36bPgLq5ucpxTJmpCQqZi8Ka0cMckpE55Uzwh8JRvoAKBxKnZUZIwzBmGKdbRYZxg1_4vo1vbAQisP7ICPDYghTDsb9ccdY6QVFVfxdrmBkHqKOsWPnlxSG5I9QkDZL29JqxbtJBGafm1iWmewqjJonuRGAl4lIBBwPwrtmo5YxTT-6uYyuAB4DOMWeCjCoGu0DZyfKOaLFoQi6Sqk-8wNrXz2TAUi92d3N1_Jz0ZwiuqWwHRE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-12 text-white">
+<h1 class="text-5xl font-bold mb-2">Summer Vibes</h1>
+<p class="text-xl">Discover the latest trends for the season.</p>
+</div>
+</div>
+<div class="relative w-full h-full flex-shrink-0 snap-start">
+<img alt="Man wearing a stylish outfit" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDppwYuJdk67XfrXW1aPNyM37Dq2tnvJwl6MP6_FlhDrQ5AzMrniGfpYsBlcfpRqmVYGBac9aS93tLRdPCdljRSVlKElNmTeDEtAxdP9S2KvmadD6M5uOuBSmFHLzUuctFgOU5dvVr8FIEGCrIF8mwtdLaYAnUNSX7Qr3zK4OOs0lhNW9n2zvJ8MkI30JxpmELxedhfZTXA2I4tcGKo0dhaMOW91uQEO-z_6h88uxD31qqhyrHTqwmpV1lXFEMyJ5wKwZrlRXHUvDA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute bottom-0 right-0 p-12 text-white text-right">
+<h1 class="text-5xl font-bold mb-2">New Arrivals</h1>
+<p class="text-xl">Check out our fresh collection.</p>
+</div>
+</div>
+<div class="relative w-full h-full flex-shrink-0 snap-start">
+<img alt="Stylish accessories laid out" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp2vN2Q8z9a4P9gH7bC_j9q_H-uY2y3RjY-h8F_Z_J8hY5LzQp8sN-A8wI6e_Y1zXb2gW6j7n5eG4c1XpY_z-Zc7bS3zQ4sO-kF_bH_e_G9wY1kX7s_C6vJjP-T_k_oI_n_M4jB7y8eA9zV0bU4c8wH_j_I_b_E-g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+<div class="absolute top-0 left-0 p-12 text-white">
+<h1 class="text-5xl font-bold mb-2">Accessorize</h1>
+<p class="text-xl">Complete your look with our accessories.</p>
+</div>
+</div>
+</div>
+<div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+<button class="h-2 w-2 bg-white/50 rounded-full"></button>
+<button class="h-2 w-2 bg-white rounded-full"></button>
+<button class="h-2 w-2 bg-white/50 rounded-full"></button>
+</div>
+<button class="absolute top-4 right-4 bg-white/80 text-text-light px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-base">edit</span>
+    Edit Banner
+</button>
+</div>
+<div class="p-8">
+<div class="mb-8 relative group">
+<h3 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4">Featured Categories</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<a class="relative rounded-lg overflow-hidden group" href="#">
+<img alt="T-shirts" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLIM55hxfj60d0KKYQXnWGZTqcXBq3E9p2wewhclwHsRVIxlCDjhHA81y7uWEBPwgx30gcNekm2eNFg4-vM2cgMfj5Yt_DJsfZSK8bKE_MDgIiyLz-UUrLhNXstVGY6k9ZZyRccWryKr_3p99UYuG_RAc02b_lM1A-tsdt8IrsMKPV-rJkoyEBkMVDksp0TrH815WwTFm7RHC8CZs6N9Y4ouCFLLiXWJgl9nX65gFY2-d4HpZ6a4r98Doou0D_Rm0oIci39q2BA-s"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<h4 class="text-white text-xl font-bold">T-Shirts</h4>
+</div>
+</a>
+<a class="relative rounded-lg overflow-hidden group" href="#">
+<img alt="Jeans" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr38QuHibD8ZaJYcJoEO8AIHp3jSegm4nQuv8keEspchSQDgmsZenDktB599kO05c4YZcDVpOiI5_IOkClJmqz7099SLMKATMSZseaJOKcpicOVHmZgvK9JWxgqZ0JK9YodFinFf0InSOodylr7Yo6Qw7NDsqsutwBJ0Q1n179ll0C62V5YEk3YGS-0EFU-WhynIZ-QNbToslq3v9Y-LRm_52sVoG_-I8wJqbGlu8mt3-hUAcS4vhTZz7vU0uPplOrdUsAueahRwc"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<h4 class="text-white text-xl font-bold">Jeans</h4>
+</div>
+</a>
+<a class="relative rounded-lg overflow-hidden group" href="#">
+<img alt="Shirts" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZmmm0BMIZqP0vRDD15PBgVLgZWs5Iz3xeRTKAeDgFSEU3whBMLZ9o7JNBXfPY_Fs4mAZRAbQQgNtNlfnAI9373tl2vR0PtfqBG85xak71dY2Yqt7kWkwrvY0TrvmlrS3lAdodOFgIS6H1MWbeXU_YzW2Ar51l2B5mcG0mbfZDMlaLdg77zWdT2XxyRsx7TpUg3O6yzkuSt8DgbuyktAeTk7_dkFND7U-6e6KVOb4YZ8GKFhTDP6tC9UXLCy0147XgxpYyVztJI48"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<h4 class="text-white text-xl font-bold">Shirts</h4>
+</div>
+</a>
+<a class="relative rounded-lg overflow-hidden group" href="#">
+<img alt="Bags" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2b0YfvgfgP5pGv5fWq_uDffi8pY3KoWIq4CPQ_oIlW5jr0eawbtNyoju1NqME8GVD5yMK9L6WofZ2vBMR0P4XmGiaWMuPdPcHME0HKnbV0ayG7M-rlIEQt7k1FEMPZvc3_OAuQjlVbwTjNqfuVR5kNfhw1OEocPBV9pd-2DzkecTUYn_jX7D1gZj5I1-WlsMT_L7kNHVEW2cPWaBNdzZ40Fq2a66YRm1flpNGdGFnUrd0-8aaRj0cPCtUN_jE6lxZcMWqVpIz20I"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+<h4 class="text-white text-xl font-bold">Bags</h4>
+</div>
+</a>
+</div>
+<button class="absolute top-0 right-0 bg-white/80 text-text-light px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-base">edit</span>
+        Edit Block
+    </button>
+</div>
+<div class="mb-8 relative group">
+<h3 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4">Hot Picks</h3>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Classic white t-shirt on a hanger" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByNgMZHpgoBX3nduQBQB_pF4QpxO2sgKrHj-wQ_-jIZXtDn3gdTsMfe9enOucvJ3QyVdF2YLTzHDGvydb_TmGtuE3yRUfspW8bj7QpI0kgmzh6sQIGzcDc_f8yEnuqIFfI07LaEjALINm9qvjwVDDiAMG1Yk5W6yMjRpRdsItpe-C8XaS71qg_2zhJYkbe7IUfKLG8uUddsooQPCxA7iF2d_tulCaWIbcD2MKy_P0KTsJoj5VNcRXi1FWE6OKUlDubn172amQeywI"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Classic White Tee</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$25.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-2">450 sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Slim fit denim jeans folded" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwq5tGFmOkFnBeN5u70iYxE7sGNZa--p4IdAoGfOCSQsVNphrRWqeZz7onM-QBqpsbngiBB8EBHOwiLodM-US5K6wRRZzhSY3-Xa4Ldf1VBRmiGqiLxDo6oL8yZb3G5TqAz-gsmio8X_fWyVDl7Fl5HpOB-zoWl4_ikYgtQh815epP4EQudZ4JvTUSz_xPPzjiAQpNRIx13t87rmpVh-1kc-HEicvIH74R42L0hS6AZ5xSI07LEkHdvs8NO_e19wEtyHOWvcPaSLk"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Slim Fit Denim</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$55.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-2">280 sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Linen blend shirt" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqFgwHHZS4JZ9FJvFAJCNdn2-VSe4QzXcAYkI4tnUpaYkS5aimf1AImLGaaDZHz_A6Wyuy8YIt2Ge1kW758x0B4XKw8P3qtUo7W0A913jHUnMQxRGBg3Jll5qgyefwzxXrQz9kbiqfNzdWbm3qwP-E6JAZp6FcAYr0AXC1aU3mGmwm-JkpjEflODaMdgyoShSLa3eETUyn6A0VOszW0zU4hzaHNjAftaQNF8lZBT4PLk9_5N3t7r0W-YdBMf1d9JA1ttt9ITURzG8"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Linen Blend Shirt</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$45.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-2">320 sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Leather tote bag" class="w-full h-56 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUaPSc5nfMEGXehWwPedPL7ajVfoKwH1VqBfXqOMnTQ74EzD71YgmKplcitpccqs3-KRJiYCCgG4HivTt7rAhOCNi2gvec0qQ61QuiPc3Xyd2uz71S3DYZUjjz2k44GHfZh_s65xpEVcRXOoP8_Krgg3jwNyxrwxfpJniMjatPiQeYtPtLdWKd3_2KHxx9CHkRh34Thc-0GDagZBx1zSN1C5kAlw7iqmOmmJvG5ONh-jcrGc9eKwHKkwozcXWg768aAkMAVRStgYw"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Leather Tote Bag</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$120.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-2">150 sold</p>
+</div>
+</div>
+</a>
+</div>
+<button class="absolute top-0 right-0 bg-white/80 text-text-light px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-base">edit</span>
+        Edit Block
+    </button>
+</div>
+<div class="mb-8 relative group">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-2xl font-bold text-text-light dark:text-text-dark">All Products</h3>
+<div class="flex items-center gap-4">
+<div class="relative w-64">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-full py-2 pl-10 pr-4 focus:ring-2 focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] text-text-light dark:text-text-dark text-sm" placeholder="Search products..." type="text"/>
+</div>
+<div class="flex items-center gap-2 text-sm">
+<label class="text-subtext-light dark:text-subtext-dark" for="sort">Sort by:</label>
+<select class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)] text-text-light dark:text-text-dark text-sm p-2" id="sort">
+<option>Popularity</option>
+<option>Newest</option>
+<option>Sales</option>
+<option>Price</option>
+</select>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Chunky Sneakers" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2W2QvF2y4j-m-Qk8lq2fXg1bHq9G3k1p2p3zFqG_o1h0y9JgJ_k_b8KqY4k3eL-j5g5H4l1k4m0J7hRk_s3Fw=s1500"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Chunky Sneakers</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$85.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-auto">920 sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Minimalist Watch" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5kdz_GFmTS5FHSAMLSbCJvy4kyh3zw5-4APzlHxuHsOe_9m9fgN_AbmpxiIyw1oES6tJJFPjIN1ZhCswUuYWGHBU9MJFA0El2wvZkJXmK8rdC7ntWFvZ9q0KYOIf1FghuLA-47E9R918j0DKJ6epvW004ZfD7zFR3e1ifkz_nv29hzUXKG4M6IQ0fUuv6jD9P7iLzdo9NlYY84tAH50sHuBg_fdU7kJMf3-x4N0GrK6bz70YGiYIAXxZM0jVHaE20Dv7nJD0Fd00"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Minimalist Watch</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$150.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-auto">310 sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Vintage Sunglasses" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4gkKiCkhCtZBBnljBkbGdIEdjGUmLWZMkcIACI9SMGdE4iWISNWO2gkzglWzz5p-c7DJJVbWoFMU7IzxK6Qdj5jmSZ2XD3qRIANyv8tur6hhlekr7IcgKEGRAf4CT9lrZAlcC72qFuYkngDYAXvBm91HGzuCoqA_99OYZi_J8jMtMhXDBE8i_OIw0uaNvrfRQiwoP3Vlx61iVxs1v_J1ccWZP6P0GQ7pVuuTXIMWG2S_jUq_ij5iYWF1DOrAd17Xh7MLnzf7z6tU"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Vintage Sunglasses</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$40.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-auto">1.1k sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Canvas Backpack" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVopRswnhvFMmKpfIs9fQFo-UOj3qoLWb3_gYzptB4HQA3XxWXc96Yk9ynCah-anbA4Q4ii3gb80VVlApGQoktbyYLEQ7SsUy9cmy_b-AdqA1I5g6szIW4eZoIwO2pXOfjZeEC83x8B8GNUfXcYJ-8h2H2ic3EgpKqf-cCQH-8KZ7hhZ9KZvLcx98WkXN-Eo7o1uYykcDFs0pM21aQhmdutZLariSAai7FWmuTG6IuGwKXQA8mHKlw1Ker1irgCbiFdyvaSrXHnN0"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Canvas Backpack</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$75.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-auto">780 sold</p>
+</div>
+</div>
+</a>
+<a class="bg-card-light dark:bg-card-dark rounded-lg overflow-hidden border border-border-light dark:border-border-dark group block" href="#">
+<div class="relative">
+<img alt="Beanie Hat" class="w-full h-64 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqOgvy-fJzkaAvdjCCzZ2j2mibyKALf8eUYO2xqmTd8kl4q2D-qEvZH2uyWmArkmZRWR0c_MonQxx5vqXz-XhK-8wOwNMywUWRf1-lmBeLR3Y6qeN8ksNx_FXwUGBaOr6o1LRl9gHIlKfIgEhFeMUsNiYe-JbYEOkYESWtmiPfIQGV910bFf4zWDyNSknGDdWOc65lJq9kPDlc51LTVZ8sYOsw8wLpY2yvwaVhvWEtnYb-tb9nriBwaxVImJ97pL3iQVUw-gldxFU"/>
+<div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+<span class="bg-[var(--primary-color)] text-white px-4 py-2 rounded-full font-semibold">Quick View</span>
+</div>
+</div>
+<div class="p-3">
+<h4 class="font-normal text-text-light dark:text-text-dark truncate">Beanie Hat</h4>
+<p class="text-lg font-bold text-text-light dark:text-text-dark">$20.00</p>
+<div class="flex items-center mt-1">
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark ml-auto">1.5k sold</p>
+</div>
+</div>
+</a>
+</div>
+<div class="text-center mt-8">
+<button class="bg-[var(--primary-color)] text-white px-8 py-3 rounded-full hover:bg-blue-700 transition-colors">Load More</button>
+</div>
+<button class="absolute top-0 right-0 bg-white/80 text-text-light px-3 py-2 rounded-lg flex items-center gap-2 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-base">edit</span>
+        Edit Block
+    </button>
+</div>
+<div class="mb-8">
+<h3 class="text-2xl font-bold text-text-light dark:text-text-dark mb-4">Store Reviews</h3>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-3">
+<div class="flex items-center">
+<span class="text-4xl font-bold text-text-light dark:text-text-dark mr-2">4.8</span>
+<div>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-xl" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Based on 1,234 reviews</p>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="border-t border-border-light dark:border-border-dark pt-6">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<img alt="Reviewer Avatar" class="h-8 w-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/a-/ALV-UjVAPl6e_re0J59Vp8tW483MBNs_Jk-b3RTs52y9e_fP5-E=s96-c"/>
+<span class="font-semibold text-text-light dark:text-text-dark">Jane Doe</span>
+</div>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="text-text-light dark:text-text-dark mb-2">Absolutely love this store! The quality of the clothing is amazing and the shipping was super fast. Will definitely be shopping here again.</p>
+<div class="flex items-center justify-between">
+<p class="text-xs text-subtext-light dark:text-subtext-dark">2 days ago</p>
+<button class="text-sm font-medium text-[var(--primary-color)] hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined !text-base">reply</span> Reply
+</button>
+</div>
+</div>
+<div class="border-t border-border-light dark:border-border-dark pt-6">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<img alt="Reviewer Avatar" class="h-8 w-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/a/ACg8ocK8c-ASf_91GvS16XwJgq9rbiqJzE3j3hF2D8M-R8M=s96-c"/>
+<span class="font-semibold text-text-light dark:text-text-dark">John Smith</span>
+</div>
+<div class="flex text-yellow-400">
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined !text-base">star</span>
+</div>
+</div>
+<p class="text-text-light dark:text-text-dark mb-2">Great customer service. I had an issue with my order and they resolved it very quickly and professionally. The products are also top-notch.</p>
+<div class="flex items-center justify-between">
+<p class="text-xs text-subtext-light dark:text-subtext-dark">1 week ago</p>
+<button class="text-sm font-medium text-[var(--primary-color)] hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined !text-base">reply</span> Reply
+</button>
+</div>
+</div>
+<div class="text-center mt-6">
+<button class="bg-[var(--primary-color)] text-white px-6 py-2 rounded-full font-semibold hover:bg-blue-700 transition-colors">View All Reviews</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="p-8 border-t border-border-light dark:border-border-dark bg-card-light dark:bg-card-dark">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark mb-4">Customer Service</h4>
+<ul class="space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-[var(--primary-color)]" href="#">Help Center</a></li>
+<li><a class="hover:text-[var(--primary-color)]" href="#">Report Abuse</a></li>
+<li><a class="hover:text-[var(--primary-color)]" href="#">Submit a Dispute</a></li>
+<li><a class="hover:text-[var(--primary-color)]" href="#">Policies &amp; Rules</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark mb-4">About Us</h4>
+<ul class="space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-[var(--primary-color)]" href="#">About Us</a></li>
+<li><a class="hover:text-[var(--primary-color)]" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark mb-4">Payment Methods</h4>
+<div class="flex items-center gap-2 flex-wrap">
+<img alt="Visa logo" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfQ4BINSD59Ed8-TOYwdrPK-PKXEZWDdZzuwXmT91E7-uP5hL2t5_-PhBTurfMdOl2Mf73RKt6t-2ua3i8AmW72hqRj8trSOceWqgMH64dnjAd_h5T6NktJPy_UcWnC0rpINBHYi_S0CWHCJCpmktK1dCYOHIAiDL9CC2F6-libabijlrCFcfr6szzAy0_lUIlfYo4lUs93UYCQPL1JnoIjWhjqwnsSydrC-tOrVN1LztF98Tk-ofAjgt2NxQ18mPkka2cFeMfKoY"/>
+<img alt="Mastercard logo" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDY4xfHz6l0OPxq_DaYzW5sLVqn8OReWsnNyT29l1ziJGklkEikr8jlmHIk7muhZ0eeHm_eS_70q58_FdCSmlyKgABvj6DGANF0a91ZiQabZQiTrHaEDsltiaVvl5I0uH0Ger23jKp5CSvUZKNhFPdwqJbhSKHCxe9UN3g1OfaEPC_Oa2OO3NWlIf8E7-hes3ImMXm2jWwOkWS115b8FHnHCOiqxxsYJL0mDeXM7F7ebI9HWGbS_ClnGDU9iS7mjlmejdzGZmC4JK8"/>
+<img alt="American Express logo" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIsX6VPipXyadUctatdbsPcHSTSU981r5KbKi4487geDuJLLXHX0J3Sb0FyHf77-H47MhrmLtIEpb-_VWD9Njj1ZlF2q07wf6wgnV3fo5HJRwG7FdD5k4sLdgBxxD_njouceWbz2CbLqQ0R09IoK58a5ZvnZWprYQHoIldpPd19mC97qHRW_6mgXnzvLy-lbSb4PyK5XdDu-yHeEHUwnNYz--KkTbvF4cfIVahMsohg1PEya_H2B_6dBjTbS2CKPeVG5BirXrxFE"/>
+<img alt="PayPal logo" class="h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsnerCAHJy5isduZ3WHvznou3Y4fvGX-hOQ0T6qW3iD7d84gJa2LjIlYZD48ZN9qY_fzOV-X5mVJZawShbrCc1WiMWfYSOFc5vDdOIuzCXvWMajwC7-K8v_crbOpubEH3VdXG9P4v8-TFmXFHx5DqHGxe9SoIiiyrndDy3CipCargqKfObBem2q19ZZdsqt3kn31bhmOJvAnHmkJSQ8VI-UdvR7Q2YXhDK0tFte-wS0mWTXloy-67WmbLcSv8OhKpbASxyPANwLSM"/>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark mb-4">Follow Us</h4>
+<div class="flex items-center gap-4">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-[var(--primary-color)]" href="#">
+<svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg>
+</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-[var(--primary-color)]" href="#">
+<svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg>
+</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-[var(--primary-color)]" href="#">
+<svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0-2a7 7 0 110 14 7 7 0 010-14zm6.406-2.34a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5z" fill-rule="evenodd"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-border-light dark:border-border-dark text-center text-subtext-light dark:text-subtext-dark text-sm">
+<p>© 2023 Urban Threads. Powered by Inflopick.</p>
+</div>
+</footer>
+</div>
+</main>
+</div>
+</body></html>

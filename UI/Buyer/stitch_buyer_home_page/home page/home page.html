@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-commerce Home Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF6600",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#121212",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E1E1E",
+                        "text-light": "#1F2937",
+                        "text-dark": "#E5E7EB",
+                        "text-light-secondary": "#6B7280",
+                        "text-dark-secondary": "#9CA3AF"
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .animate-countdown {
+            animation: countdown 1s linear infinite;
+        }
+        @keyframes countdown {
+            from { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            to { transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<header class="sticky top-0 z-50 bg-card-light dark:bg-card-dark shadow-md">
+<div class="container mx-auto px-4 py-3 flex justify-between items-center">
+<a class="text-2xl font-bold text-primary" href="#">Inflopick</a>
+<div class="flex-1 max-w-2xl mx-4">
+<div class="flex flex-col">
+<div class="relative">
+<input class="w-full bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-700 rounded-full py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-300" placeholder="Search for products, creators, and more..." type="text"/>
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-text-light-secondary dark:text-text-dark-secondary">search</span>
+</div>
+<div class="flex items-center space-x-4 mt-2 justify-center text-sm">
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary font-medium" href="#">Product</a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary font-medium" href="#">Storefront</a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary dark:hover:text-primary font-medium" href="#">Creators</a>
+</div>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<a class="relative text-text-light dark:text-text-dark" href="#">
+<span class="material-icons">chat_bubble_outline</span>
+</a>
+<a class="relative text-text-light dark:text-text-dark" href="#">
+<span class="material-icons">notifications</span>
+<span class="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">3</span>
+</a>
+<a class="relative text-text-light dark:text-text-dark" href="#">
+<span class="material-icons">shopping_cart</span>
+<span class="absolute -top-1 -right-1 h-4 w-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">2</span>
+</a>
+<a class="text-text-light dark:text-text-dark" href="#">
+<span class="material-icons">account_circle</span>
+</a>
+<button class="text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5" id="theme-toggle" type="button">
+<span class="material-icons" id="theme-toggle-dark-icon" style="display:none;">dark_mode</span>
+<span class="material-icons" id="theme-toggle-light-icon" style="display:none;">light_mode</span>
+</button>
+</div>
+</div>
+</header>
+<main class="container mx-auto px-4 py-6">
+<section class="mb-8">
+<div class="relative rounded-lg overflow-hidden shadow-lg h-64 md:h-80">
+<img alt="Flash sale on electronics" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMMTGX14OC2x0mSsxODSAw9fMuiJfuHHIIf6HKpNyd7teFBnZo8ssdvLF4wbv63uKAx19MlG7dN17ZWhU3aOjAN0rXLucMSFghDOYc4X8iz86hcm4GjQSOFP653EfAFtsLvfN3Db8tqhRuxB7tZf5rXeyQkK3qbgeP0uJ_3so7xqi_Z3rhxpsCRQhk1q6se_w_bXok6wxU4_Njqc6KS9KCnLoQzQ7I4YxfEqMlhx1NDb6Q22Codz8DihVynmdIvtOJe9BdWH-AAGc"/>
+<div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-white p-4 text-center">
+<h2 class="text-4xl font-bold mb-2">Flash Sale Frenzy!</h2>
+<p class="text-lg mb-4">Up to 70% off on trending tech gadgets. Don't miss out!</p>
+<a class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition" href="#">Shop Now</a>
+</div>
+</div>
+</section>
+<section class="mb-8">
+<h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Just For You</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Stylish smartwatch" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRRKw34R7b3j5BY3SEkt32V5FQ3pqJLCcXB6b8P3b1QH1vej8fHIzIv1zSqkE4mkJZWU-8uC8_BmCI1H9kF2B7_wopZgxZ07VRMWOkAcmAMTYeKd5SbVRpEUh5RMdMujLu48V-YQ8ROEK64F9dBOdB_0Me5c0ggcRYV8iLrU0trijU2UfC5sCPOnCE_b-rGBl7yDFsDCIx7EMoV4CoA-8100nByPZqCTTjF2qRlLVlFG4oqHCX5NfmuplA95kGx7mUxSbWUHfP1oI"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Stylish Smartwatch Series 8</h4>
+<p class="text-lg font-bold text-primary mt-1">$299</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.8 (1.2k)</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Wireless earbuds" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeC_FLjW0UNM7gHVNDkUXN8zYldMrNgP246toTqqifivnyj77QGZt5q1WvrxCitkMhvxfSgigHVkREcmGJE98Z-MkMgOiX8kNKVgcNQXTFaIHApbfcbuntwlesEuVhlw2GGK6OODuQYuVhPigq9lOq-YXDz273lOHYACf1H01pYlnxLyGhcYtTHRJj3NVIdlYmnHm7dBv6Kvhqh7B5lJQwb9tV-t6fXyoGTDutqk4Tu57Ntzk3skLuplXly89-qIwQtv8IEy1UBik"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">AirSound Pro Earbuds</h4>
+<p class="text-lg font-bold text-primary mt-1">$129</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.9 (3k)</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Comfortable sneakers" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4QlJqvtFa1Jzt2PEyChO0IZYvttNwy5CoZrkoYL1VF7X8NF2b_jHaFx7m9EF8jhus2vZ2L7_BngdiJ1MlwCm1iwBBaYHgXcrwENXqGMwsdlLPwqTvoB15BGuj6nvC0HdJFlkrHAvaO8pRpTjieJuFJBiVd3pBM-PJuN8fAMQhPx55443vXRpfBOJErCZfeGoNQ1SizB8JAlbYZCl3W8ZMyd4eUysGuIXduRWZOMeDIQCt63nJpIyqgLWeJRBd-M8kdR6_fzo5vos"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Urban Runner Sneakers</h4>
+<p class="text-lg font-bold text-primary mt-1">$89</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.7 (890)</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Minimalist backpack" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6kGAwZB0FYB-tkQD9iigUmZNGA9FJe8THBM-duJCNqUmWF1ynLrN6eBLOwMZwU1pbvPDhdvbAdIzECk6InLpuxkhiN7mcwC2vGQhSxF__QWAFCIeVMJ8QgnGFIAVD566yp4EBjneqTEpAkKkA4Mv2QSXKxjwgc8QVlg9I0qT5Ji_8qYxZDhdZuTA21gw1uc-oaj1lJEthy1-KOZPCDqPEGn2_joY5HstQ32QupOsofC0SM0DRI1MSl65-9BT1xBFb8O28j3Qois0"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Minimalist City Backpack</h4>
+<p class="text-lg font-bold text-primary mt-1">$65</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.9 (2.1k)</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Portable power bank" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDA3ef7auU_8Ewz3G_ljTr3hNsIvs7vJLuMVHMsnuFp26_m9G-Uvm4zvjXen4cpO9N4xgqWtz4jL3mYqFquaHwyZNpU8bjh1VEpKf4r5X9BaXvljBb619Fmfymwn3K8dJoyQLz9ClmtpmzQ03JcQH2rha46-iVo56NjmhJ3DcUzUq139tf1d1zG7ICKU1jPxon6wOj-iBBcWVWYMWAtMoxVUjFaTXzpv_tPSXf_Oq9sM7IL7YITr3bF6yZBnnhIx8037QfiWPK9pkU"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Ultra-Slim Power Bank</h4>
+<p class="text-lg font-bold text-primary mt-1">$35</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.6 (5.5k)</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Gaming mouse" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_UaLumQFwI0PCqdmHIpmoaXq5Anbo83xLORaPTYi9g7jN09MPzwZPnt3daS3IdQWX9Xw3I9Ybgugm4JEioVZG1C-v6kHV3kpeRm6RRBcroGZIFaQNzstMg0JcluPcoeqBw7G3Pqmfk-QZME-faxHV-jTc_3DSXWh1TxLUzNAOuLp-C5FKY_44-FCgaWNkvKyORGVFeGANllEY5TLjx7PAEWbE0HeP3eNonZjUN6GocRSElYm24hAxx4d9mk7qpf6tiQ5TK_mkdG4"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Pro Gamer RGB Mouse</h4>
+<p class="text-lg font-bold text-primary mt-1">$59</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.8 (980)</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<a class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 ease-in-out" href="/just-for-you">
+                    See All
+                </a>
+</div>
+</section>
+<section class="mb-8">
+<h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Creator Picks</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md p-4 flex items-center space-x-4">
+<img alt="Profile of influencer Jane Doe" class="w-20 h-20 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDWC92mODFFcvGQJA2DlW1volbSLXzj93VyhMwjUfqUbGWJj9_ji_w1NWJqfBMxt-0YE1NkKjF-0FojnXoB6c4VFLmaylWlT7K3HlgCm1rOE9MYyAeR1bSO17YZjUSssDpi5UeOMQDxRbmUr0uKavAeJ7GBS86dgxm_N3ViLVam5EhEFlLoX1O0wqmhbvi4nDwNi312xN0yZM6QlwnzD-2EaM4ua-9nMNrJE0V7nzkUGYIYdbNboOKVl3_8b4W9ETvCClOxeS86g0"/>
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark">Jane's Style Hub</h4>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Curated fashion for the modern woman.</p>
+<a class="text-primary font-semibold text-sm mt-2 inline-block" href="#">Visit Storefront <span class="material-icons text-sm align-middle">arrow_forward</span></a>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md p-4 flex items-center space-x-4">
+<img alt="Profile of influencer TechGuru" class="w-20 h-20 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLg97VfNjrj0YQxN7WwlhKS-k_9Vn2qej8V7i8QHA2qZo262IB79YJxAs6qHbj0y8sUa_jK-iz4IsKowFTH0QeQODAOFnV-BmWbr7Hit_2n7yWoqfi6ZwszHCzzL9yPU1E_l0GEWKCtg3QCptu2xQ9t8HctVAz9xYymDG_8PA5_WXJK7VCM20cLdbBixrsuOcDfvN4Os6Ff2ZbHCGji15YKCgIRjk7EsRaTiHLHFR6Tj4dHU1fzgTrHDS2OgAM3TggMOa0pIOCYSw"/>
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark">Tech Guru's Gear</h4>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">The best gadgets, tested and approved.</p>
+<a class="text-primary font-semibold text-sm mt-2 inline-block" href="#">Visit Storefront <span class="material-icons text-sm align-middle">arrow_forward</span></a>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md p-4 flex items-center space-x-4">
+<img alt="Profile of influencer Homebody" class="w-20 h-20 rounded-full object-cover border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDVdgJNBHF0QtlrfDQFnh1NWjimLcPaplQ_8pLZ__JldJZxZMCaNHFJM0tSzuKGfUva64ToU4ec6N6QPxj1oVaNdbaMDDbuLPR9CKf9qGqmOx8kxPd5X8vaflYfi-loB2xDhCtrUq3bS7YjlkSQoTo9sXIMvje-g_Dyh_Npv_TTf9319xu7sg34wrrvYw2ZLmZk-b9Zvl_KL-qSw_L_R2-DgRPmSCUiA6P94fzovZtbDl2LzIKCuSrY0DtpUa3LuV-Hgwm1K8qCEUQ"/>
+<div>
+<h4 class="font-bold text-lg text-text-light dark:text-text-dark">Cozy Home Finds</h4>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Elevate your living space with comfort.</p>
+<a class="text-primary font-semibold text-sm mt-2 inline-block" href="#">Visit Storefront <span class="material-icons text-sm align-middle">arrow_forward</span></a>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<a class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 ease-in-out" href="/creator-picks">
+                    See All
+                </a>
+</div>
+</section>
+<section class="mb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-2xl font-bold text-text-light dark:text-text-dark">Flash Sale</h3>
+<div class="flex items-center space-x-2 bg-red-600 text-white px-3 py-1 rounded-md">
+<span class="material-icons text-sm">timer</span>
+<span class="font-semibold text-sm">Ends in:</span>
+<div class="flex space-x-1 font-mono text-lg animate-countdown">
+<span id="hours">12</span>:
+                        <span id="minutes">34</span>:
+                        <span id="seconds">56</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">50% OFF</div>
+<img alt="Leather tote bag" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6e2vD1qayvfaY-puvHr_bIrLjzEZObr_AJpNAW8lXIXJIMCsZZ-wGRyHE0r6Hv-Mm_tBT6jit8Ic_lXmoMsTGtO3t222-L7PI95LBxlRw24d6ZDePd3AmIa-PJ49OuyD0LtKW7yl1R7ar7NiNmDvQ1zUYelhYjIIcdT2BkJOe5hNXZ8HtcTpywEJpCeC04BF3TA697EN12-ZKuqX6CR6YEo4Wr1mw4hmu0E2ZfDU-ELJkddNQEUtU3r3JIAiKL-Gq-HQBEr5qs1k"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Classic Leather Tote</h4>
+<div class="flex items-baseline mt-1">
+<p class="text-lg font-bold text-primary">$75</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary line-through ml-2">$150</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">30% OFF</div>
+<img alt="Bluetooth Speaker" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAMesaJUB-fEtClBR7u4gJkMUhm73AA8zRb1fTHQrPk194QZOTck4C7iR4GytPEdOrF5mGOPR3pjTsYBLLyZnp1p_v6hUg06YAoyPkC0v5z_Tz0jEkBcFTVcP7RHrr5vlL8dbxvoxlO09I6MzLc1BbyFzSRS8v_3lpMjZpk0E416STSyekd4kN_8q1yOChXfyiXmX0s2Y5QoqfbQukS0MKu-td3qcoL3QrnDpVrEKft2aHv8gRwjkw7AhWmM41Rwa7j3Ay9gClazR8"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Portable Bluetooth Speaker</h4>
+<div class="flex items-baseline mt-1">
+<p class="text-lg font-bold text-primary">$49</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary line-through ml-2">$70</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">40% OFF</div>
+<img alt="Yoga Mat" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnwKgB9rHBO5e_N6OtCPl4hIFbhfud9z4ht-5uYuZSMNpjDjq5dQXHOkVXcUUVcd7O-z5-vWF5WSj0pL6Sv_Q_S6ufF75pLAwc3IiI0hy4vnppXwpJYCuVSwdg-FF6d1DGE9dVOcxFR1DWXWdskhgnFp4mK8dht5RwYet66yfgQSigQlnBtW8UURdJUPsswrG7WiRZg5hb-jkP76j6Eb-Nv3NvsWtb1EwfhQXGv5paw18wUHvUyoELdSBmZab57HPycgJ3dSyoVVE"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Eco-Friendly Yoga Mat</h4>
+<div class="flex items-baseline mt-1">
+<p class="text-lg font-bold text-primary">$24</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary line-through ml-2">$40</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden relative">
+<div class="absolute top-2 left-2 bg-primary text-white text-xs font-bold px-2 py-1 rounded">60% OFF</div>
+<img alt="Espresso Machine" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIfiRmnuL6NmYTIBIOPHUZJrD6LREhZozYnDA0zUEi0PlGnIs0SGEGlfmyb69JFr-Xzuey-trazpvZMXBvglCpmecKe85HYuQ8HQWR1rrIAzMkbO-6OIEVzG9_512-R5X-sjn881Ig39Xi-rpB1pkDGcszU9EWj981LbBWSobp4BTIx_gXI-0pPqdIr2GoWxIFRSPC3PoLCw3TJfT1Vf5IxHOA29yJcwTBQwWMqwX5McPROo5YoYM6NbHMdxbqiMArTmRq9f6B-C8"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Compact Espresso Machine</h4>
+<div class="flex items-baseline mt-1">
+<p class="text-lg font-bold text-primary">$99</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary line-through ml-2">$250</p>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<a class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 ease-in-out" href="/flash-sale">
+                    See All
+                </a>
+</div>
+</section>
+<section>
+<h3 class="text-2xl font-bold mb-4 text-text-light dark:text-text-dark">Weekly Best Sellers</h3>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Minimalist backpack" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxCn0JanQTw9Vw5kTzJZ5tS3iuabPSWuJZU3qFuRMc1k3_r4pUbQBkJeDIuK8knXahjM0G2-ywwSzzBEGsB7zm9fxFJHIyyQ7GUVLNrN6c8v9wfWkvCwkIM7d2Sd_rzWU2jZ_3dP9IQDn3y_muexaEgw9hSmFbfambnj1x3CKcgmvGFqKE_Unf8952n-_LVU6hqffXMAPve3zdmTnybQQN6lj62j9AkAE3KQKLCXaykS1W9HoRHQQLVM40b-Xh6uhwkmUOvQ_Tbx4"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Minimalist City Backpack</h4>
+<p class="text-lg font-bold text-primary mt-1">$65</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.9 (2.1k)</span>
+</div>
+<div class="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">#1 in Bags</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Wireless earbuds" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHqZxQBmR-78yiHBQ-cefkdRmQ2lElYIroj_uJUVUdzf_iINt5PHnvoiVhR4xslghoDOm_2ZqKQNj4-7fXzrJMWIyAA-3LI_3auti4ooL9-8I_NGs7wooVUmriI7Q1QPfc3TT9qMpPrpLiURb5_MPjM9zsPT3mdpjEt4QEl-XBIfA4DA8LBrJyVSo_e8lh6QdXWXSS2hVe8Z3TbHfKB_1CWcnVvnipkOnyWpp45uBr_JcknjzNoXvbJkSXODExoJS2-mqYkhxxuyo"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">AirSound Pro Earbuds</h4>
+<p class="text-lg font-bold text-primary mt-1">$129</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.9 (3k)</span>
+</div>
+<div class="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">#1 in Electronics</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Yoga Mat" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpFpwejx5CwqcqmZ4VQ5DQPtIaOojezriVecW1qMJjB_y26NJYoayAizFUwYZ9KN0GK0HpUhyiM6L1OYxaOfPilgr-GC5B9oo7J1kqqT6Dfp9j1HwNlxj5773y3qOkgNafdSHKsPPx0mFS90YFf07dja1fNUujln4ZZ9O_rk5O3HN2ut4LDOelsVRg1vn57qZsCznJ1vKaNfu6r7vJ5I7masSmhX58Ul4nP_hSQC704njSRSyFcyNsUNQ83vwxEeg2qs0yZzMJbkg"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Eco-Friendly Yoga Mat</h4>
+<p class="text-lg font-bold text-primary mt-1">$24</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.8 (1.5k)</span>
+</div>
+<div class="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">#1 in Sports</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Comfortable sneakers" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0P7Sm6vrZa704nPjaxzCtwMOXmOol5WkNSm1zbdu8YbucUrCv8i2ettoqTlir_wg85FOScTMrkQ0hQCoWA-QLUaecRI5vMMK5snFbs0Xqrm8U4-xAaPQlMBjQ1l6_RosERKqlNB7ZePumSbYp98FhO6rUBIVfthBxOYTaaqXYrzcPDPB2yv8ExQ8-4k9N-L-oBkOEXEFqQDagX1dnqQj08YZgkbOYvdzp25v0ikJXTCv3Yc5B-XI4QFuWdai4GcUH8hEkXUWrMjU"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Urban Runner Sneakers</h4>
+<p class="text-lg font-bold text-primary mt-1">$89</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.7 (890)</span>
+</div>
+<div class="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">#2 in Shoes</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Stylish smartwatch" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAirDbE2lCWnaL0Byk_2YCKW1Gpf9-rwaAQxn_gRp9XpdA-ls7SaRrxdfvBK7lPiCLMoUwfmRPGaxYSs0WbQwQfbYHsmb8EBadDpQNWJfOeZLBHdegOUhiPJ-TnxKA9SykscowZOxDnwPXxgq45DykBGggBGOS1SQHmuq6Na_0Fl177dzr8HyLdK_KZ4BMFZeYhITXxwQKGt4V5sg4N8_ovSYpnEYHEOychyumV0sHSXS7XfPXbB8Yb5odOjonivaWV2prKq-efir4"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Stylish Smartwatch Series 8</h4>
+<p class="text-lg font-bold text-primary mt-1">$299</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.8 (1.2k)</span>
+</div>
+<div class="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">#3 in Electronics</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transform hover:-translate-y-1 transition-transform duration-300">
+<img alt="Leather tote bag" class="w-full h-40 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGdjFYTfdjjpOtwiJM-74Q_zT41PqEsV--MU31i3AQ1kvu3dHlJD-s8WtGQZCDGmrOjLScRKkHJA4a6XHmf5rvA6Q-8Kh98glkYhYTZXm6YIY6F3GZRtIlAjBRkhbUzg2hx3uUTy1-vh8c_8E_nPusyuYTlBuy6xA4YAkLvm2_4BykbVN6eaIzFswTSdU_qj0U2uVuk_S2S2um4eg8eAvEJrQOVCq1Z2q911IUdmrCuCj4b3WfXQlbKxLbetswLCGTCfZ7TT6AHco"/>
+<div class="p-4">
+<h4 class="font-semibold text-sm truncate text-text-light dark:text-text-dark">Classic Leather Tote</h4>
+<p class="text-lg font-bold text-primary mt-1">$75</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400 text-sm">star</span>
+<span class="text-xs text-text-light-secondary dark:text-text-dark-secondary ml-1">4.9 (450)</span>
+</div>
+<div class="text-xs text-green-600 dark:text-green-400 font-semibold mt-1">#4 in Bags</div>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<a class="bg-primary text-white font-semibold py-2 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300 ease-in-out" href="/weekly-best-sellers">
+                    See All
+                </a>
+</div>
+</section>
+</main>
+<footer class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-800 pt-12 pb-8 px-4 md:px-8">
+<div class="container mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="lg:col-span-1">
+<h3 class="text-2xl font-bold text-primary mb-2">Inflopick</h3>
+<p class="text-text-light-secondary dark:text-text-dark-secondary text-sm mb-4">Your Creator-Driven Marketplace.</p>
+<div class="relative inline-block text-left">
+<button class="inline-flex justify-center w-full rounded-md border border-gray-300 dark:border-gray-600 shadow-sm px-4 py-2 bg-white dark:bg-card-dark text-sm font-medium text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none" type="button">
+<span class="material-icons mr-2 text-sm">language</span>
+EN/FR
+<span class="material-icons -mr-1 ml-2 h-5 w-5">expand_more</span>
+</button>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-4">Quick Links</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Home</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Discover</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Cart</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Orders</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Profile</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-4">Policies</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Data &amp; Consent Notice</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-4">Support</h4>
+<ul class="space-y-2 text-sm mb-4">
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">FAQs</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Help Center</a></li>
+<li><a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<a class="bg-primary text-white font-semibold py-2 px-4 rounded-full hover:bg-opacity-90 transition inline-block mb-2" href="#">Become a Creator</a>
+<a class="border border-primary text-primary font-semibold py-2 px-4 rounded-full hover:bg-primary hover:text-white transition inline-block" href="#">Open a Store</a>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">© 2025 Inflopick Inc. All rights reserved. Reg. No. 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4 mt-4 md:mt-0">
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.28C8.28,9.09 5.11,7.38 2.9,4.79C2.53,5.42 2.33,6.16 2.33,6.94C2.33,8.43 3.1,9.78 4.19,10.59C3.47,10.57 2.82,10.37 2.24,10.03C2.24,10.05 2.24,10.07 2.24,10.08C2.24,12.18 3.69,13.94 5.75,14.35C5.38,14.45 4.98,14.5 4.57,14.5C4.28,14.5 4,14.47 3.72,14.42C4.27,16.12 5.94,17.34 7.9,17.38C6.46,18.5 4.67,19.22 2.76,19.22C2.42,19.22 2.08,19.2 1.75,19.16C3.7,20.45 6.04,21.23 8.6,21.23C16,21.23 20.33,15.17 20.33,9.79C20.33,9.6 20.33,9.42 20.31,9.23C21.1,8.64 21.85,7.86 22.46,6Z"></path></svg></a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.48,2 2,6.48 2,12C2,17.52 6.48,22 12,22C17.52,22 22,17.52 22,12C22,6.48 17.52,2 12,2M17,7H15C14.3,7 14,7.4 14,8V10H17V12H14V17H12V12H10V10H12V8C12,6.34 13.34,5 15,5H17V7Z"></path></svg></a>
+<a class="text-text-light-secondary dark:text-text-dark-secondary hover:text-primary" href="#"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"></path></svg></a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<nav class="fixed bottom-0 left-0 right-0 bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-700 md:hidden z-50">
+<div class="flex justify-around items-center h-16">
+<a class="flex flex-col items-center justify-center text-primary" href="#">
+<span class="material-icons">home</span>
+<span class="text-xs font-medium">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-light-secondary dark:text-text-dark-secondary" href="#">
+<span class="material-icons">chat_bubble_outline</span>
+<span class="text-xs font-medium">Chat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-light-secondary dark:text-text-dark-secondary" href="#">
+<span class="material-icons">shopping_cart</span>
+<span class="text-xs font-medium">Cart</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-light-secondary dark:text-text-dark-secondary" href="#">
+<span class="material-icons">receipt_long</span>
+<span class="text-xs font-medium">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center text-text-light-secondary dark:text-text-dark-secondary" href="#">
+<span class="material-icons">person_outline</span>
+<span class="text-xs font-medium">Profile</span>
+</a>
+</div>
+</nav>
+<script>
+        // Theme toggle logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.style.display = 'block';
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.style.display = 'block';
+            document.documentElement.classList.remove('dark')
+        }
+        themeToggleBtn.addEventListener('click', function() {
+            themeToggleDarkIcon.style.display = themeToggleDarkIcon.style.display === 'none' ? 'block' : 'none';
+            themeToggleLightIcon.style.display = themeToggleLightIcon.style.display === 'none' ? 'block' : 'none';
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+        // Countdown Timer
+        function startCountdown() {
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            let hours = 12;
+            let minutes = 34;
+            let seconds = 56;
+            setInterval(() => {
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    minutes = 59;
+                    hours--;
+                }
+                if (hours < 0) {
+                   hours=12; minutes=34; seconds=56; // Reset for demo
+                }
+                hoursEl.textContent = hours.toString().padStart(2, '0');
+                minutesEl.textContent = minutes.toString().padStart(2, '0');
+                secondsEl.textContent = seconds.toString().padStart(2, '0');
+            }, 1000);
+        }
+        startCountdown();
+    </script>
+</body></html>

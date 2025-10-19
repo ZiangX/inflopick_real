@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add Product - Seller Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons-outlined {
+            font-family: 'Material Icons Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .code-editor {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50">
+<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-2xl w-full max-w-6xl h-full max-h-[95vh] flex flex-col">
+<header class="flex items-center justify-between p-6 border-b border-border-light dark:border-border-dark">
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">Add New Product</h2>
+<div class="flex items-center space-x-4">
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons-outlined">close</span>
+</button>
+</div>
+</header>
+<main class="flex-1 overflow-y-auto p-8 grid grid-cols-12 gap-8">
+<div class="col-span-12 lg:col-span-8 space-y-8">
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Product Detail</h3>
+<button class="flex items-center gap-2 text-sm font-semibold text-primary hover:text-blue-700 dark:hover:text-blue-400 transition-colors">
+<span class="material-icons-outlined !text-xl">auto_awesome</span>
+                                Import with AI
+                            </button>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="product-name">Product Name <span class="text-red-500">*</span></label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="product-name" placeholder="e.g. Premium Leather Wallet" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="short-description">Short Description <span class="text-red-500">*</span></label>
+<textarea class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="short-description" placeholder="~160-200 characters for cards/search results." rows="3"></textarea>
+</div>
+<div x-data="{ advanced: false }">
+<div class="flex justify-between items-center mb-1">
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark">Full Description</label>
+<button @click="advanced = !advanced" class="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-blue-700 dark:hover:text-blue-400 transition-colors">
+<span class="material-icons-outlined !text-base" x-text="advanced ? 'edit' : 'code'"></span>
+<span x-text="advanced ? 'Rich Text Editor' : 'Advanced Mode'"></span>
+</button>
+</div>
+<div class="mt-1 p-2 rounded-md border border-border-light dark:border-border-dark dark:bg-background-dark" x-show="!advanced">
+<div class="flex items-center space-x-2 p-2 border-b border-border-light dark:border-border-dark">
+<button class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-icons-outlined !text-xl">format_bold</span></button>
+<button class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-icons-outlined !text-xl">format_italic</span></button>
+<button class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-icons-outlined !text-xl">format_list_bulleted</span></button>
+<button class="p-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700"><span class="material-icons-outlined !text-xl">format_list_numbered</span></button>
+</div>
+<textarea class="w-full border-0 focus:ring-0 p-2 dark:bg-background-dark dark:text-text-dark" placeholder="Include specifications, care instructions, warranty information, etc." rows="6"></textarea>
+</div>
+<div class="mt-1 rounded-md border border-border-light dark:border-border-dark dark:bg-background-dark overflow-hidden" x-cloak="" x-show="advanced">
+<div class="p-2 border-b border-border-light dark:border-border-dark">
+<p class="text-xs text-subtext-light dark:text-subtext-dark">You are in HTML mode. Be careful with your code.</p>
+</div>
+<textarea class="w-full border-0 focus:ring-0 p-2 dark:bg-gray-900 dark:text-gray-300 code-editor" placeholder="&lt;!-- Your HTML code here --&gt;" rows="10"></textarea>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-1">Media</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Add images and videos to showcase your product.</p>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-2">Images <span class="text-red-500">*</span></label>
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+<div class="relative group aspect-square">
+<img alt="Product Image 1" class="rounded-md w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRkJxa1UYtkv4emfJIq8h-Lz3IooEIIY4Y_7EIiVV7e1JS8frcc2T0XH_nuYNt6CkFacUTRiUDnSJ8GHeBBxA8oxa8AYeLR4jtgupgrpQd1RefecfYEHOZu3UMhKfSzyM3F-EFeNL0yb0JeJkS5k2z6Q5o4G_G0QijyDAHqk7fq-ZJDEt2igudz8rJ_6WmgXLje0eNdlppQKTImGR276GI1lagxbJ0_ZEFsT0zjJ73XS5wiCaMLXNddkeSA1idyvlsGWiUwF6OGCs"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-md transition-opacity">
+<button class="text-white p-1 rounded-full hover:bg-white/20"><span class="material-icons-outlined !text-xl">delete</span></button>
+</div>
+<div class="absolute top-1 left-1 bg-primary text-white text-xs font-bold px-2 py-0.5 rounded">Cover</div>
+</div>
+<div class="relative group aspect-square">
+<img alt="Product Image 2" class="rounded-md w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa-i4sL-dvfEEWHIj91x0GnSFx-rtExmH_osgAkgcxtCpTe5cHtWFi3JH8ekRm5UE9hatnZVprzdOiLUkLBgZDXb8fmBW5VyuxQlgaVhsoFCcCw181YQSmXf1NCHETdj8Hv5WGYtrFvkFcSGGURwSWLhKiw_VswliAqjPAE7XNsLJlpwdqMkOgA6JkoyaaSui-8iJAf2bxxiEcGUO_lA6QcL6DOrWGJ7zDu4DgBVrd5FDlR6wI6jdulTBtWCDJAf6k1N-HJtKOgmA"/>
+<div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center rounded-md transition-opacity">
+<button class="text-white p-1 rounded-full hover:bg-white/20"><span class="material-icons-outlined !text-xl">delete</span></button>
+</div>
+</div>
+<div class="relative group aspect-square border-2 border-border-light dark:border-border-dark border-dashed rounded-md flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition">
+<span class="material-icons-outlined text-3xl text-subtext-light dark:text-subtext-dark">add_photo_alternate</span>
+<p class="mt-1 text-xs text-subtext-light dark:text-subtext-dark">Add image</p>
+<input class="sr-only" id="file-upload" multiple="" name="file-upload" type="file"/>
+</div>
+</div>
+<p class="mt-2 text-xs text-subtext-light dark:text-subtext-dark">You can upload up to 10 images. Drag and drop to reorder.</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-2">Video Links</label>
+<div class="space-y-4">
+<div class="flex items-center gap-4 bg-background-light dark:bg-background-dark p-3 rounded-lg border border-border-light dark:border-border-dark">
+<div class="flex-shrink-0 w-24 h-16 bg-gray-200 dark:bg-gray-700 rounded-md flex items-center justify-center">
+<span class="material-icons-outlined text-4xl text-subtext-light dark:text-subtext-dark">play_circle_filled</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-medium text-text-light dark:text-text-dark truncate">https://www.youtube.com/watch?v=ABCDEFG123</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">YouTube</p>
+</div>
+<button class="p-2 rounded-full text-subtext-light dark:text-subtext-dark hover:bg-gray-200 dark:hover:bg-gray-700 transition"><span class="material-icons-outlined !text-xl">delete</span></button>
+</div>
+<div class="relative">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">link</span>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark pl-10 pr-28" placeholder="Add a YouTube or Vimeo link" type="text"/>
+<button class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-white px-3 py-1 rounded-md text-sm font-semibold hover:bg-blue-700 transition">Add</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Variants &amp; Attributes</h3>
+<div class="flex items-center space-x-4">
+<button class="text-sm font-medium text-primary hover:text-blue-700 flex items-center gap-1" onclick="document.getElementById('link-variant-modal').classList.remove('hidden')" type="button">
+<span class="material-icons-outlined !text-base">link</span>
+                                    Link to Variant
+                                </button>
+<button class="bg-primary/10 text-primary px-4 py-2 rounded-lg flex items-center gap-2 font-semibold hover:bg-primary/20 transition text-sm">
+<span class="material-icons-outlined !text-base">add_box</span>
+                                    Create Variant
+                                </button>
+</div>
+</div>
+<div class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="brand-manufacturer">Brand / Manufacturer</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="brand-manufacturer" placeholder="e.g., Acme" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="material">Material</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="material" placeholder="e.g., Leather, Cotton" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="color">Color</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="color" placeholder="e.g., Black, Brown" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="size">Size</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="size" placeholder="e.g., Medium, 10" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="weight">Weight (kg)</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="weight" placeholder="e.g., 0.5" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="item-dimensions">Item Dimensions (L×W×H cm)</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="item-dimensions" placeholder="e.g., 20x10x2" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="made-in">Made In</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="made-in" placeholder="e.g., USA" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="warranty">Warranty</label>
+<input class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="warranty" placeholder="e.g., 1 Year Limited" type="text"/>
+</div>
+</div>
+<button class="text-sm font-medium text-primary hover:text-blue-700 flex items-center gap-1" type="button">
+<span class="material-icons-outlined !text-base">add</span>
+                                Add another attribute
+                            </button>
+</div>
+<div class="mt-6 border-t border-border-light dark:border-border-dark pt-6">
+<h4 class="text-md font-semibold text-text-light dark:text-text-dark mb-4">Linked Variants (2)</h4>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-3 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-3">
+<img alt="Brown Wallet" class="w-10 h-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAABvU1T-vRZQfQCuIxcHEHwAYOUGMN8IgoDh2wSEjseiomJp0pNf8Cpd-jBmfwLA3X9MlcvL2T_KE1h2d36pCZd6cHYZLuQJu6GiUC0qMRbrKPGbX3p3Upm89A2HYi_BNIs5hTmm7nXoovi6WR2ocKqbU9vkCrx1z9NJZuMQU2BqqjsA5mNWGzxhB6RBNxZ3BYCUGAM-NjmNN8gf561lAxxOhnMCXznHnl9APzM3GwJF5eGjNQ3UHGUVDpPXrfCozlmvETjXH-gxQ"/>
+<div>
+<p class="font-medium text-sm text-text-light dark:text-text-dark">Premium Leather Wallet</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Color: Brown, Size: Standard</p>
+</div>
+</div>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-red-500 dark:hover:text-red-400 p-1 rounded-full"><span class="material-icons-outlined !text-xl">link_off</span></button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-3">
+<img alt="Red Wallet" class="w-10 h-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdHsLSKbQUjPv8k6WtF6k50YW2osVaWOW8VatjdOSNC0poEs85J1RXe5neYae7DYBp-7Y23XGTwSLXZGu07HKMI8mcVc03YWq6DFmKlGHNYMtC-NkZ88SF1ZgoyzBkG0QWoJXMdsEoOvc0_UsWEzvT0GZADJbU-vge9Nlx9cRe1xeUZFKCShbNBQSmrGDyFDrNtaSnevVjzKjN2JKNEOMa6XP5SL-kC8lGBxopsNrlWG-PHsydv8GSo-7rhFfKlAhHWxddl71rGGM"/>
+<div>
+<p class="font-medium text-sm text-text-light dark:text-text-dark">Premium Leather Wallet - Red</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Color: Red, Size: Standard</p>
+</div>
+</div>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-red-500 dark:hover:text-red-400 p-1 rounded-full"><span class="material-icons-outlined !text-xl">link_off</span></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Organization</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="status">Status</label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="status">
+<option value="draft">Draft</option>
+<option value="active">Active</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="category">Category <span class="text-red-500">*</span></label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="category">
+<option>Select a category</option>
+<option>Apparel &gt; Men &gt; Tops</option>
+<option>Electronics &gt; Audio &gt; Headphones</option>
+<option>Home &gt; Kitchen &gt; Cookware</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="condition">Condition</label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="condition">
+<option selected="">New</option>
+<option>Refurbished</option>
+<option>Used</option>
+</select>
+</div>
+<div x-data="{ open: false, selectedCountries: ['USA', 'Canada'] }">
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="available-countries">Available Countries</label>
+<div class="relative mt-1">
+<button @click="open = !open" class="relative w-full cursor-default rounded-md border border-border-light dark:border-border-dark bg-white dark:bg-background-dark py-2 pl-3 pr-10 text-left shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary sm:text-sm" type="button">
+<span class="flex items-center flex-wrap gap-2">
+<template :key="country" x-for="country in selectedCountries">
+<span class="inline-flex items-center gap-x-1.5 rounded-md bg-primary/10 px-2 py-1 text-xs font-medium text-primary">
+<span x-text="country"></span>
+</span></template></span></button><button @click.stop="selectedCountries = selectedCountries.filter(c =&gt; c !== country)" class="text-primary hover:text-primary/70">
+<span class="material-icons-outlined !text-xs">close</span>
+</button>
+
+
+<span class="text-subtext-light dark:text-subtext-dark" x-show="selectedCountries.length === 0">Select countries</span>
+
+<span class="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
+<span :class="{ 'rotate-180': open }" class="material-icons-outlined text-subtext-light dark:text-subtext-dark">unfold_more</span>
+</span>
+
+<div @click.away="open = false" class="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white dark:bg-card-dark py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" x-cloak="" x-show="open">
+<input class="w-full border-0 border-b border-border-light dark:border-border-dark bg-transparent px-3 py-2 focus:ring-0 text-text-light dark:text-text-dark" placeholder="Search countries..." type="text"/>
+<ul class="py-1">
+<li class="relative cursor-default select-none py-2 pl-3 pr-9 text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox" value="USA" x-model="selectedCountries"/>
+<label class="ml-3 block truncate font-normal">United States</label>
+</div>
+</li>
+<li class="relative cursor-default select-none py-2 pl-3 pr-9 text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox" value="Canada" x-model="selectedCountries"/>
+<label class="ml-3 block truncate font-normal">Canada</label>
+</div>
+</li>
+<li class="relative cursor-default select-none py-2 pl-3 pr-9 text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox" value="Mexico" x-model="selectedCountries"/>
+<label class="ml-3 block truncate font-normal">Mexico</label>
+</div>
+</li>
+<li class="relative cursor-default select-none py-2 pl-3 pr-9 text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox" value="United Kingdom" x-model="selectedCountries"/>
+<label class="ml-3 block truncate font-normal">United Kingdom</label>
+</div>
+</li>
+<li class="relative cursor-default select-none py-2 pl-3 pr-9 text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700">
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" type="checkbox" value="Germany" x-model="selectedCountries"/>
+<label class="ml-3 block truncate font-normal">Germany</label>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Pricing</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="base-price">Base Price <span class="text-red-500">*</span></label>
+<div class="mt-1 relative rounded-md shadow-sm">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="text-subtext-light dark:text-subtext-dark sm:text-sm">$</span>
+</div>
+<input class="block w-full pl-7 pr-12 rounded-md border-border-light dark:border-border-dark focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="base-price" oninput="calculateCommission()" placeholder="0.00" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark">Commission Percentage</label>
+<p class="mt-1 text-sm text-text-light dark:text-text-dark" id="commission-percentage-display">8%</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Updates based on influencer filter</p>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark">Platform Commission Amount</label>
+<p class="mt-1 text-sm text-text-light dark:text-text-dark" id="commission-display">$0.00</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark" id="commission-description">Base Price * Commission % * 1.14975 (incl. tax)</p>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Influencer Accessibility Filter</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="influencer-filter">Accessibility</label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="influencer-filter" onchange="calculateCommission()">
+<option data-commission="0.08" value="all">All Influencers</option>
+<option data-commission="0.10" value="micro">Micro Tier (10k-100k)</option>
+<option data-commission="0.12" value="mid">Mid-tier (100k-500k)</option>
+<option data-commission="0.15" value="top">Top tier (500k+)</option>
+</select>
+</div>
+<div class="space-y-2 pt-2 border-t border-border-light dark:border-border-dark">
+<h4 class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Commission Rates</h4>
+<div class="text-sm text-text-light dark:text-text-dark space-y-1">
+<div class="flex justify-between"><span>All Influencers:</span> <span>8%</span></div>
+<div class="flex justify-between"><span>Micro Tier:</span> <span>10%</span></div>
+<div class="flex justify-between"><span>Mid-tier:</span> <span>12%</span></div>
+<div class="flex justify-between"><span>Top Tier:</span> <span>15%</span></div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Shipment Detail</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="weight-shipping">Weight <span class="text-red-500">*</span></label>
+<div class="mt-1 relative rounded-md shadow-sm">
+<input class="block w-full pr-12 rounded-md border-border-light dark:border-border-dark focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="weight-shipping" placeholder="0.00" type="text"/>
+<div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+<span class="text-subtext-light dark:text-subtext-dark sm:text-sm">kg</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark">Package Dimensions (L×W×H)</label>
+<div class="mt-1 grid grid-cols-3 gap-2">
+<input class="block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" placeholder="L" type="text"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" placeholder="W" type="text"/>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" placeholder="H" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-card-dark/50 rounded-lg p-6 ring-1 ring-border-light dark:ring-border-dark">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Legal &amp; Policy</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="return-policy">Return Policy</label>
+<select class="mt-1 block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark" id="return-policy">
+<option value="14">14 days</option>
+<option value="21">21 days</option>
+<option selected="" value="30">30 days</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="flex items-center justify-end p-6 border-t border-border-light dark:border-border-dark bg-background-light/50 dark:bg-background-dark/50 backdrop-blur-sm sticky bottom-0">
+<div class="flex items-center space-x-4">
+<button class="text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">Save as Draft</button>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg flex items-center font-semibold shadow-md hover:bg-blue-700 transition">
+                        Publish Product
+                    </button>
+</div>
+</footer>
+</div>
+</div>
+<div class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50" id="link-variant-modal">
+<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-2xl w-full max-w-2xl flex flex-col">
+<header class="flex items-center justify-between p-6 border-b border-border-light dark:border-border-dark">
+<h3 class="text-xl font-bold text-text-light dark:text-text-dark">Link to Existing Variant</h3>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" onclick="document.getElementById('link-variant-modal').classList.add('hidden')">
+<span class="material-icons-outlined">close</span>
+</button>
+</header>
+<main class="p-6 space-y-4">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Search for existing products to link as variants. Linking products will show them in each other's variant sections.</p>
+<div class="relative">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark shadow-sm focus:border-primary focus:ring-primary dark:bg-background-dark dark:text-text-dark pl-10" placeholder="Search by product name or SKU" type="text"/>
+</div>
+<div class="max-h-64 overflow-y-auto space-y-3 pr-2">
+<div class="flex items-center justify-between p-3 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-3">
+<img alt="Brown Wallet" class="w-10 h-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIi7aTiap72f4qD5gpeJz1ioJgloT9dAc15A5luZ-CiWvkrm5UCmgwZk0nw2d1KkJNjoaaRrRDeUu7bwTH0Jsc6GtqmR_9EnDhINLeFD8pDtFo9Tx1AobG_LaAciXQFByFlSEnBdJeKn48IIKxT9b06EOujoUvSEfIIftwfr8f_C85xQX-1fFuCVhmpAl0mhVaap1wrsCDHogR5BANOs_duCAJstEIAb1bsAjewxSuK00dvkbmGEwuuH3lmvgC6v-VNbzyHWNX9Us"/>
+<div>
+<p class="font-medium text-sm text-text-light dark:text-text-dark">Premium Leather Wallet</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">SKU: WLT-BRN-STD</p>
+</div>
+</div>
+<button class="text-primary hover:text-blue-700 font-semibold text-sm">Link</button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark">
+<div class="flex items-center gap-3">
+<img alt="Red Wallet" class="w-10 h-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWUpO6IkR-taMPj0jdCTiWlbj9TUaiQoUBjnxYbv1jFS1segNsR2NgOqNDG5Ln7rGzVtqTO08y4ycjFp2wvyqUnHJWfWV45kz0WRMCOHr_E6gOxrZrbAvTNtXqGKdKukACwqPY9LQX3Ma9n_7oxsDvybz0TZfWldyO_yh2M-WzYkT2gp5cQfcllIskVqZ3iRoObmguuwyO84oli-5n-zG_UOseiAeHBKe4xhNlrs5mMO0ZhsZ-7ZPReUDw_7dt8buvDSc1fhUzA7w"/>
+<div>
+<p class="font-medium text-sm text-text-light dark:text-text-dark">Premium Leather Wallet - Red</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">SKU: WLT-RED-STD</p>
+</div>
+</div>
+<button class="text-primary hover:text-blue-700 font-semibold text-sm">Link</button>
+</div>
+<div class="flex items-center justify-between p-3 rounded-lg bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark opacity-50">
+<div class="flex items-center gap-3">
+<img alt="Black Wallet" class="w-10 h-10 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRkJxa1UYtkv4emfJIq8h-Lz3IooEIIY4Y_7EIiVV7e1JS8frcc2T0XH_nuYNt6CkFacUTRiUDnSJ8GHeBBxA8oxa8AYeLR4jtgupgrpQd1RefecfYEHOZu3UMhKfSzyM3F-EFeNL0yb0JeJkS5k2z6Q5o4G_G0QijyDAHqk7fq-ZJDEt2igudz8rJ_6WmgXLje0eNdlppQKTImGR276GI1lagxbJ0_ZEFsT0zjJ73XS5wiCaMLXNddkeSA1idyvlsGWiUwF6OGCs"/>
+<div>
+<p class="font-medium text-sm text-text-light dark:text-text-dark">This Product (Current)</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">SKU: WLT-BLK-STD</p>
+</div>
+</div>
+<span class="text-subtext-light dark:text-subtext-dark font-semibold text-sm">Current</span>
+</div>
+</div>
+</main>
+<footer class="flex items-center justify-end p-6 border-t border-border-light dark:border-border-dark bg-background-light/50 dark:bg-background-dark/50">
+<button class="text-sm font-medium text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark mr-4" onclick="document.getElementById('link-variant-modal').classList.add('hidden')">Cancel</button>
+<button class="bg-primary text-white px-6 py-2.5 rounded-lg flex items-center font-semibold shadow-md hover:bg-blue-700 transition">
+                    Done
+                </button>
+</footer>
+</div>
+</div>
+<style>
+        input:checked~.dot {
+            transform: translateX(100%);
+        }
+        input[type="checkbox"]:checked~.dot {
+            background-color: #3B82F6;
+        }
+        input:checked+.dot {
+            transform: translateX(calc(100% - 2px));
+            background-color: #ffffff;
+        }
+        #has-variants:checked~.dot {
+            transform: translateX(calc(3.5rem - 1.75rem - 0.25rem));
+        }
+        #return-eligible:checked~.dot {
+            transform: translateX(calc(3.5rem - 1.75rem - 0.25rem));
+        }
+        #return-eligible:checked+.block {
+            background-color: #3B82F6;
+        }
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
+<script>
+        function calculateCommission() {
+            const priceInput = document.getElementById('base-price');
+            const priceValue = parseFloat(priceInput.value);
+            const filterSelect = document.getElementById('influencer-filter');
+            const selectedOption = filterSelect.options[filterSelect.selectedIndex];
+            const commissionRate = parseFloat(selectedOption.getAttribute('data-commission'));
+            const taxRate = 1.14975;
+            const commissionPercentageDisplay = document.getElementById('commission-percentage-display');
+            commissionPercentageDisplay.textContent = `${(commissionRate * 100).toFixed(0)}%`;
+            if (isNaN(priceValue) || priceValue < 0) {
+                document.getElementById('commission-display').textContent = '$0.00';
+                return;
+            }
+            const commission = priceValue * commissionRate * taxRate;
+            document.getElementById('commission-display').textContent = `$${commission.toFixed(2)}`;
+        }
+        // Initial calculation on page load
+        document.addEventListener('DOMContentLoaded', calculateCommission);
+    </script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</body></html>

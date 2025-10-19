@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Hub - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+      --primary-color: #3B82F6;
+    }
+    .theme-blue {
+      --primary-color: #3B82F6;
+    }
+    .theme-green {
+      --primary-color: #10B981;
+    }
+    .theme-purple {
+      --primary-color: #8B5CF6;
+    }
+    .theme-orange {
+      --primary-color: #F97316;
+    }
+    .theme-pink {
+        --primary-color: #EC4899;
+    }
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary-color)",
+                        "background-light": "#F3F4F6", // Gray-100
+                        "background-dark": "#1F2937", // Gray-800
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#374151", // Gray-700
+                        "text-light-primary": "#111827", // Gray-900
+                        "text-dark-primary": "#F9FAFB", // Gray-50
+                        "text-light-secondary": "#6B7280", // Gray-500
+                        "text-dark-secondary": "#9CA3AF", // Gray-400
+                        "border-light": "#E5E7EB", // Gray-200
+                        "border-dark": "#4B5563", // Gray-600
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    boxShadow: {
+                        'subtle': '0 2px 4px 0 rgba(0, 0, 0, 0.05)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .group:hover .group-hover\:block {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark theme-blue">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col justify-between p-4 border-r border-border-light dark:border-border-dark">
+<div>
+<div class="px-4 py-2 mb-8">
+<a class="flex items-center space-x-2" href="#">
+<span class="material-icons text-primary text-3xl">store</span>
+<div>
+<span class="text-2xl font-bold text-text-light-primary dark:text-text-dark-primary">Inflopick</span>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Seller Hub</p>
+</div>
+</a>
+</div>
+<nav class="space-y-2">
+<a class="flex items-center px-4 py-3 text-white bg-primary rounded-lg" href="#">
+<span class="material-icons mr-3">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">receipt_long</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">campaign</span>
+<span>Marketing</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">people_alt</span>
+<span>Customer</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">chat_bubble_outline</span>
+<span>Chat</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">storefront</span>
+<span>Storefront Preview</span>
+</a>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">manage_accounts</span>
+<span>Accounts Management</span>
+</a>
+</nav>
+</div>
+<div>
+<a class="flex items-center px-4 py-3 text-text-light-secondary dark:text-text-dark-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<header class="mb-8 flex justify-between items-start">
+<div>
+<h1 class="text-4xl font-bold text-text-light-primary dark:text-text-dark-primary">Dashboard</h1>
+<p class="text-text-light-secondary dark:text-text-dark-secondary mt-1">Welcome back, Sarah! Here's an overview of your store's performance.</p>
+</div>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8">
+<a class="block bg-card-light dark:bg-card-dark p-6 rounded-lg shadow hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<h3 class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-medium">Total Sales (Monthly)</h3>
+<p class="text-3xl font-bold text-text-light-primary dark:text-text-dark-primary mt-2">$12,500</p>
+</a>
+<a class="block bg-card-light dark:bg-card-dark p-6 rounded-lg shadow hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<h3 class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-medium">Units Sold (Monthly)</h3>
+<p class="text-3xl font-bold text-text-light-primary dark:text-text-dark-primary mt-2">850</p>
+</a>
+<a class="block bg-card-light dark:bg-card-dark p-6 rounded-lg shadow hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<h3 class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-medium">Returns (Monthly)</h3>
+<p class="text-3xl font-bold text-text-light-primary dark:text-text-dark-primary mt-2">25</p>
+</a>
+<a class="block bg-card-light dark:bg-card-dark p-6 rounded-lg shadow hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors" href="#">
+<h3 class="text-text-light-secondary dark:text-text-dark-secondary text-sm font-medium">Customer Service Requests</h3>
+<p class="text-3xl font-bold text-text-light-primary dark:text-text-dark-primary mt-2">12</p>
+</a>
+</div>
+<div class="mb-8 space-y-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-4">
+<h2 class="text-xl font-semibold text-text-light-primary dark:text-text-dark-primary flex-shrink-0">Quick Actions</h2>
+<div class="flex items-center space-x-4 overflow-x-auto pb-2">
+<a class="flex-shrink-0 px-4 py-2 text-sm font-medium text-text-light-primary bg-white rounded-full shadow-subtle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:bg-card-dark dark:text-text-dark-primary dark:hover:bg-gray-600" href="#">
+                        Orders waiting to be shipped (5)
+                    </a>
+<a class="flex-shrink-0 px-4 py-2 text-sm font-medium text-text-light-primary bg-white rounded-full shadow-subtle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:bg-card-dark dark:text-text-dark-primary dark:hover:bg-gray-600" href="#">
+                        Return/Exchange requests (2)
+                    </a>
+<a class="flex-shrink-0 px-4 py-2 text-sm font-medium text-text-light-primary bg-white rounded-full shadow-subtle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary dark:bg-card-dark dark:text-text-dark-primary dark:hover:bg-gray-600" href="#">
+                        Sample requests (3)
+                    </a>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<a class="group lg:col-span-2 bg-card-light dark:bg-card-dark p-6 rounded-lg shadow hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors block" href="#">
+<h2 class="text-xl font-semibold text-text-light-primary dark:text-text-dark-primary mb-4">Recent Orders</h2>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-border-light dark:border-border-dark">
+<th class="py-3 px-4 text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Order ID</th>
+<th class="py-3 px-4 text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Customer</th>
+<th class="py-3 px-4 text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Date</th>
+<th class="py-3 px-4 text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary">Status</th>
+<th class="py-3 px-4 text-sm font-medium text-text-light-secondary dark:text-text-dark-secondary text-right">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary font-medium">#12345</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary">Emily Carter</td>
+<td class="py-3 px-4 text-sm text-text-light-secondary dark:text-text-dark-secondary">2024-03-15</td>
+<td class="py-3 px-4 text-sm">
+<span class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">Shipped</span>
+</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary text-right font-medium">$75.00</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary font-medium">#12346</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary">David Lee</td>
+<td class="py-3 px-4 text-sm text-text-light-secondary dark:text-text-dark-secondary">2024-03-16</td>
+<td class="py-3 px-4 text-sm">
+<span class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full">Processing</span>
+</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary text-right font-medium">$120.00</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary font-medium">#12347</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary">Olivia Brown</td>
+<td class="py-3 px-4 text-sm text-text-light-secondary dark:text-text-dark-secondary">2024-03-17</td>
+<td class="py-3 px-4 text-sm">
+<span class="px-2 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full">Delivered</span>
+</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary text-right font-medium">$50.00</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary font-medium">#12348</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary">Ethan Clark</td>
+<td class="py-3 px-4 text-sm text-text-light-secondary dark:text-text-dark-secondary">2024-03-18</td>
+<td class="py-3 px-4 text-sm">
+<span class="px-2 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full">Shipped</span>
+</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary text-right font-medium">$90.00</td>
+</tr>
+<tr>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary font-medium">#12349</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary">Sophia Green</td>
+<td class="py-3 px-4 text-sm text-text-light-secondary dark:text-text-dark-secondary">2024-03-19</td>
+<td class="py-3 px-4 text-sm">
+<span class="px-2 py-1 text-xs font-semibold text-yellow-800 bg-yellow-100 rounded-full">Processing</span>
+</td>
+<td class="py-3 px-4 text-sm text-text-light-primary dark:text-text-dark-primary text-right font-medium">$60.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</a>
+<a class="group bg-card-light dark:bg-card-dark p-6 rounded-lg shadow hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors block" href="#">
+<h2 class="text-xl font-semibold text-text-light-primary dark:text-text-dark-primary mb-4">Recent Visitors</h2>
+<div class="space-y-4">
+<div class="flex items-center">
+<img alt="Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJIEFVxr-kXYrfd-c5FTPoVU0-AALpndykfxnnRhC9UyRR0zfk2TzEpBcM9_imI49xb1XK1nLmb20mdm7dAiIJj37Ht1YmFEefEBNH5DTxG1qmTTdALQ_eEVyzFRk4TEbKr_VBN-2eHQRGrkDWHLpSgCUV-0gFXKIX0WkbWkKqyaEGnrwRHLIGMa4TiPLJdi5yj1x-n2O55CBjsiTSMou-XE0bd32aPxQfxid-pFl72YIrVReWY2JgwiS7G7N49TrS9FG3f1ORe5w"/>
+<div class="ml-4">
+<p class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary">Liam Harper</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">2 minutes ago</p>
+</div>
+</div>
+<div class="flex items-center">
+<img alt="Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJn-j9veZE580-F8zpt5xGrcyFSRBGz00Q3rGoi0xkAHHWXtq4-mm8WzNRu91miNYTLK5Epay88zxtu972p1v2H6jdjDQd7Qq50v9E8i9wXKPGT6BH6tRcIZDtnoVWVrtGP-O-OalwYFVHMvH-iO9FF0J2wtnwbc-w5QX063uBw0LktbZfLRB7LUb0u0Um81hgVzRDMvUjVmM0-WIm-v3qF5z5Z-EA1kb-6baNKr-Tz5yih0sQ4Vol1R1GlTef3QXCAcSyOQeHgmc"/>
+<div class="ml-4">
+<p class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary">Chloe Bennett</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">1 hour ago</p>
+</div>
+</div>
+<div class="flex items-center">
+<img alt="Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrnMxPlMcUeXnUjl5jM-Jxw4stBcv1kdvSNPuxUOW8j-IUvKJcIUQjo4sqoqIbs3oCgoC-MbcKnwniMwZcsC2lzZ8SlKO5uwIraAnQFiU35BLmDuNEwxG4t8opGikRwjMdCNh2lFaowQE_nDkhlmB5bmFJ-tfVhBu4D10xxOGuPEZVeokPsPAadlw89nPj1vcsM4DLbITYb72JQDOG1UwewBocmkCN8jDIUCJihs3-PixviJaepw9lcXhObtOwACTIv8HExXGXox0"/>
+<div class="ml-4">
+<p class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary">Noah King</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Yesterday</p>
+</div>
+</div>
+<div class="flex items-center">
+<img alt="Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7LfQUv761t4x370b-pmiOVqy7JRz7XqSC17PcXNlQS2YHpAa5jChgICQGMSMPSMYMbNaBdPWpTNZTB5AEW5MXxuen3YptWMAHWXVqHyh_48mNG5LBmVW1O_NN6LVqZUd76Fiu2i1_v-6sheO7vpdD9mKDIk_9VnslzzQfG9rVbQl5XpoaszMWzAzRFKPjFcr-UYjXdXy0gKQNTd7yD0WLdAB0DwQXqSYM04fNp-1POjRc1HW5FsLY6aamktniwOCtthhDdcQnUjU"/>
+<div class="ml-4">
+<p class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary">Ava Rivera</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">Yesterday</p>
+</div>
+</div>
+<div class="flex items-center">
+<img alt="Avatar" class="w-10 h-10 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4J5_M-Gzj10jWwIo6QoRXmhIHUsQjjYrRSBs0WluhpQlCa3l-a7JF07r2ENeXAIQhkbQyzKO2D44apllKmiJBrmBwqeFnorY-A6iefjRIsQQLAn_G9FZw-q9nlb7Q332Q7tByUk2ZZ4-q2FsKI0x_NQmrC13Gb0_WLmNyEWLHQ0dGiTgX3zQDUmbGor0DIbHfhaGB0LGad29DB620wCdHdH4JOux-Ds0WcNEY18PnedReJdpWma0gJMrtaWK-Eh92GFhJBLNA-70"/>
+<div class="ml-4">
+<p class="text-sm font-medium text-text-light-primary dark:text-text-dark-primary">Mason Scott</p>
+<p class="text-sm text-text-light-secondary dark:text-text-dark-secondary">2 days ago</p>
+</div>
+</div>
+</div>
+</a>
+</div>
+</main>
+</div>
+</body></html>

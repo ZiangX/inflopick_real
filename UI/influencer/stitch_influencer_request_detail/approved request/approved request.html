@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Request Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<style type="text/tailwindcss">
+        :root {
+            --primary-color: #3B82F6;--primary-light: #EFF6FF;--primary-dark: #1E40AF;--primary-text-light: #1D4ED8;--primary-text-dark: #93C5FD;}
+    </style>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "var(--primary-color)",
+                        "primary-light": "var(--primary-light)",
+                        "primary-dark": "var(--primary-dark)",
+                        "primary-text-light": "var(--primary-text-light)",
+                        "primary-text-dark": "var(--primary-text-dark)",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                        "text-light": "#111827",
+                        "text-dark": "#F3F4F6",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            position: relative;
+        }
+        .timeline-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            width: calc(100% - 24px);
+            height: 2px;
+            background-color: #E5E7EB;
+            transform: translateY(-50%);
+            z-index: 0;
+        }
+        .dark .timeline-item:not(:last-child)::after {
+            background-color: #374151;
+        }
+        .timeline-item.completed:not(:last-child)::after, .timeline-item.active:not(:last-child)::after {
+            background-color: var(--primary-color);
+        }
+        .timeline-node {
+            width: 24px;
+            height: 24px;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark p-6 flex flex-col justify-between border-r border-border-light dark:border-border-dark">
+<div>
+<h1 class="text-2xl font-bold text-primary mb-2">Inflopick</h1>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">CREATOR CENTER</p>
+<nav class="mt-8 space-y-2">
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">dashboard</span>
+<span class="ml-3">Dashboard</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">person</span>
+<span class="ml-3">Profile &amp; Verification</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">folder</span>
+<span class="ml-3">Portfolio</span>
+</a>
+<a class="flex items-center p-2 bg-primary-light text-primary rounded-md" href="#">
+<span class="material-icons">inbox</span>
+<span class="ml-3 font-semibold">Requests</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">store</span>
+<span class="ml-3">Shop</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">analytics</span>
+<span class="ml-3">Analytics</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">task_alt</span>
+<span class="ml-3">Tasks</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">star</span>
+<span class="ml-3">Ratings &amp; Safety</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">payment</span>
+<span class="ml-3">Payouts &amp; Billing</span>
+</a>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">mail</span>
+<span class="ml-3">Messages</span>
+</a>
+</nav>
+</div>
+<a class="flex items-center p-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#">
+<span class="material-icons">settings</span>
+<span class="ml-3">Account Settings</span>
+</a>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="space-y-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow flex items-center justify-between">
+<div class="flex items-center">
+<img alt="Running Shoes" class="w-24 h-24 object-cover rounded-md mr-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxik5Iq5z5BjzdKfPBgTYRGGiyTKoKA5EK2BNV0g7PafyyoFU0Gui_ExX-M_1Mf4XC6-d7pj_FiSmCEFz2cBXWLb-I8EtURdlWcNRs0dfT6dJOZWHw3QPvu9_OJGTwCQWhGM3bjZ7BzN-ot0xreUkc-yfaX_s36t9vjz2XBxQ4_OGxRZfHQBjnOqvkp6c_0gPLzscIJCE-bXymBH3V-ecRPbA4iB1i9kk1xp7LKdw_a460VkklQrTJigJDD9h6P7HPslvWlVQOfvY"/>
+<div>
+<h2 class="text-2xl font-bold text-text-light dark:text-text-dark">"Velocity" Running Shoes</h2>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Request ID: #RQ-8764</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Date: 2023-10-25</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller: QuickStride</p>
+</div>
+</div>
+<span class="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-blue-900 dark:text-blue-300">APPROVED</span>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<div class="flex items-center justify-between">
+<div class="timeline-item completed">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-primary text-white">
+<span class="material-icons text-sm">check</span>
+</div>
+<p class="text-xs text-center mt-2 font-medium text-primary">Requested</p>
+</div>
+</div>
+<div class="timeline-item active">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-primary text-white">
+<span class="material-icons text-sm">check</span>
+</div>
+<p class="text-xs text-center mt-2 font-medium text-primary">Approved</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-gray-200 dark:bg-gray-600"></div>
+<p class="text-xs text-center mt-2 text-subtext-light dark:text-subtext-dark">Shipped</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-gray-200 dark:bg-gray-600"></div>
+<p class="text-xs text-center mt-2 text-subtext-light dark:text-subtext-dark">Out for Delivery</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-gray-200 dark:bg-gray-600"></div>
+<p class="text-xs text-center mt-2 text-subtext-light dark:text-subtext-dark">Delivered</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-gray-200 dark:bg-gray-600"></div>
+<p class="text-xs text-center mt-2 text-subtext-light dark:text-subtext-dark">Content Submitted</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="flex flex-col items-center">
+<div class="timeline-node bg-gray-200 dark:bg-gray-600"></div>
+<p class="text-xs text-center mt-2 text-subtext-light dark:text-subtext-dark">Completed</p>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2 space-y-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Request Summary</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1">Shipping Address</p>
+<p class="text-text-light dark:text-text-dark">123 Creator Lane, Influencer City, CA 90210</p>
+</div>
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1">Content Due Date</p>
+<p class="text-text-light dark:text-text-dark font-medium text-orange-600 dark:text-orange-400">Pending Delivery</p>
+</div>
+<div class="md:col-span-2">
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1">Notes from Merchant</p>
+<p class="text-text-light dark:text-text-dark bg-primary-light/50 dark:bg-gray-800 p-3 rounded-md">"Excited to collaborate! We've approved your request for the blue colorway. Looking forward to seeing your content."</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Merchant Decision</h3>
+<div class="space-y-4">
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Decision</p>
+<p class="text-text-light dark:text-text-dark font-semibold">Approved (Free sample)</p>
+</div>
+<div class="flex items-start bg-blue-50 dark:bg-blue-900/50 p-4 rounded-md border border-blue-200 dark:border-blue-800">
+<span class="material-icons text-blue-500 mr-3 mt-1">info</span>
+<p class="text-sm text-blue-700 dark:text-blue-300">The <strong>14-day content deadline</strong> will begin once the item is marked as 'Delivered'.</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Shipping</h3>
+<div class="space-y-4">
+<div>
+<p class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Status</p>
+<div class="flex items-center space-x-2 text-subtext-light dark:text-subtext-dark italic">
+<span class="material-icons text-base">hourglass_empty</span>
+<span>Tracking pending</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow h-fit">
+<h3 class="text-lg font-semibold mb-4 text-text-light dark:text-text-dark">Affiliate Link Generator</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Your unique affiliate link for this product.</p>
+<div class="flex">
+<input class="flex-grow bg-gray-100 dark:bg-gray-700 border-gray-300 dark:border-gray-600 rounded-l-md text-sm focus:ring-primary focus:border-primary text-text-light dark:text-text-dark" readonly="" type="text" value="https://inflopick.co/l/aB3xZ9"/>
+<button class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-primary/90 text-sm font-medium">Get Link</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

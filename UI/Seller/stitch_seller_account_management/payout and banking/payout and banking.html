@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payouts &amp; Banking - Seller Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'lg': '0.5rem',
+                        'xl': '0.75rem',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: 24px;
+            vertical-align: middle;
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div class="flex h-screen">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6 flex items-center space-x-3">
+<div class="bg-primary p-2 rounded-lg">
+<svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Inflopick</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">receipt_long</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">campaign</span>
+<span>Marketing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">people</span>
+<span>Customer</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">chat</span>
+<span>Chat</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">storefront</span>
+<span>Storefront Preview</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-primary bg-blue-100 dark:bg-blue-900/30 dark:text-primary" href="#">
+<span class="material-icons">payments</span>
+<span>Payouts &amp; Banking</span>
+</a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<header class="bg-surface-light dark:bg-surface-dark shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Payouts &amp; Banking</h1>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg pl-10 pr-4 py-2 focus:ring-primary focus:border-primary text-text-light dark:text-text-dark" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">notifications</span>
+</button>
+<div class="flex items-center space-x-2">
+<img alt="Urban Threads logo" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEkTdBC00DusCLtCv_BVKBVPIZLsEBKaRXxWSM1K7qUMrVrpQVw4EBrqS-1hvU6XJs-TZfwEfdAPbYdbCgWHiAPYFanHgqssS5qzM7nZ0_s0GEAzOORSxBQ3Vcb8G_w5xhLbLnYFm9PykgkT2abXifoSAZIRUCRYRCn6qG1TxNtX2_RlrFKT4bcPDul52vtnHnmbXBch9OODqXOugNTIO5HASNoA8QLN9X9ErPoZ6oYWO0e0gCNIAyv4O2Tq_0GFy45EDLldPu29o"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">Urban Threads</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller</p>
+</div>
+</div>
+</div>
+</header>
+<div class="p-6">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<div class="lg:col-span-2">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Payout History</h2>
+<div class="flex items-center space-x-2">
+<div class="relative" x-data="{ open: false }">
+<button @click="open = !open" class="flex items-center space-x-1 text-sm border border-border-light dark:border-border-dark px-3 py-1.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<span class="material-icons text-base">filter_list</span>
+<span>Filter</span>
+</button>
+<div @click.away="open = false" class="absolute right-0 mt-2 w-72 bg-surface-light dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-lg shadow-lg z-20" x-cloak="" x-show="open">
+<div class="p-4">
+<h3 class="font-semibold text-text-light dark:text-text-dark mb-4">Filter Payouts</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="date-range">Date Range</label>
+<select class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-border-light dark:border-border-dark focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-md bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark" id="date-range" name="date-range">
+<option>Last 30 days</option>
+<option>Last 90 days</option>
+<option>This Year</option>
+<option>Custom Range</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark">Payout Status</label>
+<div class="mt-2 space-y-2">
+<div class="flex items-center">
+<input checked="" class="h-4 w-4 text-primary border-border-light dark:border-border-dark rounded focus:ring-primary bg-background-light dark:bg-surface-dark" id="status-released" name="status" type="checkbox"/>
+<label class="ml-3 text-sm text-text-light dark:text-text-dark" for="status-released">Released</label>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary border-border-light dark:border-border-dark rounded focus:ring-primary bg-background-light dark:bg-surface-dark" id="status-held" name="status" type="checkbox"/>
+<label class="ml-3 text-sm text-text-light dark:text-text-dark" for="status-held">Held</label>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary border-border-light dark:border-border-dark rounded focus:ring-primary bg-background-light dark:bg-surface-dark" id="status-pending" name="status" type="checkbox"/>
+<label class="ml-3 text-sm text-text-light dark:text-text-dark" for="status-pending">Pending</label>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-border-light dark:border-border-dark flex justify-end space-x-2">
+<button @click="open = false" class="text-sm px-4 py-2 rounded-lg border border-border-light dark:border-border-dark text-text-light dark:text-text-dark hover:bg-gray-50 dark:hover:bg-gray-800">
+                                            Cancel
+                                        </button>
+<button @click="open = false" class="text-sm px-4 py-2 rounded-lg bg-primary text-white hover:bg-blue-700">
+                                            Apply Filters
+                                        </button>
+</div>
+</div>
+</div>
+</div>
+<button class="flex items-center space-x-1 text-sm border border-border-light dark:border-border-dark px-3 py-1.5 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800">
+<span class="material-icons text-base">download</span>
+<span>Export</span>
+</button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-subtext-light dark:text-subtext-dark">
+<thead class="text-xs text-subtext-light dark:text-subtext-dark uppercase bg-background-light dark:bg-background-dark">
+<tr>
+<th class="px-6 py-3" scope="col">Date</th>
+<th class="px-6 py-3" scope="col">Payout ID</th>
+<th class="px-6 py-3" scope="col">Amount</th>
+<th class="px-6 py-3" scope="col">Status</th>
+<th class="px-6 py-3" scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="bg-surface-light dark:bg-surface-dark border-b dark:border-border-dark">
+<td class="px-6 py-4 font-medium text-text-light dark:text-text-dark">July 15, 2024</td>
+<td class="px-6 py-4">PO-20240715-A1B2</td>
+<td class="px-6 py-4 font-medium text-green-500">$1,250.75</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">
+                                                Released
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<a class="font-medium text-primary hover:underline" href="#">View Details</a>
+</td>
+</tr>
+<tr class="bg-surface-light dark:bg-surface-dark border-b dark:border-border-dark">
+<td class="px-6 py-4 font-medium text-text-light dark:text-text-dark">July 1, 2024</td>
+<td class="px-6 py-4">PO-20240701-C3D4</td>
+<td class="px-6 py-4 font-medium text-green-500">$980.50</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">
+                                                Released
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<a class="font-medium text-primary hover:underline" href="#">View Details</a>
+</td>
+</tr>
+<tr class="bg-surface-light dark:bg-surface-dark border-b dark:border-border-dark">
+<td class="px-6 py-4 font-medium text-text-light dark:text-text-dark">June 20, 2024</td>
+<td class="px-6 py-4">PO-20240620-E5F6</td>
+<td class="px-6 py-4 font-medium text-yellow-500">$500.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/50 dark:text-yellow-300">
+                                                Held
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<a class="font-medium text-primary hover:underline" href="#">View Details</a>
+</td>
+</tr>
+<tr class="bg-surface-light dark:bg-surface-dark border-b dark:border-border-dark">
+<td class="px-6 py-4 font-medium text-text-light dark:text-text-dark">June 15, 2024</td>
+<td class="px-6 py-4">PO-20240615-G7H8</td>
+<td class="px-6 py-4 font-medium text-green-500">$2,110.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/50 dark:text-green-300">
+                                                Released
+                                            </span>
+</td>
+<td class="px-6 py-4">
+<a class="font-medium text-primary hover:underline" href="#">View Details</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 space-y-6">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">account_balance</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Banking Information</h2>
+</div>
+<div class="space-y-4 text-sm">
+<p class="text-subtext-light dark:text-subtext-dark">
+                                This is the account where your payouts will be sent. Ensure all information is accurate and up-to-date to avoid delays.
+                            </p>
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">Royal Bank of Canada</p>
+<p class="text-subtext-light dark:text-subtext-dark">Savings Account</p>
+<p class="font-mono text-text-light dark:text-text-dark mt-2">**** **** **** 1234</p>
+</div>
+<span class="material-icons text-green-500">verified</span>
+</div>
+</div>
+<div class="space-y-2 text-xs text-subtext-light dark:text-subtext-dark">
+<p><strong class="font-medium text-text-light dark:text-text-dark">Account Holder:</strong> Urban Threads Inc.</p>
+<p><strong class="font-medium text-text-light dark:text-text-dark">Currency:</strong> CAD</p>
+</div>
+<button class="mt-4 w-full text-sm text-white bg-primary hover:bg-blue-700 rounded-lg py-2.5 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">edit</span>
+<span>Modify Bank Information</span>
+</button>
+<p class="text-xs text-center text-subtext-light dark:text-subtext-dark pt-2">For security reasons, changes may take up to 3 business days to be verified.</p>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">schedule</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Payout Schedule</h2>
+</div>
+<div class="space-y-3 text-sm">
+<p class="text-subtext-light dark:text-subtext-dark">Funds from sales are held for <strong class="text-text-light dark:text-text-dark">7-14 days</strong> after confirmed delivery before becoming available for payout.</p>
+<div class="bg-background-light dark:bg-background-dark p-4 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark">Next Payout: <span class="text-green-500">$850.25</span></p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Expected by: July 28, 2024</p>
+</div>
+<div class="bg-yellow-100 dark:bg-yellow-900/50 p-4 rounded-lg">
+<p class="font-medium text-yellow-800 dark:text-yellow-200">On Hold: <span class="">$500.00</span></p>
+<p class="text-xs text-yellow-700 dark:text-yellow-300">Awaiting customer dispute resolution.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

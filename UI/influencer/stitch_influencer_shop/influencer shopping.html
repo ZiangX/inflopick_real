@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Shop</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+        :root {
+            --orange-highlight: #F97316;
+        }
+        .sidebar {
+            transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .main-content {
+            transition: margin-left 0.3s ease-in-out;
+        }
+        .sidebar-collapsed {
+            width: 5rem;
+        }
+        .sidebar-collapsed .nav-text {
+            display: none;
+        }
+        .sidebar-collapsed .logo-text {
+            display: none;
+        }
+        .sidebar-collapsed .nav-item {
+            justify-content: center;
+        }
+        .sidebar-hidden {
+            width: 0;
+            padding: 0;
+            transform: translateX(-100%);
+        }
+        .main-content-expanded {
+            margin-left: 0 !important;
+        }
+        #sidebar-toggle {
+            transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white font-sans">
+<div class="flex h-screen bg-gray-50 relative">
+<button class="fixed top-4 left-4 z-50 p-2 bg-white rounded-full shadow-md lg:hidden" id="hamburger-menu">
+<span class="material-icons-outlined">menu</span>
+</button>
+<aside class="sidebar bg-white border-r border-gray-200 flex flex-col justify-between w-64 flex-shrink-0 z-20" id="sidebar">
+<div>
+<div class="px-6 py-5 flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-[var(--orange-highlight)] rounded-full"></div>
+<span class="logo-text text-xl font-bold text-gray-800">Inflopick</span>
+</div>
+</div>
+<div class="px-6 text-xs font-semibold text-gray-500 uppercase tracking-wider">
+<span class="logo-text">Creator Center</span>
+</div>
+<nav class="mt-4 px-3">
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">dashboard</span>
+<span class="nav-text">Dashboard</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">account_circle</span>
+<span class="nav-text">Profile &amp; Verification</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">folder</span>
+<span class="nav-text">Portfolio</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">receipt_long</span>
+<span class="nav-text">Requests</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-900 bg-orange-50 rounded-md" href="#">
+<span class="material-icons-outlined mr-3 text-[var(--orange-highlight)]">storefront</span>
+<span class="nav-text">Shop</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">analytics</span>
+<span class="nav-text">Analytics</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">task_alt</span>
+<span class="nav-text">Tasks</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">star_outline</span>
+<span class="nav-text">Ratings &amp; Safety</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">payment</span>
+<span class="nav-text">Payouts &amp; Billing</span>
+</a>
+<a class="nav-item flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100 rounded-md" href="#">
+<span class="material-icons-outlined mr-3">mail_outline</span>
+<span class="nav-text">Messages</span>
+</a>
+</nav>
+</div>
+<div class="p-6 border-t border-gray-200">
+<a class="nav-item flex items-center text-sm font-medium text-gray-600 hover:text-gray-900" href="#">
+<span class="material-icons-outlined mr-3">settings</span>
+<span class="nav-text">Account Settings</span>
+</a>
+</div>
+</aside>
+<div class="flex-1 flex flex-col overflow-y-auto main-content" id="main-content">
+<button class="p-2 rounded-full hover:bg-gray-100 bg-white border border-gray-300 absolute top-5 -left-5 z-30 hidden lg:block" id="sidebar-toggle">
+<span class="material-icons-outlined">menu_open</span>
+</button>
+<header class="bg-white sticky top-0 z-10 border-b border-gray-200">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center space-x-2">
+<div class="w-8 h-8 bg-[var(--orange-highlight)] rounded-full"></div>
+<span class="text-xl font-bold text-gray-800">Inflopick</span>
+</div>
+<div class="flex-1 max-w-lg mx-8">
+<div class="relative">
+<span class="material-icons-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-orange-500" placeholder="Search products, stores, and creators" type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-gray-600 hover:text-gray-900">
+<span class="material-icons-outlined">shopping_cart_outlined</span>
+</button>
+<button class="text-gray-600 hover:text-gray-900">
+<span class="material-icons-outlined">notifications_none</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-center space-x-8 h-12 border-t border-gray-200">
+<a class="text-sm font-medium text-gray-900 border-b-2 border-[var(--orange-highlight)]" href="#">Product</a>
+<a class="text-sm font-medium text-gray-500 hover:text-gray-900" href="#">Storefront</a>
+<a class="text-sm font-medium text-gray-500 hover:text-gray-900" href="#">Creators</a>
+</div>
+</div>
+</header>
+<main class="flex-1 bg-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<section class="mb-12">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold text-gray-800">Flash Sale</h2>
+<a class="text-sm font-medium text-[var(--orange-highlight)] hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdpvQCyW5ELbe3n4MvyzHYC4e_gv94Zc1gI2TVPIXJ6djBm41ZOwurfx5Or7bqbcgUA_tJSsW0obmzXS0gDLjLT1jtYj3f09zpeWxwbnvSXH1BW49BIaD_-8r59X4_51FTWaE3Ue_m3h1w7VZiL3fesf_uStVPrDpMt368MEJFnC23W29Z11So0D5akzrYsGXoHQe-31nm-k68LgiiWuVWCjRIxfgN1iJ4W7hPAyBibHSkEax-EC7xa5KshWE9Cd65h2i5fGl20Io"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Classic Wristwatch</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-[var(--orange-highlight)]">$120.00</span>
+<span class="ml-2 text-sm text-gray-500 line-through">$150.00</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.8 (1.2k)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUJj6JoGAKFeiRbdLbDd_FngR0x0NJ6tRRZn1UEX-tLzZ-sZkHaSJV_lQyHB2O4VKTwmVBSnRo0VfysBnBhvXQCITJxbHlvWwRMTL_zZ2S--wWJXkUePkbFNA_vqDSWcOiMYaGcptZRR34U-r94JRqSzJcZolp3ycrrSAk5ZB5Js8zPN1jHdwgIiOQUQC032p2kpOiPnqOHIkOlHX7bVFMpiehD3KtDQO7b0u27nWEGM4_9MtKSdVZtxoVMujLyADxMJg1cS9k7JY"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Red Sports Shoe</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-[var(--orange-highlight)]">$89.99</span>
+<span class="ml-2 text-sm text-gray-500 line-through">$110.00</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (2.3k)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBANtSAwqhF6vJHhX5Y9Uq8xcMmLBB_VbWldfWlFAqRrYpOqz3Z8yZn88scJSII_AOhdZSrm07aKqQTXFpp8q_IrmjFy4H2pIZsbX5GZoabEH6yE8jGkDfA-XIoOyN0dbgC28raHe0pm_k6B5CejWObcszD-M7hD_Q4UvtFzd3KVr4Z4mJoIWSqLW-VXsC7b03GiVMJKl90MFbzNBe2Loy6hKIS3LlWV56y7Y9wUHRXn8pwPMDqSK_SqDtkpXvmKjZv-tBss8eDIz4"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Wireless Headphones</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-[var(--orange-highlight)]">$199.50</span>
+<span class="ml-2 text-sm text-gray-500 line-through">$250.00</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.7 (5k+)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEA7Ohms2IHwwdzNvq1JhA8g5oSJTRKUbZSKMX_y-_GkCacWkjAIq6fHozmt2xxvQC1Fzr9dBafCSGYU76Q6AtBqrVzSQoRgtqVNc8zoK-PVyFO1LLJLj9rYSFcYSm3CIrW71CqOl0NsZovKuvqNHGCXRFjqxr0lV3zr7SqWZQrcAckfHnlUuzkGwV0EHOiuu0WfnQcaYtWXsGOeCfCApJBDz3fdFA3R7Ztej1nAEWYlKTXwe54tAYXD6tZRauDtJlZXLZXOyHxlU"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Smart Watch</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-[var(--orange-highlight)]">$249.00</span>
+<span class="ml-2 text-sm text-gray-500 line-through">$299.00</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (3.1k)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="my-12">
+<div class="bg-gray-100 rounded-lg p-4 flex items-center justify-around">
+<a class="text-sm font-medium text-gray-700 hover:text-gray-900" href="#">Electronics</a>
+<a class="text-sm font-medium text-gray-700 hover:text-gray-900" href="#">Fashion</a>
+<a class="text-sm font-medium text-gray-700 hover:text-gray-900" href="#">Home &amp; Kitchen</a>
+<a class="text-sm font-medium text-gray-700 hover:text-gray-900" href="#">Beauty</a>
+<a class="text-sm font-medium text-gray-700 hover:text-gray-900" href="#">Sports</a>
+<a class="text-sm font-medium text-[var(--orange-highlight)] hover:underline" href="#">More Categories</a>
+</div>
+</section>
+<section class="mb-12">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-2xl font-bold text-gray-800">Just for You</h2>
+<a class="text-sm font-medium text-[var(--orange-highlight)] hover:underline" href="#">View All</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcSiTkVliuCgSqUY_Jm4HCoStvDAGJ5H1L-6SAFJ6W7P668Ix3eRAF6Mojf8aUe3MatiwFjHjGy3JCq3RGH60TuvJxkRT3iBE3oXEp41LBnEj2d0ijAw8-vdCYcdsvcoDyL3JfsAeu1Kr8p7b0ODbKVk-sbCCw2wjundWJf5Wv1inW1choq18hFblasa_iPor7NdYEBt9qvfnRIBrFIEFcUfyW68Q5dNtx_X74YYCFszMrBaxBR9eXuDPsa93TuqeM-n-bzDjgBwM"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Stylish Sunglasses</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-gray-800">$45.00</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.6 (890)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArjFVhF74RXVQR4N8-YmsUczpnTP0A4Jf7xt9uQPxF-x6KwlYy5eT8vHzdahwHATo2zMDdDYHROj5R6yVQadm2a06iwQpOn1wE4w1xGEJkEOJFwPR19jlYipeV6mh5Mm1PL0xyxOVrFut10Pz2i_5xrTXkUa_OUsAQoqNUwGi5DSX8aPNKa7mWdzF7_jwSfi1ksZttJqn_DZ7kdVyDucO7zFwJ4Nbv4VfbJv2kAHO8lyzj0jQfmYYmZ7hAdh662Nfi_jPCcdjS_hE"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Gaming Console</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-gray-800">$499.99</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">5.0 (778)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfpWUH_NHw3txBhjSIpNPvO3VwOf_iTEWjeaP9-4l4eIL5AW0nAGAGd--y0K_SONNFx-NEy9478zluTlOOw-ZPlgnsIIhPaJML7xDxxdm332KH6uqXaYNjwL8BOPbdtewqNwicsJGR0-v4qHhrqLhoaGznhGvCBuKGpgKcUvY92RcYX6UvfqNDs73LwOIpCP6qV3XpwLkuELMoM3ODgWip9LGsik-37jBlB45LEarg2rUUIv3iLYD6oY8ouFKOdmbEqjwhoSJKX0s"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Leather Shoes</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-gray-800">$150.00</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.7 (1.5k)</span>
+</div>
+</div>
+</div>
+<div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
+<img alt="Product Image" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC51S67tT6XGNxxkGVLKSaOm63ynmIZjcJfhykNyQIhmdntmtm2OPBY4F-JQNvFE6kzYjms5ElxewH61vy39vwfxf6KuSCV2vh_APsPYCJ-9aWGCvQWnWUaB-TnhgOCBh5mLH-ZYdA4sAMO6ju7Cyxka4N-ps7dOHq9NNgG3aDbedCIEsvMyp3QUUGoQnEtbFAeM7zSgFgyMCNZTGuhHDn3Hn818XWqPQvY0tSZifAc0PXMnPMp0BFOWLkTXruhLf90Y912SVeFeCE"/>
+<div class="p-4">
+<h3 class="text-base font-semibold text-gray-800 truncate">Skincare Set</h3>
+<div class="flex items-center mt-2">
+<span class="text-lg font-bold text-gray-800">$75.50</span>
+</div>
+<div class="flex items-center mt-2 text-sm text-gray-500">
+<span class="material-icons-outlined text-yellow-400 text-base">star</span>
+<span class="ml-1">4.9 (4.2k)</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<footer class="bg-gray-800 text-white">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider">Quick Links</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Home</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Shop</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">About Us</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider">Policies</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Terms of Service</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Return Policy</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-sm font-semibold uppercase tracking-wider">Support</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">FAQ</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Help Center</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm" href="#">Track Order</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-2">
+<h3 class="text-sm font-semibold uppercase tracking-wider">Join Us</h3>
+<ul class="mt-4 space-y-2">
+<li><a class="text-gray-400 hover:text-white text-sm font-medium" href="#">Become a Creator</a></li>
+<li><a class="text-gray-400 hover:text-white text-sm font-medium" href="#">Open a Store</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-12 border-t border-gray-700 pt-8 flex flex-col sm:flex-row justify-between items-center">
+<p class="text-sm text-gray-400">© 2024 Inflopick. All rights reserved.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a href="#"><img alt="facebook" class="h-6 w-6 hover:opacity-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLNq5yjonbmiOt8A-zuhpNEnugNqQa1QZIyRjc76Ibv26MmI4Ru405v-nTFL7bFqxBZDsjqVNYYyoZU-QC8ybXLxxc4-gKQD0brOpdrP_0egpw9-k0i_FAgTvcS4_hyw88-gDQPQPh21Ik-ZLv519otrAOv0nFM6m0SThnsd1dYXswbFT-fpUU_7S1A5KFrCxxPvkiPK3SA0DvYgGvJCntkWNjff3S7XSniYF6QxZi3puxcaZbYX7Q_DRMAhVd7fk8tMekhFjgpRo"/></a>
+<a href="#"><img alt="instagram" class="h-6 w-6 hover:opacity-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDn3UcPABYaXmYWN5ySsN-Q7pBtveqAD8AIXP1EEqrpMGm_Q9Vh6fuh8j8I7nGmXuDGz1t_OcPYaVwY6D24NNV9bvwciMGI4duW6WLhoUTlwdsCKD0QgNPwXwlJZwQWbYNS-Sxb1ozYVAgDUHgt64DVS4YK_wJzQuL9ywXVStIaFGW50dONxcjRF_4vzLtKDwB1jGpCfn9VMiI5KUcVAvl7TzHwbrF3kMKjAuwBSkgStPMJdofC0du-3Dh_imYa0QuWrblsvuyH_o"/></a>
+<a href="#"><img alt="twitter" class="h-6 w-6 hover:opacity-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiiOfkjCw0yM8JRiaQpWDqHuPJuN6iZGwdqR2pgm6YKpTGFxDmJGc3_xp5UUd73JwXqA4gWvDc-qKNB28qCNhNixv6_t40vGuzwBSNPjLQ5RtTcHSltmpLncz7rlHW293inJ09NKzzxfeQM3kXsEdc3h_anFNe-S6H_MpUZBah4tw18TF9X4jkygam8ZbQZeYnK_hGpFY81GasIiYVqZ0DFJjzOpWokDsXfkUsA_nXCVIKWVrRXYig0Nnx8BrCDFmTYq8AiVbnS6c"/></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</div>
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sidebarToggle = document.getElementById('sidebar-toggle');
+            const hamburgerMenu = document.getElementById('hamburger-menu');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.getElementById('main-content');
+            const toggleIcon = sidebarToggle.querySelector('.material-icons-outlined');
+            let isCollapsed = false;
+            // For desktop sidebar collapse/expand
+            sidebarToggle.addEventListener('click', () => {
+                isCollapsed = !isCollapsed;
+                sidebar.classList.toggle('sidebar-collapsed');
+                mainContent.classList.toggle('ml-20', isCollapsed);
+                mainContent.classList.toggle('ml-64', !isCollapsed);
+                if (isCollapsed) {
+                    toggleIcon.textContent = 'menu';
+                    sidebar.style.transform = 'translateX(-100%)';
+                    sidebarToggle.style.left = '0';
+                    sidebarToggle.style.transform = 'translateX(0.5rem)';
+                } else {
+                    toggleIcon.textContent = 'menu_open';
+                    sidebar.style.transform = 'translateX(0)';
+                    sidebarToggle.style.left = '';
+                    sidebarToggle.style.transform = '';
+                }
+            });
+            // For mobile sidebar show/hide
+            hamburgerMenu.addEventListener('click', () => {
+                sidebar.classList.toggle('sidebar-hidden');
+            });
+            // Adjust on resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1024) { // lg breakpoint
+                    sidebar.classList.remove('sidebar-hidden');
+                    if (!isCollapsed) {
+                         mainContent.classList.add('ml-64');
+                    }
+                } else {
+                    mainContent.classList.remove('ml-64', 'ml-20');
+                }
+            });
+            // Initial state for desktop
+            if (window.innerWidth >= 1024) {
+                 mainContent.classList.add('ml-64');
+            }
+        });
+    </script>
+
+</body></html>

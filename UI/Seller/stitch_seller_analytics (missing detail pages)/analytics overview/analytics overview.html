@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Hub - Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6", // Changed to blue
+            "background-light": "#F9FAFB",
+            "background-dark": "#111827",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1F2937",
+            "text-light": "#1F2937",
+            "text-dark": "#E5E7EB",
+            "subtext-light": "#6B7280",
+            "subtext-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-icons {
+      font-size: 24px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">dashboard</span>
+        Dashboard
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">shopping_bag</span>
+        Orders
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">inventory_2</span>
+        Products
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">campaign</span>
+        Marketing
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">people</span>
+        Customer
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">chat</span>
+        Chat
+      </a>
+<a class="flex items-center px-4 py-2 text-white bg-primary rounded-lg" href="#">
+<span class="material-icons mr-3">analytics</span>
+        Analytics
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">storefront</span>
+        Storefront Preview
+      </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">manage_accounts</span>
+        Accounts Management
+      </a>
+</nav>
+<div class="p-6 mt-auto">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">logout</span>
+        Logout
+      </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex justify-between items-center mb-6">
+<div>
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Analytics Dashboard</h2>
+<p class="text-subtext-light dark:text-subtext-dark">Executive Summary of your store's performance.</p>
+</div>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<input class="bg-card-light dark:bg-card-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark" type="date"/>
+<span class="text-subtext-light dark:text-subtext-dark">to</span>
+<input class="bg-card-light dark:bg-card-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark" type="date"/>
+</div>
+<div class="relative group">
+<button class="bg-primary text-white px-4 py-2 rounded-lg flex items-center">
+<span class="material-icons mr-2 text-base">filter_list</span>
+                Compare
+            </button>
+<div class="absolute z-10 hidden group-hover:block bg-card-dark text-white text-sm rounded-lg p-3 w-64 shadow-lg -translate-x-1/2 left-1/2 mt-2">
+                Allows you to compare current analytics data with previous periods or different segments.
+            </div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Gross Sales</h3>
+<span class="material-icons text-green-500">trending_up</span>
+</div>
+<p class="text-3xl font-bold text-text-light dark:text-text-dark mt-2">$45,231.89</p>
+<p class="text-sm text-green-500 mt-1">+20.1% from last month</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Units Sold</h3>
+<span class="material-icons text-green-500">inventory</span>
+</div>
+<p class="text-3xl font-bold text-text-light dark:text-text-dark mt-2">1,204</p>
+<p class="text-sm text-green-500 mt-1">+15.3% from last month</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Return Rate</h3>
+<span class="material-icons text-red-500">assignment_return</span>
+</div>
+<p class="text-3xl font-bold text-text-light dark:text-text-dark mt-2">3.2%</p>
+<p class="text-sm text-red-500 mt-1">+0.5% from last month</p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<div class="flex items-center justify-between">
+<h3 class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Refund Requests</h3>
+<span class="material-icons text-yellow-500">request_quote</span>
+</div>
+<p class="text-3xl font-bold text-text-light dark:text-text-dark mt-2">39</p>
+<p class="text-sm text-yellow-500 mt-1">+2 from last month</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow col-span-1 lg:col-span-1">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Shipping &amp; Logistics</h3>
+<div class="space-y-4">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Orders Pending Shipment</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">23</p>
+</div>
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Avg. Time to Ship</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">1.2 days</p>
+</div>
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">On-time Delivery Rate</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">98.5%</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow col-span-1 lg:col-span-2">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Influencer Performance</h3>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Active Influencers</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">12</p>
+</div>
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Samples Sent (Free / Discounted)</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">45 / 18</p>
+</div>
+<div class="col-span-2">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Attributed Sales (Revenue)</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">$12,540.50</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow mb-8">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Sales &amp; Units</h3>
+<div class="flex items-center space-x-4">
+<div class="flex items-center space-x-2">
+<div class="flex items-center space-x-1">
+<span class="w-3 h-3 rounded-full bg-blue-500"></span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Revenue</span>
+</div>
+<div class="flex items-center space-x-1">
+<span class="w-3 h-3 rounded-full bg-green-500"></span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Units Sold</span>
+</div>
+</div>
+<div class="flex space-x-1 bg-gray-100 dark:bg-gray-800 p-1 rounded-lg">
+<button class="px-3 py-1 text-sm rounded-md bg-white dark:bg-gray-700 text-text-light dark:text-text-dark">W</button>
+<button class="px-3 py-1 text-sm rounded-md text-subtext-light dark:text-subtext-dark">M</button>
+<button class="px-3 py-1 text-sm rounded-md text-subtext-light dark:text-subtext-dark">Q</button>
+<button class="px-3 py-1 text-sm rounded-md text-subtext-light dark:text-subtext-dark">Y</button>
+</div>
+<a class="text-primary text-sm font-medium hover:underline" href="#">View Detail</a>
+</div>
+</div>
+<div class="h-80">
+<canvas id="salesChart"></canvas>
+</div>
+<div class="mt-4 grid grid-cols-3 gap-4 text-center">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">AOV</p>
+<p class="font-semibold text-text-light dark:text-text-dark">$37.57</p>
+</div>
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Avg. Discount Rate</p>
+<p class="font-semibold text-text-light dark:text-text-dark">8.2%</p>
+</div>
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Conversion Rate</p>
+<p class="font-semibold text-text-light dark:text-text-dark">2.1%</p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Top Products</h3>
+<ul class="space-y-3">
+<li class="flex justify-between items-center">
+<span class="text-sm text-text-light dark:text-text-dark">Product A</span>
+<span class="text-sm font-semibold text-text-light dark:text-text-dark">$5,230</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="text-sm text-text-light dark:text-text-dark">Product B</span>
+<span class="text-sm font-semibold text-text-light dark:text-text-dark">$4,102</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="text-sm text-text-light dark:text-text-dark">Product C</span>
+<span class="text-sm font-semibold text-text-light dark:text-text-dark">$3,890</span>
+</li>
+</ul>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Customers</h3>
+<div class="flex justify-around">
+<div class="text-center">
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">345</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">New</p>
+</div>
+<div class="text-center">
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">859</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Returning</p>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow">
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mb-4">Finance &amp; Payouts</h3>
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Upcoming Payout</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">$18,450.75</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Expected: in 7 days</p>
+</div>
+<div class="mt-2">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Total Platform Commission</p>
+<p class="text-xl font-bold text-text-light dark:text-text-dark">$4,523.19</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    const ctx = document.getElementById('salesChart').getContext('2d');
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    const textColor = isDarkMode ? '#E5E7EB' : '#1F2937';
+    const gridColor = isDarkMode ? '#374151' : '#E5E7EB';
+    const salesChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            datasets: [{
+                label: 'Revenue',
+                data: [12000, 19000, 3000, 5000, 2000, 3000, 7000],
+                borderColor: '#3B82F6', // Changed to blue
+                backgroundColor: 'rgba(59, 130, 246, 0.1)', // Changed to blue
+                fill: true,
+                tension: 0.4,
+                yAxisID: 'y'
+            }, {
+                label: 'Units Sold',
+                data: [300, 500, 100, 200, 50, 80, 150],
+                borderColor: '#22C55E',
+                backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                fill: true,
+                tension: 0.4,
+                yAxisID: 'y1'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                   display: false
+                }
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: textColor
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    type: 'linear',
+                    position: 'left',
+                    grid: {
+                        color: gridColor,
+                        borderDash: [2, 4]
+                    },
+                    ticks: {
+                        color: textColor,
+                        callback: function(value, index, values) {
+                            return '$' + value / 1000 + 'k';
+                        }
+                    }
+                },
+                y1: {
+                    beginAtZero: true,
+                    type: 'linear',
+                    position: 'right',
+                    grid: {
+                       display: false
+                    },
+                     ticks: {
+                        color: textColor,
+                         callback: function(value, index, values) {
+                            return value;
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+</body></html>

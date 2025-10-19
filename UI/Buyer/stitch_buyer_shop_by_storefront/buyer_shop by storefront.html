@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inflopick - Storefronts</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#FF7A00",
+                        "background-light": "#FFFFFF",
+                        "background-dark": "#121212",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E1E1E",
+                        "text-light": "#111827",
+                        "text-dark": "#F3F4F6",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'DEFAULT': '0.5rem',
+                        'lg': '0.75rem',
+                        'xl': '1rem'
+                    },
+                },
+            },
+        };
+        const themeSwitcher = () => {
+            const html = document.documentElement;
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const isDarkMode = html.classList.contains('dark');
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+                updateIcon(isDarkMode);
+            });
+            const updateIcon = (isDarkMode) => {
+                 const dayIcon = document.getElementById('day-icon');
+                 const nightIcon = document.getElementById('night-icon');
+                 if(isDarkMode) {
+                     dayIcon.classList.add('hidden');
+                     nightIcon.classList.remove('hidden');
+                 } else {
+                     dayIcon.classList.remove('hidden');
+                     nightIcon.classList.add('hidden');
+                 }
+            }
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                html.classList.add(savedTheme);
+                updateIcon(savedTheme === 'dark');
+            } else {
+                 updateIcon(html.classList.contains('dark'));
+            }
+        };
+        document.addEventListener('DOMContentLoaded', themeSwitcher);
+    </script>
+<style>
+        .material-icons {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark font-sans">
+<div class="min-h-screen flex flex-col">
+<header class="sticky top-0 z-50 bg-background-light dark:bg-background-dark shadow-sm">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex items-center">
+<a class="text-2xl font-bold text-primary" href="#">Inflopick</a>
+</div>
+<div class="flex-1 max-w-xl mx-8">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-border-light dark:border-border-dark rounded-full bg-background-light dark:bg-background-dark focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-2">
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">chat_bubble_outline</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">shopping_cart</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">notifications</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">person</span>
+</button>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800" id="theme-toggle">
+<span class="material-icons text-subtext-light dark:text-subtext-dark" id="day-icon">brightness_6</span>
+<span class="material-icons text-subtext-light dark:text-subtext-dark hidden" id="night-icon">nights_stay</span>
+</button>
+</div>
+</div>
+<nav class="flex justify-center border-b border-border-light dark:border-border-dark">
+<div class="flex space-x-8">
+<a class="py-3 px-1 text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">Product</a>
+<a class="py-3 px-1 text-text-light dark:text-text-dark font-semibold border-b-2 border-primary" href="#">Storefront</a>
+<a class="py-3 px-1 text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">Creators</a>
+</div>
+</nav>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
+<div class="flex flex-col lg:flex-row gap-8">
+<aside class="w-full lg:w-1/4 xl:w-1/5">
+<h2 class="text-lg font-semibold mb-4">Categories</h2>
+<ul class="space-y-2">
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">face</span>Beauty &amp; Personal Care</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">checkroom</span>Fashion &amp; Accessories</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">spa</span>Health &amp; Wellness</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">fitness_center</span>Fitness &amp; Sports</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">restaurant</span>Food &amp; Beverage</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">cottage</span>Home &amp; Living</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">construction</span>DIY &amp; Crafts</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">devices</span>Tech &amp; Gadgets</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">sports_esports</span>Gaming</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">photo_camera</span>Photography &amp; Video</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">directions_car</span>Automotive</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">terrain</span>Outdoor</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">family_restroom</span>Family &amp; Parenting</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">pets</span>Pets</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">school</span>Education</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">account_balance</span>Financial Services</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">music_note</span>Entertainment &amp; Music</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">toys</span>Toys</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">card_giftcard</span>Gifts</a></li>
+<li><a class="flex items-center p-2 rounded-lg text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-800" href="#"><span class="material-icons mr-3 text-subtext-light dark:text-subtext-dark">eco</span>Sustainability Products</a></li>
+</ul>
+</aside>
+<div class="w-full lg:w-3/4 xl:w-4/5">
+<section class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-2xl font-bold">Following Storefronts</h2>
+<button class="text-sm font-semibold text-primary hover:underline">Show More</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'The Artisan's Corner'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUFygdnHYDHcJSPbxOuvcBLAKBA4TfuYkw2k6uvt9EZexdHkyrU9pQLm2TTdOaV3-6lKUPda7JhfzKC7SXvwEP8TkK36HQRkBbXkkkVW-_nhNntBfVjZ4Zukm5ZwiXsQJuP_zmybMfL338QEdwhmxCquHSeAOf6OphAF3HvMsEdxO017LGyo1pAbcsABNT1RmwgToUiKYr7-mSqBvvEStju2lNHlVJcQL3GDvz6bG2fAH73uGGU6PKCopbBQUerD51rkTkul4KPhY"/>
+<img alt="The Artisan's Corner logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSJtiiXkASyVkwqB0kfL0ZjGqyJ6x4lK2l2I1dFFL81weua9ReLMT-2tTWnbsyZGmHLV8OcTfpExFUsawEA69ysqVUbJwjP12iq1hldIPaCNtNgBizg5wFcbFGkrW-zC2aAF21D2pcnfMpGiooF_747nuVYPxdTDUmwt92cs22Ahpqly8SfQh1Yeh-9xwIvkncmJlNMZG4Sm17RmGbGK-BSJP0sukIDwOb5jECMhZh_I8fRmjjwL0aiqvthOmCUJRREYqc1aIlnFk"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">The Artisan's Corner</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">Handmade goods and unique crafts from talented artisans.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.9</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(4.7k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Following</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Gadget Galaxy'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiyY4M11iEQJauFxO4sFcGFxmUz2kjSoB9iAZTEvmr5YC5LRNy5LqYhso40UOA0mxwZh2QA3BmXFg71Vlu9oIs7HnR17Uvf3PJ77qWdOzgOfHaj-bIA7GwC94dtrAmIy5T1GTVd0tQUflb2WSxVzfYHUtlVMZitepjB9HWyQQvcFEovt1M4oZRp86Tb17CPO2H6pPHXnC4JHoHRhO0M2kE_Bcy2rLhhzvVrKhG3ytzL9f4Cv6K8zJWD8_W3PRn5w2DCXEFq9U-Fjo"/>
+<img alt="Gadget Galaxy logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUBhP8GLBs5BjAGYvbjjbx0V5g7XsZaW1GbHdUHgaDb430QzvC5uixFcqfU9mCQ7HzdORmKFmz5e26ODd8yoHYFsjtJGS2PgP9qBs8LcZom09HxsASJFjh8qvqpIPTzFi-6kc4VkT35fn8vAoQNw1YU4tGSFPQY6rXv-YsUsMCrFVxxnU3-d4Xmuk2Bhc-0kDDq5M_hnbA5DvNWtiIOakJEm90reyrLDYhUTf13SQSMicZL1xFPW-Hps-QGUUIDIBUlWnKN9F-XYI"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Gadget Galaxy</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">The latest and greatest in tech and electronic gadgets.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.7</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(5.1k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Following</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Fit Life Essentials'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW4Fdh-5Wh-u_R-JppNKTVDfbxfI8bnrvsZxVaczFNvcXh5rk-eyUm2qlOYuv8YoCTtXYWXB6unTt_JN5pKQBhlLmt2GgD2wb-Bc7Q9uzJVuxQJWSKkvZ8u4CNoE3B-kAkxigth-FMXhFQdsEUUedjIF3QjaQ1xOYJbfrP_tC7i12sSbuj8sqg7NmPO0G2nWpOO6EwELD2XMgW9DjPSi40tD70KdXVJPYtIimKzspEvhbuz9_N5k1Q47cV9ynJ-5LKbsRJsr2sBjk"/>
+<img alt="Fit Life Essentials logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChq84ORJ2EOzoaR1HoEpw8zybtGX5XuXOH4Mye2WU8NnHAduCOqu2W91jMOIGCzr3elz-1LtSAPYQfKd_vi0EAdbz1Jqk80vXBC-XThrR_C8A4-P80LyCZ8wcxqhhA861FfkJq5b-2EQR-F842rfdlVYlyLJoloQmXz-D-WPOHZXaNouIui-3Z_UVJeRLq6sOoIfMEdbzYW-fHmZDUfzGxw9dnzGB8r8gx91ELkG1ekPRqw56xdF5TEqWUSKaGDflD1t99vn6-IbA"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Fit Life Essentials</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">High-quality gear and apparel for your fitness journey.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.8</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(3.3k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Following</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-2xl font-bold">Local Storefronts</h2>
+<div class="flex items-center">
+<div class="flex items-center bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mr-4">
+<span class="material-icons text-base mr-1">location_on</span>
+                                Montreal, QC
+                            </div>
+<button class="text-sm font-semibold text-primary hover:underline">Show More</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Chic Boutique'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDf7JLfs-nBtV8WcbzVTP4mJ1wsF8swXRTN9szgu-CXjjGOia2HHYDnocutFZuo_zSMEmzGBCaY-GGwZUQ3D569yQmqbzwwoSZas_-7eoHh-ynU2ZNSJcWksKxkec4PJxwgFCqK72w9mCni3VWxEMS0krsAI3faq1K0_6-qpWdPsZVS2hR20oCyVxE_sSySlmKEAiFsF-8b4WbUJsjtllqz231s8K3-w05MRqbgi9RIYJ_4q5wcydq6wphc8WwMhZfz3N6Fbuqm6Co"/>
+<img alt="Chic Boutique logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzFGRToRBhCwVwMui5tT2RDuIlY0uohp_mhAK3r1BePeR1yJHKDvZPWmTIzUOdPNYdPD1ysN1vyDC_RKr2Xqcq67BWh49UcpIZGo1kmbjJc3bxacm6-jnjiiGr7vmzoYiI2DBglzqE7PAAOn5Vr8b5Hbu-IfnQWSt6oorwsCligjKbYgvEUBS7HQqQ98ETYwXD1KK7mmDr_aZ4-hMFoDRMXvUswc2Lv087BQtAS5ekwJOeYXYr1Yv3n6QfIFwcGKZAu0Y5t6KCEVw"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Chic Boutique</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">Curated fashion for the modern woman. Timeless pieces for every occasion.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.9</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(1.2k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Wellness Wonders'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7B4Jcg7AcUTWi64R4dLEE9I5a-EaHoS5o4zW6qt-Ov-PhLqJCY0a0BTjNsteGmqGxKLXb9KTPLd7Fh0cUIDqARbVn1eFhMTPwpmRmhyC2dnPF8JotMrsKxKfl06mPftJI6uQOm-M84jcf5in9bEo5XM4j6R0tP6NeC3WQWZhCHAXddQ3JCCJeDxTXFvznjBgqNSoZpQNgSE6OP7beAquoiMDOlTa9i8HO-FDENGixVK3t1-7xnP2vrcKLjmjAGkZZdEfUnBF2wHE"/>
+<img alt="Wellness Wonders logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFfygr3PZW2IlqfO1ruiRK_z9IOEOXAhphtRXZG557HT4C2sgLOVyYA1hM2_TSrF_a3LpVQym6ptp6_dYGO81Y1jD25FLcnUTccx1RkGOHlBdVkaq7PbO9PB-8aE655x0ryxTW4YWacV0fikJqKWK7eaaVbNOBukUjOelUaH_osl0KrBSYgoE6gPYNhxjcwmZSaEi8pIkxef27hMRtwsMiS9jidSw7mIcpSebS0pqaNIvrEGNzR480u1WWToVB-irKTw8jOFngCBw"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Wellness Wonders</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">Natural and organic products for a healthier, happier you.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.8</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(980)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Homebody's Haven'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ4pcBeXw17l2Y-5cUxNggQgdlmA3Yw1ZjADCLpEv8l8UWO6AbPdMZOeFcMHdYfIi7YkeRPnWi32cT_yUedwPhI36zYX15dbpybATTCxFoOjiv0vPPcHxuQMeDFt6Phbs7rS9BxpS4o3SoBsTK1z3JZjW_vje_AJDCh1A7ODVX6im3RY0lyxoGOM2498hViBOkUzn-LcRB9UyRe3I0vSPHrC2vPBhRftxbegF0S1LAtwWYHDLFTZb6_EPc0WBEigs6XY3FVMkrmiQ"/>
+<img alt="Homebody's Haven logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCSj9evgDepHurY_gkIkjNjlgWcGytGlJkNpQ9JYfAVbq4mDZlctHmavfzAn4QdyzpYkaZml-EKGKKlLIQ6IOP5T07xyvdiHXTib53Ch8hicj32_2h1yN2x_bxMbBlaTewDiWkkTUXFUILOxFGr38YAp8JwNH7KCgdfzLTP9KfFmlNab2ofZ9AOiVATafaLb-VC0XzO0wUY6TpTaVLFFSysCJndlxRvlTwALiyl05PLoOMFFGHfyHsGYA4CIUI8pssCBwu5G0e0Pqk"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Homebody's Haven</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">Cozy and stylish decor to make your house a home.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.9</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(2.5k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-2xl font-bold">Popular Storefronts</h2>
+<button class="text-sm font-semibold text-primary hover:underline">Show More</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Gadget Galaxy'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiyY4M11iEQJauFxO4sFcGFxmUz2kjSoB9iAZTEvmr5YC5LRNy5LqYhso40UOA0mxwZh2QA3BmXFg71Vlu9oIs7HnR17Uvf3PJ77qWdOzgOfHaj-bIA7GwC94dtrAmIy5T1GTVd0tQUflb2WSxVzfYHUtlVMZitepjB9HWyQQvcFEovt1M4oZRp86Tb17CPO2H6pPHXnC4JHoHRhO0M2kE_Bcy2rLhhzvVrKhG3ytzL9f4Cv6K8zJWD8_W3PRn5w2DCXEFq9U-Fjo"/>
+<img alt="Gadget Galaxy logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUBhP8GLBs5BjAGYvbjjbx0V5g7XsZaW1GbHdUHgaDb430QzvC5uixFcqfU9mCQ7HzdORmKFmz5e26ODd8yoHYFsjtJGS2PgP9qBs8LcZom09HxsASJFjh8qvqpIPTzFi-6kc4VkT35fn8vAoQNw1YU4tGSFPQY6rXv-YsUsMCrFVxxnU3-d4Xmuk2Bhc-0kDDq5M_hnbA5DvNWtiIOakJEm90reyrLDYhUTf13SQSMicZL1xFPW-Hps-QGUUIDIBUlWnKN9F-XYI"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Gadget Galaxy</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">The latest and greatest in tech and electronic gadgets.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.7</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(5.1k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'Fit Life Essentials'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDW4Fdh-5Wh-u_R-JppNKTVDfbxfI8bnrvsZxVaczFNvcXh5rk-eyUm2qlOYuv8YoCTtXYWXB6unTt_JN5pKQBhlLmt2GgD2wb-Bc7Q9uzJVuxQJWSKkvZ8u4CNoE3B-kAkxigth-FMXhFQdsEUUedjIF3QjaQ1xOYJbfrP_tC7i12sSbuj8sqg7NmPO0G2nWpOO6EwELD2XMgW9DjPSi40tD70KdXVJPYtIimKzspEvhbuz9_N5k1Q47cV9ynJ-5LKbsRJsr2sBjk"/>
+<img alt="Fit Life Essentials logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChq84ORJ2EOzoaR1HoEpw8zybtGX5XuXOH4Mye2WU8NnHAduCOqu2W91jMOIGCzr3elz-1LtSAPYQfKd_vi0EAdbz1Jqk80vXBC-XThrR_C8A4-P80LyCZ8wcxqhhA861FfkJq5b-2EQR-F842rfdlVYlyLJoloQmXz-D-WPOHZXaNouIui-3Z_UVJeRLq6sOoIfMEdbzYW-fHmZDUfzGxw9dnzGB8r8gx91ELkG1ekPRqw56xdF5TEqWUSKaGDflD1t99vn6-IbA"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">Fit Life Essentials</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">High-quality gear and apparel for your fitness journey.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.8</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(3.3k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300">
+<div class="relative">
+<img alt="Store banner for 'The Artisan's Corner'" class="w-full h-32 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUFygdnHYDHcJSPbxOuvcBLAKBA4TfuYkw2k6uvt9EZexdHkyrU9pQLm2TTdOaV3-6lKUPda7JhfzKC7SXvwEP8TkK36HQRkBbXkkkVW-_nhNntBfVjZ4Zukm5ZwiXsQJuP_zmybMfL338QEdwhmxCquHSeAOf6OphAF3HvMsEdxO017LGyo1pAbcsABNT1RmwgToUiKYr7-mSqBvvEStju2lNHlVJcQL3GDvz6bG2fAH73uGGU6PKCopbBQUerD51rkTkul4KPhY"/>
+<img alt="The Artisan's Corner logo" class="absolute bottom-0 left-4 transform translate-y-1/2 w-16 h-16 rounded-full border-4 border-card-light dark:border-card-dark" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSJtiiXkASyVkwqB0kfL0ZjGqyJ6x4lK2l2I1dFFL81weua9ReLMT-2tTWnbsyZGmHLV8OcTfpExFUsawEA69ysqVUbJwjP12iq1hldIPaCNtNgBizg5wFcbFGkrW-zC2aAF21D2pcnfMpGiooF_747nuVYPxdTDUmwt92cs22Ahpqly8SfQh1Yeh-9xwIvkncmJlNMZG4Sm17RmGbGK-BSJP0sukIDwOb5jECMhZh_I8fRmjjwL0aiqvthOmCUJRREYqc1aIlnFk"/>
+</div>
+<div class="p-4 pt-10">
+<h3 class="text-lg font-semibold truncate">The Artisan's Corner</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1 h-10 overflow-hidden">Handmade goods and unique crafts from talented artisans.</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-primary text-base">star</span>
+<span class="ml-1 text-sm font-medium">4.9</span>
+<span class="ml-1 text-sm text-subtext-light dark:text-subtext-dark">(4.7k)</span>
+</div>
+<div class="flex items-center space-x-2 mt-4">
+<button class="w-full bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Visit Storefront</button>
+<button class="w-full bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark py-2 px-4 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+<footer class="bg-gray-50 dark:bg-black border-t border-border-light dark:border-border-dark">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+<div class="col-span-2 lg:col-span-2">
+<h2 class="text-2xl font-bold text-primary">Inflopick</h2>
+<div class="mt-4">
+<select class="border border-border-light dark:border-border-dark rounded-md bg-background-light dark:bg-background-dark p-2">
+<option>EN/FR</option>
+</select>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Quick Links</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Home</a></li>
+<li><a class="hover:text-primary" href="#">Discover</a></li>
+<li><a class="hover:text-primary" href="#">Cart</a></li>
+<li><a class="hover:text-primary" href="#">Profile</a></li>
+<li><a class="hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Policies</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary" href="#">CCPA &amp; Consent Notice</a></li>
+<li><a class="hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-4 lg:col-span-2">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Support</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">FAQs</a></li>
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="mt-4 space-y-2">
+<button class="w-full text-left bg-transparent border border-primary text-primary py-2 px-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-colors">Become a Creator</button>
+<button class="w-full text-left bg-primary text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors">Open a Store</button>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-border-light dark:border-border-dark flex flex-col sm:flex-row justify-between items-center">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">© 2025 Inflopick Inc. All Rights reserved. Reg. No: 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4 mt-4 sm:mt-0">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" fill-rule="evenodd"></path></svg></a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#"><svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.011 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.011-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.465c.636-.247 1.363-.416 2.427-.465C9.53 2.01 9.884 2 12.315 2zM12 7.177a4.823 4.823 0 100 9.646 4.823 4.823 0 000-9.646zm0 7.661a2.838 2.838 0 110-5.676 2.838 2.838 0 010 5.676zM18.849 5.25a1.595 1.595 0 100 3.19 1.595 1.595 0 000-3.19z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Account Management - Seller Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "surface-light": "#FFFFFF",
+                        "surface-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F9FAFB",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'lg': '0.5rem',
+                        'xl': '0.75rem',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: 24px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans">
+<div class="flex h-screen">
+<aside class="w-64 bg-surface-light dark:bg-surface-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6 flex items-center space-x-3">
+<div class="bg-primary p-2 rounded-lg">
+<svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<div>
+<p class="font-bold text-lg text-text-light dark:text-text-dark">Inflopick</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">receipt_long</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">inventory_2</span>
+<span>Products</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">campaign</span>
+<span>Marketing</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">people</span>
+<span>Customer</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">chat</span>
+<span>Chat</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">storefront</span>
+<span>Storefront Preview</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-primary bg-blue-100 dark:bg-blue-900/30 dark:text-primary" href="#">
+<span class="material-icons">manage_accounts</span>
+<span>Accounts Management</span>
+</a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center space-x-3 px-4 py-2 rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</aside>
+<main class="flex-1 overflow-y-auto">
+<header class="bg-surface-light dark:bg-surface-dark shadow-sm p-4 flex justify-between items-center">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Account Management</h1>
+<div class="flex items-center space-x-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-lg pl-10 pr-4 py-2 focus:ring-primary focus:border-primary text-text-light dark:text-text-dark" placeholder="Search..." type="text"/>
+</div>
+<button class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">notifications</span>
+</button>
+<div class="flex items-center space-x-2">
+<img alt="Urban Threads logo" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDEkTdBC00DusCLtCv_BVKBVPIZLsEBKaRXxWSM1K7qUMrVrpQVw4EBrqS-1hvU6XJs-TZfwEfdAPbYdbCgWHiAPYFanHgqssS5qzM7nZ0_s0GEAzOORSxBQ3Vcb8G_w5xhLbLnYFm9PykgkT2abXifoSAZIRUCRYRCn6qG1TxNtX2_RlrFKT4bcPDul52vtnHnmbXBch9OODqXOugNTIO5HASNoA8QLN9X9ErPoZ6oYWO0e0gCNIAyv4O2Tq_0GFy45EDLldPu29o"/>
+<div>
+<p class="font-semibold text-text-light dark:text-text-dark">Urban Threads</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller</p>
+</div>
+</div>
+</div>
+</header>
+<div class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">account_circle</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Seller Profile &amp; Contact</h2>
+</div>
+<div class="space-y-3 text-sm">
+<p><strong class="text-subtext-light dark:text-subtext-dark">Business Name:</strong> <span class="text-text-light dark:text-text-dark">Urban Threads</span></p>
+<p><strong class="text-subtext-light dark:text-subtext-dark">Legal Name:</strong> <span class="text-text-light dark:text-text-dark">Urban Threads Inc.</span></p>
+<p><strong class="text-subtext-light dark:text-subtext-dark">Email:</strong> <span class="text-text-light dark:text-text-dark">contact@urbanthreads.com</span></p>
+<p><strong class="text-subtext-light dark:text-subtext-dark">Phone:</strong> <span class="text-text-light dark:text-text-dark">+1 (555) 123-4567</span></p>
+<button class="mt-4 w-full text-sm text-white bg-primary hover:bg-blue-700 rounded-lg py-2">Edit Profile</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">group</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Users, Roles &amp; Permissions</h2>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<img alt="User avatar" class="w-8 h-8 rounded-full mr-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNDxLsDAcTMcSHpWx8yIoz8xshr4Vnslp8nQIS2xSNoiLR-oz1IcHBOTgEpCSKR7_dMlBhwigaBqXZOGexY7xmRrViaeZAv6Zz9BYGNRVJMGCsA-Dy_7_8UENwmWLdVjCAHzwq89VclLzAk7MV1owHZG2sEHwk6YyFWEmE5xBjPxy9JoiCRlv3SNQs1umaulguQHjdYJ5tW5i3gsrrbM3nPtx6e_raqicpD22ypoCqI2D5UNDfitfHqj0x5V2XAyoF9RaX1Jk6JcM"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Jane Doe</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Owner</p>
+</div>
+</div>
+<button class="text-xs text-primary hover:underline">Manage</button>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center">
+<img alt="User avatar" class="w-8 h-8 rounded-full mr-3" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdByVgXxYjqh5kO_xd2o4bpOtKTHLk6t5Gh-PRhkgLaqCkGSkUkZLL-Amb7u988yY7fTfO8Z-hWQ6D1oyYzxpXRuklP6jEOnV4-WENAZ8Mn23NlAjeYw3PZI_NRPiJItTxeJhTa1KlpwhtjUY1SLPo5zoOKK6ZpsL4BDa0-FaQg6D5aKcg22mrYdUmesLYgRCSv2MJjzHB2ThQDPgqdn1BNQvXwv75lV1b9qZ-53wOdEPzVmhjf3c7qSFl48v3JOckfrjrfXc2fbY"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">John Smith</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Admin</p>
+</div>
+</div>
+<button class="text-xs text-primary hover:underline">Manage</button>
+</div>
+<button class="mt-4 w-full text-sm text-white bg-primary hover:bg-blue-700 rounded-lg py-2">+ Add User</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">verified_user</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Verification &amp; Tax</h2>
+</div>
+<div class="space-y-4">
+<ul class="space-y-3 text-sm">
+<li class="flex justify-between items-center">
+<span class="text-text-light dark:text-text-dark">Business Registration</span>
+<span class="flex items-center text-green-500"><span class="material-icons text-sm mr-1">check_circle</span>Verified</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="text-text-light dark:text-text-dark">Tax Numbers (TPS/TVQ/HST)</span>
+<span class="flex items-center text-green-500"><span class="material-icons text-sm mr-1">check_circle</span>Verified</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="text-text-light dark:text-text-dark">Business Permit</span>
+<span class="flex items-center text-yellow-500"><span class="material-icons text-sm mr-1">warning</span>Pending</span>
+</li>
+</ul>
+<button class="mt-2 w-full text-sm border border-primary text-primary hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg py-2 flex items-center justify-center space-x-2">
+<span class="material-icons text-base">upload_file</span>
+<span>Upload Documents</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">payments</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Payouts &amp; Banking</h2>
+</div>
+<div class="space-y-3 text-sm">
+<p class="text-subtext-light dark:text-subtext-dark">Funds are held for <strong class="text-text-light dark:text-text-dark">7-14 days</strong> after delivery.</p>
+<div class="bg-background-light dark:bg-background-dark p-3 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark">Next Payout: <span class="text-green-500">$1,250.75</span></p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Expected by: July 28, 2024</p>
+</div>
+<p><strong class="text-subtext-light dark:text-subtext-dark">Bank Account:</strong> <span class="text-text-light dark:text-text-dark">**** **** **** 1234</span></p>
+<button class="mt-2 w-full text-sm border border-primary text-primary hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg py-2">View Payout History</button>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">receipt</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Fees &amp; Commission</h2>
+</div>
+<ul class="space-y-2 text-sm">
+<li class="flex justify-between items-center">
+<span class="text-subtext-light dark:text-subtext-dark">Platform Commission</span>
+<span class="font-medium text-text-light dark:text-text-dark">10%</span>
+</li>
+<li class="flex justify-between items-center">
+<span class="text-subtext-light dark:text-subtext-dark">Payment Processing</span>
+<span class="font-medium text-text-light dark:text-text-dark">2.9% + $0.30</span>
+</li>
+</ul>
+<a class="mt-4 block text-center text-sm text-primary hover:underline" href="#">View Full Fee Policy</a>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">credit_card</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Subscription &amp; Billing</h2>
+</div>
+<div class="space-y-3 text-sm">
+<p class="text-subtext-light dark:text-subtext-dark">Your plan: <strong class="text-text-light dark:text-text-dark">Seller Pro</strong></p>
+<p><strong class="text-subtext-light dark:text-subtext-dark">Monthly Fee:</strong> <span class="font-medium text-text-light dark:text-text-dark">$15.00</span></p>
+<p><strong class="text-subtext-light dark:text-subtext-dark">Payment Method:</strong> <span class="text-text-light dark:text-text-dark">Visa **** 5678</span></p>
+<div class="flex space-x-2 pt-2">
+<button class="flex-1 text-sm border border-primary text-primary hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg py-2">Manage Card</button>
+<button class="flex-1 text-sm border border-border-light dark:border-border-dark text-subtext-light dark:text-subtext-dark hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg py-2">Invoice History</button>
+</div>
+</div>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow col-span-1 md:col-span-1 lg:col-span-1">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">policy</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Policies</h2>
+</div>
+<ul class="space-y-2 text-sm">
+<li><a class="flex items-center text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#"><span class="material-icons mr-2 text-base">description</span>Terms of Service</a></li>
+<li><a class="flex items-center text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#"><span class="material-icons mr-2 text-base">privacy_tip</span>Privacy Policy</a></li>
+<li><a class="flex items-center text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#"><span class="material-icons mr-2 text-base">local_shipping</span>Shipping Policy</a></li>
+<li><a class="flex items-center text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#"><span class="material-icons mr-2 text-base">assignment_return</span>Return Policy</a></li>
+<li><a class="flex items-center text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" href="#"><span class="material-icons mr-2 text-base">receipt</span>Fee Policy</a></li>
+</ul>
+</div>
+<div class="bg-surface-light dark:bg-surface-dark p-6 rounded-xl shadow col-span-1 md:col-span-2 lg:col-span-2">
+<div class="flex items-center mb-4">
+<span class="material-icons text-primary mr-3">notifications_active</span>
+<h2 class="text-xl font-semibold text-text-light dark:text-text-dark">Notification Preferences</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+<div>
+<h3 class="font-semibold mb-2 text-text-light dark:text-text-dark">Order Events</h3>
+<div class="space-y-2">
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">New Order</span>
+<input class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Order Confirmed</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Refund Request</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Order Cancelled</span>
+<input class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</div>
+<div>
+<h3 class="font-semibold mb-2 text-text-light dark:text-text-dark">Service Alerts</h3>
+<div class="space-y-2">
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Platform Updates</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+<label class="flex items-center justify-between">
+<span class="text-subtext-light dark:text-subtext-dark">Payout Notices</span>
+<input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+</label>
+</div>
+</div>
+<div>
+<h3 class="font-semibold mb-2 text-text-light dark:text-text-dark">Email &amp; SMS</h3>
+<div class="space-y-2">
+<label class="flex items-center"><input checked="" class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary mr-2" type="checkbox"/><span class="text-subtext-light dark:text-subtext-dark">Email: All Events</span></label>
+<label class="flex items-center"><input class="form-checkbox h-4 w-4 rounded text-primary focus:ring-primary mr-2" type="checkbox"/><span class="text-subtext-light dark:text-subtext-dark">SMS: New Order</span></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

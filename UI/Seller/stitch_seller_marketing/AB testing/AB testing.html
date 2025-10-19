@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inflopick - Create A/B Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#18181B",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#27272A",
+                        "text-light": "#18181B",
+                        "text-dark": "#E4E4E7",
+                        "subtext-light": "#71717A",
+                        "subtext-dark": "#A1A1AA",
+                        "border-light": "#E4E4E7",
+                        "border-dark": "#3F3F46"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">shopping_bag</span> Orders
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">inventory_2</span> Products
+                </a>
+<a class="flex items-center px-4 py-2 text-white bg-primary rounded" href="#">
+<span class="material-icons mr-3">campaign</span> Marketing
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">people</span> Customer
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">chat</span> Chat
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">analytics</span> Analytics
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">storefront</span> Storefront Preview
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">manage_accounts</span> Accounts Management
+                </a>
+</nav>
+<div class="p-4">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">logout</span> Logout
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center mb-6">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" href="#">
+<span class="material-symbols-outlined">arrow_back</span>
+</a>
+<div class="ml-4">
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Create New A/B Test</h2>
+<p class="text-subtext-light dark:text-subtext-dark">Set up a new test to optimize your product listing.</p>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">1</div>
+<div class="ml-4 flex-grow">
+<h3 class="text-xl font-semibold mb-2 text-text-light dark:text-text-dark">Basic Information</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="test-name">Test Name</label>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary" id="test-name" placeholder="e.g., Summer T-Shirt Image Test" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="product-select">Product to Test</label>
+<select class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary" id="product-select">
+<option>Sporty Red Sneakers</option>
+<option>Portable Blender</option>
+<option>Smartwatch</option>
+<option>Organic Face Serum</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">2</div>
+<div class="ml-4 flex-grow">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Define Variations</h3>
+<div class="space-y-6">
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-semibold text-lg text-text-light dark:text-text-dark">Variation A (Control)</h4>
+<span class="text-xs font-medium text-subtext-light dark:text-subtext-dark">Current Version</span>
+</div>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark mb-2">Sporty Red Sneakers</p>
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+<div class="relative group">
+<img alt="Product Image 1" class="w-full h-24 rounded-md object-cover cursor-grab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw77Yd5g99FqD-F_2bXy-oA_1cDefB_h-B-dE2jY_Z-w-a-g-h-e-f-d-c-b-a-9-8-7-6-5-4-3-2-1-0"/>
+<div class="absolute top-1 right-1 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-black/70">
+<span class="material-symbols-outlined text-sm">open_with</span>
+</button>
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-red-500">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="relative group">
+<img alt="Product Image 2" class="w-full h-24 rounded-md object-cover cursor-grab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCy-8-w-r-c-X-g-u-o-f-f-b-e-a-d-c-d-e-f-1-2-3-4-5-6-7-8-9-0"/>
+<div class="absolute top-1 right-1 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-black/70">
+<span class="material-symbols-outlined text-sm">open_with</span>
+</button>
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-red-500">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="relative group">
+<img alt="Product Image 3" class="w-full h-24 rounded-md object-cover cursor-grab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-z-a-1-b-2-c-3-d-4-e-5-f-6-g-7-h-8-i-9-j-k-l-m-n-o-p-q-r-s-t"/>
+<div class="absolute top-1 right-1 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-black/70">
+<span class="material-symbols-outlined text-sm">open_with</span>
+</button>
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-red-500">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="w-full h-24 border-2 border-dashed border-border-light dark:border-border-dark rounded-md flex flex-col items-center justify-center text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark cursor-pointer">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+<span class="text-xs mt-1 text-center">Upload Image</span>
+</div>
+</div>
+</div>
+</div>
+<div class="border border-dashed border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex justify-between items-center mb-4">
+<h4 class="font-semibold text-lg text-text-light dark:text-text-dark">Variation B</h4>
+<button class="text-sm font-medium text-red-500 hover:text-red-700 flex items-center">
+<span class="material-symbols-outlined text-base mr-1">delete</span>Remove
+                                            </button>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="variation-b-name">Product Name</label>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary" id="variation-b-name" type="text" value="Sporty Red Sneakers - V2"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1">Product Images</label>
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4">
+<div class="relative group">
+<img alt="Product Image 1" class="w-full h-24 rounded-md object-cover cursor-grab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw77Yd5g99FqD-F_2bXy-oA_1cDefB_h-B-dE2jY_Z-w-a-g-h-e-f-d-c-b-a-9-8-7-6-5-4-3-2-1-0"/>
+<div class="absolute top-1 right-1 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-black/70">
+<span class="material-symbols-outlined text-sm">open_with</span>
+</button>
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-red-500">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="relative group">
+<img alt="New Product Image" class="w-full h-24 rounded-md object-cover cursor-grab" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ_x-y-z-a-b-c-d-e-f-g-h-i-j-k-l-m-n-o-p-q-r-s-t-u-v-w-x-y-z-0-1-2"/>
+<div class="absolute top-1 right-1 flex space-x-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-black/70">
+<span class="material-symbols-outlined text-sm">open_with</span>
+</button>
+<button class="p-1 bg-black/50 rounded-full text-white hover:bg-red-500">
+<span class="material-symbols-outlined text-sm">delete</span>
+</button>
+</div>
+</div>
+<div class="w-full h-24 border-2 border-dashed border-border-light dark:border-border-dark rounded-md flex flex-col items-center justify-center text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark cursor-pointer">
+<span class="material-symbols-outlined">add_photo_alternate</span>
+<span class="text-xs mt-1 text-center">Upload Image</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="variation-value">Price</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center text-subtext-light dark:text-subtext-dark">$</span>
+<input class="w-full pl-7 bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary" id="variation-value" type="text" value="54.99"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-4 px-4 py-2 text-sm font-medium text-primary border border-primary rounded-md hover:bg-blue-50 dark:hover:bg-blue-900/20 flex items-center">
+<span class="material-icons mr-2">add</span> Add Variation
+                                </button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">3</div>
+<div class="ml-4 flex-grow">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Audience &amp; Duration</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div x-data="{ split: 50 }">
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="traffic-split">Traffic Split</label>
+<div class="relative h-5">
+<div class="absolute top-1/2 -translate-y-1/2 left-0 w-full h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full">
+<div :style="`width: ${split}%`" class="h-full bg-primary/50 rounded-full"></div>
+</div>
+<input class="absolute inset-0 w-full h-full opacity-0 cursor-pointer" id="traffic-split" max="100" min="0" type="range" x-model="split"/>
+<div :style="`left: calc(${split}% - 10px)`" class="absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-primary rounded-full shadow border-2 border-white dark:border-card-dark pointer-events-none"></div>
+</div>
+<div class="flex justify-between text-sm text-subtext-light dark:text-subtext-dark mt-2">
+<span x-text="`A: ${split}%`"></span>
+<span x-text="`B: ${100 - split}%`"></span>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="duration">Test Duration</label>
+<select class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary" id="duration">
+<option>7 days</option>
+<option>14 days</option>
+<option>30 days</option>
+<option>Run until manually stopped</option>
+</select>
+</div>
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1">Target Audience (Optional)</label>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary" placeholder="e.g., New visitors, Visitors from USA" type="text"/>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-1">Leave blank to target all visitors.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-start">
+<div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold text-sm">4</div>
+<div class="ml-4 flex-grow">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Key Metrics</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Select the primary metric you want to improve. The test will determine a winner based on this goal.</p>
+<div class="space-y-3">
+<div class="flex items-center">
+<input checked="" class="h-4 w-4 text-primary border-gray-300 focus:ring-primary" id="conversion-rate" name="key-metric" type="radio"/>
+<label class="ml-3 block text-sm font-medium text-text-light dark:text-text-dark" for="conversion-rate">
+                                            Conversion Rate
+                                            <p class="text-xs text-subtext-light dark:text-subtext-dark">Percentage of visitors who make a purchase.</p>
+</label>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary border-gray-300 focus:ring-primary" id="revenue-per-visitor" name="key-metric" type="radio"/>
+<label class="ml-3 block text-sm font-medium text-text-light dark:text-text-dark" for="revenue-per-visitor">
+                                            Revenue per Visitor
+                                            <p class="text-xs text-subtext-light dark:text-subtext-dark">Average amount spent by each visitor.</p>
+</label>
+</div>
+<div class="flex items-center">
+<input class="h-4 w-4 text-primary border-gray-300 focus:ring-primary" id="add-to-cart" name="key-metric" type="radio"/>
+<label class="ml-3 block text-sm font-medium text-text-light dark:text-text-dark" for="add-to-cart">
+                                            Add to Cart Rate
+                                            <p class="text-xs text-subtext-light dark:text-subtext-dark">Percentage of visitors who add the product to their cart.</p>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-end space-x-4">
+<button class="px-6 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-card-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">
+                        Save as Draft
+                    </button>
+<button class="px-6 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-blue-700 flex items-center">
+<span class="material-symbols-outlined text-base mr-2">rocket_launch</span>
+                        Launch Test
+                    </button>
+</div>
+</div>
+</main>
+</div>
+<script defer="" src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"></script>
+
+</body></html>

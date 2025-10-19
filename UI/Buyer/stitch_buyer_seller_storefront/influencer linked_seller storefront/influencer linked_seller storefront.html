@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Storefront - Inflopick</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+    .material-icons {
+      font-size: 24px;
+    }
+    .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    }
+  </style>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#FF7A00",
+            "background-light": "#F9FAFB",
+            "background-dark": "#111827",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1F2937",
+            "text-light": "#1F2937",
+            "text-dark": "#F9FAFB",
+            "subtext-light": "#6B7280",
+            "subtext-dark": "#9CA3AF",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "8px",
+          },
+        },
+      },
+    };
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+  </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div id="root">
+<header class="bg-card-light dark:bg-card-dark shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-16">
+<div class="flex-shrink-0">
+<h1 class="text-2xl font-bold text-primary">Inflopick</h1>
+</div>
+<div class="flex-1 max-w-lg mx-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-background-light dark:bg-background-dark focus:ring-primary focus:border-primary" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-symbols-outlined">chat_bubble</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">shopping_cart</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">notifications</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark">
+<span class="material-icons">person</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-text-light dark:hover:text-text-dark" onclick="toggleTheme()">
+<span class="material-symbols-outlined dark:hidden">light_mode</span>
+<span class="material-symbols-outlined hidden dark:inline">dark_mode</span>
+</button>
+</div>
+</div>
+<nav class="flex justify-center border-b border-gray-200 dark:border-gray-700">
+<a class="py-4 px-6 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Product</a>
+<a class="py-4 px-6 text-primary border-b-2 border-primary font-semibold" href="#">Storefront</a>
+<a class="py-4 px-6 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Creators</a>
+</nav>
+</div>
+</header>
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div class="relative h-64 rounded-lg overflow-hidden bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD6kih26wkkwYag0Fj1aP8xwz-EJmvH8gyYdZVAlRtMB2bRlq5HZvGBWWxUEVKgnPjsXJAPlebZelLw4KvOzDO6fF9auYedBst-fnET4tA7OaH4e-z2L5m5wNfroHHFHMKAd1n_FB0ollj-1QsI1HPQW9rpWMh1PmcIdmoQtzyNc7BcqYQBRn4NRhg8Umr2Tz0EBq3xgzAMp6byL3DB6YQN9h2Ym4wndqLaKOw3UzCh6BOFymW1kUlFQYFb5YSYLlkzV11678f9VYtN');">
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<div class="relative z-10 flex flex-col items-start justify-end h-full p-8 text-white">
+<div class="flex items-center space-x-4">
+<img alt="The Artisan's Corner logo" class="w-20 h-20 rounded-full border-4 border-white bg-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0HhvmrByk_YFadf31LntAkmsu-MGdqKXTbjrro7Kt4x3OZW6r-2Y5TMo65Y8VZhNycfOa2fLqYSKMgoRF8TUctYtl5EvCEKybqH3S1QEB_6iLW28FCUa0PYL7DjRciNC37rjPYt8VfLq3zGyc9L9qqPo9oh29WfE0DlGkY5u8y5Ox5s9TBiJSanq0FXPkU7JwIiztZ0xk1jon8PEy7axtsnWdef5zB72bbc6XG931me6gjao5OeQXbxEV-ut0fzAHSYtUk7LxyIiD"/>
+<div>
+<h2 class="text-3xl font-bold">The Artisan's Corner</h2>
+<p class="text-sm mt-1">Handmade goods and unique crafts from talented artisans.</p>
+<div class="flex items-center mt-2 space-x-1">
+<span class="material-icons text-yellow-400" style="font-size: 20px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 20px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 20px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 20px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 20px;">star_half</span>
+<span class="ml-2 text-sm">4.6 (4.7k reviews)</span>
+</div>
+</div>
+</div>
+<div class="absolute top-8 right-8 flex items-center space-x-4">
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">Follow</button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors">Chat with Store</button>
+</div>
+</div>
+</div>
+<nav class="mt-8 border-b border-gray-200 dark:border-gray-700">
+<div class="flex space-x-8">
+<a class="py-4 px-1 text-primary border-b-2 border-primary font-semibold" href="#">All Products</a>
+<a class="py-4 px-1 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Best Sellers</a>
+<a class="py-4 px-1 text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">New Arrivals</a>
+</div>
+</nav>
+<div class="mt-8">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<div class="flex-1 relative min-w-[250px]">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-card-light dark:bg-card-dark focus:ring-primary focus:border-primary" placeholder="Search in this store..." type="text"/>
+</div>
+<div class="flex items-center space-x-4">
+<select class="border border-gray-300 dark:border-gray-600 rounded-lg bg-card-light dark:bg-card-dark focus:ring-primary focus:border-primary">
+<option>Category</option>
+<option>Decor</option>
+<option>Jewelry</option>
+<option>Art</option>
+</select>
+<select class="border border-gray-300 dark:border-gray-600 rounded-lg bg-card-light dark:bg-card-dark focus:ring-primary focus:border-primary">
+<option>Price Range</option>
+<option>$0 - $50</option>
+<option>$50 - $100</option>
+<option>$100+</option>
+</select>
+<select class="border border-gray-300 dark:border-gray-600 rounded-lg bg-card-light dark:bg-card-dark focus:ring-primary focus:border-primary">
+<option>Sort by: Popularity</option>
+<option>Sort by: Newest</option>
+<option>Sort by: Price High to Low</option>
+<option>Sort by: Price Low to High</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Handcrafted Vase" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx1RhPJyjM-nTtL2iKz8fidzSuMVdDLEzPEZ_y5YMF8BCsya2wruIPiSYs3Wx9z3yA5FVEU5flQAN4vP6doAWey3ig0k6PEzyPcZFzuRV8MNronsmACoOhBojjGNP534om0JpLdzb3VJ1iqiR-5uydeRZBWmR1G_EzhJ8yrhC3Wyt1-r9ObIqb6AtXV2SQkUdYEOehMcznyWEyML-1FCWI9Bcke9qGHEXKtcWu9RdGNGaeMZ4uh-rnlMTf2P4pnfR_dNpHZI_ybhLE"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start">
+<span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-red-200 dark:text-red-900 mb-2">15% OFF</span>
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">10% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Handcrafted Vase</h3>
+<p class="text-primary font-bold mt-1">$45.00 <span class="text-subtext-light dark:text-subtext-dark line-through ml-1">$53.00</span></p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.8 (120)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Bohemian Wall Hanging" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf_UHjz2zFSeT0ygSGwELqondqqWP1_h3Z2pmWaT0K7I-Qez1QBLxtAPtWebdV_lBRtOcXZpDr70uvyuRK2cpKdlsXF7_CKFP8n1uwT6dzLhjp6cKRMdrpkRUPoM_vtwo3vXPPct8LvP975TQt8X9TtFSQmHcHoFJ5TbhGfUeaP1988PBt0qyrIYn9NLuVA9b6EViT7DE2tHHK3EStZ8iSKcLzqc3MUxjswVpoqK9sIDipJIUqhL_6EOwJZNmUR3TrI8C5Kb4h2jDF"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-end items-start">
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">12% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Bohemian Wall Hanging</h3>
+<p class="text-primary font-bold mt-1">$75.00</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.9 (250)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Ceramic Mug Set" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFB9F7yxEHTbZaup5KrPqQ0AZ1xmDxmmexOV8M6mExs9M3s2_VWqcYSFlwsJNIq2BsrLNLmRuDGaDTgQWEhE5dIlzhfpq0Xl3pYyDQ7QljZUcH7YTD_0Reps7a0HWCWz7wb2tf_ANukCRe5q-Go3fO13WZT9HdB_3dqW2beIk2eymxkAsy86ol2Jy_uLO3dIdxMmlWBM2I1TFH7R07ET8vqvzAHb5sr9-9j3O7wHEUIu-J-IewtVLGMZgxxo7wpK-PARE6enaAAWnL"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start">
+<span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-red-200 dark:text-red-900 mb-2">10% OFF</span>
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">8% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Ceramic Mug Set</h3>
+<p class="text-primary font-bold mt-1">$32.00 <span class="text-subtext-light dark:text-subtext-dark line-through ml-1">$35.50</span></p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.7 (88)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Woven Throw Blanket" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7eO_tA_RjfOuDHDaH9wWcP20ejvHmP8vIgpSPzDCi1dcbiIqKXRK9fHobv7ZlvdNuwbBJHQ8L3FJ8z8yv1PGzdr0sVCQuDMnefUxvlJO5BSuJDNszSpK3fm2ohRc-TcTf-DN8237QAp-TksMCrBb3e1mvbLu4hoSkvZnBAtebtz2hwSkHluGDBb6ZegQtupdGIS6efwTlOTw2T4GadfYKZAlsu_I0ru9dsij6rWjCIRvJzDVxx1XZEEadMbAxu3v_Ow9riTe4Yuhl"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-end items-start">
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">15% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Woven Throw Blanket</h3>
+<p class="text-primary font-bold mt-1">$90.00</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">5.0 (50)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Wooden Salad Bowl" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrTui2VoZf7NHyUm-Xs-0v4cX_L8tdmiEBYxD8Ql5yQatYFPkbDa-50uwymNM_-MyxEEmQmcRIjQ14c04qBQfnM-5dh4jFiK1SsElVodor1QiisKxXTnXvLaO7i841g7cFXozNKbMbNzsvy7STDwyVC2qKAdxKLQAcKMTDg3-2BRGzLjua_JQzO6emdKBMbYqzAIRiBiU_W5XSQqpRLDl7Czj3R07GCBDqgLcxi0LfPcL0NpudcDy1wQlmVaiAWanHEfpNJdqcDw7s"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-end items-start">
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">10% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Wooden Salad Bowl</h3>
+<p class="text-primary font-bold mt-1">$65.00</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.9 (150)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Scented Soy Candle" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwt-8zfPQmArQTf3lvalRaFZBwdPA4H3pnrDyaeEqRCsWa6hThqiPXWoCxwmwpJdTW5U5QQ15QUsK8MThX3XGNVZzNARnFc7M7sMBunEPCtAxjywd28pOJQvhN-h2WI2jFX4HMN0NnytHMLtykAkz3yEKtzvpOiauhpTndSNO5CurIlhmPTzAZLb8QN3V-6ePoa_vAmdQXwYrap2lL0auo3vETyFN5m7RPQQ1xDZF2EqodcAMvPRXt3E1HvxVKPTn-w2H4rm6OW4A3"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-end items-start">
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">8% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Scented Soy Candle</h3>
+<p class="text-primary font-bold mt-1">$25.00</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.8 (300)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Leather Journal" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQA1AsZ_RSI89dBhRog3H4GyFwl2iGbRM-pXZbRNLswcUMh1O-1MP8bvU4pu0Gl7-7Bi87V45CPYWi2o0Lcgpf_ie4B-9WMUlKfnUrb648w81T8lFuFUBxJH1AQlRBMwWwBTrZK7tJ1Lz2thHR2NIph0EbjwvpdnvPx3SG4KPFKORpuxLL1-EcbN7XFEMvGRpE7IApgrPVNO_s010pgO1V5O2r5bdpy8j41avF0zVU_xicQoqFmcnscZgMgwtuIbUNgGEy5LIzuXsI"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-end items-start">
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">10% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Leather Journal</h3>
+<p class="text-primary font-bold mt-1">$42.00</p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.9 (180)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+<div class="group relative bg-card-light dark:bg-card-dark rounded-lg shadow-md overflow-hidden transition-shadow duration-300 hover:shadow-xl">
+<img alt="Geometric Print Cushion" class="w-full h-48 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChjXp4j8r2K-EkObAtXWWEys8kM9gqmTnuhyw8wwqYjELlylMoDBM1otOCPPaNNNNADM2gxV0EbvNLp3qD5Nu4d5nqf8-UpcNEGDIuFyKgBay_H9u-rdT1WU4HRufLInGsUdM-N_8nqz5djALua1gPAsxbljhoZ2JP4-rSuZD5s8fEQ9WrgpQ0ZLIezf2-ShMmx2BkdiAi33cNBStHaJ-ABBgZPcUoXxMz3jH0QghSUexYNKzNAbsxvL6zggJr-Zq8BcX6nkLUvTg5"/>
+<div class="p-4 flex flex-col flex-grow">
+<div class="flex justify-between items-start">
+<span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-red-200 dark:text-red-900 mb-2">20% OFF</span>
+<span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full dark:bg-green-200 dark:text-green-900 mb-2">12% Commission</span>
+</div>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark">Geometric Print Cushion</h3>
+<p class="text-primary font-bold mt-1">$36.00 <span class="text-subtext-light dark:text-subtext-dark line-through ml-1">$45.00</span></p>
+<div class="flex items-center mt-2">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark ml-1">4.7 (95)</span>
+</div>
+</div>
+<div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+<div class="flex space-x-2">
+<button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">Add to Cart</button>
+<button class="bg-gray-200 dark:bg-gray-700 text-text-light dark:text-text-dark px-4 py-2 rounded-lg font-semibold text-sm">View Details</button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 text-center">
+<button class="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors">Show More</button>
+</div>
+</div>
+<div class="mt-12 bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-md">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold">Store Reviews &amp; Comments</h3>
+<div class="flex items-center space-x-2">
+<span class="text-sm font-medium text-subtext-light dark:text-subtext-dark">Sort by:</span>
+<select class="border border-gray-300 dark:border-gray-600 rounded-lg bg-card-light dark:bg-card-dark focus:ring-primary focus:border-primary text-sm">
+<option>Most Recent</option>
+<option>Best to Worst</option>
+<option>Worst to Best</option>
+</select>
+</div>
+</div>
+<div class="space-y-6">
+<div class="flex space-x-4">
+<img alt="User avatar" class="h-12 w-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc3rIvLHCXqfVsvQHNFziA1UDW58va0hDSSdfYJ9_Ju99N5CvrodgiiSE0qO4N5Mg2ppaV6nLVeZk2_sVbH7FRLpTFo7Cn9iadjeB48DvZc2A8hF8rkWCTQbGKLO-f5yYaJORWIgRwdbpJY1tONjNfGTwrXH8HM155kLsBOiz4Z30bpy0AiQCee9a1dbNAhX0qJmrh87tY8yjJs_uqPKV5kkvSY8xM34c3HuPlBecAS66fi47ejdUmo1alM3MLGCNO9Bt1hcEvXNon"/>
+<div>
+<p class="font-semibold">Jane Doe</p>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="ml-2">2 days ago</span>
+</div>
+<p class="mt-2">Absolutely love the handcrafted vase! It's even more beautiful in person. The quality is exceptional.</p>
+</div>
+</div>
+<div class="border-t border-gray-200 dark:border-gray-700"></div>
+<div class="flex space-x-4">
+<img alt="User avatar" class="h-12 w-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYORAtWN_F7Vf8WGPFW7hb1HGnLmQT7UFe2wXjt8J6i9pcLCj_J1qjPUAkTPagJgzU616FrvonB9HyV1mAQAsKJdatcu26AayZZwcRyuPlqV50uz8yNJ6CUINEyfmZjgW1fmRHZnGq2w4hrkHKJYzVQ-cWhda35CaIhf4oyxxw3xwUT0xVY4DH9kJrHNw47806pR0KHQLHwaxTgNE6WBD27BwNMX6Dgo107mWnQtqdWaspA3NzW4qN4na-E2wxTpxvWewZw3A4aBml"/>
+<div>
+<p class="font-semibold">John Smith</p>
+<div class="flex items-center text-sm text-subtext-light dark:text-subtext-dark">
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-yellow-400" style="font-size: 16px;">star</span>
+<span class="material-icons text-gray-300" style="font-size: 16px;">star</span>
+<span class="ml-2">1 week ago</span>
+</div>
+<p class="mt-2">The Bohemian Wall Hanging is a great addition to my living room. Shipping was fast. Would buy again.</p>
+</div>
+</div>
+</div>
+<div class="mt-6 text-center">
+<button class="text-primary font-semibold hover:underline">Show More</button>
+</div>
+</div>
+</main>
+<footer class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-700">
+<div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+<div class="col-span-2 md:col-span-1">
+<h2 class="text-2xl font-bold text-primary">Inflopick</h2>
+<div class="mt-4">
+<select class="bg-background-light dark:bg-background-dark border border-gray-300 dark:border-gray-600 rounded-lg py-2 px-3">
+<option>EN/FR</option>
+</select>
+</div>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Quick Links</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Home</a></li>
+<li><a class="hover:text-primary" href="#">Discover</a></li>
+<li><a class="hover:text-primary" href="#">Cart</a></li>
+<li><a class="hover:text-primary" href="#">Profile</a></li>
+<li><a class="hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h3 class="font-semibold text-text-light dark:text-text-dark">Policies</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary" href="#">CCPA &amp; Consent</a></li>
+<li><a class="hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div class="col-span-2 md:col-span-2">
+<h3 class="font-semibold text-text-light dark:text-text-dark">Support</h3>
+<ul class="mt-4 space-y-2 text-subtext-light dark:text-subtext-dark">
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">FAQs</a></li>
+<li><a class="hover:text-primary" href="#">Help Center</a></li>
+<li><a class="hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="mt-6 flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+<a class="bg-primary text-white text-center font-semibold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors" href="#">Become a Creator</a>
+<a class="bg-primary text-white text-center font-semibold py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors" href="#">Open a Store</a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-700 flex justify-between items-center text-sm text-subtext-light dark:text-subtext-dark">
+<p>© 2025 Inflopick Inc. All Rights reserved. Reg. No: 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4">
+<a class="hover:text-primary" href="#"><i class="fab fa-facebook-f"></i></a>
+<a class="hover:text-primary" href="#"><i class="fab fa-twitter"></i></a>
+<a class="hover:text-primary" href="#"><i class="fab fa-instagram"></i></a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</body></html>

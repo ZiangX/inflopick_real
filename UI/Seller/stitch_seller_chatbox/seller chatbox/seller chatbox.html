@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Chat - Seller Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6", // Changed to blue
+            "background-light": "#F9FAFB",
+            "background-dark": "#111827",
+            "sidebar-light": "#FFFFFF",
+            "sidebar-dark": "#1F2937",
+            "text-light": "#1F2937",
+            "text-dark": "#F9FAFB",
+            "subtext-light": "#6B7280",
+            "subtext-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151",
+          },
+          fontFamily: {
+            display: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .group:target .group-target-hidden {
+        display: none;
+    }
+    .group:target .group-target-block {
+        display: block;
+    }
+    .group:target .group-target-flex {
+        display: flex;
+    }
+    .group:target .group-target-rotate-180 {
+        transform: rotate(180deg);
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 bg-sidebar-light dark:bg-sidebar-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">dashboard</span>
+      Dashboard
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">shopping_bag</span>
+      Orders
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">inventory_2</span>
+      Products
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">volume_up</span>
+      Marketing
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">people</span>
+      Customer
+    </a>
+<a class="flex items-center px-4 py-2 text-white bg-primary rounded-md" href="#">
+<span class="material-icons-outlined mr-3">chat</span>
+      Chat
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">analytics</span>
+      Analytics
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">storefront</span>
+      Storefront Preview
+    </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">manage_accounts</span>
+      Accounts Management
+    </a>
+</nav>
+<div class="p-4 mt-auto">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded-md hover:bg-gray-100 dark:hover:bg-gray-700" href="#">
+<span class="material-icons-outlined mr-3">logout</span>
+      Logout
+    </a>
+</div>
+</aside>
+<main class="flex-1 flex overflow-hidden">
+<div class="flex-1 flex flex-col">
+<div class="p-8 border-b border-border-light dark:border-border-dark">
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Customer Records</h2>
+<p class="text-subtext-light dark:text-subtext-dark mt-1">Manage your customer information and interactions.</p>
+</div>
+<div class="flex-1 flex overflow-hidden">
+<div class="w-1/3 border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="p-4 border-b border-border-light dark:border-border-dark flex items-center justify-between">
+<h3 class="text-lg font-semibold">Chats</h3>
+<button class="p-2 rounded-full border border-primary text-primary hover:bg-blue-50 dark:hover:bg-blue-900/20">
+<span class="material-icons-outlined text-base">add</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto">
+<div class="p-4 border-b border-border-light dark:border-border-dark bg-gray-100 dark:bg-gray-800 cursor-pointer">
+<div class="flex items-center space-x-3">
+<img alt="Laura Smith" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNnWdBnmwJzmiTANkI_6Ptr7O9zgO3stWpIMl5Q2dU6hbd-O8ZXH7lLxxxOTiwxW-OhIHAuDrGlrM8TNAAo-JXAG83pXbkKvncxpZHxRwAq_zDqitEWCpv5bQ6aPoUUqDxhs538sYXsnj1nRRj2Ay8V99e18e8jrLLYP7slAIKSDV6Os3z8n4CqQ7tP7fmHdftgFXfNBJOaIPbroZh-pA6Cu9tIASiuvclKEgLU8y-7ng0LmE_KgBBHCyhKfc4berTkyyA_WgXhG1H"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-text-light dark:text-text-dark">Laura Smith</h4>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">10:42 AM</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Hey! I have a question about my order...</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-b border-border-light dark:border-border-dark hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<div class="flex items-center space-x-3">
+<img alt="John Doe" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWreo5b-ScwInkp8k5DkhOc2wEDR43HvvSXixyTy79QLwPcjEFLzOT_b5G_KRz7CYmW4OsjZRwEVfK8Q2kID-y-OXEW-okHkmB9Jx5SiMrhWl-RivVZnMMgWbftoEcLWtoUyM18xyzc7pqJ7ulJja5C0q_onDauEtHeiZK-ETMy6UhCWnu1x6b0ACpnX7tJkExfwcEoo4oajVxXxJ6-R6tEbGNW2Vf8Y3FsldzKG1WfxFB6b4TdsU6EO8TWFzLp_TyOT7tGmOa2o18"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-text-light dark:text-text-dark">John Doe</h4>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">Yesterday</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Thank you for your help!</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-b border-border-light dark:border-border-dark hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<div class="flex items-center space-x-3">
+<img alt="Jane Appleseed" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoSZAMAXjbdc7SHREhYMB6Lw1FoqGvKpaE3bH3TCx7VVSSOC7gXgBEgKZSJEF98YLC9ljtuWwCC8ilpQOs0-qeaILuqn561v0acDgoDRrEaXsZP9INY_nto_sXlWVlrf_7aQQqCFNX5hp2hTn9YQQauoIAK5xMFcwAADXKnCJeCPGfrTtT9TLEQ2TIRSlamdWB7vP9jOPm5gJ53y7tPpXnSFuRJofYOmy9bnGogjO671noRHyRPbb_cdVr9Svnual2Z8lZ1Alle2yz"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-text-light dark:text-text-dark">Jane Appleseed</h4>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">2 days ago</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Sure, I'll check that and get back to you.</p>
+</div>
+</div>
+</div>
+<div class="p-4 border-b border-border-light dark:border-border-dark hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<div class="flex items-center space-x-3">
+<img alt="Mike Chan" class="w-12 h-12 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN57kEoFzw1ezvLms8U8mf5aKu3B41q4qs8Obz7giYdE0d-EbWaV-BxGM5RzKriebvAoLFpxLIRyYEiK4tQGqjCicgm_tG2ZBU44Okk4epga_9FxP4eM68Lr36moH9b6u-0eiHUdzvKv7ystXXREP26PRB4rpL7-Vnl9FiidjwJNTGAKAiV70YPfS5UboGkJtesj4mMHBTH-lCqhVrj0yeTOa1olsrmn-E8M3JYnYGvkQHz7j7xuJL4TCuDdkJntPCXVjVO8sQ4Qao"/>
+<div class="flex-1">
+<div class="flex justify-between items-center">
+<h4 class="font-semibold text-text-light dark:text-text-dark">Mike Chan</h4>
+<span class="text-xs text-subtext-light dark:text-subtext-dark">Oct 21</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark truncate">Perfect, thanks!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="w-2/3 flex flex-col bg-white dark:bg-gray-900">
+<div class="p-4 border-b border-border-light dark:border-border-dark flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<img alt="Laura Smith" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzLTDd9DeIbEkSx5Kp8nUyChthbVmIU37lEOc_Xt0Foh3xlD57j6ZWnpgsNT2Fh--Ax8Rc185jCqE2ecAAhArEnA2BoLdIZiRD60l1Tqd0aJNrsLutl-jUyeCYDRt59PueT2ZGB90oAoLkZxr1SCUVFWdok51fBrVz4SWVzGwyo7WDBKGW5v0ECYhACugx60BpBr7uBkldC_tHFZ8ZJ25Mz5exnQqwgMrkZA4RmBinSInmFrECVwKoSZFK1t1i1rJLTX8iUE-9Acct"/>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark">Laura Smith</h4>
+<p class="text-sm text-green-500">Online</p>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary bg-blue-100 dark:bg-blue-900/30 rounded-md hover:bg-blue-200 dark:hover:bg-blue-800/50">
+<span class="material-icons-outlined text-base">person</span>
+        View Customer Detail
+    </button>
+</div>
+<div class="flex-1 p-6 space-y-6 overflow-y-auto">
+<div class="flex items-start gap-3">
+<img alt="Laura Smith" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqj4g9dvge4EeEP0gG5GIp-nykF6WcVzJCjC1lHz5Z2X2et6gxNPpljw5bj7JeVmC2y9CSzx6jc9gAB3TrHOytKIjK8pH6sChdpnT2vC2XOFCCsAQqbcs411wK9CmOupFA-XNjt3ITh-zSHoNUuVb8xjSkOf84ERfwVRYpDkWYO8nZgw0_ubOUwADWxlQcqnfim8apq09e-S2CLJgoVgd2aHP6WdusXu_dXcYmEM4pdn1berzIBVRh37_SsOv-wdT_eoTJJqnCOL74"/>
+<div>
+<div class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg rounded-tl-none">
+<p class="text-sm">Hey! I have a question about my order #CUS-00123. Can you give me an update on the shipping status?</p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="text-xs text-primary hover:underline">Reply</button>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark mt-1">10:42 AM</span>
+</div>
+</div>
+<div class="flex items-start gap-3 justify-end">
+<div class="text-right">
+<div class="bg-primary text-white p-3 rounded-lg rounded-tr-none">
+<p class="text-sm">Hi Laura! Of course. Let me check that for you right now. One moment please.</p>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark mt-1">10:43 AM</span>
+</div>
+<img alt="Seller Avatar" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAM1WE-Ng4iGY2jrDrGbNllTBSEtQWj5we5OKzkisnsh5vNKz3rszsDK9TdH5V0dyHLEUx0C5KsLtSV_hSmHbowRnmXXCd6uqkaejVBY0mzZqVBbUCWykMkEKprfGvCySSabbkj2KrXPrCBZOJPRDKtdFSHau2gGKKDgZlrUr9IZqYWtUrJfdqrCbG_Lq9PuYNfbSx-ewSg-lTZUCPDN49_wmKntimR-Cp9lfKl1XhvvxSVGTn7cFFN0Cq8hKTIkhb7VDWOa0hfPqV-"/>
+</div>
+<div class="flex items-start gap-3">
+<img alt="Laura Smith" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqj4g9dvge4EeEP0gG5GIp-nykF6WcVzJCjC1lHz5Z2X2et6gxNPpljw5bj7JeVmC2y9CSzx6jc9gAB3TrHOytKIjK8pH6sChdpnT2vC2XOFCCsAQqbcs411wK9CmOupFA-XNjt3ITh-zSHoNUuVb8xjSkOf84ERfwVRYpDkWYO8nZgw0_ubOUwADWxlQcqnfim8apq09e-S2CLJgoVgd2aHP6WdusXu_dXcYmEM4pdn1berzIBVRh37_SsOv-wdT_eoTJJqnCOL74"/>
+<div>
+<div class="bg-gray-100 dark:bg-gray-800 p-3 rounded-lg rounded-tl-none">
+<p class="text-sm">Also, I received a customer service ticket #CS-4567. Could you assist with that?</p>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<button class="text-xs text-primary hover:underline">Reply to Ticket</button>
+</div>
+<span class="text-xs text-subtext-light dark:text-subtext-dark mt-1">10:45 AM</span>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-border-light dark:border-border-dark" id="chat-actions">
+<div class="bg-white dark:bg-gray-800 border border-border-light dark:border-border-dark rounded-lg shadow-lg p-2 mb-3" id="actions-expanded">
+<div class="grid grid-cols-3 gap-2">
+<a class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-center" href="#">
+<span class="material-icons-outlined text-primary text-2xl mb-1">receipt_long</span>
+<span class="text-xs text-text-light dark:text-text-dark">Send Order Detail</span>
+</a>
+<a class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-center" href="#">
+<span class="material-icons-outlined text-primary text-2xl mb-1">local_offer</span>
+<span class="text-xs text-text-light dark:text-text-dark">Send Coupon</span>
+</a>
+<a class="flex flex-col items-center justify-center p-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-center" href="#">
+<span class="material-icons-outlined text-primary text-2xl mb-1">add_shopping_cart</span>
+<span class="text-xs text-text-light dark:text-text-dark">Create Special Order</span>
+</a>
+</div>
+</div>
+<div class="relative group" id="chat-input-group">
+<input class="w-full bg-gray-100 dark:bg-gray-800 border-transparent focus:ring-primary focus:border-primary rounded-full py-3 px-16" placeholder="Type a message..." type="text"/>
+<div class="absolute left-3 top-1/2 -translate-y-1/2 flex items-center space-x-1">
+<a class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark" href="#chat-input-group" id="extend-button">
+<span class="material-icons-outlined group-target-hidden block">add_circle_outline</span>
+<span class="material-icons-outlined group-target-block hidden">remove_circle_outline</span>
+</a>
+</div>
+<div class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center space-x-2">
+<button class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons-outlined">attach_file</span>
+</button>
+<button class="p-2 rounded-full bg-primary text-white hover:bg-blue-700">
+<span class="material-icons-outlined">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    const chatInputGroup = document.getElementById('chat-input-group');
+    const actionsExpanded = document.getElementById('actions-expanded');
+    const extendButton = document.getElementById('extend-button');
+    // Initial state based on whether the fragment is present
+    if (window.location.hash !== '#' + chatInputGroup.id) {
+        actionsExpanded.style.display = 'none';
+        extendButton.href = '#' + chatInputGroup.id;
+    } else {
+        actionsExpanded.style.display = 'block';
+        extendButton.href = '#';
+    }
+    extendButton.addEventListener('click', (e) => {
+        const currentHref = extendButton.getAttribute('href');
+        if(currentHref === '#' + chatInputGroup.id) {
+            actionsExpanded.style.display = 'block';
+            extendButton.href = '#';
+        } else {
+            actionsExpanded.style.display = 'none';
+            extendButton.href = '#' + chatInputGroup.id;
+            // Prevent full page reload but allow hash change
+            if (history.pushState) {
+                history.pushState(null, null, '#');
+            } else {
+                location.hash = '#';
+            }
+            e.preventDefault();
+        }
+    });
+    // Handle back/forward button navigation
+    window.addEventListener('hashchange', () => {
+        if (window.location.hash !== '#' + chatInputGroup.id) {
+            actionsExpanded.style.display = 'none';
+            extendButton.href = '#' + chatInputGroup.id;
+        } else {
+            actionsExpanded.style.display = 'block';
+            extendButton.href = '#';
+        }
+    });
+</script>
+
+</body></html>

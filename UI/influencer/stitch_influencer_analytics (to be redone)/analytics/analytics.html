@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Analytics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6", // Blue-500
+                        "background-light": "#F9FAFB", // Gray-50
+                        "background-dark": "#111827", // Gray-900
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937", // Gray-800
+                        "text-light": "#111827", // Gray-900
+                        "text-dark": "#F9FAFB", // Gray-50
+                        "subtext-light": "#6B7280", // Gray-500
+                        "subtext-dark": "#9CA3AF", // Gray-400
+                        "border-light": "#E5E7EB", // Gray-200
+                        "border-dark": "#374151", // Gray-700
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .sparkline {
+            width: 100px;
+            height: 30px;
+        }
+        .material-icons-outlined,
+        .material-symbols-outlined {
+            font-size: 20px;
+        }
+        .sticky {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6 flex items-center space-x-3">
+<div class="w-8 h-8 bg-primary rounded-lg"></div>
+<span class="text-xl font-bold text-text-light dark:text-text-dark">Inflopick</span>
+</div>
+<p class="px-6 text-xs font-semibold text-subtext-light dark:text-subtext-dark uppercase tracking-wider">Creator Center</p>
+<nav class="mt-4 flex-1 space-y-1">
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">dashboard</span> Dashboard</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">badge</span> Profile &amp; Verification</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">perm_media</span> Portfolio</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">inbox</span> Requests</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">storefront</span> Shop</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-primary bg-primary/10 rounded-lg" href="#"><span class="material-icons-outlined mr-3">analytics</span> Analytics</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">task_alt</span> Tasks</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">star_rate</span> Ratings</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">receipt_long</span> Payment &amp; Bailing</a>
+<a class="flex items-center px-6 py-2.5 text-sm font-medium text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark" href="#"><span class="material-icons-outlined mr-3">chat_bubble_outline</span> Messages</a>
+</nav>
+<div class="p-6">
+<a class="flex items-center px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark" href="#"><span class="material-icons-outlined mr-3">settings</span> Account Settings</a>
+</div>
+</aside>
+<main class="flex-1 bg-background-light dark:bg-background-dark overflow-y-auto">
+<div class="p-8">
+<div class="flex justify-between items-center mb-6">
+<h1 class="text-3xl font-bold text-text-light dark:text-text-dark">Analytics</h1>
+<div class="flex items-center space-x-4">
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Last updated: 2 mins ago</span>
+<button class="flex items-center space-x-2 text-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"><span class="material-symbols-outlined text-base">ios_share</span> Export</button>
+<button class="flex items-center space-x-2 text-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"><span class="material-symbols-outlined text-base">schedule_send</span> Schedule</button>
+</div>
+</div>
+<div class="sticky bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm py-4 mb-6 -mx-8 px-8">
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4 text-sm items-center">
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>Last 30d</option>
+<option>Today</option>
+<option>Last 7d</option>
+<option>Last 90d</option>
+<option>Custom</option>
+</select>
+<div class="flex items-center space-x-2 bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark px-3 py-1.5 rounded-md">
+<label class="text-sm font-medium text-subtext-light dark:text-subtext-dark" for="compare-toggle">Compare</label>
+<input class="h-4 w-4 rounded border-gray-300 text-primary focus:ring-primary" id="compare-toggle" type="checkbox"/>
+</div>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>Attribution: 7d</option>
+<option>1d</option>
+<option>30d</option>
+</select>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>All Platforms</option>
+<option>TikTok</option>
+<option>Instagram</option>
+</select>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>All Products</option>
+</select>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>All Campaigns</option>
+</select>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>All Countries</option>
+</select>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>Currency: USD</option>
+<option>EUR</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-8">
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Earnings</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">$3,250</p>
+<p class="text-sm text-green-500 flex items-center"><span class="material-symbols-outlined text-base mr-0.5">arrow_upward</span> 15% vs prev. 30d</p>
+</div>
+</div>
+<div class="relative h-40">
+<div class="absolute inset-0 flex">
+<div class="w-8 flex flex-col justify-between text-xs text-subtext-light dark:text-subtext-dark py-2">
+<span>$4k</span><span>$2k</span><span>$0</span>
+</div>
+<div class="flex-1 relative">
+<div class="absolute inset-0 grid grid-rows-2 border-l border-border-light dark:border-border-dark">
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none"><polyline fill="none" points="0,50 30,30 60,40 90,20 120,35 150,10 180,25" stroke="#3B82F6" stroke-width="2"></polyline></svg>
+</div>
+</div>
+<div class="absolute -bottom-5 inset-x-0 flex justify-between text-xs text-subtext-light dark:text-subtext-dark pl-8">
+<span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Revenue</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">$5,820</p>
+<p class="text-sm text-green-500 flex items-center"><span class="material-symbols-outlined text-base mr-0.5">arrow_upward</span> 12% vs prev. 30d</p>
+</div>
+</div>
+<div class="relative h-40">
+<div class="absolute inset-0 flex">
+<div class="w-8 flex flex-col justify-between text-xs text-subtext-light dark:text-subtext-dark py-2">
+<span>$6k</span><span>$3k</span><span>$0</span>
+</div>
+<div class="flex-1 relative">
+<div class="absolute inset-0 grid grid-rows-2 border-l border-border-light dark:border-border-dark">
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none"><polyline fill="none" points="0,40 30,50 60,30 90,36 120,20 150,24 180,30" stroke="#3B82F6" stroke-width="2"></polyline></svg>
+</div>
+</div>
+<div class="absolute -bottom-5 inset-x-0 flex justify-between text-xs text-subtext-light dark:text-subtext-dark pl-8">
+<span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Orders</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">350</p>
+<p class="text-sm text-green-500 flex items-center"><span class="material-symbols-outlined text-base mr-0.5">arrow_upward</span> 8% vs prev. 30d</p>
+</div>
+</div>
+<div class="relative h-40">
+<div class="absolute inset-0 flex">
+<div class="w-8 flex flex-col justify-between text-xs text-subtext-light dark:text-subtext-dark py-2">
+<span>400</span><span>200</span><span>0</span>
+</div>
+<div class="flex-1 relative">
+<div class="absolute inset-0 grid grid-rows-2 border-l border-border-light dark:border-border-dark">
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none"><polyline fill="none" points="0,30 30,40 60,20 90,30 120,10 150,20 180,25" stroke="#3B82F6" stroke-width="2"></polyline></svg>
+</div>
+</div>
+<div class="absolute -bottom-5 inset-x-0 flex justify-between text-xs text-subtext-light dark:text-subtext-dark pl-8">
+<span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-4 rounded-lg shadow-sm">
+<div class="flex justify-between items-start mb-2">
+<div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Clicks</p>
+<p class="text-2xl font-bold text-text-light dark:text-text-dark">14.2k</p>
+<p class="text-sm text-red-500 flex items-center"><span class="material-symbols-outlined text-base mr-0.5">arrow_downward</span> -2% vs prev. 30d</p>
+</div>
+</div>
+<div class="relative h-40">
+<div class="absolute inset-0 flex">
+<div class="w-8 flex flex-col justify-between text-xs text-subtext-light dark:text-subtext-dark py-2">
+<span>15k</span><span>7.5k</span><span>0</span>
+</div>
+<div class="flex-1 relative">
+<div class="absolute inset-0 grid grid-rows-2 border-l border-border-light dark:border-border-dark">
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none"><polyline fill="none" points="0,20 30,10 60,30 90,24 120,40 150,36 180,40" stroke="#EF4444" stroke-width="2"></polyline></svg>
+</div>
+</div>
+<div class="absolute -bottom-5 inset-x-0 flex justify-between text-xs text-subtext-light dark:text-subtext-dark pl-8">
+<span>1</span><span>5</span><span>10</span><span>15</span><span>20</span><span>25</span><span>30</span>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+<div class="lg:col-span-2 bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Trends</h2>
+<div class="flex items-center space-x-4">
+<select class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>Earnings</option>
+<option>Revenue</option>
+<option>Orders</option>
+</select>
+<select class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>Clicks</option>
+<option>Views</option>
+</select>
+<select class="bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm focus:ring-primary focus:border-primary">
+<option>Daily</option>
+<option>Weekly</option>
+</select>
+</div>
+</div>
+<div class="relative h-72">
+<div class="absolute inset-0 flex">
+<div class="w-10 flex flex-col justify-between text-xs text-subtext-light dark:text-subtext-dark py-4">
+<span>$4k</span>
+<span>$3k</span>
+<span>$2k</span>
+<span>$1k</span>
+<span>$0</span>
+</div>
+<div class="flex-1 relative">
+<div class="absolute inset-0 grid grid-rows-4 border-l border-border-light dark:border-border-dark">
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div class="border-b border-border-light dark:border-border-dark"></div>
+<div></div>
+</div>
+<svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+<polyline fill="none" points="0,60 80,40 160,80 240,60 320,100 400,80 480,50" stroke="#3B82F6" stroke-width="2"></polyline>
+<polyline fill="none" points="0,200 80,180 160,220 240,200 320,240 400,220 480,190" stroke="#22C55E" stroke-width="2"></polyline>
+</svg>
+</div>
+</div>
+<div class="absolute -bottom-6 inset-x-0 flex justify-between text-xs text-subtext-light dark:text-subtext-dark pl-10">
+<span>Week 1</span>
+<span>Week 2</span>
+<span>Week 3</span>
+<span>Week 4</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Performance Funnel</h2>
+<div class="space-y-4 pt-8">
+<div class="flex items-center justify-between">
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Clicks</span>
+<span class="text-sm font-semibold text-text-light dark:text-text-dark">14.2k</span>
+</div>
+<div class="flex items-center justify-between pl-4">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-subtext-light dark:text-subtext-dark text-lg">arrow_right_alt</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Add to Cart</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="text-sm text-green-500">15.0%</span>
+<span class="text-sm font-semibold text-text-light dark:text-text-dark">2.1k</span>
+</div>
+</div>
+<div class="flex items-center justify-between pl-8">
+<div class="flex items-center space-x-2">
+<span class="material-symbols-outlined text-subtext-light dark:text-subtext-dark text-lg">arrow_right_alt</span>
+<span class="text-sm text-subtext-light dark:text-subtext-dark">Orders</span>
+</div>
+<div class="flex items-center space-x-3">
+<span class="text-sm text-green-500">16.7%</span>
+<span class="text-sm font-semibold text-text-light dark:text-text-dark">350</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Platform Clicks</h2>
+<div class="space-y-3">
+<div class="flex items-center">
+<span class="w-24 text-sm text-subtext-light dark:text-subtext-dark">TikTok</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 75%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">10.7k</span>
+</div>
+<div class="flex items-center">
+<span class="w-24 text-sm text-subtext-light dark:text-subtext-dark">Instagram</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 15%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">2.1k</span>
+</div>
+<div class="flex items-center">
+<span class="w-24 text-sm text-subtext-light dark:text-subtext-dark">YouTube</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 10%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">1.4k</span>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark mb-4">Top Countries by Clicks</h2>
+<div class="space-y-3">
+<div class="flex items-center">
+<span class="w-32 text-sm text-subtext-light dark:text-subtext-dark">United States</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 60%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">6.5k</span>
+</div>
+<div class="flex items-center">
+<span class="w-32 text-sm text-subtext-light dark:text-subtext-dark">United Kingdom</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 25%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">2.8k</span>
+</div>
+<div class="flex items-center">
+<span class="w-32 text-sm text-subtext-light dark:text-subtext-dark">Canada</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 10%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">1.2k</span>
+</div>
+<div class="flex items-center">
+<span class="w-32 text-sm text-subtext-light dark:text-subtext-dark">Australia</span>
+<div class="flex-1 bg-background-light dark:bg-background-dark rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full" style="width: 5%"></div>
+</div>
+<span class="ml-4 text-sm font-semibold text-text-light dark:text-text-dark">0.8k</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm mb-8">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Link Performance</h2>
+<button class="flex items-center space-x-2 text-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"><span class="material-symbols-outlined text-base">ios_share</span> Export</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-subtext-light dark:text-subtext-dark">
+<thead class="text-xs text-subtext-light dark:text-subtext-dark uppercase bg-background-light dark:bg-background-dark">
+<tr>
+<th class="py-3 px-4">Product</th>
+<th class="py-3 px-4">Platform</th>
+<th class="py-3 px-4">Status</th>
+<th class="py-3 px-4">Last post</th>
+<th class="py-3 px-4 text-right">Views</th>
+<th class="py-3 px-4 text-right">Clicks</th>
+<th class="py-3 px-4 text-right">CTR</th>
+<th class="py-3 px-4 text-right">Orders</th>
+<th class="py-3 px-4 text-right">CR</th>
+<th class="py-3 px-4 text-right">AOV</th>
+<th class="py-3 px-4 text-right">Revenue</th>
+<th class="py-3 px-4 text-right">Earnings</th>
+<th class="py-3 px-4 text-right">EPC</th>
+<th class="py-3 px-4 text-right">Refunds</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Vintage Leather Watch</td>
+<td class="py-4 px-4">TikTok</td>
+<td class="py-4 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="py-4 px-4">2d ago</td>
+<td class="py-4 px-4 text-right">450k</td>
+<td class="py-4 px-4 text-right">5.2k</td>
+<td class="py-4 px-4 text-right">1.16%</td>
+<td class="py-4 px-4 text-right">150</td>
+<td class="py-4 px-4 text-right">2.88%</td>
+<td class="py-4 px-4 text-right">$120.00</td>
+<td class="py-4 px-4 text-right">$18,000</td>
+<td class="py-4 px-4 text-right">$1,800</td>
+<td class="py-4 px-4 text-right">$0.35</td>
+<td class="py-4 px-4 text-right">2</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Minimalist Smartwatch</td>
+<td class="py-4 px-4">Instagram</td>
+<td class="py-4 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="py-4 px-4">5d ago</td>
+<td class="py-4 px-4 text-right">210k</td>
+<td class="py-4 px-4 text-right">3.1k</td>
+<td class="py-4 px-4 text-right">1.48%</td>
+<td class="py-4 px-4 text-right">80</td>
+<td class="py-4 px-4 text-right">2.58%</td>
+<td class="py-4 px-4 text-right">$95.00</td>
+<td class="py-4 px-4 text-right">$7,600</td>
+<td class="py-4 px-4 text-right">$760</td>
+<td class="py-4 px-4 text-right">$0.25</td>
+<td class="py-4 px-4 text-right">1</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Running Shoes Pro</td>
+<td class="py-4 px-4">YouTube</td>
+<td class="py-4 px-4"><span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Paused</span></td>
+<td class="py-4 px-4">1w ago</td>
+<td class="py-4 px-4 text-right">85k</td>
+<td class="py-4 px-4 text-right">1.2k</td>
+<td class="py-4 px-4 text-right">1.41%</td>
+<td class="py-4 px-4 text-right">35</td>
+<td class="py-4 px-4 text-right">2.92%</td>
+<td class="py-4 px-4 text-right">$75.50</td>
+<td class="py-4 px-4 text-right">$2,642</td>
+<td class="py-4 px-4 text-right">$396</td>
+<td class="py-4 px-4 text-right">$0.33</td>
+<td class="py-4 px-4 text-right">0</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Designer Sunglasses</td>
+<td class="py-4 px-4">TikTok</td>
+<td class="py-4 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="py-4 px-4">1d ago</td>
+<td class="py-4 px-4 text-right">620k</td>
+<td class="py-4 px-4 text-right">8.5k</td>
+<td class="py-4 px-4 text-right">1.37%</td>
+<td class="py-4 px-4 text-right">210</td>
+<td class="py-4 px-4 text-right">2.47%</td>
+<td class="py-4 px-4 text-right">$150.00</td>
+<td class="py-4 px-4 text-right">$31,500</td>
+<td class="py-4 px-4 text-right">$2,520</td>
+<td class="py-4 px-4 text-right">$0.30</td>
+<td class="py-4 px-4 text-right">5</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Wireless Earbuds</td>
+<td class="py-4 px-4">Instagram</td>
+<td class="py-4 px-4"><span class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-red-900 dark:text-red-300">Archived</span></td>
+<td class="py-4 px-4">3w ago</td>
+<td class="py-4 px-4 text-right">150k</td>
+<td class="py-4 px-4 text-right">2.5k</td>
+<td class="py-4 px-4 text-right">1.67%</td>
+<td class="py-4 px-4 text-right">60</td>
+<td class="py-4 px-4 text-right">2.40%</td>
+<td class="py-4 px-4 text-right">$89.99</td>
+<td class="py-4 px-4 text-right">$5,399</td>
+<td class="py-4 px-4 text-right">$540</td>
+<td class="py-4 px-4 text-right">$0.22</td>
+<td class="py-4 px-4 text-right">1</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Portable Blender</td>
+<td class="py-4 px-4">TikTok</td>
+<td class="py-4 px-4"><span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">Active</span></td>
+<td class="py-4 px-4">4h ago</td>
+<td class="py-4 px-4 text-right">980k</td>
+<td class="py-4 px-4 text-right">12.1k</td>
+<td class="py-4 px-4 text-right">1.23%</td>
+<td class="py-4 px-4 text-right">350</td>
+<td class="py-4 px-4 text-right">2.89%</td>
+<td class="py-4 px-4 text-right">$49.95</td>
+<td class="py-4 px-4 text-right">$17,482</td>
+<td class="py-4 px-4 text-right">$1,748</td>
+<td class="py-4 px-4 text-right">$0.14</td>
+<td class="py-4 px-4 text-right">8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-between items-center mt-4 text-sm">
+<span class="text-subtext-light dark:text-subtext-dark">Showing 1 to 6 of 15 links</span>
+<div class="flex items-center space-x-2">
+<button class="px-2 py-1 border border-border-light dark:border-border-dark rounded-md hover:bg-background-light dark:hover:bg-background-dark" disabled="">Previous</button>
+<button class="px-2 py-1 border border-border-light dark:border-border-dark rounded-md hover:bg-background-light dark:hover:bg-background-dark">Next</button>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm mb-8">
+<div class="flex justify-between items-center mb-4">
+<h2 class="text-xl font-bold text-text-light dark:text-text-dark">Product Performance</h2>
+<button class="flex items-center space-x-2 text-sm bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark px-3 py-2 rounded-md hover:bg-background-light dark:hover:bg-background-dark"><span class="material-symbols-outlined text-base">ios_share</span> Export</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-sm text-left text-subtext-light dark:text-subtext-dark">
+<thead class="text-xs text-subtext-light dark:text-subtext-dark uppercase bg-background-light dark:bg-background-dark">
+<tr>
+<th class="py-3 px-4">Title/SKU</th>
+<th class="py-3 px-4">Seller</th>
+<th class="py-3 px-4 text-right">Price</th>
+<th class="py-3 px-4 text-right">Comm %</th>
+<th class="py-3 px-4 text-right">Stock</th>
+<th class="py-3 px-4 text-right">Clicks</th>
+<th class="py-3 px-4 text-right">Orders</th>
+<th class="py-3 px-4 text-right">Revenue</th>
+<th class="py-3 px-4 text-right">Earnings</th>
+<th class="py-3 px-4 text-right">AOV</th>
+<th class="py-3 px-4 text-right">CR</th>
+<th class="py-3 px-4 text-right">EPC</th>
+<th class="py-3 px-4 text-right">Coupons</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Vintage Watch / 123-ABC</td>
+<td class="py-4 px-4">WatchCo</td>
+<td class="py-4 px-4 text-right">$120.00</td>
+<td class="py-4 px-4 text-right">10%</td>
+<td class="py-4 px-4 text-right text-green-500">50+</td>
+<td class="py-4 px-4 text-right">5.2k</td>
+<td class="py-4 px-4 text-right">150</td>
+<td class="py-4 px-4 text-right">$18,000</td>
+<td class="py-4 px-4 text-right">$1,800</td>
+<td class="py-4 px-4 text-right">$120.00</td>
+<td class="py-4 px-4 text-right">2.88%</td>
+<td class="py-4 px-4 text-right">$0.35</td>
+<td class="py-4 px-4 text-right">CREATOR20</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Smartwatch / 456-DEF</td>
+<td class="py-4 px-4">TechGadgets</td>
+<td class="py-4 px-4 text-right">$95.00</td>
+<td class="py-4 px-4 text-right">10%</td>
+<td class="py-4 px-4 text-right text-green-500">100+</td>
+<td class="py-4 px-4 text-right">3.1k</td>
+<td class="py-4 px-4 text-right">80</td>
+<td class="py-4 px-4 text-right">$7,600</td>
+<td class="py-4 px-4 text-right">$760</td>
+<td class="py-4 px-4 text-right">$95.00</td>
+<td class="py-4 px-4 text-right">2.58%</td>
+<td class="py-4 px-4 text-right">$0.25</td>
+<td class="py-4 px-4 text-right">TECH15</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Running Shoes / 789-GHI</td>
+<td class="py-4 px-4">Sportify</td>
+<td class="py-4 px-4 text-right">$75.50</td>
+<td class="py-4 px-4 text-right">15%</td>
+<td class="py-4 px-4 text-right text-yellow-500">20</td>
+<td class="py-4 px-4 text-right">1.2k</td>
+<td class="py-4 px-4 text-right">35</td>
+<td class="py-4 px-4 text-right">$2,642</td>
+<td class="py-4 px-4 text-right">$396</td>
+<td class="py-4 px-4 text-right">$75.50</td>
+<td class="py-4 px-4 text-right">2.92%</td>
+<td class="py-4 px-4 text-right">$0.33</td>
+<td class="py-4 px-4 text-right">-</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Sunglasses / 101-JKL</td>
+<td class="py-4 px-4">Shades Inc.</td>
+<td class="py-4 px-4 text-right">$150.00</td>
+<td class="py-4 px-4 text-right">8%</td>
+<td class="py-4 px-4 text-right text-green-500">50+</td>
+<td class="py-4 px-4 text-right">8.5k</td>
+<td class="py-4 px-4 text-right">210</td>
+<td class="py-4 px-4 text-right">$31,500</td>
+<td class="py-4 px-4 text-right">$2,520</td>
+<td class="py-4 px-4 text-right">$150.00</td>
+<td class="py-4 px-4 text-right">2.47%</td>
+<td class="py-4 px-4 text-right">$0.30</td>
+<td class="py-4 px-4 text-right">SUMMER10</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Earbuds / 112-MNO</td>
+<td class="py-4 px-4">AudioPhile</td>
+<td class="py-4 px-4 text-right">$89.99</td>
+<td class="py-4 px-4 text-right">10%</td>
+<td class="py-4 px-4 text-right text-red-500">Out of Stock</td>
+<td class="py-4 px-4 text-right">2.5k</td>
+<td class="py-4 px-4 text-right">60</td>
+<td class="py-4 px-4 text-right">$5,399</td>
+<td class="py-4 px-4 text-right">$540</td>
+<td class="py-4 px-4 text-right">$89.99</td>
+<td class="py-4 px-4 text-right">2.40%</td>
+<td class="py-4 px-4 text-right">$0.22</td>
+<td class="py-4 px-4 text-right">-</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 font-medium text-text-light dark:text-text-dark">Blender / 131-PQR</td>
+<td class="py-4 px-4">KitchenWiz</td>
+<td class="py-4 px-4 text-right">$49.95</td>
+<td class="py-4 px-4 text-right">10%</td>
+<td class="py-4 px-4 text-right text-green-500">200+</td>
+<td class="py-4 px-4 text-right">12.1k</td>
+<td class="py-4 px-4 text-right">350</td>
+<td class="py-4 px-4 text-right">$17,482</td>
+<td class="py-4 px-4 text-right">$1,748</td>
+<td class="py-4 px-4 text-right">$49.95</td>
+<td class="py-4 px-4 text-right">2.89%</td>
+<td class="py-4 px-4 text-right">$0.14</td>
+<td class="py-4 px-4 text-right">BLENDIT5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="flex justify-between items-center mt-4 text-sm">
+<span class="text-subtext-light dark:text-subtext-dark">Showing 1 to 6 of 24 products</span>
+<div class="flex items-center space-x-2">
+<button class="px-2 py-1 border border-border-light dark:border-border-dark rounded-md hover:bg-background-light dark:hover:bg-background-dark" disabled="">Previous</button>
+<button class="px-2 py-1 border border-border-light dark:border-border-dark rounded-md hover:bg-background-light dark:hover:bg-background-dark">Next</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

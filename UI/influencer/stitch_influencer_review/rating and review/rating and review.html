@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Center - Ratings &amp; Safety</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6", // Blue
+                        "background-light": "#F9FAFB",
+                        "background-dark": "#111827",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1F2937",
+                        "text-light": "#1F2937",
+                        "text-dark": "#F3F4F6",
+                        "subtext-light": "#6B7280",
+                        "subtext-dark": "#9CA3AF",
+                        "border-light": "#E5E7EB",
+                        "border-dark": "#374151"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .material-icons {
+            font-size: 24px;
+            vertical-align: middle;
+        }
+        .form-container {
+            display: none;
+        }
+        .form-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark flex flex-col border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">INFLOPICK</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">CREATOR CENTER</p>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">account_circle</span>
+                    Profile &amp; Verification
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">perm_media</span>
+                    Portfolio
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">inbox</span>
+                    Requests
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">storefront</span>
+                    Shop
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">analytics</span>
+                    Analytics
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">task_alt</span>
+                    Tasks
+                </a>
+<a class="flex items-center p-3 bg-primary text-white rounded-lg" href="#">
+<span class="material-icons mr-3">star_outline</span>
+                    Ratings &amp; Safety
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">payment</span>
+                    Payouts &amp; Billing
+                </a>
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">mail_outline</span>
+                    Messages
+                </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center p-3 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#">
+<span class="material-icons mr-3">settings</span>
+                    Account Settings
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark mb-8">Ratings &amp; Safety</h2>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm mb-8">
+<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-4">Overall Rating</h3>
+<div class="flex items-center space-x-8">
+<div class="flex items-center space-x-2">
+<span class="material-icons text-yellow-500" style="font-size: 36px;">star</span>
+<div class="text-text-light dark:text-text-dark">
+<p class="text-4xl font-bold">4.8</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Based on 215 reviews</p>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<div class="flex items-center">
+<span class="text-sm text-subtext-light dark:text-subtext-dark mr-2">5 star</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-subtext-light dark:text-subtext-dark mr-2">4 star</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-yellow-500 h-2 rounded-full" style="width: 10%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-subtext-light dark:text-subtext-dark mr-2">3 star</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-yellow-500 h-2 rounded-full" style="width: 3%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-subtext-light dark:text-subtext-dark mr-2">2 star</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-yellow-500 h-2 rounded-full" style="width: 1%"></div>
+</div>
+</div>
+<div class="flex items-center">
+<span class="text-sm text-subtext-light dark:text-subtext-dark mr-2">1 star</span>
+<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+<div class="bg-yellow-500 h-2 rounded-full" style="width: 1%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm mb-8">
+<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-4">Filter Reviews</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md focus:ring-primary focus:border-primary" placeholder="Date Range" type="date"/>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md focus:ring-primary focus:border-primary">
+<option>Star Level</option>
+<option>5 Stars</option>
+<option>4 Stars</option>
+<option>3 Stars</option>
+<option>2 Stars</option>
+<option>1 Star</option>
+</select>
+<input class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md focus:ring-primary focus:border-primary" placeholder="Seller/Brand" type="text"/>
+<select class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md focus:ring-primary focus:border-primary">
+<option>Order by</option>
+<option>Newest first</option>
+<option>Oldest first</option>
+<option>Highest rating (5-&gt;1)</option>
+<option>Lowest rating (1-&gt;5)</option>
+<option>Most recent activity</option>
+</select>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold text-text-light dark:text-text-dark mb-4">Reviews (215)</h3>
+<div class="space-y-6">
+<div class="border-b border-border-light dark:border-border-dark pb-6">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center mb-2">
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+</div>
+<p class="text-text-light dark:text-text-dark mb-2">Amazing content quality and very professional to work with. Delivery was super fast!</p>
+<div class="text-sm text-subtext-light dark:text-subtext-dark mb-3">
+<span>Seller/Brand: <strong>Luxe Apparel</strong></span> | <span>Request ID: <strong>#REQ-12345</strong></span> | <span>Date: <strong>2023-10-26</strong></span>
+</div>
+<div class="flex space-x-2">
+<span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300">On-time delivery</span>
+<span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Content Quality</span>
+</div>
+</div>
+<div class="flex space-x-2">
+<button class="flex items-center text-sm px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700 reply-btn">
+<span class="material-icons mr-1" style="font-size: 16px;">reply</span> Reply
+                                </button>
+<button class="flex items-center text-sm px-4 py-2 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 report-btn">
+<span class="material-icons mr-1" style="font-size: 16px;">flag</span> Report
+                                </button>
+</div>
+</div>
+<div class="mt-4 ml-8 p-4 bg-background-light dark:bg-background-dark rounded-lg form-container reply-form">
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-2">Reply to this review</h4>
+<textarea class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md p-2 focus:ring-primary focus:border-primary" placeholder="Write your reply..." rows="3"></textarea>
+<div class="flex justify-end space-x-2 mt-2">
+<button class="text-sm px-4 py-2 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 cancel-btn">Cancel</button>
+<button class="text-sm px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700">Submit Reply</button>
+</div>
+</div>
+<div class="mt-4 ml-8 p-4 bg-background-light dark:bg-background-dark rounded-lg form-container report-form">
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-3">Report Review</h4>
+<form class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="report-reason">Reason for reporting:</label>
+<select class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md focus:ring-primary focus:border-primary" id="report-reason" name="report-reason">
+<option>Select a reason...</option>
+<option value="harassment">Harassment or abuse</option>
+<option value="false_claim">False factual claim</option>
+<option value="off_topic">Off-topic</option>
+<option value="private_info">Contains private information</option>
+<option value="policy_violation">Policy violation</option>
+<option value="other">Other reasons</option>
+</select>
+</div>
+<div class="hidden" id="other-reason-container">
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="other-reason">Please specify:</label>
+<input class="w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark rounded-md p-2 focus:ring-primary focus:border-primary" id="other-reason" name="other-reason" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="evidence">Evidence (optional):</label>
+<input class="block w-full text-sm text-subtext-light dark:text-subtext-dark file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary file:text-white hover:file:bg-blue-700" id="evidence" type="file"/>
+<p class="mt-1 text-xs text-subtext-light dark:text-subtext-dark">Upload a screenshot or file.</p>
+</div>
+<div class="flex justify-end space-x-2">
+<button class="text-sm px-4 py-2 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 cancel-btn" type="button">Cancel</button>
+<button class="text-sm px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700" type="submit">Submit Report</button>
+</div>
+</form>
+</div>
+</div>
+<div class="border-b border-border-light dark:border-border-dark pb-6">
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center mb-2">
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-gray-400">star_outline</span>
+</div>
+<p class="text-text-light dark:text-text-dark mb-2">Great communication and good content. There was a slight delay but it was communicated well.</p>
+<div class="text-sm text-subtext-light dark:text-subtext-dark mb-3">
+<span>Seller/Brand: <strong>GadgetGo</strong></span> | <span>Request ID: <strong>#REQ-12301</strong></span> | <span>Date: <strong>2023-10-22</strong></span>
+</div>
+<div class="flex space-x-2">
+<span class="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300">Communication</span>
+</div>
+</div>
+<div class="flex space-x-2">
+<button class="flex items-center text-sm px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700 reply-btn">
+<span class="material-icons mr-1" style="font-size: 16px;">reply</span> Reply
+                                </button>
+<button class="flex items-center text-sm px-4 py-2 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 report-btn">
+<span class="material-icons mr-1" style="font-size: 16px;">flag</span> Report
+                                </button>
+</div>
+</div>
+<div class="mt-4 ml-8 p-4 bg-background-light dark:bg-background-dark rounded-lg">
+<p class="font-semibold text-text-light dark:text-text-dark">Your Reply <span class="text-subtext-light dark:text-subtext-dark text-xs">(Editable)</span></p>
+<p class="text-text-light dark:text-text-dark mt-1">Thank you for the feedback! We appreciate your understanding regarding the slight delay and are glad you were happy with the final result.</p>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-start">
+<div>
+<div class="flex items-center mb-2">
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-yellow-500">star</span>
+<span class="material-icons text-gray-400">star_outline</span>
+<span class="material-icons text-gray-400">star_outline</span>
+</div>
+<p class="text-text-light dark:text-text-dark mb-2">The content was okay, but not exactly what we were looking for based on the brief. Communication could be improved.</p>
+<div class="text-sm text-subtext-light dark:text-subtext-dark mb-3">
+<span>Seller/Brand: <strong>HomeGoods Inc.</strong></span> | <span>Request ID: <strong>#REQ-12298</strong></span> | <span>Date: <strong>2023-10-19</strong></span>
+</div>
+<div class="flex space-x-2">
+<span class="bg-yellow-100 text-yellow-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded-full dark:bg-yellow-900 dark:text-yellow-300">Needs Improvement</span>
+</div>
+</div>
+<div class="flex space-x-2">
+<button class="flex items-center text-sm px-4 py-2 bg-primary text-white rounded-md hover:bg-blue-700 reply-btn">
+<span class="material-icons mr-1" style="font-size: 16px;">reply</span> Reply
+                                </button>
+<button class="flex items-center text-sm px-4 py-2 bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark rounded-md hover:bg-gray-300 dark:hover:bg-gray-500 report-btn">
+<span class="material-icons mr-1" style="font-size: 16px;">flag</span> Report
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-8 flex justify-center items-center space-x-2">
+<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">chevron_left</span>
+</button>
+<button class="px-4 py-2 rounded-md bg-primary text-white">1</button>
+<button class="px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">2</button>
+<button class="px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">3</button>
+<span class="text-subtext-light dark:text-subtext-dark">...</span>
+<button class="px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">12</button>
+<button class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 text-subtext-light dark:text-subtext-dark">
+<span class="material-icons">chevron_right</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const reviewContainers = document.querySelectorAll('.space-y-6 > div');
+        reviewContainers.forEach(container => {
+            const replyBtn = container.querySelector('.reply-btn');
+            const reportBtn = container.querySelector('.report-btn');
+            const replyForm = container.querySelector('.reply-form');
+            const reportForm = container.querySelector('.report-form');
+            const cancelBtns = container.querySelectorAll('.cancel-btn');
+            const reportReasonSelect = container.querySelector('#report-reason');
+            const otherReasonContainer = container.querySelector('#other-reason-container');
+            if(replyBtn) {
+                replyBtn.addEventListener('click', () => {
+                    if(reportForm) reportForm.classList.remove('active');
+                    if(replyForm) replyForm.classList.toggle('active');
+                });
+            }
+            if(reportBtn) {
+                reportBtn.addEventListener('click', () => {
+                    if(replyForm) replyForm.classList.remove('active');
+                    if(reportForm) reportForm.classList.toggle('active');
+                });
+            }
+            cancelBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    if(replyForm) replyForm.classList.remove('active');
+                    if(reportForm) reportForm.classList.remove('active');
+                });
+            });
+            if (reportReasonSelect) {
+                reportReasonSelect.addEventListener('change', (e) => {
+                    if (e.target.value === 'other') {
+                        if(otherReasonContainer) otherReasonContainer.classList.remove('hidden');
+                    } else {
+                        if(otherReasonContainer) otherReasonContainer.classList.add('hidden');
+                    }
+                });
+            }
+        });
+    });
+</script>
+</body></html>

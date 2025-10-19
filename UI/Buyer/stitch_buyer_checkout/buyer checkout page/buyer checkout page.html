@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F97316',
+                        'background-light': '#F9FAFB',
+                        'background-dark': '#111827',
+                        'card-light': '#FFFFFF',
+                        'card-dark': '#1F2937',
+                        'text-light': '#111827',
+                        'text-dark': '#F9FAFB',
+                        'subtext-light': '#6B7280',
+                        'subtext-dark': '#9CA3AF',
+                        'border-light': '#E5E7EB',
+                        'border-dark': '#374151',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: '0.5rem',
+                    },
+                },
+            },
+        };
+    </script>
+<style>
+        .step-active {
+            color: #F97316;
+            border-color: #F97316;
+        }
+        .progress-bar-fill {
+            background-color: #F97316;
+        }
+        .material-icons {
+          vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-text-light dark:text-text-dark">
+<header class="bg-card-light dark:bg-card-dark shadow-sm sticky top-0 z-50">
+<div class="container mx-auto px-4">
+<div class="flex items-center justify-between py-4">
+<div class="flex items-center space-x-8">
+<div class="text-2xl font-bold text-primary">Inflopick</div>
+<div class="hidden md:flex items-center bg-background-light dark:bg-background-dark rounded-full px-4 py-2 w-96">
+<span class="material-icons text-subtext-light dark:text-subtext-dark">search</span>
+<input class="bg-transparent focus:outline-none w-full ml-2 text-sm text-text-light dark:text-text-dark" placeholder="Search for products, creators, and more..." type="text"/>
+</div>
+</div>
+<div class="flex items-center space-x-6">
+<button class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">chat_bubble_outline</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">shopping_cart</span>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary">
+<span class="material-icons">notifications</span>
+</button>
+<button class="w-8 h-8 rounded-full overflow-hidden">
+<img alt="User profile picture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwxM-5XMke3vbcawZeo8VU9ewKfuB8gC7qFHmY5jVV9cNGnw6Wsk6L09DxXGrC76jNMCyRv39LUbEy8tr5LQd3bCFQEEsdspBTOt9s8VIfD1t-zqiDjcd-Vt4dkD7DQMwkMRyyIQfASqOYkrwcGr6TQMyRGsT_3Hzj0Du3M5FXricWM_g7ni35tzpu7SmJFYOxGuDVncNGhlfsltkstVsRYW2EIFwjZTcvog1azFgy-PNVcexzxZnJm-pPKSDtrpf_uSCIpFU8ChuP"/>
+</button>
+<button class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary" id="theme-toggle">
+<span class="material-icons" id="theme-icon">wb_sunny</span>
+</button>
+</div>
+</div>
+<nav class="hidden md:flex items-center justify-center space-x-12 py-2 border-t border-border-light dark:border-border-dark">
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary font-medium" href="#">Product</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary font-medium" href="#">Storefront</a>
+<a class="text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary font-medium" href="#">Creators</a>
+</nav>
+</div>
+</header>
+<main class="container mx-auto px-4 py-12">
+<div x-data="checkoutProcess()">
+<div class="w-full max-w-3xl mx-auto mb-12">
+<div class="flex items-center justify-between">
+<div :class="{ 'step-active': step &gt;= 1 }" class="flex flex-col items-center">
+<div :class="step &gt;= 1 ? 'border-primary bg-primary text-white' : 'border-border-light dark:border-border-dark'" class="w-10 h-10 rounded-full border-2 flex items-center justify-center">1</div>
+<p :class="step &gt;= 1 ? 'text-primary' : 'text-subtext-light dark:text-subtext-dark'" class="mt-2 text-sm font-medium">Address</p>
+</div>
+<div class="flex-1 h-1 bg-border-light dark:bg-border-dark mx-4 relative">
+<div :style="`width: ${progress}%`" class="h-1 bg-primary absolute"></div>
+</div>
+<div :class="{ 'step-active': step &gt;= 2 }" class="flex flex-col items-center">
+<div :class="step &gt;= 2 ? 'border-primary bg-primary text-white' : 'border-border-light dark:border-border-dark'" class="w-10 h-10 rounded-full border-2 flex items-center justify-center">2</div>
+<p :class="step &gt;= 2 ? 'text-primary' : 'text-subtext-light dark:text-subtext-dark'" class="mt-2 text-sm font-medium">Payment</p>
+</div>
+<div class="flex-1 h-1 bg-border-light dark:bg-border-dark mx-4 relative">
+<div :style="`width: ${step &gt; 2 ? '100' : '0'}%`" class="h-1 bg-primary absolute"></div>
+</div>
+<div :class="{ 'step-active': step === 3 }" class="flex flex-col items-center">
+<div :class="step === 3 ? 'border-primary bg-primary text-white' : 'border-border-light dark:border-border-dark'" class="w-10 h-10 rounded-full border-2 flex items-center justify-center">3</div>
+<p :class="step === 3 ? 'text-primary' : 'text-subtext-light dark:text-subtext-dark'" class="mt-2 text-sm font-medium">Review &amp; Confirm</p>
+</div>
+</div>
+</div>
+<div x-show="step === 1">
+<h2 class="text-3xl font-bold text-center mb-8 text-text-light dark:text-text-dark">Shipping &amp; Billing Address</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-md">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Shipping Address</h3>
+<div class="space-y-4">
+<div class="border border-primary p-4 rounded-lg bg-primary/10">
+<label class="flex items-start">
+<input checked="" class="form-radio text-primary mt-1 focus:ring-primary" name="shipping_address" type="radio"/>
+<div class="ml-3">
+<p class="font-semibold text-text-light dark:text-text-dark">John Doe (Default)</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">123 Maple Street, Anytown, ON, A1B 2C3, Canada</p>
+</div>
+</label>
+</div>
+<div class="border border-border-light dark:border-border-dark p-4 rounded-lg">
+<label class="flex items-start">
+<input class="form-radio text-primary mt-1 focus:ring-primary" name="shipping_address" type="radio"/>
+<div class="ml-3">
+<p class="font-semibold text-text-light dark:text-text-dark">Jane Smith</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">456 Oak Avenue, Someville, QC, D4E 5F6, Canada</p>
+</div>
+</label>
+</div>
+</div>
+<button class="mt-6 w-full py-3 px-4 border-2 border-dashed border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                            + Add New Address
+                        </button>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-md">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Billing Address</h3>
+<div class="mb-4">
+<label class="flex items-center">
+<input checked="" class="form-checkbox rounded text-primary focus:ring-primary" type="checkbox"/>
+<span class="ml-2 text-sm text-subtext-light dark:text-subtext-dark">Use the same address for billing</span>
+</label>
+</div>
+<div class="space-y-4 opacity-50 pointer-events-none">
+<div class="border border-border-light dark:border-border-dark p-4 rounded-lg">
+<label class="flex items-start">
+<input class="form-radio text-primary mt-1" disabled="" name="billing_address" type="radio"/>
+<div class="ml-3">
+<p class="font-semibold text-text-light dark:text-text-dark">John Doe</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">123 Maple Street, Anytown, ON, A1B 2C3, Canada</p>
+</div>
+</label>
+</div>
+</div>
+<button class="mt-6 w-full py-3 px-4 border-2 border-dashed border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                            + Add New Address
+                        </button>
+</div>
+</div>
+<div class="flex justify-end mt-8">
+<button @click="nextStep()" class="bg-primary text-white py-3 px-8 rounded-lg font-semibold hover:bg-primary/90 transition">
+                        Continue to Payment
+                    </button>
+</div>
+</div>
+<div x-show="step === 2">
+<h2 class="text-3xl font-bold text-center mb-8 text-text-light dark:text-text-dark">Payment Method</h2>
+<div class="max-w-2xl mx-auto bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-md">
+<div class="space-y-4">
+<div class="border border-primary p-4 rounded-lg bg-primary/10 flex items-center justify-between">
+<label class="flex items-center">
+<input checked="" class="form-radio text-primary focus:ring-primary" name="payment_method" type="radio"/>
+<img alt="Visa" class="w-10 ml-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKq4UVO0uW6bZx0DRnD5_s-yhdLG-3Jz6bpwLtN45h38S-glrK-VJ-bm51VyN1z23l1Vi10iFIiFX14MergfRl84HvVonrpjC8vrCSyQf71IcqLZxA3s0Rg-LkhFDpsyE4k617ssbB2V-Po7su-xUQkmsMPBbAqPGuf1mRba2Y3dJTD2sn4-P25xN1pj9IUE0WXySVKHI-NEf4zI6G4jlnQEze-vFU27bbt1Jnm9HSZX2qqzk_pws5GTfA242iEqiEyCQ4aI1IFx_X"/>
+<div class="ml-3">
+<p class="font-semibold text-text-light dark:text-text-dark">Visa **** 1234</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">Expires 12/25</p>
+</div>
+</label>
+<button class="text-sm font-medium text-primary hover:underline">Edit</button>
+</div>
+<div class="border border-border-light dark:border-border-dark p-4 rounded-lg flex items-center justify-between">
+<label class="flex items-center">
+<input class="form-radio text-primary focus:ring-primary" name="payment_method" type="radio"/>
+<img alt="Mastercard" class="w-10 ml-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5pqr3N5F3Fuuih8UfsLe_HAKfTi0blIKpdgjfUOBBzRF7ZCwyjnUZFxmw9PoBnMu8Q29a7nATRc5LVmRaTohGMpF0IGFQrAzkqI2tyODps0NEmozzL1C0WtcW856NjgzzKfJQaui2E4LVDE2G_-FlxXNNjNcZmxjBftZOk7nk41jeEkMs9ds93I7HM8sOt9JS0Xd-n2O7MhoO9cpiz7rGhw2OveTFsNLConJLEa8g9leDscmCxET_9TdhuvOUhaIYcb48Yr37JIxd"/>
+<div class="ml-3">
+<p class="font-semibold text-text-light dark:text-text-dark">Mastercard **** 5678</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">Expires 08/26</p>
+</div>
+</label>
+<button class="text-sm font-medium text-primary hover:underline">Edit</button>
+</div>
+<div class="border border-border-light dark:border-border-dark p-4 rounded-lg flex items-center justify-between">
+<label class="flex items-center">
+<input class="form-radio text-primary focus:ring-primary" name="payment_method" type="radio"/>
+<img alt="Paypal" class="w-10 ml-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYUXxFZzOJxj1VtGOYovUZZuNo89Rin2xGOeepiP34KMP6VVYrrG8cWliCAbX6k72dKaM0AEIM4l85nSrvpm55JX4Sw7zQFQtq_7uZn6hKwKVmj_L_8kTVbwIV1eoPgjr8LRdhkJxQkwADCC6WyRxzM9VKb_VS8PxVct91cWUNmTNLsnUn4xs7UG7XX4ZrlKUm5CvDKHip_JRTBjVRj7PMt-cAJEmD3CnlUw4H3GMX2t5k0w5AfpNZ4OLxOITVx4nvcXaHf9Z4iehm"/>
+<div class="ml-3">
+<p class="font-semibold text-text-light dark:text-text-dark">PayPal</p>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">john.doe@email.com</p>
+</div>
+</label>
+<button class="text-sm font-medium text-primary hover:underline">Edit</button>
+</div>
+</div>
+<button class="mt-6 w-full py-3 px-4 border-2 border-dashed border-border-light dark:border-border-dark rounded-lg text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                        + Add Payment Method
+                    </button>
+</div>
+<div class="flex justify-between mt-8 max-w-2xl mx-auto">
+<button @click="prevStep()" class="bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark py-3 px-8 rounded-lg font-semibold hover:bg-gray-300 dark:hover:bg-gray-500 transition">
+                        Back to Address
+                    </button>
+<button @click="nextStep()" class="bg-primary text-white py-3 px-8 rounded-lg font-semibold hover:bg-primary/90 transition">
+                        Review Order
+                    </button>
+</div>
+</div>
+<div x-show="step === 3">
+<h2 class="text-3xl font-bold text-center mb-8 text-text-light dark:text-text-dark">Review &amp; Confirm Order</h2>
+<div class="max-w-4xl mx-auto bg-card-light dark:bg-card-dark p-8 rounded-lg shadow-md">
+<div class="divide-y divide-border-light dark:divide-border-dark">
+<div class="flex items-center py-4">
+<img alt="Stylish Smartwatch" class="w-20 h-20 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTTLp9EMTewOEA8oTJ7y-eC5jerB3uPrJwhT1rpWo5Y-5CLrS4ipga88sSj4Dho-zeg1W0Fte63Xk_xa9ShYCkgIVsyt7dc21Nyywt2J37lTQZc92ClOu7XPYh5a8iDQSmRxb4iOD-XRiGmOIIom3LBCPbX96-UaGtltGz3N3v1nwUMaVlZaXu2PvRyc7cT7A8YmB0x0UHT3wFMLak9CPi9Zxe1XCbTXPS_lIE-mE3A6yu0lmLAydaocvKZoa7qxrW3AUxbksLOMAO"/>
+<div class="ml-4 flex-grow">
+<p class="font-semibold text-text-light dark:text-text-dark">Stylish Smartwatch</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Qty: 1</p>
+</div>
+<p class="font-semibold text-text-light dark:text-text-dark">$299</p>
+</div>
+<div class="flex items-center py-4">
+<img alt="AirSound Pro Earbuds" class="w-20 h-20 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDor4tqDmh0rnLIV3b4Dr4P2f4agNvHqilwbE9_A7sOg-FnMSVMwxZaupBeA45hNhUaj2wl05C5MHh2Ly5C1ouc1hhqZSe2OWhwlugofoVDvTs5DrLaXkL1Ofliklq5B1R4g-XVyAUpYKLCJ3YmzcxIN0p2GdbjGOEYfLNGXzGOG-zU43JqbSVTx8gxDjlXJYgPI_islsbwF_H0xWoQ5hmUuFEtSgMVU6vIIPYzDanKXPf2sHSoIGG6VEovkrmM7ApYEXhvGboI9O0v"/>
+<div class="ml-4 flex-grow">
+<p class="font-semibold text-text-light dark:text-text-dark">AirSound Pro Earbuds</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Qty: 1</p>
+</div>
+<p class="font-semibold text-text-light dark:text-text-dark">$129</p>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-border-light dark:border-border-dark">
+<div class="flex justify-between items-center mb-4">
+<h4 class="text-lg font-semibold text-text-light dark:text-text-dark">Shipping</h4>
+<select class="form-select rounded-md bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary focus:border-primary text-sm">
+<option value="standard">Standard Shipping (5-7 days) - $10.00</option>
+<option value="express">Express Shipping (1-2 days) - $25.00</option>
+</select>
+</div>
+<div class="flex justify-between items-center mb-4">
+<h4 class="text-lg font-semibold text-text-light dark:text-text-dark">Promo Code</h4>
+<div class="flex space-x-2">
+<input class="form-input rounded-md bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary focus:border-primary text-sm w-48" placeholder="Enter promo code" type="text"/>
+<button class="bg-primary text-white py-2 px-4 rounded-lg text-sm font-semibold hover:bg-primary/90 transition">Apply</button>
+</div>
+</div>
+<div class="mb-4" x-data="{ open: false }">
+<button @click="open = !open" class="text-primary text-sm font-medium flex items-center">
+                                Add Order Notes
+                                <span :class="{'rotate-180': open}" class="material-icons transition-transform">expand_more</span>
+</button>
+<div class="mt-2" x-show="open" x-transition="">
+<textarea class="form-textarea w-full rounded-md bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary focus:border-primary text-sm" placeholder="e.g. Leave package at the front door." rows="3"></textarea>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-border-light dark:border-border-dark space-y-2">
+<div class="flex justify-between text-subtext-light dark:text-subtext-dark">
+<span>Subtotal</span>
+<span>$428.00</span>
+</div>
+<div class="flex justify-between text-subtext-light dark:text-subtext-dark">
+<span>Shipping</span>
+<span>$10.00</span>
+</div>
+<div class="flex justify-between text-subtext-light dark:text-subtext-dark">
+<span>Taxes (HST 13%)</span>
+<span>$56.94</span>
+</div>
+<div class="flex justify-between text-xl font-bold text-text-light dark:text-text-dark mt-4">
+<span>Total</span>
+<span>$494.94</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col items-center mt-8">
+<button @click="placeOrder()" class="bg-primary text-white py-4 px-12 rounded-lg font-bold text-lg hover:bg-primary/90 transition w-full max-w-md">
+                        Place Order &amp; Pay Securely
+                    </button>
+<button @click="prevStep()" class="mt-4 text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary font-medium">
+                        Back to Payment
+                    </button>
+</div>
+</div>
+<div class="text-center" x-show="step === 4">
+<div class="max-w-2xl mx-auto bg-card-light dark:bg-card-dark p-8 rounded-lg shadow-md">
+<span class="material-icons text-6xl text-green-500 mb-4">check_circle</span>
+<h2 class="text-3xl font-bold mb-2 text-text-light dark:text-text-dark">Thank you for your order!</h2>
+<p class="text-subtext-light dark:text-subtext-dark mb-6">Your payment was successful and your order is confirmed.</p>
+<div class="text-left bg-background-light dark:bg-background-dark p-4 rounded-lg mb-6">
+<p class="font-semibold text-text-light dark:text-text-dark">Order ID: <span class="font-normal text-primary">#123456789</span></p>
+<p class="font-semibold text-text-light dark:text-text-dark">Estimated Delivery: <span class="font-normal">Oct 25, 2024 - Oct 28, 2024</span></p>
+</div>
+<div class="text-left border-t border-border-light dark:border-border-dark pt-4">
+<h3 class="font-semibold mb-2 text-text-light dark:text-text-dark">Order Summary</h3>
+<div class="flex items-center py-2">
+<img alt="Stylish Smartwatch" class="w-16 h-16 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZuxndcWQcFs999bVwiWR2vHnu5wzKDh7zWED13e7sXHGi5JBVzLjuKzkOj9LcqTTLcJHHAmgKO5cZVb2_hNuVuGtXic1ofHZiUvKOPUcJNf_7m-dhfTIvQka__LjjuUyMoPFwaLLES6E1JLwAfZmRIONA-jXdWiQ1Ktaw2Hrbo4h1McniTouOyu560hO7H2Fjpl5tu7X9lJgPbpVDbhSlIsxHmKRtXNieYEuM3gGv7HsmjHRq--YTu-A_6aRz8wz6T-5mmH-0Vxrb"/>
+<div class="ml-4 flex-grow">
+<p class="font-semibold text-sm text-text-light dark:text-text-dark">Stylish Smartwatch</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Qty: 1</p>
+</div>
+<p class="font-semibold text-sm text-text-light dark:text-text-dark">$299</p>
+</div>
+<div class="flex items-center py-2">
+<img alt="AirSound Pro Earbuds" class="w-16 h-16 object-cover rounded-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf_MDhjNClU6ISD8oyyC0F8lRu5iqIZ1M2f0Acg4X4qZwPBzZE0_vUo8LxSDeXZgGMURUsv0T6DaqqWRMwkKh6C9Tu3Cil0T90G51UCQRvBerebbbBt7XIB28xsWBI0EKejGQLBHHpdUzm6qTOi-Z_NRQ6yq_J3WjrOjGoGSQnNKtD1Xe1OC4ebYnV8yKw6jh4Z3ckuS0haRYZWOjuzstXWs-qGIWWqAXRdcV8MrgJah3dBb6UAST5W8XSD8EbZSFGXgijKsDhyIN8"/>
+<div class="ml-4 flex-grow">
+<p class="font-semibold text-sm text-text-light dark:text-text-dark">AirSound Pro Earbuds</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Qty: 1</p>
+</div>
+<p class="font-semibold text-sm text-text-light dark:text-text-dark">$129</p>
+</div>
+<div class="flex justify-between text-sm font-bold text-text-light dark:text-text-dark mt-4 pt-2 border-t border-border-light dark:border-border-dark">
+<span>Total Paid</span>
+<span>$494.94</span>
+</div>
+</div>
+<a class="mt-8 inline-block bg-primary text-white py-3 px-8 rounded-lg font-semibold hover:bg-primary/90 transition" href="#">
+                        Track Your Order
+                    </a>
+</div>
+</div>
+</div>
+</main>
+<footer class="bg-card-light dark:bg-card-dark border-t border-border-light dark:border-border-dark mt-16">
+<div class="container mx-auto px-4 py-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<div>
+<h3 class="text-xl font-bold text-primary mb-4">Inflopick</h3>
+<p class="text-subtext-light dark:text-subtext-dark text-sm">Your Creator-Driven Marketplace.</p>
+<div class="mt-4">
+<select class="form-select w-full rounded-md bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-sm">
+<option>EN/FR</option>
+</select>
+</div>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-4">Quick Links</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Home</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Discover</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Cart</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Orders</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Profile</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Wishlist</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Notifications</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-4">Policies</h4>
+<ul class="space-y-2 text-sm">
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Terms of Service</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Privacy Policy</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Refund &amp; Return Policy</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">CCPA &amp; Consent Notice</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Cookie Preferences</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-semibold text-text-light dark:text-text-dark mb-4">Support</h4>
+<ul class="space-y-2 text-sm mb-4">
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">FAQ</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Help Center</a></li>
+<li><a class="text-subtext-light dark:text-subtext-dark hover:text-primary" href="#">Support Tickets</a></li>
+</ul>
+<div class="space-y-2">
+<a class="block w-full text-center bg-primary text-white py-2 rounded-md font-semibold text-sm" href="#">Become a Creator</a>
+<a class="block w-full text-center bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark py-2 rounded-md font-semibold text-sm" href="#">Open a Store</a>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-8 border-t border-border-light dark:border-border-dark flex justify-between items-center text-sm text-subtext-light dark:text-subtext-dark">
+<p>© 2025 Inflopick Inc. All rights reserved. Reg. No. 123456789. Payments processed via Stripe.</p>
+<div class="flex space-x-4">
+<a class="hover:text-primary" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+<a class="hover:text-primary" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.285 2.866 7.918 6.839 9.243.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.03 1.595 1.03 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" fill-rule="evenodd"></path></svg></a>
+<a class="hover:text-primary" href="#"><svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm3.32 8.42c.38-.2.68-.58.68-1.02 0-.7-.58-1.25-1.25-1.25H13V7.25c0-.41-.34-.75-.75-.75S11.5 6.84 11.5 7.25v1.15h-1.5v2.5h1.5v5.33c0 .41.34.75.75.75s.75-.34.75-.75v-5.33h1.5c.41 0 .75-.34.75-.75s-.34-.75-.75-.75h-1.5V9.42h1.57c.38 0 .68.38.68.75s-.3.75-.68.75h-2.32c-.41 0-.75-.34-.75-.75V8.17c0-.41.34-.75.75-.75h2.32c.38 0 .68.38.68.75s-.3.75-.68.75H13v1.25h2.32z" fill-rule="evenodd"></path></svg></a>
+</div>
+</div>
+</div>
+</footer>
+<script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script>
+        function checkoutProcess() {
+            return {
+                step: 1,
+                progress: 0,
+                nextStep() {
+                    if (this.step < 3) {
+                        this.step++;
+                        this.updateProgress();
+                    }
+                },
+                prevStep() {
+                    if (this.step > 1) {
+                        this.step--;
+                        this.updateProgress();
+                    }
+                },
+                updateProgress() {
+                    if (this.step === 1) this.progress = 0;
+                    if (this.step === 2) this.progress = 50;
+                    if (this.step === 3) this.progress = 100;
+                },
+                placeOrder() {
+                   // Simulate API call
+                   console.log("Placing order...");
+                   // Redirect to Stripe or handle payment
+                   // On success:
+                   this.step = 4;
+                }
+            }
+        }
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.textContent = 'dark_mode';
+            } else {
+                themeIcon.textContent = 'wb_sunny';
+            }
+        });
+    </script>
+
+</body></html>

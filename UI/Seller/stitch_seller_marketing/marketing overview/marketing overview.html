@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inflopick - Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+        .material-icons {
+            font-size: 20px;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 700, 'GRAD' 0, 'opsz' 24
+        }
+    </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#3B82F6",
+                        "background-light": "#F8F9FA",
+                        "background-dark": "#18181B",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#27272A",
+                        "text-light": "#18181B",
+                        "text-dark": "#E4E4E7",
+                        "subtext-light": "#71717A",
+                        "subtext-dark": "#A1A1AA",
+                        "border-light": "#E4E4E7",
+                        "border-dark": "#3F3F46"
+                    },
+                    fontFamily: {
+                        display: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark flex flex-col">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">dashboard</span> Dashboard
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">shopping_bag</span> Orders
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">inventory_2</span> Products
+                </a>
+<a class="flex items-center px-4 py-2 text-white bg-primary rounded" href="#">
+<span class="material-icons mr-3">campaign</span> Marketing
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">people</span> Customer
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">chat</span> Chat
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">analytics</span> Analytics
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">storefront</span> Storefront Preview
+                </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">manage_accounts</span> Accounts Management
+                </a>
+</nav>
+<div class="p-4">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark rounded hover:bg-background-light dark:hover:bg-background-dark" href="#">
+<span class="material-icons mr-3">logout</span> Logout
+                </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Marketing</h2>
+<p class="text-subtext-light dark:text-subtext-dark">Manage your marketing campaigns and influencer collaborations.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-3 space-y-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">A/B Testing</h3>
+<p class="text-subtext-light dark:text-subtext-dark mb-4">Create and manage A/B tests for your product listings to optimize conversions.</p>
+<div class="flex items-center justify-between p-4 border border-border-light dark:border-border-dark rounded-lg">
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Sporty Red Sneakers - Price Test</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Running for 5 more days</p>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-green-500 font-semibold">+2.5% Conversion</span>
+<button class="px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-background-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700">View Details</button>
+</div>
+</div>
+<button class="mt-4 px-4 py-2 text-sm font-medium text-white bg-primary rounded-md hover:bg-blue-700 flex items-center">
+<span class="material-icons mr-2">add</span> Create New Test
+                        </button>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Ongoing Promotions</h3>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="border-b border-border-light dark:border-border-dark">
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Influencer</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Product</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Promotion Type</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Shipping Status</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Video Uploaded</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4">
+<div class="flex items-center">
+<img alt="Kate Morrison profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/a-/ALV-UjVp7C8b_3Jb-b_4JjB4g-c_2hY9H4b-n9E1fH5Z4d1zXg=s96-c"/>
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Kate Morrison</a>
+</div>
+</td>
+<td class="py-4 px-4">
+<a class="flex items-start space-x-4 hover:bg-background-light dark:hover:bg-background-dark p-2 rounded-lg -m-2" href="#">
+<img alt="Portable Blender" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDw77Yd5g99FqD-F_2bXy-oA_1cDefB_h-B-dE2jY_Z-w-a-g-h-e-f-d-c-b-a-9-8-7-6-5-4-3-2-1-0"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Portable Blender</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: PB-002</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$45.00</p>
+</div>
+</a>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Free Sample</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-start">
+<span class="material-icons mr-2 text-blue-500">task_alt</span>
+<div>
+<p class="text-blue-500 font-medium">Delivered</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Jun 15, 2024</p>
+</div>
+</div>
+</td>
+<td class="py-4 px-4">
+<span class="material-icons text-green-500">check_circle</span>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4">
+<div class="flex items-center">
+<img alt="Orlando Diggs profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/a-/ALV-UjX8b-b8c_p_4GjB4g-c_2hY9H4b-n9E1fH5Z4d1zXg=s96-c"/>
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Orlando Diggs</a>
+</div>
+</td>
+<td class="py-4 px-4">
+<a class="flex items-start space-x-4 hover:bg-background-light dark:hover:bg-background-dark p-2 rounded-lg -m-2" href="#">
+<img alt="Smartwatch" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD935DABGvCgZ7b-XvF8vI6uAB0sA_PjXgQ1F_8Y3W8yI7Zz3R_aB_tB_e_c-f_d_rB-vE_sA_pD_f_Z_y_W_s_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Smartwatch</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: SW-001</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$199.99</p>
+</div>
+</a>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200">50% Discount</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center text-subtext-light dark:text-subtext-dark">
+<span class="material-icons mr-2 text-yellow-500">schedule</span> Processing
+                                </div>
+</td>
+<td class="py-4 px-4">
+<span class="material-icons text-gray-400">hourglass_empty</span>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4">
+<div class="flex items-center">
+<img alt="Natali Craig profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/a-/ALV-UjVw0b1A_3Jb-b_4JjB4g-c_2hY9H4b-n9E1fH5Z4d1zXg=s96-c"/>
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Natali Craig</a>
+</div>
+</td>
+<td class="py-4 px-4">
+<a class="flex items-start space-x-4 hover:bg-background-light dark:hover:bg-background-dark p-2 rounded-lg -m-2" href="#">
+<img alt="Wireless Earbuds" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD935DABGvCgZ7b-XvF8vI6uAB0sA_PjXgQ1F_8Y3W8yI7Zz3R_aB_tB_e_c-f_d_rB-vE_sA_pD_f_Z_y_W_s_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Wireless Earbuds</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: WE-003</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$79.99</p>
+</div>
+</a>
+</td>
+<td class="py-4 px-4">
+<span class="px-2 py-1 text-xs font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">Free Sample</span>
+</td>
+<td class="py-4 px-4">
+<div class="flex items-center text-green-500">
+<span class="material-icons mr-2">local_shipping</span> Shipped
+                                </div>
+</td>
+<td class="py-4 px-4">
+<span class="material-icons text-gray-400">hourglass_empty</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4 text-text-light dark:text-text-dark">Sample Request Alerts <span class="text-subtext-light dark:text-subtext-dark font-normal">(5)</span></h3>
+<div class="space-y-4 max-h-[42rem] overflow-y-auto pr-2">
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<div class="flex items-center space-x-4 mb-4">
+<img alt="Candice Wu profile picture" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaWQTruozudnJO0FjaIcay278pmBqgFXXX0CobLgsotnc2UrgpR2DFAci6XULInd2UmN0nNAD_zA809uf9mwE75x4xRJzuViLE_eIcpjN8j7Jt-ISL6UdX6855xeJALrptv9wO9QNbrObhRLqxKCum6m-EVaB4kNomaA9fgIe-fTMZlZ_bqWmayAmeAkFJPZ5Xl8QS-48Y8349t8IYAnUDwI6V2RcLkc-WEWRuKxN9KkWUk2ErEpi_Um7nNLAhADqfRYclQvj4Dezl"/>
+<div>
+<a class="font-semibold text-text-light dark:text-text-dark hover:underline" href="#">Candice Wu</a>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">2 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Platform</p>
+<p class="font-medium text-text-light dark:text-text-dark">TikTok</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Followers</p>
+<p class="font-medium text-text-light dark:text-text-dark">480K</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Engagement</p>
+<p class="font-medium text-text-light dark:text-text-dark">5.2%</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-background-light dark:bg-background-dark p-4 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark mb-2">Requested Sample</p>
+<a class="flex items-start space-x-4" href="#">
+<img alt="Organic Face Serum" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDX0WSznKnwH4IKH85hchBBOGqYvE1e7GOg8YWlHj_aGESHcnMCdvkEbK8gmd7gQezHAuxAwEdFAiZKGIGU-p_np9g4i45cVqcNYPHpbMBCkUuOIm9If_c0QOf_BBCmgaVMsoGCZjFDMi5xmpSKEubZCB0KpWWsAMYftizrPxzdQMLVfw1AHeZRnIQ4w9h1jnOmpiMQD-ZTJbSmQz6uMFmMd4U1J1V0kpd3YvI63f-zxG-GbvuRbu5_vPgARIQVa7KihZxHvA2nv9-P"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Organic Face Serum</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: FS-001</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$25.00</p>
+</div>
+</a>
+</div>
+<div class="flex flex-col justify-center items-center space-y-2 md:w-40">
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">send</span>Send Free</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">sell</span>Offer Discount</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-background-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">close</span>Refuse</button>
+</div>
+</div>
+</div>
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<div class="flex items-center space-x-4 mb-4">
+<img alt="Drew Cano profile picture" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjwEGL_wU-NDmqdMgl0N1Q_2aK5bnLJy5LbBMTFw9KJNOZqi5okgRQsnjd00MAdfpkwUo8wd0-RMWKjdkIJcWEpXgD8cqGhEX0Oli-iLG-Wj_WGTJQb_7-fsLjnYPrPL5zKjpzsHFpnQIT28qeHBcfGqxeslVvWlMz3Auxktgwx9tzHAxJSqgTK5a5zbw88S3ZqqqtwAaGYYqFoU8mQctuyEdq5LPN_0J-rWalax5i41JDC4N3FdfeOlDFRmyZOt-CAcVz1dk1pJHV"/>
+<div>
+<a class="font-semibold text-text-light dark:text-text-dark hover:underline" href="#">Drew Cano</a>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">5 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Platform</p>
+<p class="font-medium text-text-light dark:text-text-dark">YouTube</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Followers</p>
+<p class="font-medium text-text-light dark:text-text-dark">1.2M</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Engagement</p>
+<p class="font-medium text-text-light dark:text-text-dark">8.1%</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-background-light dark:bg-background-dark p-4 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark mb-2">Requested Sample</p>
+<a class="flex items-start space-x-4" href="#">
+<img alt="Noise-Cancelling Headphones" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoNsLu-3YvOg2JjbqYLgg75PaiUbndwkhXkrfFl5R0vtV9B2_jtygZJ12XNSCbxMD6tVUfZ7ur3HUMhNmLM99BaQH31TPwESCzlNgXK8OQmWF_FvbzQVLXJFRqBj8EDDO0SQ23c0kO8wWrPuqeKn5CGcPb5wcAxlruM5xq7WOlEmqnn4vBGzKqwyiFI7ZPUuiyZ_c40SiBawXIaPDKGJ-doKXVJ9uzi0T3LQhiVVDFSCY9demZmx4Lg0EV5irbeAZoe04LCZir91ed"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Noise-Cancelling Headphones</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: HD-NC-01</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$129.99</p>
+</div>
+</a>
+</div>
+<div class="flex flex-col justify-center items-center space-y-2 md:w-40">
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">send</span>Send Free</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">sell</span>Offer Discount</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-background-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">close</span>Refuse</button>
+</div>
+</div>
+</div>
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<div class="flex items-center space-x-4 mb-4">
+<img alt="Olivia Rhye profile picture" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWivjkg9yFubVxC5-rA_ylgD-7GF_1KmRl1FXxbZcEF5ulDh0g3wCpjNpwXufy7xGpn9P6POuEZgRftwT-bNrFlDK91sxOboIMQc_guhywjPTxhprNKmc6Su_tLwrKb0SOuDeHhSiEmPnPq1G7w1MPmeEcFMzDQ7iFtWlbEh-h-Ei1kzy9QaNHSox7lBWfYSw58ANDf__uEZT1_0sQv5IDqv319cfa5OrcHTHjXCWgSG6FjC5FgRW6wviR6nVtBz01fylj91QWx2Cj"/>
+<div>
+<a class="font-semibold text-text-light dark:text-text-dark hover:underline" href="#">Olivia Rhye</a>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">7 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Platform</p>
+<p class="font-medium text-text-light dark:text-text-dark">Instagram</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Followers</p>
+<p class="font-medium text-text-light dark:text-text-dark">2.3M</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Engagement</p>
+<p class="font-medium text-text-light dark:text-text-dark">3.1%</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-background-light dark:bg-background-dark p-4 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark mb-2">Requested Sample</p>
+<a class="flex items-start space-x-4" href="#">
+<img alt="Handmade Ceramic Mug" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD935DABGvCgZ7b-XvF8vI6uAB0sA_PjXgQ1F_8Y3W8yI7Zz3R_aB_tB_e_c-f_d_rB-vE_sA_pD_f_Z_y_W_s_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Handmade Ceramic Mug</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: CM-HM-03</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$35.00</p>
+</div>
+</a>
+</div>
+<div class="flex flex-col justify-center items-center space-y-2 md:w-40">
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">send</span>Send Free</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">sell</span>Offer Discount</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-background-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">close</span>Refuse</button>
+</div>
+</div>
+</div>
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<div class="flex items-center space-x-4 mb-4">
+<img alt="Lana Steiner profile picture" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN1nZWiVu8iLDvNt2HZzndb70-Au9v3gbnycY5v5jcIhJjpOx1lIDCUOPgsAfVQF7EJJoe_lMXBHtb1gmE5Xn9lY44oV453R2enAtUC7nm_CLwTKIf63rPocP4LaCUQ3YuGiyNF56kS1GfBbI5EDEFB8d8A4abseVVl8ia1ffRfESe5GoaE6Ix9aiquVo0ceC7phUL3ThaujuOhAgSy-knLsVDKM-KRWUIiMLuColyV53WeF6Ut3_UbbPVv8fCLBSPSgsTL1L0KWgh"/>
+<div>
+<a class="font-semibold text-text-light dark:text-text-dark hover:underline" href="#">Lana Steiner</a>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">8 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Platform</p>
+<p class="font-medium text-text-light dark:text-text-dark">YouTube</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Followers</p>
+<p class="font-medium text-text-light dark:text-text-dark">980K</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Engagement</p>
+<p class="font-medium text-text-light dark:text-text-dark">8.1%</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-background-light dark:bg-background-dark p-4 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark mb-2">Requested Sample</p>
+<a class="flex items-start space-x-4" href="#">
+<img alt="Ergonomic Mouse" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD935DABGvCgZ7b-XvF8vI6uAB0sA_PjXgQ1F_8Y3W8yI7Zz3R_aB_tB_e_c-f_d_rB-vE_sA_pD_f_Z_y_W_s_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Ergonomic Mouse</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: MS-ERGO-01</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$49.99</p>
+</div>
+</a>
+</div>
+<div class="flex flex-col justify-center items-center space-y-2 md:w-40">
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">send</span>Send Free</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">sell</span>Offer Discount</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-background-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">close</span>Refuse</button>
+</div>
+</div>
+</div>
+<div class="border border-border-light dark:border-border-dark rounded-lg p-4">
+<div class="flex flex-col md:flex-row gap-6">
+<div class="flex-1">
+<div class="flex items-center space-x-4 mb-4">
+<img alt="Phoenix Baker profile picture" class="w-12 h-12 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoM1FCBkFTE34Owo9PPhdgJxGnlIt78qPHrA24oOUVDCdTnhUn-IGawWx6LS7VRyTSp5VUx6VBCfddGzyZZl_bo8sEWatbWIgYCCiXS2eXNHiYRKfbwLnk_RkqE3Yc5cXIh1xRwCafaFTurxTKq8MZ1OX2XfjH2LWaR1xJUtAqJaTLctiLFz9_1gstdYjNVdjKvNHu-eU_WYraykmEaGbyWB5Ai19LuDDpY9bBiUDM_WtydKgXVvVzlq0GOLgaKmtf3iz2qzjl4Dmv"/>
+<div>
+<a class="font-semibold text-text-light dark:text-text-dark hover:underline" href="#">Phoenix Baker</a>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">10 days ago</p>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Platform</p>
+<p class="font-medium text-text-light dark:text-text-dark">TikTok</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Followers</p>
+<p class="font-medium text-text-light dark:text-text-dark">1.8M</p>
+</div>
+<div>
+<p class="text-subtext-light dark:text-subtext-dark">Engagement</p>
+<p class="font-medium text-text-light dark:text-text-dark">4.5%</p>
+</div>
+</div>
+</div>
+<div class="flex-1 bg-background-light dark:bg-background-dark p-4 rounded-lg">
+<p class="font-medium text-text-light dark:text-text-dark mb-2">Requested Sample</p>
+<a class="flex items-start space-x-4" href="#">
+<img alt="Vintage Leather Journal" class="w-20 h-20 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD935DABGvCgZ7b-XvF8vI6uAB0sA_PjXgQ1F_8Y3W8yI7Zz3R_aB_tB_e_c-f_d_rB-vE_sA_pD_f_Z_y_W_s_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z_a_b_c_d_e_f_g_h_i_j_k_l_m_n_o_p_q_r_s_t_u_v_w_x_y_z"/>
+<div class="flex-1">
+<p class="font-medium text-text-light dark:text-text-dark">Vintage Leather Journal</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: LJ-VTG-02</p>
+<p class="text-sm text-text-light dark:text-text-dark font-semibold mt-1">$28.50</p>
+</div>
+</a>
+</div>
+<div class="flex flex-col justify-center items-center space-y-2 md:w-40">
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-md hover:bg-green-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">send</span>Send Free</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">sell</span>Offer Discount</button>
+<button class="w-full px-4 py-2 text-sm font-medium text-subtext-light dark:text-subtext-dark bg-background-light dark:bg-background-dark rounded-md hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center"><span class="material-icons mr-2 text-sm">close</span>Refuse</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-1 gap-8">
+<div class="xl:col-span-1">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex flex-wrap justify-between items-center gap-4 mb-4">
+<div>
+<h3 class="text-xl font-semibold text-text-light dark:text-text-dark">Influencer List</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Showing influencers who have promoted your products.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark">search</span>
+<input class="pl-10 pr-4 py-2 bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary w-64" placeholder="Search influencers..." type="text"/>
+</div>
+<div class="relative">
+<select class="appearance-none bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md pl-4 pr-10 py-2 text-subtext-light dark:text-subtext-dark focus:ring-primary focus:border-primary">
+<option selected="">Sort by: Followers</option>
+<option>Sort by: Engagement</option>
+<option>Sort by: Last Promotion</option>
+</select>
+<span class="material-icons absolute right-3 top-1/2 -translate-y-1/2 text-subtext-light dark:text-subtext-dark pointer-events-none">expand_more</span>
+</div>
+</div>
+</div>
+<div class="overflow-y-auto max-h-[28rem]">
+<table class="w-full text-left">
+<thead class="border-b border-border-light dark:border-border-dark sticky top-0 bg-card-light dark:bg-card-dark">
+<tr>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Influencer</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Platform</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Total Followers</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Engagement Rate</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Last Promotion</th>
+<th class="py-3 px-4 font-semibold text-subtext-light dark:text-subtext-dark">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Kate Morrison profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/a-/ALV-UjVp7C8b_3Jb-b_4JjB4g-c_2hY9H4b-n9E1fH5Z4d1zXg=s96-c"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Kate Morrison</a>
+<span class="material-symbols-outlined text-green-500 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">TikTok</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">3.1M</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">6.2%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Portable Blender - 4 months ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Olivia Rhye profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWivjkg9yFubVxC5-rA_ylgD-7GF_1KmRl1FXxbZcEF5ulDh0g3wCpjNpwXufy7xGpn9P6POuEZgRftwT-bNrFlDK91sxOboIMQc_guhywjPTxhprNKmc6Su_tLwrKb0SOuDeHhSiEmPnPq1G7w1MPmeEcFMzDQ7iFtWlbEh-h-Ei1kzy9QaNHSox7lBWfYSw58ANDf__uEZT1_0sQv5IDqv319cfa5OrcHTHjXCWgSG6FjC5FgRW6wviR6nVtBz01fylj91QWx2Cj"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Olivia Rhye</a>
+<span class="material-symbols-outlined text-green-500 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">Instagram</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">2.3M</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">3.1%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Handmade Mug - 2 weeks ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Phoenix Baker profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoM1FCBkFTE34Owo9PPhdgJxGnlIt78qPHrA24oOUVDCdTnhUn-IGawWx6LS7VRyTSp5VUx6VBCfddGzyZZl_bo8sEWatbWIgYCCiXS2eXNHiYRKfbwLnk_RkqE3Yc5cXIh1xRwCafaFTurxTKq8MZ1OX2XfjH2LWaR1xJUtAqJaTLctiLFz9_1gstdYjNVdjKvNHu-eU_WYraykmEaGbyWB5Ai19LuDDpY9bBiUDM_WtydKgXVvVzlq0GOLgaKmtf3iz2qzjl4Dmv"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Phoenix Baker</a>
+<span class="material-symbols-outlined text-green-500 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">TikTok</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">1.8M</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">4.5%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Leather Journal - 2 months ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Orlando Diggs profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/a-/ALV-UjX8b-b8c_p_4GjB4g-c_2hY9H4b-n9E1fH5Z4d1zXg=s96-c"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Orlando Diggs</a>
+<span class="material-symbols-outlined text-green-500 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">YouTube</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">1.5M</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">7.5%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Smartwatch - 3 months ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Drew Cano profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjwEGL_wU-NDmqdMgl0N1Q_2aK5bnLJy5LbBMTFw9KJNOZqi5okgRQsnjd00MAdfpkwUo8wd0-RMWKjdkIJcWEpXgD8cqGhEX0Oli-iLG-Wj_WGTJQb_7-fsLjnYPrPL5zKjpzsHFpnQIT28qeHBcfGqxeslVvWlMz3Auxktgwx9tzHAxJSqgTK5a5zbw88S3ZqqqtwAaGYYqFoU8mQctuyEdq5LPN_0J-rWalax5i41JDC4N3FdfeOlDFRmyZOt-CAcVz1dk1pJHV"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Drew Cano</a>
+<span class="material-symbols-outlined text-gray-400 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">YouTube</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">1.2M</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">8.1%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Headphones - 2 months ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Lana Steiner profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDN1nZWiVu8iLDvNt2HZzndb70-Au9v3gbnycY5v5jcIhJjpOx1lIDCUOPgsAfVQF7EJJoe_lMXBHtb1gmE5Xn9lY44oV453R2enAtUC7nm_CLwTKIf63rPocP4LaCUQ3YuGiyNF56kS1GfBbI5EDEFB8d8A4abseVVl8ia1ffRfESe5GoaE6Ix9aiquVo0ceC7phUL3ThaujuOhAgSy-knLsVDKM-KRWUIiMLuColyV53WeF6Ut3_UbbPVv8fCLBSPSgsTL1L0KWgh"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Lana Steiner</a>
+<span class="material-symbols-outlined text-green-500 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">YouTube</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">980K</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">8.1%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Ergonomic Mouse - 1 month ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Natali Craig profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/a-/ALV-UjVw0b1A_3Jb-b_4JjB4g-c_2hY9H4b-n9E1fH5Z4d1zXg=s96-c"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Natali Craig</a>
+<span class="material-symbols-outlined text-gray-400 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">Instagram</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">850K</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">4.2%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Wireless Earbuds - 3 months ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+<tr class="border-b border-border-light dark:border-border-dark">
+<td class="py-4 px-4 flex items-center">
+<img alt="Candice Wu profile picture" class="w-10 h-10 rounded-full mr-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaWQTruozudnJO0FjaIcay278pmBqgFXXX0CobLgsotnc2UrgpR2DFAci6XULInd2UmN0nNAD_zA809uf9mwE75x4xRJzuViLE_eIcpjN8j7Jt-ISL6UdX6855xeJALrptv9wO9QNbrObhRLqxKCum6m-EVaB4kNomaA9fgIe-fTMZlZ_bqWmayAmeAkFJPZ5Xl8QS-48Y8349t8IYAnUDwI6V2RcLkc-WEWRuKxN9KkWUk2ErEpi_Um7nNLAhADqfRYclQvj4Dezl"/>
+<div class="flex items-center">
+<a class="font-medium text-text-light dark:text-text-dark hover:underline" href="#">Candice Wu</a>
+<span class="material-symbols-outlined text-gray-400 ml-1.5">verified</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">
+<div class="flex items-center space-x-2 text-sm">
+<span class="bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-md">TikTok</span>
+</div>
+</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">480K</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">5.2%</td>
+<td class="py-4 px-4 text-subtext-light dark:text-subtext-dark">Organic Serum - 1 month ago</td>
+<td class="py-4 px-4">
+<div class="flex space-x-2">
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Request to Promote"><span class="material-icons">campaign</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Send Sample"><span class="material-icons">card_giftcard</span></button>
+<button class="p-2 text-subtext-light dark:text-subtext-dark hover:bg-background-light dark:hover:bg-background-dark rounded-full" title="Report"><span class="material-icons">flag</span></button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

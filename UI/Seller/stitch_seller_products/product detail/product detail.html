@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Seller Hub - Product Details</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#3B82F6",
+            "background-light": "#F9FAFB",
+            "background-dark": "#111827",
+            "card-light": "#FFFFFF",
+            "card-dark": "#1F2937",
+            "text-light": "#1F2937",
+            "text-dark": "#F9FAFB",
+            "subtext-light": "#6B7280",
+            "subtext-dark": "#9CA3AF",
+            "border-light": "#E5E7EB",
+            "border-dark": "#374151",
+          },
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+          },
+          borderRadius: {
+            DEFAULT: "0.5rem",
+          },
+        },
+      },
+    };
+  </script>
+<style>
+    .material-icons-outlined {
+      font-family: 'Material Icons Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 24px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+    }
+    .multiselect-container {
+        position: relative;
+    }
+    .multiselect-options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        max-height: 150px;
+        overflow-y: auto;
+    }
+    .multiselect-container.open .multiselect-options {
+        display: block;
+    }
+  </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-text-light dark:text-text-dark">
+<div class="flex h-screen">
+<aside class="w-64 flex flex-col bg-card-light dark:bg-card-dark border-r border-border-light dark:border-border-dark">
+<div class="p-6">
+<h1 class="text-2xl font-bold text-text-light dark:text-text-dark">Inflopick</h1>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Seller Hub</p>
+</div>
+<nav class="flex-1 px-4 py-2 space-y-2">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">dashboard</span> Dashboard </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">shopping_bag</span> Orders </a>
+<a class="flex items-center px-4 py-2 text-white bg-primary rounded-lg" href="#"> <span class="material-icons-outlined mr-3">inventory_2</span> Products </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">campaign</span> Marketing </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">people</span> Customer </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">chat</span> Chat </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">analytics</span> Analytics </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">storefront</span> Storefront Preview </a>
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">manage_accounts</span> Accounts Management </a>
+</nav>
+<div class="p-4 border-t border-border-light dark:border-border-dark">
+<a class="flex items-center px-4 py-2 text-subtext-light dark:text-subtext-dark hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg" href="#"> <span class="material-icons-outlined mr-3">logout</span> Logout </a>
+</div>
+</aside>
+<main class="flex-1 p-8 overflow-y-auto">
+<div class="flex justify-between items-center mb-6">
+<div>
+<button class="flex items-center text-sm text-subtext-light dark:text-subtext-dark hover:text-primary dark:hover:text-primary mb-2"> <span class="material-icons-outlined !text-base mr-1">arrow_back</span> Go Back </button>
+<div class="flex items-center gap-4">
+<h2 class="text-3xl font-bold text-text-light dark:text-text-dark">Sporty Red Sneakers</h2> <span class="bg-green-100 text-green-800 text-sm font-medium px-3 py-1 rounded-full">Active</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Product ID: #PROD301 <span class="mx-2">·</span> Created: Oct 26, 2023</p>
+</div>
+<div class="flex items-center space-x-2">
+<button class="bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark text-text-light dark:text-text-dark px-4 py-2 rounded-lg flex items-center"> <span class="material-icons-outlined mr-2 !text-xl">visibility</span> View on Store </button>
+<button class="bg-primary text-white px-4 py-2 rounded-lg flex items-center"> <span class="material-icons-outlined mr-2 !text-xl">edit</span> Edit Product </button>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-8">
+<div class="col-span-2 space-y-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Media</h3>
+<div class="grid grid-cols-4 gap-4">
+<div class="relative group aspect-w-1 aspect-h-1"> <img alt="Red running shoe main" class="w-full h-full object-cover rounded-lg border-2 border-primary" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD22su8D_rEr3FQSadjjNc6eZx2gObuY8kcrovpYyW4RSCBO1UsQnUqBsPhCJf2q9UYoMS7fBeF_kY-zbZaN8V8St8-U_UMOa35IOm5T0hlUOSI8wOzzEVu1GKD3URpbijZW6Mrzj2ToaDZjxg_TMtigkZEEGl1FDBhmtoo8DWqmxxAVpDPMAD7yROEOQWUyH-nDj3WH5uTjLmugP_jaSUEhZW4tLOjIsKDvgz3OpHyttvhmFSpTSVs2fok20IyiyP6BbsT5hUuyTM"/> </div> <img alt="Red running shoe side" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAUugRxZgVD3RP_IQ3fJwXN4sbyBzT9DfxEyPJwXpB_vJyajwoKPaHHDZlYoni2NvEToW9hX0xq6UO-NkTYnYA7WHmo5sQhOqYUWAL3oSYlr2aSUksu8hW5zXxN_mrn2FHJla3hUSq2UWKtyfbrvjKI_7e7HIWweUlSYOjaU9zpdtkUx5YcmMKGfHrwNehd74UDm8MICUNPPVflJ66u2WypQDTQy1-NJmgOj9iDVHOdc7WGsIpZ0P-7ki3RsKCF5c5I2jfx9ngVIS4"/> <img alt="Red running shoe back" class="w-full h-full object-cover rounded-lg cursor-pointer hover:opacity-80 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW-DakBZvEhvRdNgp8jOJKMzqnUrSz8DGFBThYQr_lgh-Ee86_Y6QP2PXRk1tdbu37Cos3FOv_2K1-i97zI17BvDILVdJ-mmt42IIlFTB5mIeQxpmgzVFuaKm9jzTaZogut8Ln_lQwgs86pHx6DAjxqunhB3UCQ3cF93YiSOKQJg03qhz_UJnZZ3scHI0tjEfnIgXwoQK8M-F210HE3O2iBVmVpmZQQHaUjAbTMf9fSneMOsp99Il2lmv5w0vHzjghFvgjwIIveyQ"/>
+<div class="relative group aspect-w-1 aspect-h-1 bg-gray-200 dark:bg-gray-700 rounded-lg flex items-center justify-center cursor-pointer"> <span class="material-icons-outlined text-4xl text-subtext-light dark:text-subtext-dark">play_circle_outline</span>
+<div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<p class="text-white text-sm font-medium">Watch Video</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Product Details</h3>
+<p class="text-subtext-light dark:text-subtext-dark leading-relaxed"> Experience unparalleled comfort and style with our Sporty Red Sneakers. Designed for the modern athlete, these shoes feature a breathable mesh upper, a cushioned insole for maximum support, and a durable rubber outsole for excellent traction. Whether you're hitting the gym, going for a run, or just running errands, these sneakers will keep you looking and feeling great. The vibrant red color adds a bold statement to any outfit. </p>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-xl font-semibold">Variants (3)</h3>
+<div class="flex items-center space-x-2">
+<button class="text-primary font-medium text-sm hover:underline flex items-center">
+<span class="material-symbols-outlined mr-1 !text-base">link</span> Link Variants
+</button>
+<button class="text-primary font-medium text-sm hover:underline flex items-center">
+<span class="material-symbols-outlined mr-1 !text-base">add_circle_outline</span> Create Variant
+</button>
+</div>
+</div>
+<div class="h-48 overflow-y-auto space-y-2 pr-2">
+<a class="flex items-center justify-between p-3 border border-border-light dark:border-border-dark rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" href="#">
+<div class="flex items-center gap-3"> <img alt="Red Sneakers" class="w-12 h-12 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD22su8D_rEr3FQSadjjNc6eZx2gObuY8kcrovpYyW4RSCBO1UsQnUqBsPhCJf2q9UYoMS7fBeF_kY-zbZaN8V8St8-U_UMOa35IOm5T0hlUOSI8wOzzEVu1GKD3URpbijZW6Mrzj2ToaDZjxg_TMtigkZEEGl1FDBhmtoo8DWqmxxAVpDPMAD7yROEOQWUyH-nDj3WH5uTjLmugP_jaSUEhZW4tLOjIsKDvgz3OpHyttvhmFSpTSVs2fok20IyiyP6BbsT5hUuyTM"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Red / Size 9</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: SNK-RD-09</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-semibold text-text-light dark:text-text-dark">$120.00</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Inventory: <span class="text-green-500">50</span></p>
+</div>
+</a>
+<a class="flex items-center justify-between p-3 border border-border-light dark:border-border-dark rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" href="#">
+<div class="flex items-center gap-3"> <img alt="Blue Sneakers" class="w-12 h-12 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbMM2hx2OYdLq9FcCy3rKRXFCOeLzxByzfQtSft0K4v-wxkIsI83xulMLoFdXtw256rBm4QxHqTtENX9Y7iA1ybTaU4K9VlZnYozQgOzLf1QcR0T2VgRU20PoJwd41f7OnIl8tTCCOMseGbR2jHvNKIxwDuPNj4OlBcO_l5TVOwlJJru4WYsSMTB1mGOalQGOAT3QRAcPmRqZqgipoMbT8JZDPN0o2GpEsu-Ba_guBVuzVqhcB5IT5vSgisBt_6c0cpWxrrZWiPkQ"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Blue / Size 9</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: SNK-BL-09</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-semibold text-text-light dark:text-text-dark">$125.00</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Inventory: <span class="text-yellow-500">12</span></p>
+</div>
+</a>
+<a class="flex items-center justify-between p-3 border border-border-light dark:border-border-dark rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors" href="#">
+<div class="flex items-center gap-3"> <img alt="Black Sneakers" class="w-12 h-12 rounded-md object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfaEpIUG9kjP9QIrWN63q988-_dq-H_whXqWk_lOFWXgk8-w_2UTczVHUuXHa_nStbeOqmDt46K-vg3BbTWOr4jjtVHawq67zjTvFvg1R6m_ed5LbTP__5QeI0TJ2acFSdyBVc1-EGWhXu2e15my62lkBa_CfTEInVYL5OqUBP4iB8Ocd0lzdp8YmYxcNC_qQGd-eQblGQ7Z2yHxsqeW1BRQ_ROATJDXWpWF8UNfZMLgns2qGR3bQ98QBLCRx9pV5RSlHX2XVTuls"/>
+<div>
+<p class="font-medium text-text-light dark:text-text-dark">Black / Size 9</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">SKU: SNK-BK-09</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-semibold text-text-light dark:text-text-dark">$120.00</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Inventory: <span class="text-red-500">Out of Stock</span></p>
+</div>
+</a>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-xl font-semibold">Product Discount</h3>
+<button class="bg-primary text-white px-4 py-2 rounded-lg flex items-center text-sm"> <span class="material-icons-outlined mr-2 !text-base">add</span> Create Product Discount </button>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="discount-period">Discount Period</label>
+<div class="mt-1 flex space-x-2">
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark" id="discount-start" type="date"/>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark" id="discount-end" type="date"/>
+</div>
+</div>
+<div class="flex items-end space-x-4">
+<div class="flex-1">
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="discount-type">Discount Type</label>
+<div class="mt-1 flex rounded-md shadow-sm">
+<select class="block w-24 rounded-none rounded-l-md border-r-0 bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-light dark:text-text-dark" id="discount-type">
+<option>Percentage</option>
+<option>Dollar</option>
+</select>
+<input class="flex-1 block w-full rounded-none rounded-r-md bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark text-text-light dark:text-text-dark" id="discount-value" placeholder="e.g. 20" type="number"/>
+</div>
+</div>
+<div class="flex-1">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">After Discount Price</p>
+<p class="text-2xl font-bold text-primary">$96.00 <span class="text-lg text-subtext-light dark:text-subtext-dark line-through">$120.00</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Discount Code History</h3>
+<div class="overflow-auto h-48 pr-2">
+<ul class="space-y-3">
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center">
+<p class="font-medium text-text-light dark:text-text-dark">SUMMER20</p>
+<p class="font-semibold text-primary">20% Off</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Created: 2023-06-01 10:00 AM</p> <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Active</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Accessibility: All</p>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center">
+<p class="font-medium text-text-light dark:text-text-dark">INFLUENCER15</p>
+<p class="font-semibold text-primary">$15 Off</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Created: 2023-05-15 02:30 PM</p> <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Active</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Accessibility: Influencer: @styleguru</p>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center">
+<p class="font-medium text-text-light dark:text-text-dark">PRIVATEOFFER</p>
+<p class="font-semibold text-primary">$10 Off</p>
+</div>
+<div class="flex justify-between items-center mt-1">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Created: 2023-04-20 09:00 AM</p> <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Expired</span>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Accessibility: Private</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-semibold">Price Modification History</h3>
+<p class="text-sm font-medium text-primary">Variant: Red / Size 9</p>
+</div>
+<div class="overflow-y-auto h-48 pr-2">
+<ul class="space-y-3">
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">
+<span class="text-red-500 line-through">$125.00</span>
+<span class="material-icons-outlined !text-base mx-1 text-subtext-light dark:text-subtext-dark">arrow_forward</span>
+<span class="text-green-500">$120.00</span>
+</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">2023-09-15</p>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">by Admin</p>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">
+<span class="text-red-500 line-through">$115.00</span>
+<span class="material-icons-outlined !text-base mx-1 text-subtext-light dark:text-subtext-dark">arrow_forward</span>
+<span class="text-green-500">$125.00</span>
+</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">2023-08-01</p>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">by Admin</p>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">
+<span class="text-red-500 line-through">$120.00</span>
+<span class="material-icons-outlined !text-base mx-1 text-subtext-light dark:text-subtext-dark">arrow_forward</span>
+<span class="text-green-500">$115.00</span>
+</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">2023-07-20</p>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">by Price Optimization Tool</p>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-center mb-1">
+<p class="text-sm font-medium text-text-light dark:text-text-dark">
+<span class="text-green-500">$120.00</span>
+</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">2023-06-10</p>
+</div>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">Product Created</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Discount Event History</h3>
+<div class="overflow-y-auto h-48 pr-2">
+<ul class="space-y-3">
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-medium text-text-light dark:text-text-dark text-lg">20% Off</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Period: 2023-10-01 to 2023-10-15</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-1">Created by: Admin</p>
+</div>
+<span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded-full mt-1">Active</span>
+</div>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-medium text-text-light dark:text-text-dark text-lg">15% Off</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Period: 2023-09-01 to 2023-09-10</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-1">Created by: Marketing Team</p>
+</div>
+<span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full mt-1">Expired</span>
+</div>
+</li>
+<li class="p-3 bg-gray-50 dark:bg-gray-800/50 rounded-lg">
+<div class="flex justify-between items-start">
+<div>
+<p class="font-medium text-text-light dark:text-text-dark text-lg">25% Off</p>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mt-1">Period: 2023-08-15 to 2023-08-20</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark mt-1">Created by: Admin</p>
+</div>
+<span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded-full mt-1">Expired</span>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-span-1 space-y-8">
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">General Information</h3>
+<div class="space-y-4 text-sm">
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Brand</span> <span class="font-medium text-text-light dark:text-text-dark">Athletico</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Manufacturer</span> <span class="font-medium text-text-light dark:text-text-dark">Sportswear Inc.</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Category</span> <span class="font-medium text-primary hover:underline cursor-pointer">Footwear</span> </div>
+<div class="flex justify-between items-center">
+<span class="text-subtext-light dark:text-subtext-dark">Color</span>
+<div class="flex items-center gap-2">
+<span class="font-medium text-text-light dark:text-text-dark">Red</span>
+<div class="w-5 h-5 rounded-full bg-red-500 border border-border-light dark:border-border-dark"></div>
+</div>
+</div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Material</span> <span class="font-medium text-text-light dark:text-text-dark">Mesh, Rubber</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Made In</span> <span class="font-medium text-text-light dark:text-text-dark">Vietnam</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Warranty</span> <span class="font-medium text-text-light dark:text-text-dark">1-Year Limited</span> </div>
+<div>
+<label class="block text-subtext-light dark:text-subtext-dark mb-1" for="countries">Available Countries</label>
+<div class="multiselect-container">
+<div class="w-full bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md px-3 py-2 flex justify-between items-center cursor-pointer text-text-light dark:text-text-dark" id="multiselect-input">
+<span id="selected-countries-text">Select countries...</span>
+<span class="material-symbols-outlined">expand_more</span>
+</div>
+<div class="multiselect-options mt-1 w-full bg-card-light dark:bg-card-dark border border-border-light dark:border-border-dark rounded-md shadow-lg" id="multiselect-options">
+<div class="p-2">
+<input class="w-full px-2 py-1 text-sm bg-background-light dark:bg-background-dark border border-border-light dark:border-border-dark rounded-md focus:ring-primary focus:border-primary text-text-light dark:text-text-dark" id="country-search" placeholder="Search countries..." type="text"/>
+</div>
+<div class="max-h-40 overflow-y-auto">
+<label class="flex items-center px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary rounded-sm" type="checkbox" value="United States"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">United States</span>
+</label>
+<label class="flex items-center px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary rounded-sm" type="checkbox" value="Canada"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">Canada</span>
+</label>
+<label class="flex items-center px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary rounded-sm" type="checkbox" value="United Kingdom"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">United Kingdom</span>
+</label>
+<label class="flex items-center px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary rounded-sm" type="checkbox" value="Australia"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">Australia</span>
+</label>
+<label class="flex items-center px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary rounded-sm" type="checkbox" value="Germany"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">Germany</span>
+</label>
+<label class="flex items-center px-3 py-2 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer">
+<input class="form-checkbox h-4 w-4 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary rounded-sm" type="checkbox" value="France"/>
+<span class="ml-2 text-sm text-text-light dark:text-text-dark">France</span>
+</label>
+</div>
+</div>
+</div>
+<div class="mt-2 flex flex-wrap gap-1" id="selected-countries-pills"></div>
+</div>
+<div class="border-t border-border-light dark:border-border-dark my-4"></div>
+<div>
+<h4 class="font-semibold mb-2 text-md">Sustainability</h4>
+<div class="flex justify-between items-center">
+<span class="text-subtext-light dark:text-subtext-dark">Value</span>
+<button class="text-sm font-medium text-primary hover:underline">Request Verification</button>
+</div>
+<div class="flex space-x-2 mt-4">
+<button class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-lg flex items-center justify-center text-sm"> <span class="material-symbols-outlined mr-2 !text-base">publish</span> Publish Result </button>
+<button class="w-full bg-gray-200 dark:bg-gray-600 text-text-light dark:text-text-dark font-semibold py-2 px-4 rounded-lg flex items-center justify-center text-sm"> <span class="material-symbols-outlined mr-2 !text-base">hide_source</span> Hide Result </button>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Discount Code Generator</h3>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="code-discount-type">Discount Type</label>
+<select class="mt-1 block w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark" id="code-discount-type">
+<option>Percentage</option>
+<option>Fixed Amount</option>
+</select>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="code-discount-value">Discount Value</label>
+<div class="mt-1 relative rounded-md shadow-sm">
+<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+<span class="text-subtext-light dark:text-subtext-dark sm:text-sm">%</span>
+</div>
+<input class="block w-full rounded-md border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark pl-7 pr-12 text-text-light dark:text-text-dark" id="code-discount-value" placeholder="15" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark" for="code-period">Discount Period</label>
+<div class="mt-1 grid grid-cols-2 gap-2">
+<div>
+<label class="sr-only" for="start-date">Start Date</label>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm" id="start-date" type="date"/>
+</div>
+<div>
+<label class="sr-only" for="end-date">End Date</label>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark text-sm" id="end-date" type="date"/>
+</div>
+</div>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center"> <span class="material-icons-outlined mr-2 !text-xl">auto_fix_high</span> Generate Code </button>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Inventory</h3>
+<div class="space-y-4 text-sm">
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">SKU</span> <span class="font-medium text-text-light dark:text-text-dark">SNK-RD-09</span> </div>
+<div class="flex justify-between items-center"> <span class="text-subtext-light dark:text-subtext-dark">Total Stock</span> <span class="font-bold text-lg text-green-500">125 units</span> </div>
+<div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+<div class="bg-green-600 h-2.5 rounded-full" style="width: 62%"></div>
+</div>
+<div class="flex justify-between text-xs text-subtext-light dark:text-subtext-dark"> <span>Sold: 75</span> <span>Remaining: 50</span> </div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<h3 class="text-xl font-semibold mb-4">Shipping Details</h3>
+<div class="space-y-4 text-sm">
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Item Weight</span> <span class="font-medium text-text-light dark:text-text-dark">0.8 kg</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Item Dimensions</span> <span class="font-medium text-text-light dark:text-text-dark">30x15x10 cm</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Package Weight</span> <span class="font-medium text-text-light dark:text-text-dark">1.1 kg</span> </div>
+<div class="flex justify-between"> <span class="text-subtext-light dark:text-subtext-dark">Package Dimensions</span> <span class="font-medium text-text-light dark:text-text-dark">35x20x12 cm</span> </div>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="flex justify-between items-center mb-4">
+<h3 class="text-xl font-semibold">Influencer Accessibility</h3>
+</div>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Set commission tiers for influencer marketing.</p>
+<div class="space-y-2">
+<label class="flex items-center justify-between p-3 rounded-lg bg-primary/10 dark:bg-primary/20 border border-primary/20 cursor-pointer">
+<div class="flex items-center">
+<input checked="" class="form-radio h-5 w-5 text-primary bg-primary/20 border-primary/30 focus:ring-primary/50" name="influencer-tier" type="radio" value="all"/>
+<div class="ml-3">
+<p class="font-semibold text-primary">All Influencers</p>
+<p class="text-xs text-primary/80">8% commission</p>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-card-dark/50 border border-border-light dark:border-border-dark cursor-pointer">
+<div class="flex items-center">
+<input class="form-radio h-5 w-5 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary" name="influencer-tier" type="radio" value="micro"/>
+<div class="ml-3">
+<p class="font-medium text-text-light dark:text-text-dark">Micro Tier (10k-100k)</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">10% commission</p>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-card-dark/50 border border-border-light dark:border-border-dark cursor-pointer">
+<div class="flex items-center">
+<input class="form-radio h-5 w-5 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary" name="influencer-tier" type="radio" value="mid"/>
+<div class="ml-3">
+<p class="font-medium text-text-light dark:text-text-dark">Mid-tier (100k-500k)</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">12% commission</p>
+</div>
+</div>
+</label>
+<label class="flex items-center justify-between p-3 rounded-lg bg-gray-50 dark:bg-card-dark/50 border border-border-light dark:border-border-dark cursor-pointer">
+<div class="flex items-center">
+<input class="form-radio h-5 w-5 text-primary bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark focus:ring-primary" name="influencer-tier" type="radio" value="top"/>
+<div class="ml-3">
+<p class="font-medium text-text-light dark:text-text-dark">Top tier (500k+)</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">15% commission</p>
+</div>
+</div>
+</label>
+</div>
+</div>
+<div class="bg-card-light dark:bg-card-dark p-6 rounded-lg shadow-sm">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1, 'wght' 600;">rocket_launch</span>
+<h3 class="text-lg font-semibold text-text-light dark:text-text-dark mt-2 mb-1">Promote to Top</h3>
+<p class="text-sm text-subtext-light dark:text-subtext-dark mb-4">Boost this product's visibility by featuring it on influencer dashboards.</p>
+</div>
+<div class="space-y-4">
+<div>
+<label class="block text-sm font-medium text-subtext-light dark:text-subtext-dark mb-1" for="promotion-days">Promotion Duration (Days)</label>
+<input class="w-full bg-background-light dark:bg-background-dark border-border-light dark:border-border-dark rounded-md text-text-light dark:text-text-dark" id="promotion-days" placeholder="e.g. 7" type="number" value="7"/>
+</div>
+<div class="text-center">
+<p class="text-sm text-subtext-light dark:text-subtext-dark">Total Cost</p>
+<p class="text-3xl font-bold text-text-light dark:text-text-dark" id="total-cost">$21.00</p>
+<p class="text-xs text-subtext-light dark:text-subtext-dark">($3/day)</p>
+</div>
+<button class="w-full bg-primary text-white font-bold py-2.5 px-4 rounded-lg flex items-center justify-center">Promote Now</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<script>
+    const promotionDaysInput = document.getElementById('promotion-days');
+    const totalCostElement = document.getElementById('total-cost');
+    const pricePerDay = 3;
+    promotionDaysInput.addEventListener('input', () => {
+      const days = parseInt(promotionDaysInput.value) || 0;
+      const totalCost = days * pricePerDay;
+      totalCostElement.textContent = `$${totalCost.toFixed(2)}`;
+    });
+    const discountTypeSelect = document.getElementById('code-discount-type');
+    const discountValueInput = document.getElementById('code-discount-value');
+    const discountValueSymbol = discountValueInput.previousElementSibling.firstElementChild;
+    discountTypeSelect.addEventListener('change', (e) => {
+        if (e.target.value === 'Percentage') {
+            discountValueSymbol.textContent = '%';
+            discountValueInput.placeholder = '15';
+            discountValueInput.classList.add('pl-7');
+            discountValueInput.classList.remove('pl-6');
+            discountValueSymbol.classList.remove('pl-4');
+            discountValueSymbol.classList.add('pl-3');
+        } else {
+            discountValueSymbol.textContent = '$';
+            discountValueInput.placeholder = '10';
+            discountValueInput.classList.add('pl-6');
+            discountValueInput.classList.remove('pl-7');
+             discountValueSymbol.classList.add('pl-4');
+            discountValueSymbol.classList.remove('pl-3');
+        }
+    })
+    // Influencer tier selection logic
+    const tierRadios = document.querySelectorAll('input[name="influencer-tier"]');
+    tierRadios.forEach(radio => {
+        radio.addEventListener('change', () => {
+            // Reset all labels to default state
+            document.querySelectorAll('input[name="influencer-tier"]').forEach(r => {
+                const label = r.closest('label');
+                label.classList.remove('bg-primary/10', 'dark:bg-primary/20', 'border-primary/20');
+                label.classList.add('bg-gray-50', 'dark:bg-card-dark/50', 'border-border-light', 'dark:border-border-dark');
+                label.querySelector('p:first-of-type').classList.remove('text-primary');
+                label.querySelector('p:first-of-type').classList.add('text-text-light', 'dark:text-text-dark', 'font-medium');
+                label.querySelector('p:last-of-type').classList.remove('text-primary/80');
+                label.querySelector('p:last-of-type').classList.add('text-subtext-light', 'dark:text-subtext-dark');
+            });
+            // Apply active state to selected label
+            const selectedLabel = radio.closest('label');
+            selectedLabel.classList.add('bg-primary/10', 'dark:bg-primary/20', 'border-primary/20');
+            selectedLabel.classList.remove('bg-gray-50', 'dark:bg-card-dark/50', 'border-border-light', 'dark:border-border-dark');
+            const textElements = selectedLabel.querySelectorAll('p');
+            textElements[0].classList.add('text-primary', 'font-semibold');
+            textElements[0].classList.remove('text-text-light', 'dark:text-text-dark', 'font-medium');
+            textElements[1].classList.add('text-primary/80');
+            textElements[1].classList.remove('text-subtext-light', 'dark:text-subtext-dark');
+        });
+    });
+    // Multiselect country dropdown
+    const multiselectInput = document.getElementById('multiselect-input');
+    const multiselectContainer = multiselectInput.closest('.multiselect-container');
+    const selectedCountriesText = document.getElementById('selected-countries-text');
+    const countryCheckboxes = document.querySelectorAll('.multiselect-options input[type="checkbox"]');
+    const selectedPillsContainer = document.getElementById('selected-countries-pills');
+    const countrySearch = document.getElementById('country-search');
+    multiselectInput.addEventListener('click', () => {
+        multiselectContainer.classList.toggle('open');
+    });
+    function updateSelected() {
+        const selected = Array.from(countryCheckboxes)
+            .filter(c => c.checked)
+            .map(c => c.value);
+        if (selected.length === 0) {
+            selectedCountriesText.textContent = 'Select countries...';
+        } else if (selected.length <= 2) {
+            selectedCountriesText.textContent = selected.join(', ');
+        } else {
+            selectedCountriesText.textContent = `${selected.length} countries selected`;
+        }
+        selectedPillsContainer.innerHTML = '';
+        selected.forEach(country => {
+            const pill = document.createElement('span');
+            pill.className = 'bg-primary/20 text-primary text-xs font-semibold px-2 py-1 rounded-full flex items-center';
+            pill.innerHTML = `
+                ${country}
+                <button class="ml-1.5 text-primary/70 hover:text-primary focus:outline-none" data-value="${country}">
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            `;
+            selectedPillsContainer.appendChild(pill);
+        });
+    }
+    countryCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateSelected);
+    });
+    selectedPillsContainer.addEventListener('click', (e) => {
+        if(e.target.closest('button')) {
+            const value = e.target.closest('button').dataset.value;
+            const checkbox = document.querySelector(`.multiselect-options input[value="${value}"]`);
+            if (checkbox) {
+                checkbox.checked = false;
+                updateSelected();
+            }
+        }
+    });
+    countrySearch.addEventListener('input', () => {
+        const searchTerm = countrySearch.value.toLowerCase();
+        document.querySelectorAll('.multiselect-options label').forEach(label => {
+            const countryName = label.textContent.toLowerCase();
+            if (countryName.includes(searchTerm)) {
+                label.style.display = 'flex';
+            } else {
+                label.style.display = 'none';
+            }
+        });
+    });
+    document.addEventListener('click', function(event) {
+        if (!multiselectContainer.contains(event.target)) {
+            multiselectContainer.classList.remove('open');
+        }
+    });
+    updateSelected();
+  </script>
+</body></html>
