@@ -1,0 +1,105 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - generic [ref=e5]:
+        - heading "Inflopick" [level=1] [ref=e6]
+        - paragraph [ref=e7]: CREATOR CENTER
+      - navigation [ref=e8]:
+        - list [ref=e9]:
+          - listitem [ref=e10]:
+            - generic [ref=e11]: dashboard
+            - generic [ref=e12]: Dashboard
+          - listitem [ref=e13]:
+            - generic [ref=e14]: person
+            - generic [ref=e15]: Profile & Verification
+          - listitem [ref=e16]:
+            - generic [ref=e17]: folder
+            - generic [ref=e18]: Portfolio
+          - listitem [ref=e19]:
+            - generic [ref=e20]: request_quote
+            - generic [ref=e21]: Requests
+          - listitem [ref=e22]:
+            - generic [ref=e23]: store
+            - generic [ref=e24]: Shop
+          - listitem [ref=e25]:
+            - generic [ref=e26]: analytics
+            - generic [ref=e27]: Analytics
+          - listitem [ref=e28]:
+            - generic [ref=e29]: task_alt
+            - generic [ref=e30]: Tasks
+          - listitem [ref=e31]:
+            - generic [ref=e32]: star_rate
+            - generic [ref=e33]: Ratings & Safety
+          - listitem [ref=e34]:
+            - generic [ref=e35]: payment
+            - generic [ref=e36]: Payouts & Billing
+          - listitem [ref=e37]:
+            - generic [ref=e38]: mail
+            - generic [ref=e39]: Messages
+    - link "settings Account Settings" [ref=e41] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e42]: settings
+      - generic [ref=e43]: Account Settings
+  - main [ref=e44]:
+    - generic [ref=e45]:
+      - alert [ref=e46]:
+        - generic [ref=e47]:
+          - paragraph [ref=e48]: Billing Method Missing
+          - paragraph [ref=e49]: Please add a billing method to your account to proceed.
+        - button "Add Card" [ref=e50] [cursor=pointer]
+      - alert [ref=e51]:
+        - generic [ref=e52]:
+          - paragraph [ref=e53]: Buyer Account Not Linked
+          - paragraph [ref=e54]: Link your buyer account to complete your profile.
+        - button "Link Buyer Account" [ref=e55] [cursor=pointer]
+      - generic [ref=e57]:
+        - generic [ref=e58]:
+          - img "Classic Leather Watch" [ref=e59]
+          - generic [ref=e60]:
+            - heading "\"Velocity\" Running Shoes" [level=2] [ref=e61]
+            - paragraph [ref=e62]: "Request ID: #RQ-8764"
+            - paragraph [ref=e63]: "Date: 2023-10-25"
+            - paragraph [ref=e64]: "Seller: QuickStride"
+        - generic [ref=e66]: PENDING
+      - generic [ref=e68]:
+        - generic [ref=e69]: Requested
+        - generic [ref=e71]: Merchant Decision
+        - generic [ref=e73]: Shipped
+        - generic [ref=e75]: Out for Delivery
+        - generic [ref=e77]: Delivered
+        - generic [ref=e79]: Content Submitted
+        - generic [ref=e81]: Completed
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - generic [ref=e85]:
+            - heading "Request Summary" [level=3] [ref=e86]
+            - generic [ref=e87]:
+              - generic [ref=e88]:
+                - paragraph [ref=e89]: Preferred Shipping Address
+                - paragraph [ref=e90]: 123 Creator Lane, Influencer City, CA 90210
+              - generic [ref=e91]:
+                - paragraph [ref=e92]: Content Due Date
+                - paragraph [ref=e93]: 14 days after delivery
+              - generic [ref=e94]:
+                - paragraph [ref=e95]: Notes to Merchant
+                - paragraph [ref=e96]: Excited to try these out! Please include the blue colorway if possible. Thanks!
+          - generic [ref=e97]:
+            - heading "Actions" [level=3] [ref=e98]
+            - generic [ref=e99]:
+              - button "message Message Seller" [ref=e100] [cursor=pointer]:
+                - generic [ref=e101]: message
+                - text: Message Seller
+              - button "cancel Cancel Request" [ref=e102] [cursor=pointer]:
+                - generic [ref=e103]: cancel
+                - text: Cancel Request
+        - generic [ref=e105]:
+          - heading "Affiliate Link Generator" [level=3] [ref=e106]
+          - generic [ref=e107]:
+            - paragraph [ref=e108]: Your unique affiliate link for this product.
+            - generic [ref=e109]:
+              - textbox [ref=e110]: https://inflopick.com/link/abcd123
+              - button "Get Link" [ref=e111] [cursor=pointer]
+```

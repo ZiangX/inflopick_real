@@ -1,0 +1,235 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - img "Inflowpick logo" [ref=e5]
+      - generic [ref=e6]: Inflowpick
+    - generic [ref=e7]: CREATOR CENTER
+    - navigation [ref=e8]:
+      - link "dashboard Dashboard" [ref=e9] [cursor=pointer]:
+        - /url: ../../stitch_influencer_dashboard/dashboard.html
+        - generic [ref=e10]: dashboard
+        - text: Dashboard
+      - link "account_circle Profile & Verification" [ref=e11] [cursor=pointer]:
+        - /url: ../../stitch_infliencer_profile & verification/profile overview/profile overview.html
+        - generic [ref=e12]: account_circle
+        - text: Profile & Verification
+      - link "perm_media Portfolio" [ref=e13] [cursor=pointer]:
+        - /url: ../../stitch_influencer_portfolio/video library/video library.html
+        - generic [ref=e14]: perm_media
+        - text: Portfolio
+      - link "inbox Requests" [ref=e15] [cursor=pointer]:
+        - /url: ../../stitch_influencer_requests/requests.html
+        - generic [ref=e16]: inbox
+        - text: Requests
+      - link "store Shop" [ref=e17] [cursor=pointer]:
+        - /url: ../../stitch_influencer_shop/influencer shopping.html
+        - generic [ref=e18]: store
+        - text: Shop
+      - link "analytics Analytics" [ref=e19] [cursor=pointer]:
+        - /url: ../../stitch_influencer_analytics (to be redone)/analytics/analytics.html
+        - generic [ref=e20]: analytics
+        - text: Analytics
+      - link "task_alt Tasks" [ref=e21] [cursor=pointer]:
+        - /url: ../../stitch_influencer_tasks/tasks.html
+        - generic [ref=e22]: task_alt
+        - text: Tasks
+      - link "star_outline Ratings & Safety" [ref=e23] [cursor=pointer]:
+        - /url: ../../stitch_influencer_review/rating and review/rating and review.html
+        - generic [ref=e24]: star_outline
+        - text: Ratings & Safety
+      - link "payment Payouts & Billing" [ref=e25] [cursor=pointer]:
+        - /url: ../../stitch_influencer_payout_billing/payout & billing/payout & billing.html
+        - generic [ref=e26]: payment
+        - text: Payouts & Billing
+      - link "chat Messages" [ref=e27] [cursor=pointer]:
+        - /url: ../../stitch_influencer_message/chat/chat.html
+        - generic [ref=e28]: chat
+        - text: Messages
+    - link "settings Account Settings" [ref=e30] [cursor=pointer]:
+      - /url: ../../stitch_influencer_account_settings/account settings.html
+      - generic [ref=e31]: settings
+      - text: Account Settings
+  - main [ref=e32]:
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - heading "Profile & Verification" [level=1] [ref=e35]
+        - generic [ref=e36]:
+          - generic [ref=e37]: "Last saved: 2 minutes ago"
+          - button "Save Changes" [ref=e38] [cursor=pointer]
+      - generic [ref=e39]:
+        - heading "Profile Readiness" [level=2] [ref=e40]
+        - generic [ref=e44]: 75% Complete
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]: check_circle
+            - text: Connect a platform
+          - generic [ref=e48]:
+            - generic [ref=e49]: check_circle
+            - text: Complete public profile
+          - generic [ref=e50]:
+            - generic [ref=e51]: check_circle
+            - text: Verify identity
+          - generic [ref=e52]:
+            - generic [ref=e53]: radio_button_unchecked
+            - text: Add payout method
+      - generic [ref=e54]:
+        - heading "Profile (Public Info)" [level=2] [ref=e55]
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - generic [ref=e58]: Display Name
+            - textbox "Display Name" [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]: Handle/Slug
+            - generic [ref=e62]:
+              - generic [ref=e63]: "@"
+              - textbox "Handle/Slug" [ref=e64]
+          - generic [ref=e65]:
+            - generic [ref=e66]: Short Bio
+            - textbox "Short Bio" [ref=e67]
+            - paragraph [ref=e68]: 200 character limit
+          - generic [ref=e69]:
+            - img "Profile photo" [ref=e70]
+            - generic [ref=e71]:
+              - generic [ref=e72]: Profile Photo
+              - button "Upload" [ref=e73] [cursor=pointer]
+          - generic [ref=e74]:
+            - generic [ref=e76]: photo_size_select_actual
+            - generic [ref=e77]:
+              - generic [ref=e78]: Banner Image
+              - button "Upload" [ref=e79] [cursor=pointer]
+          - generic [ref=e80]:
+            - generic [ref=e81]: Languages
+            - textbox "Languages" [ref=e82]:
+              - /placeholder: e.g., English, Spanish
+          - generic [ref=e83]:
+            - generic [ref=e84]: Country/Region
+            - combobox "Country/Region" [ref=e85]:
+              - option "United States" [selected]
+              - option "Canada"
+              - option "United Kingdom"
+          - generic [ref=e86]:
+            - generic [ref=e87]:
+              - generic [ref=e88]: Show follower counts
+              - checkbox [checked] [ref=e90]
+            - generic [ref=e92]:
+              - generic [ref=e93]: Show contact button
+              - checkbox [ref=e95]
+      - generic [ref=e97]:
+        - heading "Platforms & Links" [level=2] [ref=e98]
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - combobox [ref=e101]:
+              - option "TikTok" [selected]
+              - option "Instagram"
+              - option "YouTube"
+            - textbox "Profile URL" [ref=e102]
+            - textbox "Followers (optional)" [ref=e103]
+            - generic [ref=e104]:
+              - generic [ref=e105]: check_circle
+              - text: Connected
+            - checkbox [checked] [ref=e107]
+          - generic [ref=e109]:
+            - combobox [ref=e110]:
+              - option "Instagram" [selected]
+              - option "TikTok"
+              - option "YouTube"
+            - textbox "Profile URL" [ref=e111]
+            - textbox "Followers (optional)" [ref=e112]
+            - button "Connect" [ref=e113] [cursor=pointer]
+            - checkbox [checked] [ref=e115]
+          - button "add Add another platform" [ref=e117] [cursor=pointer]:
+            - generic [ref=e118]: add
+            - text: Add another platform
+      - generic [ref=e119]:
+        - heading "Content Categories" [level=2] [ref=e120]
+        - paragraph [ref=e121]: Select up to 5 categories that best describe your content.
+        - generic [ref=e122]:
+          - generic [ref=e123]: Fashion
+          - generic [ref=e124]: Beauty
+          - generic [ref=e125] [cursor=pointer]: Travel
+          - generic [ref=e126] [cursor=pointer]: Food
+          - generic [ref=e127] [cursor=pointer]: Gaming
+          - generic [ref=e128] [cursor=pointer]: Comedy
+          - generic [ref=e129] [cursor=pointer]: Alcohol (Age-gated)
+      - generic [ref=e130]:
+        - heading "Contact & Shipping" [level=2] [ref=e131]
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - generic [ref=e134]: Business Email
+            - generic [ref=e135]:
+              - textbox "Business Email" [ref=e136]
+              - generic [ref=e137]: Verified
+          - generic [ref=e138]:
+            - generic [ref=e139]: Phone Number
+            - generic [ref=e140]:
+              - textbox "Phone Number" [ref=e141]
+              - button "Verify" [ref=e142] [cursor=pointer]
+          - heading "Shipping Address" [level=3] [ref=e144]
+          - generic [ref=e145]:
+            - generic [ref=e146]: Full Name
+            - textbox "Full Name" [ref=e147]
+          - generic [ref=e148]:
+            - generic [ref=e149]: Street Address
+            - textbox "Street Address" [ref=e150]
+          - generic [ref=e151]:
+            - generic [ref=e152]: Apartment, suite, etc. (optional)
+            - textbox "Apartment, suite, etc. (optional)" [ref=e153]
+          - generic [ref=e154]:
+            - generic [ref=e155]: City
+            - textbox "City" [ref=e156]
+          - generic [ref=e157]:
+            - generic [ref=e158]:
+              - generic [ref=e159]: State / Province
+              - textbox "State / Province" [ref=e160]
+            - generic [ref=e161]:
+              - generic [ref=e162]: Postal Code
+              - textbox "Postal Code" [ref=e163]
+          - generic [ref=e164]:
+            - generic [ref=e165]: Country
+            - combobox "Country" [ref=e166]:
+              - option "United States" [selected]
+              - option "Canada"
+              - option "United Kingdom"
+      - generic [ref=e167]:
+        - generic [ref=e168]:
+          - generic [ref=e169]:
+            - heading "Identity Verification (KYC)" [level=2] [ref=e170]
+            - paragraph [ref=e171]: "Submitted: Jan 15, 2024 at 10:30 AM"
+          - generic [ref=e172]: Verified
+        - generic [ref=e173]:
+          - generic [ref=e174]:
+            - generic [ref=e175]: Legal First Name
+            - paragraph [ref=e176]: Jane
+          - generic [ref=e177]:
+            - generic [ref=e178]: Legal Last Name
+            - paragraph [ref=e179]: Doe
+          - generic [ref=e180]:
+            - generic [ref=e181]: Date of Birth
+            - paragraph [ref=e182]: October 25, 1995
+          - generic [ref=e183]:
+            - generic [ref=e184]: Residential Address
+            - paragraph [ref=e185]: 123 Main St, Anytown, USA 12345
+          - generic [ref=e186]:
+            - generic [ref=e187]: ID Type
+            - paragraph [ref=e188]: Driver's License
+          - generic [ref=e189]:
+            - generic [ref=e190]: ID Documents
+            - generic [ref=e191]:
+              - link "View Front" [ref=e192] [cursor=pointer]:
+                - /url: "#"
+              - link "View Back" [ref=e193] [cursor=pointer]:
+                - /url: "#"
+          - generic [ref=e194]:
+            - generic [ref=e195]: Live Selfie
+            - link "View Selfie" [ref=e196] [cursor=pointer]:
+              - /url: "#"
+        - generic [ref=e198]:
+          - generic [ref=e199]: error_outline
+          - generic [ref=e200]:
+            - heading "Action Required" [level=3] [ref=e201]
+            - paragraph [ref=e202]: Your ID has expired. Please upload a new, valid ID to continue receiving payouts. Blurry or low-quality images may be rejected.
+            - button "Resubmit KYC" [ref=e203] [cursor=pointer]
+```

@@ -1,0 +1,116 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - heading "Inflopick" [level=1] [ref=e5]
+      - paragraph [ref=e6]: CREATOR CENTER
+      - navigation [ref=e7]:
+        - link "dashboard Dashboard" [ref=e8] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e9]: dashboard
+          - generic [ref=e10]: Dashboard
+        - link "person Profile & Verification" [ref=e11] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e12]: person
+          - generic [ref=e13]: Profile & Verification
+        - link "folder Portfolio" [ref=e14] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e15]: folder
+          - generic [ref=e16]: Portfolio
+        - link "inbox Requests" [ref=e17] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e18]: inbox
+          - generic [ref=e19]: Requests
+        - link "store Shop" [ref=e20] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e21]: store
+          - generic [ref=e22]: Shop
+        - link "analytics Analytics" [ref=e23] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e24]: analytics
+          - generic [ref=e25]: Analytics
+        - link "task_alt Tasks" [ref=e26] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e27]: task_alt
+          - generic [ref=e28]: Tasks
+        - link "star Ratings & Safety" [ref=e29] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e30]: star
+          - generic [ref=e31]: Ratings & Safety
+        - link "payment Payouts & Billing" [ref=e32] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e33]: payment
+          - generic [ref=e34]: Payouts & Billing
+        - link "mail Messages" [ref=e35] [cursor=pointer]:
+          - /url: "#"
+          - generic [ref=e36]: mail
+          - generic [ref=e37]: Messages
+    - link "settings Account Settings" [ref=e38] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e39]: settings
+      - generic [ref=e40]: Account Settings
+  - main [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - generic [ref=e44]:
+          - img "Running Shoes" [ref=e45]
+          - generic [ref=e46]:
+            - heading "\"Velocity\" Running Shoes" [level=2] [ref=e47]
+            - paragraph [ref=e48]: "Request ID: #RQ-8764"
+            - paragraph [ref=e49]: "Date: 2023-10-25"
+            - paragraph [ref=e50]: "Seller: QuickStride"
+        - generic [ref=e51]: APPROVED
+      - generic [ref=e53]:
+        - generic [ref=e55]:
+          - generic [ref=e57]: check
+          - paragraph [ref=e58]: Requested
+        - generic [ref=e60]:
+          - generic [ref=e62]: check
+          - paragraph [ref=e63]: Approved
+        - paragraph [ref=e67]: Shipped
+        - paragraph [ref=e71]: Out for Delivery
+        - paragraph [ref=e75]: Delivered
+        - paragraph [ref=e79]: Content Submitted
+        - paragraph [ref=e83]: Completed
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - generic [ref=e86]:
+            - heading "Request Summary" [level=3] [ref=e87]
+            - generic [ref=e88]:
+              - generic [ref=e89]:
+                - paragraph [ref=e90]: Shipping Address
+                - paragraph [ref=e91]: 123 Creator Lane, Influencer City, CA 90210
+              - generic [ref=e92]:
+                - paragraph [ref=e93]: Content Due Date
+                - paragraph [ref=e94]: Pending Delivery
+              - generic [ref=e95]:
+                - paragraph [ref=e96]: Notes from Merchant
+                - paragraph [ref=e97]: "\"Excited to collaborate! We've approved your request for the blue colorway. Looking forward to seeing your content.\""
+          - generic [ref=e98]:
+            - heading "Merchant Decision" [level=3] [ref=e99]
+            - generic [ref=e100]:
+              - generic [ref=e101]:
+                - paragraph [ref=e102]: Decision
+                - paragraph [ref=e103]: Approved (Free sample)
+              - generic [ref=e104]:
+                - generic [ref=e105]: info
+                - paragraph [ref=e106]:
+                  - text: The
+                  - strong [ref=e107]: 14-day content deadline
+                  - text: will begin once the item is marked as 'Delivered'.
+          - generic [ref=e108]:
+            - heading "Shipping" [level=3] [ref=e109]
+            - generic [ref=e111]:
+              - paragraph [ref=e112]: Status
+              - generic [ref=e113]:
+                - generic [ref=e114]: hourglass_empty
+                - generic [ref=e115]: Tracking pending
+        - generic [ref=e116]:
+          - heading "Affiliate Link Generator" [level=3] [ref=e117]
+          - paragraph [ref=e118]: Your unique affiliate link for this product.
+          - generic [ref=e119]:
+            - textbox [ref=e120]: https://inflopick.co/l/aB3xZ9
+            - button "Get Link" [ref=e121] [cursor=pointer]
+```

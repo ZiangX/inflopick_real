@@ -1,0 +1,96 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - heading "Inflopick" [level=1] [ref=e5]
+      - paragraph [ref=e6]: Seller Hub
+    - navigation [ref=e7]:
+      - link "dashboard Dashboard" [ref=e8] [cursor=pointer]:
+        - /url: ../../stitch_influencer_dashboard/dashboard.html
+        - generic [ref=e9]: dashboard
+        - text: Dashboard
+      - link "shopping_bag Orders" [ref=e10] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e11]: shopping_bag
+        - text: Orders
+      - link "inventory_2 Products" [ref=e12] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e13]: inventory_2
+        - text: Products
+      - link "campaign Marketing" [ref=e14] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e15]: campaign
+        - text: Marketing
+      - link "people Customer" [ref=e16] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e17]: people
+        - text: Customer
+      - link "chat Chat" [ref=e18] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e19]: chat
+        - text: Chat
+      - link "analytics Analytics" [ref=e20] [cursor=pointer]:
+        - /url: ../../stitch_influencer_analytics (to be redone)/analytics/analytics.html
+        - generic [ref=e21]: analytics
+        - text: Analytics
+      - link "storefront Storefront Preview" [ref=e22] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e23]: storefront
+        - text: Storefront Preview
+      - link "manage_accounts Accounts Management" [ref=e24] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e25]: manage_accounts
+        - text: Accounts Management
+    - link "logout Logout" [ref=e27] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e28]: logout
+      - text: Logout
+  - main [ref=e29]:
+    - generic [ref=e30]:
+      - link "arrow_back_ios Back" [ref=e31] [cursor=pointer]:
+        - /url: "#"
+        - generic [ref=e32]: arrow_back_ios
+        - text: Back
+      - heading "Promotion Request Summary" [level=2] [ref=e33]
+      - paragraph [ref=e34]: Review the final details before sending to the influencer Olivia Rhye.
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - heading "Influencer" [level=3] [ref=e37]
+          - generic [ref=e38]:
+            - img "Olivia Rhye" [ref=e39]
+            - generic [ref=e40]:
+              - paragraph [ref=e41]: Olivia Rhye
+              - paragraph [ref=e42]: "@olivia_rhye"
+        - generic [ref=e44]:
+          - heading "Item for Promotion" [level=3] [ref=e45]
+          - generic [ref=e47]:
+            - img "Handmade Ceramic Mug" [ref=e48]
+            - generic [ref=e49]:
+              - paragraph [ref=e50]: Handmade Ceramic Mug
+              - paragraph [ref=e51]: "SKU: CM-HM-03"
+              - paragraph [ref=e52]: $35.00
+        - generic [ref=e54]:
+          - heading "Promotion Details" [level=3] [ref=e55]
+          - generic [ref=e56]:
+            - generic [ref=e57]:
+              - paragraph [ref=e58]: Offer Type
+              - paragraph [ref=e59]: Free Sample
+            - generic [ref=e60]:
+              - paragraph [ref=e61]: Shipping Fee
+              - paragraph [ref=e62]: Influencer covers cost ($5.00)
+        - generic [ref=e64]:
+          - heading "Personal Message" [level=3] [ref=e65]
+          - paragraph [ref=e67]: Hi Olivia, I think my product would be a great fit for your audience. I've seen your content on artisanal crafts and believe this handmade ceramic mug would resonate well. Let me know if you're interested!
+      - generic [ref=e68]:
+        - button "check_circle Accept Request" [ref=e69] [cursor=pointer]:
+          - generic [ref=e70]: check_circle
+          - text: Accept Request
+        - button "cancel Refuse Request" [ref=e71] [cursor=pointer]:
+          - generic [ref=e72]: cancel
+          - text: Refuse Request
+        - button "edit_note Add a Note to Merchand" [ref=e73] [cursor=pointer]:
+          - generic [ref=e74]: edit_note
+          - text: Add a Note to Merchand
+```
