@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflopick - Choose Your Journey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "buyer-primary": "#FF6600",
+                        "influencer-primary": "#13a4ec",
+                        "seller-primary": "#3B82F6",
+                        "background-light": "#F5F5F5",
+                        "background-dark": "#121212",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#1E1E1E",
+                        "text-light": "#1F2937",
+                        "text-dark": "#E5E7EB",
+                    },
+                    fontFamily: {
+                        display: ["Poppins", "sans-serif"],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-icons {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .user-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .user-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .user-card:active {
+            transform: translateY(-4px);
+        }
+
+        .icon-wrapper {
+            transition: transform 0.3s ease;
+        }
+
+        .user-card:hover .icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-card-light dark:bg-card-dark shadow-md">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gradient-to-br from-buyer-primary via-influencer-primary to-seller-primary p-2 rounded-lg">
+                    <span class="material-icons text-white text-3xl">shopping_bag</span>
+                </div>
+                <div>
+                    <h1 class="text-3xl font-bold bg-gradient-to-r from-buyer-primary via-influencer-primary to-seller-primary bg-clip-text text-transparent">
+                        Inflopick
+                    </h1>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Creator-Driven Marketplace</p>
+                </div>
+            </div>
+            <button
+                class="text-text-light dark:text-text-dark hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5"
+                id="theme-toggle"
+                type="button"
+                aria-label="Toggle dark mode">
+                <span class="material-icons" id="theme-toggle-dark-icon" style="display:none;">dark_mode</span>
+                <span class="material-icons" id="theme-toggle-light-icon" style="display:none;">light_mode</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="container mx-auto px-4 py-12 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 text-text-light dark:text-text-dark">
+            Choose Your Journey
+        </h2>
+        <p class="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Welcome to Inflopick, where creators, sellers, and buyers connect. Select your role to get started.
+        </p>
+    </section>
+
+    <!-- Main 3-Block Gallery -->
+    <main class="container mx-auto px-4 py-8 pb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+            <!-- Buyer Card -->
+            <a
+                href="Buyer/stitch_buyer_home_page/home page/home page.html"
+                class="user-card block bg-card-light dark:bg-card-dark rounded-2xl shadow-lg overflow-hidden opacity-0 animate-fadeInUp delay-100"
+                role="article"
+                aria-label="Enter as Buyer">
+                <div class="p-8 flex flex-col items-center text-center h-full">
+                    <div class="icon-wrapper bg-buyer-primary/10 p-6 rounded-full mb-6">
+                        <span class="material-icons text-buyer-primary" style="font-size: 64px;">shopping_cart</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-text-light dark:text-text-dark">
+                        Buyer Hub
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                        Discover products curated by your favorite creators. Shop with confidence through influencer recommendations.
+                    </p>
+                    <div class="w-full">
+                        <span class="inline-flex items-center justify-center w-full bg-buyer-primary text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300">
+                            Enter as Buyer
+                            <span class="material-icons ml-2">arrow_forward</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Influencer Card -->
+            <a
+                href="influencer/stitch_influencer_dashboard/dashboard.html"
+                class="user-card block bg-card-light dark:bg-card-dark rounded-2xl shadow-lg overflow-hidden opacity-0 animate-fadeInUp delay-200"
+                role="article"
+                aria-label="Enter as Creator">
+                <div class="p-8 flex flex-col items-center text-center h-full">
+                    <div class="icon-wrapper bg-influencer-primary/10 p-6 rounded-full mb-6">
+                        <span class="material-icons text-influencer-primary" style="font-size: 64px;">campaign</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-text-light dark:text-text-dark">
+                        Creator Center
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                        Monetize your influence and manage partnerships. Connect with brands and grow your audience.
+                    </p>
+                    <div class="w-full">
+                        <span class="inline-flex items-center justify-center w-full bg-influencer-primary text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300">
+                            Enter as Creator
+                            <span class="material-icons ml-2">arrow_forward</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Seller Card -->
+            <a
+                href="Seller/stitch_seller_dashborad/dashborad.html"
+                class="user-card block bg-card-light dark:bg-card-dark rounded-2xl shadow-lg overflow-hidden opacity-0 animate-fadeInUp delay-300"
+                role="article"
+                aria-label="Enter as Seller">
+                <div class="p-8 flex flex-col items-center text-center h-full">
+                    <div class="icon-wrapper bg-seller-primary/10 p-6 rounded-full mb-6">
+                        <span class="material-icons text-seller-primary" style="font-size: 64px;">store</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-text-light dark:text-text-dark">
+                        Seller Hub
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 flex-grow">
+                        Grow your business with creator partnerships. Reach new audiences through influencer marketing.
+                    </p>
+                    <div class="w-full">
+                        <span class="inline-flex items-center justify-center w-full bg-seller-primary text-white font-semibold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300">
+                            Enter as Seller
+                            <span class="material-icons ml-2">arrow_forward</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-800 mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    © 2025 Inflopick Inc. All rights reserved.
+                </p>
+                <div class="flex justify-center space-x-6 mt-4">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-buyer-primary dark:hover:text-buyer-primary text-sm">
+                        Terms of Service
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-buyer-primary dark:hover:text-buyer-primary text-sm">
+                        Privacy Policy
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-buyer-primary dark:hover:text-buyer-primary text-sm">
+                        Help Center
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        // Theme toggle logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Check for saved theme preference or default to light mode
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.style.display = 'block';
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.style.display = 'block';
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            themeToggleDarkIcon.style.display = themeToggleDarkIcon.style.display === 'none' ? 'block' : 'none';
+            themeToggleLightIcon.style.display = themeToggleLightIcon.style.display === 'none' ? 'block' : 'none';
+
+            // Toggle theme
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
